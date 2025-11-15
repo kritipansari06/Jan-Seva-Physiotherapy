@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computech Skills Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .custom-navbar {
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 5px solid #2563eb;
+            border-radius: 80px;
+            padding: 10px 20px;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.20);
+            transition: all 0.4s ease;
+            width: 95%;
+            z-index: 100;
+            position: sticky;
+            top: 15px;
+            min-height: 90px;
+        }
+
+        /* Logo */
+        .navbar-brand img {
+            width: 80px;
+            transition: all 0.3s ease;
+        }
+
+        /* Brand Text */
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #212529;
+            transition: all 0.3s ease;
+        }
+
+        /* Buttons */
+        .nav-link {
+            background-color: #2563eb;
+            color: white !important;
+            border-radius: 15px;
+            padding: 12px 5px;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-link:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37,99,235,0.25);
+        }
+
+        /* Navbar toggler customization */
+        .navbar-toggler {
+            border: 2px solid #2563eb;
+            padding: 6px 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(37, 99, 235, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* For screens 992px and above */
+        @media (min-width: 992px) {
+            .custom-navbar {
+                min-height: 135px; /* 1.5 times the original height */
+                padding: 15px 25px;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .nav-item {
+                flex: 1;
+                margin: 0 4px;
+            }
+            
+            .nav-link {
+                width: 100%;
+                padding: 15px 5px;
+                margin-left: 0;
+            }
+            
+            .navbar-brand img {
+                width: 100px;
+            }
+            
+            .brand-text {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Fix for medium screens (700px to 992px) */
+        @media (min-width: 700px) and (max-width: 992px) {
+            .navbar-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            .nav-item {
+                flex: 0 0 auto;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                margin: 2px;
+                font-size: 0.9rem;
+            }
+            
+            .navbar-brand img {
+                width: 70px;
+            }
+            
+            .brand-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Medium devices (tablets, 768px and down) */
+        @media (max-width: 768px) {
+            .custom-navbar {
+                border-radius: 50px;
+                padding: 8px 15px;
+                min-height: 80px;
+            }
+            
+            .navbar-brand img {
+                width: 70px;
+            }
+
+            .brand-text {
+                font-size: 1.3rem;
+            }
+            
+            .nav-link {
+                padding: 10px 16px;
+                margin: 5px 0;
+                width: 100%;
+            }
+            
+            .navbar-nav {
+                padding: 10px 0;
+            }
+        }
+
+        /* Small devices (landscape phones, 576px and down) */
+        @media (max-width: 576px) {
+            .custom-navbar {
+                border-radius: 30px;
+                padding: 5px 10px;
+                min-height: 70px;
+                border-width: 3px;
+            }
+            
+            .navbar-brand img {
+                width: 50px;
+            }
+            
+            .brand-container {
+                margin-left: 5px;
+            }
+
+            .brand-text {
+                font-size: 1rem;
+            }
+            
+            .navbar-collapse {
+                background-color: #f0f7ff;
+                border: 2px solid #2563eb;
+                border-radius: 20px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            
+            .navbar-toggler {
+                padding: 4px 6px;
+            }
+            
+            .navbar-toggler-icon {
+                width: 1.2em;
+                height: 1.2em;
+            }
+            
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Content styles */
+        .content {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+        
+        .content h2 {
+            color: #a10032;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffe0c8;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-box {
+            flex: 1 1 300px;
+            background: #fff7eb;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #ffd5b8;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(161, 0, 50, 0.1);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: #a10032;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box h3 {
+            color: #7a0025;
+            margin-bottom: 12px;
+        }
+        
+        .instructions {
+            background: #f9f3ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 5px solid #8a2be2;
+        }
+        
+        .instructions h3 {
+            color: #6a1fb8;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+      
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid">
+                <!-- Logo and brand -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="https://placehold.co/120x120/a10032/white?text=CS" alt="Logo" class="img-fluid">
+                    <div class="d-flex flex-column ms-2 brand-container">
+                        <span class="brand-text">Computech Skills</span>
+                        <span class="brand-text">Academy</span>
+                    </div>
+                </a>
+
+                <!-- Hamburger toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarContent">
+                    <ul class="navbar-nav mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.b.html"></i>Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.html"></i>About Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courses.html">Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Gallery.html">Gallery</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="enroll-now.html">Enroll Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

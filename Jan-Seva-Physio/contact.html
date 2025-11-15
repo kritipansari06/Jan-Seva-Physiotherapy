@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #0ea5e9;
+            --accent: #ec4899;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --whatsapp: #25d366;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #334155;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: white;
+            font-size: 32px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 70px 0 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Contact Options Grid */
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transform-origin: center;
+        }
+
+        /* Animated Border Effect */
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.5s ease;
+            z-index: 2;
+        }
+
+        .contact-card:hover::before {
+            width: 100%;
+            right: auto;
+            left: 0;
+        }
+
+        .contact-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.5s ease;
+            z-index: 2;
+        }
+
+        .contact-card:hover::after {
+            width: 100%;
+            left: auto;
+            right: 0;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.05); /* Added scale effect */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card i {
+            font-size: 42px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .contact-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .contact-card .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .contact-card .btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-card .btn:hover {
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp {
+            background-color: var(--whatsapp);
+        }
+
+        .whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin: 60px 0;
+        }
+
+        .map-section h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        .map-placeholder i {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Location info card (between map and footer) */
+        .location-info {
+            margin-top: 22px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .location-info > i {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.08);
+            flex-shrink: 0;
+        }
+
+        .location-info h3 {
+            color: var(--dark);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            transition: color 0.3s ease, background 0.4s ease, -webkit-text-fill-color 0.4s ease, transform 0.2s ease, text-shadow 0.2s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .location-info p {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: fit-content;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .directions-btn i {
+            font-size: 16px;
+        }
+
+        /* Add same hover sweep effect as upper buttons */
+        .directions-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .directions-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.3);
+        }
+
+        .directions-btn:hover::before {
+            left: 120%;
+        }
+
+        .directions-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Highlight center name only when hovering the text */
+        .location-info h3:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateY(-1px);
+            text-shadow: 0 0 0 rgba(0,0,0,0), 0 6px 18px rgba(37,99,235,0.25);
+        }
+
+        /* Animated underline on hover */
+        .location-info h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 2px;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.35s ease;
+            border-radius: 2px;
+        }
+
+        .location-info h3:hover::after {
+            width: 100%;
+        }
+
+        /* Redesigned text area styles */
+        .location-content {
+            display: grid;
+            gap: 8px;
+        }
+
+        .location-address {
+            font-style: normal;
+            line-height: 1.4;
+        }
+
+        .location-tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 4px 0 4px;
+            padding: 0;
+        }
+
+        .location-tags li {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* CTA Strip between map and footer */
+        .cta-strip {
+            margin: 30px 0 0;
+            margin-bottom: 100px;
+            background: radial-gradient(1200px 400px at 10% 0%, rgba(37,99,235,0.20), transparent 60%),
+                        radial-gradient(1200px 400px at 90% 100%, rgba(14,165,233,0.20), transparent 60%),
+                        linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            border-radius: 18px;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.18);
+        }
+
+        .cta-inner {
+            display: grid;
+            grid-template-columns: 1.2fr auto;
+            gap: 16px;
+            padding: 26px;
+            align-items: center;
+        }
+
+        .cta-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            margin-bottom: 6px;
+        }
+
+        .cta-text p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .cta-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .cta-btn:hover::before { left: 120%; }
+        .cta-btn:hover { transform: translateY(-2px); }
+        .cta-btn:active { transform: translateY(0); }
+
+        .cta-btn.primary { color: #0b1b3b; background: #ffffff; }
+        .cta-btn.secondary { color: #ffffff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); }
+
+        .cta-btn i { font-size: 16px; }
+
+        @media (max-width: 768px) {
+            .cta-inner { grid-template-columns: 1fr; padding: 20px; }
+            .cta-actions { justify-content: flex-start; }
+        }
+
+        /* Footer Styles (exact from footer.html) */
+        .footer {
+            background: var(--dark);
+            color: #ffffff;
+            padding: 60px 0 0;
+            margin-top: auto;
+            position: relative;
+        }
+
+        .footer-curve {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .footer-curve svg {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 50px;
+        }
+
+        .footer-curve .shape-fill { fill: var(--dark); }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section { flex: 1; min-width: 250px; margin-bottom: 40px; padding: 0 50px; }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-section p { line-height: 1.6; margin-bottom: 20px; color: rgba(255,255,255,0.8); }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; display: block; margin-bottom: 10px; transition: color 0.3s ease, padding-left 0.3s ease; }
+        .footer-section a:hover { color: #ffffff; padding-left: 5px; }
+
+        .contact-info { margin-top: 20px; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .contact-icon { margin-right: 10px; color: var(--secondary); width: 20px; text-align: center; }
+
+        .logo-container { display: flex; align-items: center; margin-bottom: 20px; }
+        .logo { display: flex; align-items: center; }
+        .logo-icon { width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; color: white; margin-right: 15px; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-main { font-size: 24px; font-weight: 700; line-height: 1.1; color: white; }
+        .logo-subtitle { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); color: white; font-size: 18px; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
+        .social-icon:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); background: var(--primary); }
+        .whatsapp:hover { background-color: var(--whatsapp); }
+        .instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .facebook:hover { background-color: #1877F2; }
+        .twitter:hover { background-color: #1DA1F2; }
+
+        @media (max-width: 768px) {
+            .footer-content { flex-direction: column; }
+            .footer-section { margin-bottom: 30px; }
+            .social-icons { justify-content: center; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+
+            .location-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .location-info > i {
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .map-placeholder {
+                font-size: 1.4rem;
+            }
+            
+            .map-placeholder i {
+                font-size: 40px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-card {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.3s; }
+        .contact-card:nth-child(4) { animation-delay: 0.4s; }
+        .contact-card:nth-child(5) { animation-delay: 0.5s; }
+        .contact-card:nth-child(6) { animation-delay: 0.6s; }
+        .contact-card:nth-child(7) { animation-delay: 0.7s; }
+        .contact-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Header navbar styles (from header.html, blue theme) */
+        .custom-navbar {
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 5px solid #2563eb;
+            border-radius: 80px;
+            padding: 10px 20px;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.20);
+            transition: all 0.4s ease;
+            width: 95%;
+            z-index: 100;
+            position: sticky;
+            top: 15px;
+            min-height: 90px;
+        }
+
+        .navbar-brand img { width: 80px; transition: all 0.3s ease; }
+        .brand-text { font-size: 1.5rem; font-weight: 600; line-height: 1.2; color: #212529; transition: all 0.3s ease; }
+
+        .nav-link {
+            background-color: #2563eb;
+            color: white !important;
+            border-radius: 15px;
+            padding: 12px 5px;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-link:hover { background-color: #1d4ed8; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(37,99,235,0.25); }
+        .navbar-toggler { border: 2px solid #2563eb; padding: 6px 10px; }
+        .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4); }
+        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(37, 99, 235, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
+        @media (min-width: 992px) {
+            .custom-navbar { min-height: 135px; padding: 15px 25px; }
+            .navbar-nav { width: 100%; display: flex; justify-content: space-between; }
+            .nav-item { flex: 1; margin: 0 4px; }
+            .nav-link { width: 100%; padding: 15px 5px; margin-left: 0; }
+            .navbar-brand img { width: 100px; }
+            .brand-text { font-size: 1.8rem; }
+        }
+
+        @media (min-width: 700px) and (max-width: 992px) {
+            .navbar-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .nav-item { flex: 0 0 auto; }
+            .nav-link { padding: 10px 15px; margin: 2px; font-size: 0.9rem; }
+            .navbar-brand img { width: 70px; }
+            .brand-text { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .custom-navbar { border-radius: 50px; padding: 8px 15px; min-height: 80px; }
+            .navbar-brand img { width: 70px; }
+            .brand-text { font-size: 1.3rem; }
+            .nav-link { padding: 10px 16px; margin: 5px 0; width: 100%; }
+            .navbar-nav { padding: 10px 0; }
+        }
+
+        @media (max-width: 576px) {
+            .custom-navbar { border-radius: 30px; padding: 5px 10px; min-height: 70px; border-width: 3px; }
+            .navbar-brand img { width: 50px; }
+            .brand-container { margin-left: 5px; }
+            .brand-text { font-size: 1rem; }
+            .navbar-collapse { background-color: #f0f7ff; border: 2px solid #2563eb; border-radius: 20px; padding: 10px; margin-top: 10px; }
+            .navbar-toggler { padding: 4px 6px; }
+            .navbar-toggler-icon { width: 1.2em; height: 1.2em; }
+            .nav-link { padding: 8px 12px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header replaced with header.html navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo and brand -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://placehold.co/120x120/2563eb/white?text=ML" alt="Logo" class="img-fluid">
+                <div class="d-flex flex-column ms-2 brand-container">
+                    <span class="brand-text">Jan Seva</span>
+                    <span class="brand-text">Physio Center</span>
+                </div>
+            </a>
+
+            <!-- Hamburger toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-lg-end" id="navbarContent">
+                <ul class="navbar-nav mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.b.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="enroll-now.html">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Get in Touch With Us</h1>
+            <p>We're committed to providing you with the best healthcare experience. Reach out to us through any of these convenient methods.</p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <div class="container">
+        <div class="contact-options">
+            <!-- WhatsApp Option -->
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>Chat with us instantly for quick responses to your queries</p>
+                <a href="https://wa.me/918769220073" class="btn whatsapp">Message Us</a>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="contact-card">
+                <!-- <i class="fas fa-pills"></i> -->
+                 <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>Follow us for physiotherapy tips, recovery insights & wellness inspiration!</p>
+                <a href="https://www.instagram.com/jansevaphysiolosal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn">Message Us</a>
+            </div>
+            
+             <!-- facebook-->
+            <div class="contact-card">
+                <!-- <i class="fas fa-headset"></i> -->
+                 <i class="fab fa-facebook-f"></i>
+                <h3>Facebook</h3>
+                <p>Discover real recovery -- join our journey guidance -- stay connected!</p>
+                <a href="https://www.facebook.com/share/1GZFHTSNx6/" class="btn">Message Us</a>
+            </div>
+
+            <!-- Emergency Line -->
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Emergency Line</h3>
+                <p>24/7 emergency medical assistance for urgent care needs</p>
+                <a href="tel:+918769220073" class="btn">Call Now</a>
+            </div>
+            
+            <!-- Email Option -->
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>Send us a detailed message and we'll respond within 24 hours</p>
+                <a href="mailto:jansevalosal@gmail.com" class="btn">Send Email</a>
+            </div>
+            
+            <!-- Video Consultation -->
+            <!-- <div class="contact-card">
+                <i class="fas fa-video"></i>
+                <h3>Video Consultation</h3>
+                <p>Schedule a virtual appointment with our specialists</p>
+                <a href="#" class="btn">Book Now</a>
+            </div> -->
+            
+            <!-- Clinic Visit -->
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Clinic Visit</h3>
+                <p>Book an in-person appointment at our state-of-the-art facility</p>
+                <a href="#" class="btn">Schedule Visit</a>
+            </div>
+            
+            <!-- Feedback -->
+            <!-- <div class="contact-card">
+                <i class="fas fa-comment-medical"></i>
+                <h3>Feedback</h3>
+                <p>Share your experience and help us improve our services</p>
+                <a href="#" class="btn">Provide Feedback</a>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <!-- <section class="map-section">
+        <div class="container">
+            <h2>Visit Our Medical Center</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>MedLife Healthcare Center</p>
+                    <p>123 Medical Drive, Health City, HC 12345</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <section class="map-section">
+    <div class="container">
+        <h2>Visit Our Medical Center</h2>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2149.2440633265196!2d74.91587566834822!3d27.39750436801517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396b61004df57ab1%3A0x40a025b518b1c8da!2z4KSc4KSoIOCkuOClh-CkteCkviDgpKvgpL_gpJzgpL_gpK_gpYsg4KS44KWH4KSo4KWN4KSf4KSwIOCksuCli-CkuOCksg!5e0!3m2!1sen!2sin!4v1762584878377!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <article class="location-content">
+                <h3>JAN SEVA PHYSIO CENTER </h3>
+                <address class="location-address">Losal, Sikar (Raj.) India</address>
+                <ul class="location-tags">
+                    <li>Open Mon–Sat</li>
+                    <li>Wheelchair accessible</li>
+                    <li>Parking available</li>
+                </ul>
+                <a href="https://maps.app.goo.gl/k5HiFvQCkhFzyVKJ8" target="_blank" class="directions-btn">
+                    <i class="fas fa-directions"></i>
+                    Get Directions
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- CTA Strip: Between Map and Footer -->
+    <div class="container">
+        <section class="cta-strip" aria-label="Need help section">
+            <div class="cta-inner">
+                <div class="cta-text">
+                    <h3>Need help choosing the right therapy?</h3>
+                    <p>Talk to our physiotherapy expert and get a personalized plan.</p>
+                </div>
+                <div class="cta-actions">
+                    <a class="cta-btn primary" href="tel:+918769220073">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                    </a>
+                    <a class="cta-btn secondary" href="https://wa.me/918769220073" target="_blank" aria-label="Chat on WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Chat
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Footer (replaced with footer.html content) -->
+    <footer class="footer">
+        <div class="footer-curve">
+            <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                <path d="M0,0 Q600,100 1200,0 L1200,100 L0,100 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img src="c:\\Users\\PC\\Downloads\\csa.log.png" height="70px">
+                        </div>
+                        <div class="logo-text">
+                            <div class="logo-main">R P PANSARI</div>
+                            <div class="logo-subtitle">JAN SEVA TRUST</div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    R P Pansari Jan Seva Trust is dedicated to serving the community through various social welfare initiatives, healthcare services, and educational programs.
+                </p>
+                
+                <div class="social-icons">
+                    <div class="social-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-icon twitter">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Our Initiatives</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>35, Trust Building, Main Road, City - 123456</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>+91 98765 43210</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>info@rppansaritrust.org</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>Mon - Sat: 9:00 AM - 6:00 PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation control
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Add animation delay to contact cards
+                    const cards = document.querySelectorAll('.contact-card');
+                    cards.forEach((card, index) => {
+                        card.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+                    });
+                    
+                    // Add smooth scrolling for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+                });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
