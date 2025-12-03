@@ -28,7 +28,14 @@ function App() {
         <Route path="/" element={<Home />}/> 
         <Route path="/about" element={<About />}/>
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/treatments" element={<Treatments/>}></Route>
+        <Route path="/treatments" element={<Treatments/>} />
+
+        {/* Subpages Routes - Matching IDs from Treatments.jsx */}
+        <Route path="/treatments/therapies" element={<Therapies />} />
+        <Route path="/treatments/equipments" element={<Equipments />} />
+        <Route path="/treatments/rehabs" element={<Rehabs />} />
+        <Route path="/treatments/wellness-prevention" element={<Wellness />} />
+        
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         
