@@ -74,13 +74,6 @@ const Gallery = () => {
       <style>{`
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
 
-        body {
-          font-family: Hepta Slab, sans-serif;
-          font-weight: 500;
-        }
-        * {
-          box-sizing: border-box;
-        }
 
         ::-webkit-scrollbar {
           width: 1px;
@@ -211,13 +204,6 @@ const Gallery = () => {
           --tealContrast: #33ffff;
           --tealShade: #007c85;
           --darkGrey: #4f585e;
-        }
-
-        body {
-          background: var(--lightBG);
-          color: var(--darkGrey);
-          font-family: 'Source Sans Pro', sans-serif;
-          text-rendering: optimizeLegibility;
         }
 
         a.btn {
