@@ -280,15 +280,18 @@ const Home = () => {
                                 &larr; Previous
                             </button>
                             {/* Indicator Dots */}
-                            {allTestimonials.map((_, index) => (
-                                <span 
-                                    key={index}
-                                    className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
-                                        index === currentTestimonialIndex ? 'bg-teal-400' : 'bg-gray-600 hover:bg-gray-500'
-                                    }`}
-                                    onClick={() => setCurrentTestimonialIndex(index)}
-                                ></span>
-                            ))}
+                           <div className="flex items-center space-x-3">
+                                {allTestimonials.map((_, index) => (
+                                    <span 
+                                        key={index}
+                                        className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
+                                            index === currentTestimonialIndex ? 'bg-teal-400' : 'bg-gray-600 hover:bg-gray-500'
+                                        }`}
+                                        onClick={() => setCurrentTestimonialIndex(index)}
+                                    ></span>
+                                ))}
+                            </div>
+
                             <button 
                                 onClick={nextTestimonial}
                                 className={`text-xl ${accentColorClass} hover:text-teal-300 transition-colors`}
@@ -299,6 +302,7 @@ const Home = () => {
                         </div>
 
                     </div>
+                    <br />
                     
                     {/* Button to Testimonials Page */}
                     <Link 
