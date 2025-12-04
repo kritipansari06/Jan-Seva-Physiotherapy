@@ -11,6 +11,7 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';     
 import Contact from './pages/Contact';
 
+import Testimonials from './subpages/Testimonials';
 import Therapies from './subpages/Therapies';
 import Equipments from './subpages/Equipments';
 import Rehabs from './subpages/Rehabs';
@@ -26,6 +27,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}/> 
+        <Route path="/testimonials" element={<Testimonials />}/>
+         
         <Route path="/about" element={<About />}/>
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/treatments" element={<Treatments/>} />

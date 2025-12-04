@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoImage from '../assets/logo.png';
 
 const Footer = ({ brandName }) => {
   return (
-    <footer className="bg-[--color-primary] text-white pt-10 pb-6 mt-10 shadow-inner">
+    <footer className="bg-neutral-800 text-white pt-10 pb-6 mt-10 shadow-inner">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-white/20 pb-8 mb-6">
           
           <div className="footer-section">
+            <img 
+                src={logoImage} 
+                alt="Jan Seva Physio Therapy Centre Logo" 
+                className="w-12 h-12 border  rounded-full object-cover " 
+              />
             <h4 className="text-[--color-accent] text-xl font-bold mb-4">{brandName}</h4>
             <p className="text-sm opacity-80">
               Dedicated to physical wellness under the motto: **सेवा परमो धर्म:।**
@@ -27,10 +33,10 @@ const Footer = ({ brandName }) => {
           <div className="footer-section">
             <h4 className="text-lg font-semibold mb-4">Focus Areas</h4>
             <ul className="space-y-2 text-sm opacity-80">
-                <li>Orthopedic Rehab</li>
-                <li>Neurological Care</li>
-                <li>Sports Medicine</li>
-                <li>Community Welfare</li>
+                <li><Link to="/treatments/therapies" className="footer-link">Therapies</Link></li>
+                <li><Link to="/treatments/equipments" className="footer-link">Equipments</Link></li>
+                <li><Link to="/treatments/rehabs" className="footer-link">Rehabs</Link></li>
+                <li><Link to="/treatments/wellness-prevention" className="footer-link">Wellness</Link></li>
             </ul>
           </div>
 
