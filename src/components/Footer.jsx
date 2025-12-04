@@ -12,11 +12,12 @@ const Footer = ({ brandName }) => {
             <img 
                 src={logoImage} 
                 alt="Jan Seva Physio Therapy Centre Logo" 
-                className="w-12 h-12 border  rounded-full object-cover " 
+                className="w-24 h-24 rounded-full object-cover grid  place-content-center " 
               />
             <h4 className="text-[--color-accent] text-xl font-bold mb-4">{brandName}</h4>
             <p className="text-sm opacity-80">
-              Dedicated to physical wellness under the motto: **सेवा परमो धर्म:।**
+              Dedicated to physical wellness under the motto:  <br />
+              **सेवा परमो धर्म:।**
             </p>
           </div>
 
