@@ -8,7 +8,6 @@ const Equipments = () => {
         Our center is equipped with state-of-the-art tools vital for restoring movement, building core strength, and ensuring the complete rehabilitation required for a full return to daily activities.
       </p>
 
-      {/* --- Rehabilitation and Mobility Tools --- */}
       <section className="equipment-section rehab-tools">
         <h2 className="section-heading">🏋️ Exercise & Rehabilitation Tools</h2>
         <div className="equipment-grid">
@@ -48,7 +47,6 @@ const Equipments = () => {
         </div>
       </section>
 
-      {/* --- Strength, Balance, and Coordination --- */}
       <section className="equipment-section strength-balance-tools">
         <h2 className="section-heading">🤸 Strength, Balance, and Coordination</h2>
         <div className="equipment-grid">

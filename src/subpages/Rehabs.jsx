@@ -1,6 +1,4 @@
-import React from 'react';
-// Assuming CenterStyles.css is imported in your main App.js or similar file
-// import './CenterStyles.css'; 
+import React from 'react'; 
 
 const Rehabs = () => {
   return (
@@ -10,7 +8,6 @@ const Rehabs = () => {
         **Rehabilitation** is the cornerstone of our service, focusing on restoring function, reducing disability, and improving the quality of life after injury, surgery, or chronic illness. Our programs are designed to be individualized, progressive, and highly supportive.
       </p>
 
-      {/* --- Core Philosophy Section --- */}
       <section className="rehab-section core-philosophy-section">
         <h2 className="section-heading">🌱 Our Core Rehabilitation Philosophy</h2>
         <div className="therapy-grid">
@@ -41,7 +38,6 @@ const Rehabs = () => {
         </div>
       </section>
 
-      {/* --- Phases of Rehabilitation Section --- */}
       <section className="rehab-section phases-section">
         <h2 className="section-heading">🗺️ The Phases of Your Recovery</h2>
         <div className="therapy-grid">

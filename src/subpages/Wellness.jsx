@@ -8,7 +8,6 @@ const Wellness = () => {
         Our focus extends beyond immediate pain relief to encompass long-term wellness. We offer corrective therapies and relaxation techniques essential for injury prevention and a healthy, active lifestyle.
       </p>
 
-      {/* --- Corrective and Preventative Training --- */}
       <section className="wellness-section posture-training">
         <h2 className="section-heading">🧘 Corrective & Preventative Training</h2>
         <div className="wellness-grid">
@@ -42,7 +41,6 @@ const Wellness = () => {
         </div>
       </section>
       
-      {/* --- Long-Term Health and Lifestyle Management --- */}
       <section className="wellness-section relaxation-recovery">
         <h2 className="section-heading">🧠 Health Management & Relaxation</h2>
         <div className="wellness-grid">

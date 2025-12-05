@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, Award, Users, Heart, Target } from 'lucide-react';
+import { Image } from 'lucide-react';
 
 const About = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -65,8 +66,6 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
 
-
-      {/* Hero Section */}
       <div className="relative bg-linear-to-br from-purple-600 via-purple-700 to-purple-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -85,7 +84,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* About Section */}
       <section id="about" className="py-20 bg-gray-50">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">About Us</h2>
@@ -120,7 +118,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
       <section className="py-20 bg-linear-to-b from-white to-purple-50">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Mission & Vision</h2>
@@ -152,7 +149,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Goals */}
       <section className="py-20 bg-linear-to-br from-purple-600 to-purple-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-white to-transparent" />
@@ -165,8 +161,7 @@ const About = () => {
             {goals.map((goal, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
-              >
+                className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
                 <div className="text-6xl font-bold opacity-50 mb-4">{goal.num}</div>
                 <h4 className="text-2xl font-bold mb-4">{goal.title}</h4>
                 <p className="opacity-90">{goal.desc}</p>
@@ -176,22 +171,20 @@ const About = () => {
         </div>
       </section>
 
-      {/* Senior Doctor */}
       <section className="py-20 bg-linear-to-br from-gray-100 to-gray-200">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Meet Our Senior Consultant</h2>
           <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
           
           <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="grid md:grid-cols-5 gap-0">
-              <div className="md:col-span-2 bg-linear-to-br from-purple-600 to-purple-800 flex items-center justify-center p-12">
-                <div className="text-9xl">👨‍⚕️</div>
+            <div className="grid md:grid-cols-3 gap-0">
+              <div>
+                <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/src/assets/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
               </div>
-              
-              <div className="md:col-span-3 p-10">
+              <div className="md:col-span-2 p-8">
                 <h3 className="text-4xl font-bold text-purple-600 mb-2">Dr. Shivam Sharma</h3>
                 <div className="text-xl text-purple-800 font-semibold mb-6">Senior Physiotherapist & Clinical Director</div>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 text-justify">
                   Dr. Shivam Sharma is a distinguished physiotherapist with over 15 years of clinical experience in musculoskeletal and neurological rehabilitation.
                 </p>
                 
@@ -217,13 +210,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
       <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-linear(circle, white 2px, transparent 2px)',
-            backgroundSize: '40px 40px'
-          }} />
+            backgroundSize: '40px 40px'}} />
         </div>
         
         <div className="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -263,7 +254,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Services */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Specialized Services</h2>
@@ -273,8 +263,7 @@ const About = () => {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-linear-to-br from-gray-50 to-gray-100 p-8 rounded-xl text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
-              >
+                className="bg-linear-to-br from-gray-50 to-gray-100 p-8 rounded-xl text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
                 <div className="text-6xl mb-4">{service.icon}</div>
                 <h4 className="text-xl font-bold text-purple-600 mb-3">{service.title}</h4>
                 <p className="text-gray-600 text-sm">{service.desc}</p>
@@ -284,7 +273,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
       <section className="py-20 bg-linear-to-r from-purple-600 to-purple-800 text-white">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Core Values</h2>
@@ -302,7 +290,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
       <section id="team" className="py-20 bg-gray-50">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Impact in Numbers</h2>
@@ -319,7 +306,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Facilities */}
       <section className="py-20 bg-linear-to-b from-white to-purple-50">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">World-Class Facilities</h2>
@@ -329,8 +315,7 @@ const About = () => {
             {facilities.map((facility, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-600 hover:shadow-xl hover:translate-x-2 transition-all duration-300"
-              >
+                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-600 hover:shadow-xl hover:translate-x-2 transition-all duration-300">
                 <h4 className="text-xl font-bold text-purple-600 mb-3">{facility.title}</h4>
                 <p className="text-gray-600">{facility.desc}</p>
               </div>
@@ -339,7 +324,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Journey</h2>
@@ -363,7 +347,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section id="contact" className="py-20 bg-linear-to-br from-purple-600 to-purple-900 text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">Start Your Recovery Journey Today</h2>

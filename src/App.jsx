@@ -33,7 +33,6 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/treatments" element={<Treatments/>} />
 
-        {/* Subpages Routes - Matching IDs from Treatments.jsx */}
         <Route path="/treatments/therapies" element={<Therapies />} />
         <Route path="/treatments/equipments" element={<Equipments />} />
         <Route path="/treatments/rehabs" element={<Rehabs />} />
