@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Placeholder Icon components
 const IconBox = ({ children, colorClass, size = '3xl' }) => (
     <div className={`p-3 w-16 h-16 rounded-full flex items-center justify-center text-${size} mb-4 ${colorClass}`}>
         {children}
@@ -9,7 +8,6 @@ const IconBox = ({ children, colorClass, size = '3xl' }) => (
 );
 
 const serviceData = {
-    // 1. Community Outreach Camps - Expanded Details
     camps: [
         {
             title: "Blood Donation Drives",
@@ -34,7 +32,6 @@ const serviceData = {
         },
     ],
     
-    // 2. Core Physiotherapy Facilities - Rich, detailed content
     facilities: [
         {
             title: "State-of-the-Art Electrotherapy Unit",
@@ -62,7 +59,6 @@ const serviceData = {
         },
     ],
 
-    // 3. Other Amenities - Enhanced titles and descriptions
     amenities: [
         { title: "Calming Waiting Sanctuary", detail: "Spacious, clean, and infused with calming aromatherapy. We prioritize minimizing wait times, but provide comfortable seating and complimentary filtered water for a peaceful experience.", icon: "🛋️", color: "bg-blue-600/20" },
         { title: "Complete Accessibility", detail: "Our clinic is fully compliant with accessibility standards, including wide ramps, elevator access, and disability-friendly restrooms, ensuring a barrier-free experience for all mobility levels.", icon: "♿", color: "bg-green-600/20" },
@@ -74,13 +70,10 @@ const serviceData = {
 };
 
 const Services = () => {
-    // Theme Classes
     const mainBgClass = "bg-gray-900 text-white";
     const accentColorClass = "text-teal-400";
     const cardBgClass = "bg-gray-800";
     const imagePlaceholderBg = "bg-gray-700";
-
-    // Reusable Button Styles
     const baseButtonClasses = "px-6 py-3 uppercase font-semibold tracking-wider transition duration-300 rounded-lg shadow-lg";
     const buttonSolidClass = "bg-teal-600 text-white hover:bg-teal-700";
 
@@ -89,7 +82,6 @@ const Services = () => {
             
             <div className="container mx-auto max-w-7xl">
                 
-                {/* Global Heading */}
                 <header className="text-center mb-16">
                     <h1 className="text-5xl sm:text-6xl font-extrabold pb-4 text-white uppercase tracking-tighter">
                         Our <span className={accentColorClass}>Services</span> & Commitment
@@ -101,7 +93,6 @@ const Services = () => {
 
                 <hr className="border-t border-teal-400/30 mb-16" />
 
-                {/* -------------------- 1. COMMUNITY OUTREACH & CAMPS -------------------- */}
                 <section className="mb-20">
                     <h2 className="text-4xl font-bold text-center mb-4">
                         Community <span className={accentColorClass}>Camps</span> & Initiatives
@@ -128,7 +119,6 @@ const Services = () => {
 
                 <hr className="border-t border-teal-400/30 mb-16" />
                 
-                {/* -------------------- 2. CORE PHYSIOTHERAPY FACILITIES (Enhanced Alternating Layout) -------------------- */}
                 <section className="mb-20">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Advanced Clinical <span className={accentColorClass}>Facilities</span> & Technology
@@ -138,18 +128,14 @@ const Services = () => {
                         {serviceData.facilities.map((facility, index) => (
                             <div 
                                 key={index} 
-                                // Alternating layout based on index
-                                className={`flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} ${cardBgClass} rounded-lg shadow-2xl overflow-hidden border border-teal-400/50`}
-                            >
+                                className={`flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} ${cardBgClass} rounded-lg shadow-2xl overflow-hidden border border-teal-400/50`}>
                                 
-                                {/* Image Placeholder (Left/Right) */}
                                 <div className={`w-full md:w-1/2 h-64 md:h-auto shrink-0 ${imagePlaceholderBg} flex items-center justify-center p-6`}>
                                     <div className="text-gray-400 text-center">
                                         [Large, high-quality image of {facility.imagePlaceholder}]
                                     </div>
                                 </div>
                                 
-                                {/* Details (Right/Left) */}
                                 <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
                                     <h3 className={`text-3xl font-bold mb-3 ${accentColorClass}`}>{facility.title}</h3>
                                     <hr className={`w-12 h-1 ${index % 2 === 1 ? 'bg-white' : 'bg-teal-400'} mb-4`} />
@@ -165,19 +151,15 @@ const Services = () => {
                 
                 <hr className="border-t border-teal-400/30 mb-16" />
 
-                {/* -------------------- 3. PATIENT EXPERIENCE & AMENITIES (Enhanced Grid) -------------------- */}
                 <section className="mb-20">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Your Visit: <span className={accentColorClass}>Comfort</span> & Premium Amenities
                     </h2>
                     
-                    {/* Amenity Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {serviceData.amenities.map((amenity, index) => (
-                            <div 
-                                key={index} 
-                                className={`p-6 ${cardBgClass} rounded-lg shadow-xl border border-gray-700 transform hover:scale-[1.02] transition duration-300`}
-                            >
+                            <div key={index} 
+                                className={`p-6 ${cardBgClass} rounded-lg shadow-xl border border-gray-700 transform hover:scale-[1.02] transition duration-300`}>
                                 <div className="flex items-center mb-3">
                                     <div className={`text-4xl mr-4 ${amenity.color} rounded-md p-2`}>{amenity.icon}</div>
                                     <h3 className="text-xl font-semibold">{amenity.title}</h3>
@@ -191,7 +173,6 @@ const Services = () => {
                 
                 <hr className="border-t border-teal-400/30 mb-16" />
 
-                {/* Final Call to Action */}
                 <section className="text-center py-10">
                     <h2 className="text-4xl font-bold mb-6">
                         Ready to Experience Our <span className={accentColorClass}>Exceptional Care</span>?
@@ -201,8 +182,7 @@ const Services = () => {
                     </p>
                     <Link 
                         to="/contact" 
-                        className={`${baseButtonClasses} ${buttonSolidClass} text-lg`}
-                    >
+                        className={`${baseButtonClasses} ${buttonSolidClass} text-lg`}>
                         Schedule a Consultation
                     </Link>
                 </section>

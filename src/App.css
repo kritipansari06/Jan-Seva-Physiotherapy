@@ -12,24 +12,15 @@
 body {
   margin: 0;
   min-height: 100vh;
-}
-
-
-
-
-/* CenterStyles.css */
-
-/* --- General Layout and Typography --- */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f9;
-    color: #333;
-    line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f9;
+  color: #333;
+  line-height: 1.6;
 }
 
 .main-heading {
     text-align: center;
-    color: #007bff; /* Primary Blue */
+    color: #007bff; 
     padding-bottom: 20px;
     margin-top: 30px;
     border-bottom: 3px solid #007bff;
@@ -44,9 +35,7 @@ body {
     font-size: 1.1em;
     color: #555;
 }
-
-/* --- Section Styling --- */
-.therapy-section, .equipment-section, .wellness-section {
+.therapy-section, .equipment-section, .wellness-section, .rehab-section { 
     padding: 40px 0;
     margin-bottom: 30px;
     background-color: #fff;
@@ -57,7 +46,7 @@ body {
 .section-heading {
     text-align: center;
     font-size: 2em;
-    color: #28a745; /* Secondary Green */
+    color: #28a745;
     margin-bottom: 30px;
     position: relative;
     padding-bottom: 15px;
@@ -73,7 +62,6 @@ body {
     border-radius: 2px;
 }
 
-/* --- Grid and Card Styling --- */
 .therapy-grid, .equipment-grid, .wellness-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,7 +75,7 @@ body {
     padding: 25px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid #007bff; /* Blue accent */
+    border-left: 5px solid #007bff; 
 }
 
 .therapy-card:hover, .equipment-card:hover, .wellness-card:hover {
@@ -121,97 +109,11 @@ body {
     border: 1px dashed #aaa;
 }
 
-/* Specific Adjustments */
-.electrotherapy-section .therapy-card { border-left-color: #dc3545; /* Red accent for pain management */ }
-.advanced-therapy-section .therapy-card { border-left-color: #ffc107; /* Yellow accent for advanced */ }
-.rehab-tools .equipment-card { border-left-color: #17a2b8; /* Teal accent */ }
-.posture-training .wellness-card { border-left-color: #fd7e14; /* Orange accent */ }
+.electrotherapy-section .therapy-card { border-left-color: #dc3545; }
+.advanced-therapy-section .therapy-card { border-left-color: #ffc107; }
+.rehab-tools .equipment-card { border-left-color: #17a2b8; }
+.posture-training .wellness-card { border-left-color: #fd7e14; }
 
-
-/* CenterStyles.css - UPDATED */
-
-/* --- General Layout and Typography --- */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f9;
-    color: #333;
-    line-height: 1.6;
-}
-
-.main-heading {
-    text-align: center;
-    color: #007bff; /* Primary Blue */
-    padding-bottom: 20px;
-    margin-top: 30px;
-    border-bottom: 3px solid #007bff;
-    font-size: 2.5em;
-    font-weight: 700;
-}
-
-.intro-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 20px auto 40px auto;
-    font-size: 1.1em;
-    color: #555;
-}
-
-/* --- Section Styling (Applies to all pages) --- */
-.therapy-section, .equipment-section, .wellness-section, .rehab-section { /* Added .rehab-section */
-    padding: 40px 0;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.section-heading {
-    text-align: center;
-    font-size: 2em;
-    color: #28a745; /* Secondary Green */
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.section-heading::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: #28a745;
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* --- Grid and Card Styling (Applies to all pages) --- */
-.therapy-grid, .equipment-grid, .wellness-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 50px;
-}
-
-.therapy-card, .equipment-card, .wellness-card {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid #007bff; /* Default Blue accent */
-}
-
-.therapy-card:hover, .equipment-card:hover, .wellness-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card-title {
-    color: #007bff;
-    font-size: 1.4em;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
 
 .card-description {
     font-size: 0.95em;
@@ -241,3 +143,235 @@ body {
 /* Specific Adjustments for Rehabs.jsx */
 .core-philosophy-section .therapy-card { border-left-color: #28a745; /* Green for philosophy */ }
 .phases-section .therapy-card { border-left-color: #6f42c1; /* Purple for progression */ }
+
+
+
+
+
+
+
+
+/* --- Base Page Styles --- */
+.therapies-page-v2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+.main-heading {
+    text-align: center;
+    color: #004d40; /* Dark Teal */
+    margin-bottom: 10px;
+    font-size: 2.8em;
+    padding: 20px 0;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.15em;
+    color: #4a4a4a;
+    margin-bottom: 50px;
+    padding: 0 10%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 30px;
+}
+
+.section-heading-v2 {
+    font-size: 2.2em;
+    text-align: left;
+    color: #1a237e; /* Deep Indigo */
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 2px solid #b2dfdb; /* Light Teal Accent */
+}
+
+.section-divider-v2 {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 60px 0;
+}
+
+
+/* --- Triptych (Key Therapies) Section --- */
+
+.key-therapies-triptych {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.triptych-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid #009688; /* Teal accent for distinction */
+}
+
+.triptych-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-badge {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.triptych-card .card-title {
+    color: #004d40;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.triptych-card .card-description {
+    color: #555;
+}
+
+
+/* --- Secondary Electropathy (Accordion) Section --- */
+
+.accordion-container {
+    max-width: 900px;
+    margin: 40px auto 70px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-heading {
+    text-align: center;
+    background-color: #b2dfdb;
+    color: #004d40;
+    padding: 15px;
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border: none;
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion-header.active {
+    background-color: #e0f2f1; /* Lightest Teal */
+    color: #004d40;
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background-color: #f9f9f9;
+    padding: 0 20px;
+}
+
+.accordion-content.open {
+    max-height: 200px; /* Adjust based on content size */
+    padding: 15px 20px 20px 20px;
+}
+
+.accordion-content p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* --- Advanced Therapy (Feature Block) Section --- */
+
+.advanced-therapy-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.feature-block {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #ff5252; /* Red accent */
+    transition: all 0.3s ease;
+}
+
+.feature-block:hover {
+    box-shadow: 0 6px 15px rgba(255, 82, 82, 0.2);
+    transform: translateX(5px);
+}
+
+.block-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.block-icon {
+    font-size: 2.2em;
+    margin-right: 15px;
+    padding: 8px;
+    background-color: #ffebee;
+    border-radius: 5px;
+}
+
+.block-title {
+    color: #d50000;
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.block-description {
+    color: #555;
+    padding-left: 50px; /* Aligns description with the text in the header */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2.2em;
+    }
+    
+    .section-heading-v2 {
+        font-size: 1.8em;
+    }
+
+    .intro-text {
+        padding: 0 2%;
+    }
+
+    .block-description {
+        padding-left: 0;
+    }
+}
