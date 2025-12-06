@@ -6,51 +6,54 @@ const TherapiesData = {
             id: 'tens', 
             title: 'TENS (Transcutaneous Electrical Nerve Stimulation)', 
             icon: '⚡',
-            description: 'Delivers small <strong>electrical pulses</strong> through skin electrodes to block pain signals and stimulate endorphins. Effective for <strong>back pain, neck pain, and neuropathic pain</strong>.' 
+            description: 'Uses controlled electrical currents to reduce pain, relax muscles, improve blood flow, and stimulate healing. Common form for <strong>nerve pain relief</strong>.' 
         },
         { 
             id: 'ift', 
             title: 'IFT (Interferential Therapy)', 
             icon: '📶',
-            description: 'Uses <strong>medium-frequency currents</strong> that penetrate deeper than TENS for deep tissue pain relief. Ideal for <strong>joint pain, muscle spasms, and arthritis pain</strong>.' 
+            description: 'Uses <strong>medium-frequency currents</strong> that penetrate deeper for deep tissue pain modulation. Ideal for <strong>joint pain, muscle spasms, and arthritis pain</strong>.' 
         },
         { 
             id: 'ultrasound', 
             title: 'Ultrasound Therapy', 
             icon: '🔊',
-            description: 'High-frequency <strong>sound waves</strong> create deep heating, improving blood flow for tissue healing and inflammation control. Used for <strong>tendonitis, ligament injuries, and muscle tears</strong>.' 
+            description: 'Applies high-frequency <strong>sound waves</strong> to promote tissue repair, reduce inflammation, and improve soft-tissue elasticity. Often used for <strong>tendonitis and ligament injuries</strong>.' 
         },
+        { 
+            id: 'laser', 
+            title: 'Laser & Light Therapy', 
+            icon: '💡',
+            description: 'Low-level laser or infrared light enhances <strong>cellular regeneration</strong>, reduces inflammation, and improves tissue healing. Helpful in chronic pain, soft-tissue damage, and post-surgical recovery.' 
+        },
+        { 
+            id: 'hotpack', 
+            title: 'Thermotherapy (Heat Therapy)', 
+            icon: '🌡️',
+            description: 'Improves circulation, relaxes tight muscles, and increases tissue flexibility. Used in <strong>chronic pain, arthritis, stiffness, and muscle spasms</strong>.' 
+        },
+        { 
+            id: 'coldpack', 
+            title: 'Cryotherapy (Cold Therapy)', 
+            icon: '❄️',
+            description: 'Reduces <strong>swelling, inflammation, and pain</strong> by lowering tissue temperature. Common in acute injuries like <strong>sprains and strains</strong> to control early-stage inflammation.' 
+        }
     ],
     secondaryElectropathy: [
         { 
-            id: 'ift-vacuum', 
-            title: 'IFT + Vacuum Therapy', 
-            description: 'Combines IFT with <strong>suction electrodes</strong> for better contact and deeper effect. Provides pain relief with muscle stimulation for <strong>chronic pain and tight muscles</strong>.' 
+            id: 'traction', 
+            title: 'Traction Therapy (Cervical & Lumbar)', 
+            description: 'Mechanical or manual traction gently <strong>decompresses the spine</strong>, reduces nerve compression, and relieves conditions like cervical/lumbar disc issues and spondylosis.' 
         },
         { 
             id: 'nmes', 
             title: 'Muscle Stimulator (NMES)', 
-            description: 'Electrical impulses cause <strong>muscle contraction</strong> to strengthen weak muscles. Used for <strong>paralysis and post-surgery weakness</strong>.' 
+            description: 'Electrical impulses cause <strong>muscle contraction</strong> to strengthen weak muscles. Essential for <strong>paralysis, post-surgery weakness</strong>, and muscle re-education.' 
         },
         { 
-            id: 'hotpack', 
-            title: 'Hot Pack Therapy', 
-            description: 'Moist heat increases <strong>blood flow</strong> and loosens tight muscles for relaxation and stiffness reduction. Ideal for <strong>back pain, neck stiffness, and chronic arthritis</strong>.' 
-        },
-        { 
-            id: 'coldpack', 
-            title: 'Cold Pack / Cryotherapy', 
-            description: 'Ice therapy reduces <strong>inflammation and acute pain</strong>. Used for <strong>sprains, strains, and fresh injuries</strong>.' 
-        },
-        { 
-            id: 'traction', 
-            title: 'Traction (Cervical & Lumbar)', 
-            description: 'Gently stretches the spinal segments for <strong>spine decompression</strong>. Effective for <strong>slip disc, sciatica, and nerve compression</strong>.' 
-        },
-        { 
-            id: 'laser', 
-            title: 'Laser Therapy (LLLT)', 
-            description: 'Low-level laser light stimulates <strong>cell repair</strong> for accelerated healing. Used for <strong>wounds, tendon injuries, and chronic inflammation</strong>.' 
+            id: 'ift-vacuum', 
+            title: 'IFT + Vacuum Therapy', 
+            description: 'Combines IFT with <strong>suction electrodes</strong> for better contact and deeper effect. Provides pain relief with muscle stimulation for <strong>chronic pain and tight muscles</strong>.' 
         },
         { 
             id: 'shockwave', 
@@ -59,48 +62,56 @@ const TherapiesData = {
         }
     ],
     advancedTherapies: [
+        // Manual & Hands-On Therapies (Part 2)
         { 
             id: 'mobilization', 
-            title: 'Mobilization (Grade I–V)', 
+            title: 'Joint Mobilization', 
             icon: '🔄',
-            description: 'Slow, controlled <strong>joint gliding techniques</strong> to improve joint movement. Used for <strong>frozen shoulder, arthritis, and spinal stiffness</strong>.' 
+            description: 'Skilled hands-on techniques that restore <strong>joint movement</strong>, realign restricted segments, and reduce stiffness. Useful in <strong>neck pain, back pain, and frozen shoulder</strong>.' 
         },
         { 
             id: 'manipulation', 
             title: 'Manipulation', 
             icon: '💫',
-            description: 'Quick thrust techniques for <strong>fast restoration of joint mobility</strong>. Safe when done by trained physiotherapists for <strong>cervical stiffness, lumbar locks, and facet joint issues</strong>.' 
+            description: 'Quick thrust techniques to restore joint movement, realign restricted segments, and reduce stiffness. Useful in <strong>neck pain, back pain, and frozen shoulder</strong>.' 
+        },
+        { 
+            id: 'stm', 
+            title: 'Soft-Tissue Mobilization', 
+            icon: '✋',
+            description: 'Targets muscles, tendons, fascia, and ligaments to release tightness, improve flexibility, and <strong>break adhesions</strong>. Helps relieve chronic muscle tension and post-injury stiffness.' 
         },
         { 
             id: 'mfr', 
             title: 'Myofascial Release (MFR)', 
             icon: '🖐️',
-            description: 'Deep pressure applied on tight <strong>fascia lines</strong> to release muscle tightness and restrictions. Ideal for <strong>trigger points and chronic muscle tightness</strong>.' 
+            description: 'Gentle but sustained pressure applied to <strong>fascial layers</strong> to reduce deep restrictions, improve mobility, and reduce chronic pain patterns.' 
         },
         { 
             id: 'triggerpoint', 
             title: 'Trigger Point Therapy', 
             icon: '🎯',
-            description: 'Pressure applied on specific painful spots in muscles to remove <strong>"knots"</strong>. Used for <strong>neck knots, headaches, and upper-back stiffness</strong>.' 
-        },
-        { 
-            id: 'stm', 
-            title: 'Soft Tissue Mobilization (STM)', 
-            icon: '✋',
-            description: 'Deep stroking, kneading, and stretching to improve <strong>muscle flexibility</strong>. Used for <strong>tendonitis and muscle shortening</strong>.' 
+            description: 'Focused pressure on tender muscle points to relieve <strong>radiating pain</strong>, improve blood flow, and restore normal muscle function.' 
         },
         { 
             id: 'cupping', 
             title: 'Cupping Therapy', 
             icon: '🔥',
-            description: 'Suction cups lift soft tissues to increase <strong>blood flow</strong> and reduce muscle tension. Effective for <strong>back pain and muscle tightness</strong>.' 
+            description: 'Uses vacuum cups to lift soft tissues, increase circulation, and reduce muscle congestion. Effective for <strong>back pain and muscle tightness</strong>.' 
         },
         { 
             id: 'dryneedling', 
             title: 'Dry Needling', 
             icon: '📌',
-            description: 'Thin needles inserted into tight muscle spots to release <strong>deep trigger points</strong>. Used for <strong>sciatica, neck pain, and chronic tight areas</strong>.' 
+            description: 'Fine needles are inserted into trigger points to release <strong>deep-muscle tension</strong>, reduce chronic pain, and restore proper movement patterns.' 
         },
+        { 
+            id: 'kinesiotaping', 
+            title: 'Kinesio Taping', 
+            icon: '🎀',
+            description: 'Elastic therapeutic tape applied to support joints, reduce pain, improve muscle function, and enhance movement <strong>without restricting mobility</strong>.' 
+        },
+        // Original Advanced Therapies (retained)
         { 
             id: 'maitland', 
             title: 'Maitland Technique', 
@@ -119,18 +130,49 @@ const TherapiesData = {
             icon: '⚡',
             description: 'Gentle nerve gliding movements to free <strong>nerve adhesions</strong>. Used for <strong>sciatica, carpal tunnel, and cervical radiculopathy</strong>.' 
         },
+        // Exercise-Based & Functional Therapies (Part 3)
         { 
-            id: 'kinesiotaping', 
-            title: 'Kinesio Taping', 
-            icon: '🎀',
-            description: 'Support muscles without restricting movement. Used for <strong>sports injuries and posture correction</strong>.' 
+            id: 'strengthening', 
+            title: 'Strengthening Therapy', 
+            icon: '💪',
+            description: 'Customized exercise programs that focus on rebuilding muscle power, endurance, and stability after <strong>injury, surgery, or chronic weakness</strong>. Essential for long-term recovery.' 
+        },
+        { 
+            id: 'stretching', 
+            title: 'Stretching & Flexibility Therapy', 
+            icon: '🤸',
+            description: 'Improves <strong>range of motion</strong>, reduces stiffness, and prevents muscle shortening. Used in post-injury recovery, posture correction, and movement optimization.' 
         },
         { 
             id: 'posture', 
-            title: 'Posture Correction Therapy', 
+            title: 'Postural Correction Therapy', 
             icon: '🧍',
-            description: 'Correct faulty posture patterns through manual correction and exercises. Used for <strong>cervical pain, back pain, and rounded shoulders</strong>.' 
-        }
+            description: 'Identifies faulty posture patterns and retrains the body through targeted exercises and ergonomic adjustments. Helps reduce <strong>chronic neck, shoulder, and back pain</strong>.' 
+        },
+        { 
+            id: 'balance', 
+            title: 'Balance & Proprioception Training', 
+            icon: '⚖️',
+            description: 'Restores coordination and joint stability, especially after ligament injuries, ankle sprains, or neurological conditions. Essential for <strong>fall prevention and athletic recovery</strong>.' 
+        },
+        { 
+            id: 'gait', 
+            title: 'Gait Training', 
+            icon: '🚶',
+            description: 'Improves walking patterns using exercises, feedback, and supportive devices. Beneficial for <strong>neurological issues, post-surgery rehabilitation</strong>, and mobility conditions.' 
+        },
+        { 
+            id: 'corestab', 
+            title: 'Core Stabilization Therapy', 
+            icon: '🛡️',
+            description: 'Strengthens the deep abdominal and spinal muscles for improved posture, stability, and injury prevention. Key for <strong>lower-back rehabilitation</strong>.' 
+        },
+        { 
+            id: 'functionalrehab', 
+            title: 'Functional Rehabilitation', 
+            icon: '🧗',
+            description: 'Recreates daily movement patterns — lifting, walking, bending, sitting, and athletic motions. Helps patients return safely to <strong>work, sports, and everyday activities</strong>.' 
+        },
     ]
 };
 
@@ -273,28 +315,30 @@ const Therapies = () => {
                 .key-therapies-triptych {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 2rem;
+                    gap: 2.5rem; /* Increased gap */
                     margin-bottom: 3rem;
                 }
 
                 .triptych-card {
                     background: white;
                     border-radius: 20px;
-                    padding: 2rem;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    padding: 2.5rem;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Slightly lighter shadow */
+                    border: 1px solid #e2e8f0; /* Added subtle border */
+                    transition: all 0.3s ease;
                     position: relative;
                 }
 
                 .triptych-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+                    transform: translateY(-5px); /* Reduced lift */
+                    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+                    background-color: #fcfdff; /* Slightly lighter background on hover */
                 }
 
                 .icon-badge {
                     font-size: 3rem;
                     text-align: center;
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.5rem; /* Increased margin */
                 }
 
                 .card-title {
@@ -309,6 +353,7 @@ const Therapies = () => {
                     color: #4a5568;
                     line-height: 1.7;
                     font-size: 0.95rem;
+                    margin-top: 0.8rem; /* Increased margin for separation from title */
                 }
 
 
@@ -393,27 +438,30 @@ const Therapies = () => {
                 .advanced-therapy-blocks {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 2rem;
+                    gap: 2.5rem; /* Increased gap */
                     padding: 2rem;
                 }
 
                 .feature-block {
                     background: white;
                     border-radius: 20px;
-                    padding: 2rem;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease;
+                    padding: 2.5rem;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                    border: 1px solid #e2e8f0; /* Added subtle border */
+                    transition: all 0.3s ease;
                 }
 
                 .feature-block:hover {
                     transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+                    background-color: #fcfdff; /* Slightly lighter background on hover */
                 }
 
                 .block-header {
                     display: flex;
                     align-items: center;
                     gap: 1rem;
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.5rem; /* Increased margin for spacing */
                 }
 
                 .block-icon {
@@ -638,7 +686,7 @@ const Therapies = () => {
                 {/* --- Advanced Manual Therapy Section --- */}
                 <section className="therapy-section advanced-therapy-section">
                     <h2 className="section-heading-v2">✨ Advanced Manual Therapy Techniques</h2>
-                    <p className="section-description">Expert hands-on techniques for joint mobility, muscle release, and functional restoration</p>
+                    <p className="section-description">Expert hands-on and functional techniques for joint mobility, muscle release, and functional restoration</p>
                     <div className="advanced-therapy-blocks">
                         {TherapiesData.advancedTherapies.map((therapy) => (
                             <div className="feature-block" key={therapy.id}>
