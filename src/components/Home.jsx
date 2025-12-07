@@ -290,52 +290,43 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/images/physio2.png'; 
+
 import featureIcon1 from '../assets/react.svg';
 import featureIcon2 from '../assets/vite.svg';
 import featureIcon3 from '../assets/vite.svg';
 
+import testimonial1 from '../assets/images/testimonial1.png';
+import testimonial2 from '../assets/images/testimonial2.png';
+import testimonial3 from '../assets/images/testimonial3.png';
+import testimonial4 from '../assets/images/testimonial4.jpg';
+import testimonial5 from '../assets/images/testimonial5.jpg';
+import testimonial6 from '../assets/images/testimonial6.jpg';
+
+
 const allTestimonials = [
     {
         id: 1,
-        quote: "After years of chronic back pain, the team at Jan Seva gave me my life back. The attention to detail and personalized care was unmatched.",
-        name: "Rakesh Sharma",
-        details: "Long-term Patient, Back Rehab",
-        image: "https://via.placeholder.com/80" 
+        image: testimonial1
     },
     {
         id: 2,
-        quote: "The sports injury rehabilitation program here is fantastic. I was back on the field faster than I expected, feeling stronger and more confident.",
-        name: "Priya Verma",
-        details: "Athlete, Knee Ligament Repair",
-        image: "https://via.placeholder.com/80" 
+        image: testimonial2
     },
     {
         id: 3,
-        quote: "The therapists are highly knowledgeable and genuinely care about your recovery. This clinic provides the best physiotherapy I have ever experienced.",
-        name: "Ajay Singh",
-        details: "Elderly Patient, Mobility Improvement",
-        image: "https://via.placeholder.com/80" 
+        image: testimonial3
     },
     {
         id: 4,
-        quote: "My chronic shoulder pain has completely subsided thanks to their manual therapy sessions. Highly recommended for any joint issues!",
-        name: "Sunita Devi",
-        details: "Office Worker, Shoulder Pain",
-        image: "https://via.placeholder.com/80"
+        image: testimonial4
     },
     {
         id: 5,
-        quote: "The post-operative care for my ankle surgery was exceptional. I felt supported every step of the way and regained full function quickly.",
-        name: "Vikram Patel",
-        details: "Post-Op Patient, Ankle Surgery",
-        image: "https://via.placeholder.com/80" 
+        image: testimonial5
     },
     {
         id: 6,
-        quote: "Excellent advice on ergonomics and posture. My persistent neck stiffness is gone. True professionals who focus on prevention.",
-        name: "Geeta Nair",
-        details: "IT Professional, Neck Pain",
-        image: "https://via.placeholder.com/80" 
+        image: testimonial6
     },
 ];
 
@@ -360,6 +351,7 @@ const features = [
 
 const Home = () => {
     const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+    const [selectedImage, setSelectedImage] = useState(null); // ADD THIS LINE
     const mainBgClass = "bg-white text-gray-900";
     const accentColorClass = "text-teal-600";
     const highlightColorClass = "bg-teal-600";
@@ -384,6 +376,28 @@ const Home = () => {
 
     return (
         <div className={mainBgClass}>
+
+            {/* Image Modal/Lightbox - ADD THIS ENTIRE SECTION */}
+            {selectedImage && (
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <button 
+                        className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+                        onClick={() => setSelectedImage(null)}
+                        aria-label="Close"
+                    >
+                        ×
+                    </button>
+                    <img 
+                        src={selectedImage} 
+                        alt="Enlarged view" 
+                        className="max-w-full max-h-full object-contain rounded-lg"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+            )}
 
             <section className="relative h-screen flex items-center justify-center text-center p-4"
                 style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -491,73 +505,56 @@ const Home = () => {
 
             <hr className="border-t border-gray-300" />
 
-            <section className="py-16 sm:py-24 p-4 text-center bg-gray-50">
-                <div className="container mx-auto max-w-4xl">
+          <section className="py-16 sm:py-24 p-4 text-center bg-gray-50">
+                <div className="container mx-auto max-w-7xl">
                     
                     <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-gray-900">
                         Hear From Our <span className={accentColorClass}>Clients</span>
                     </h2>
 
-                    <div className="relative mx-auto max-w-lg">
+                    <div className="relative overflow-hidden">
+                        <style>{`
+                            @keyframes marquee {
+                                0% { transform: translateX(0); }
+                                100% { transform: translateX(-50%); }
+                            }
+                            .animate-marquee {
+                                animation: marquee 30s linear infinite;
+                            }
+                            .animate-marquee:hover {
+                                animation-play-state: paused;
+                            }
+                        `}</style>
                         
-                        <div key={activeTestimonial.id} className={`p-6 sm:p-8 mb-4 rounded-xl shadow-2xl bg-white border-2 border-gray-200 text-center transition-opacity duration-500 ease-in-out`}>
-                            
-                            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-                                <div className="flex shrink-0">
-                                    <img src={activeTestimonial.image} alt={`${activeTestimonial.name} Photo`} 
-                                        className="w-20 h-20 object-cover rounded-md border-2 border-teal-600" />
+                        {/* UPDATED THIS DIV - Added onClick and cursor-pointer */}
+                        <div className="flex animate-marquee">
+                            {[...allTestimonials, ...allTestimonials].map((testimonial, index) => (
+                                <div 
+                                    key={`${testimonial.id}-${index}`} 
+                                    className="flex-shrink-0 w-80 mx-4 cursor-pointer"
+                                    onClick={() => setSelectedImage(testimonial.image)}
+                                >
+                                    <div className="rounded-xl shadow-xl overflow-hidden h-full hover:shadow-2xl transition-shadow duration-300">
+                                        <img 
+                                            src={testimonial.image} 
+                                            alt={`Testimonial ${testimonial.id}`} 
+                                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
                                 </div>
-                                
-                                <div className="text-center sm:text-left">
-                                    <p className={`font-bold text-xl ${accentColorClass}`}>{activeTestimonial.name}</p>
-                                    <p className="text-sm text-gray-500">{activeTestimonial.details}</p>
-                                </div>
-                            </div>
-
-                            <blockquote className="border-t border-gray-200 pt-4">
-                                <p className="italic text-gray-700 text-base">
-                                    "{activeTestimonial.quote}"
-                                </p>
-                            </blockquote>
+                            ))}
                         </div>
-
-                        <div className="flex justify-center space-x-6 mt-4">
-                            <button 
-                                onClick={prevTestimonial}
-                                className={`text-xl ${accentColorClass} hover:text-teal-800 transition-colors font-semibold`}
-                                aria-label="Previous testimonial">
-                                &larr; Previous
-                            </button>
-                           <div className="flex items-center space-x-3">
-                                {allTestimonials.map((_, index) => (
-                                    <span 
-                                        key={index}
-                                        className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${
-                                            index === currentTestimonialIndex ? 'bg-teal-600' : 'bg-gray-400 hover:bg-gray-500'
-                                        }`}
-                                        onClick={() => setCurrentTestimonialIndex(index)}>
-                                    </span>
-                                ))}
-                            </div>
-
-                            <button 
-                                onClick={nextTestimonial}
-                                className={`text-xl ${accentColorClass} hover:text-teal-800 transition-colors font-semibold`}
-                                aria-label="Next testimonial">
-                                Next &rarr;
-                            </button>
-                        </div>
-
                     </div>
-                    <br />
 
-                    <Link 
-                        to="/testimonials" 
-                        className={`${baseButtonClasses} ${buttonOutlineClass} text-lg mt-12 mb-16`}>
-                        View All Testimonials
-                    </Link>
+                    <div className="mt-12">
+                        <Link 
+                            to="/testimonials" 
+                            className={`${baseButtonClasses} ${buttonOutlineClass} text-lg`}>
+                            View All Testimonials
+                        </Link>
+                    </div>
                     
-                    <hr className="w-24 h-0.5 bg-gray-300 mx-auto mb-16" />
+                    <hr className="w-24 h-0.5 bg-gray-300 mx-auto mt-16" />
 
                 </div>
             </section>
