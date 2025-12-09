@@ -173,14 +173,19 @@ const Gallery = () => {
           background: #efecdb;
           box-shadow: 0 10px 50px #5f2f1182;
         }
-        img {
+.img-wrapper img {
           max-width: 45vh;
           max-height: 50vh;
           transition: .5s;
           vertical-align: top;
           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
         }
-        a:hover img {
+        .img-wrapper a:hover img {
+          filter: none;
+        }
+        
+        .card__image {
+          max-width: 300px;
           filter: none;
         }
         p {
