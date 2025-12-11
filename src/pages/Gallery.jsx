@@ -551,14 +551,10 @@ const Gallery = () => {
             key={i} 
             className="card" 
             ref={el => cardsRef.current[i] = el}
-            onClick={(e) => handleCardClick(e, i)}
-          >
+            onClick={(e) => handleCardClick(e, i)}>
             <div className="card__image-holder">
-              <img 
-                className="card__image" 
-                src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
-                alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} 
-              />
+              <img className="card__image" src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
+                alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} />
             </div>
             <div className="card-title">
               <a href="#" className="toggle-info btn">

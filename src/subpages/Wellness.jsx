@@ -475,7 +475,6 @@ const Wellness = () => {
                     Comprehensive wellness programs designed to promote long-term health, prevent injuries, and enhance quality of life. Our holistic approach combines physical therapy expertise with lifestyle guidance for optimal well-being.
                 </p>
 
-                {/* Benefits Section */}
                 <section className="benefits-section">
                     <h2 className="section-heading-v2">🎯 Benefits of Wellness Programs</h2>
                     <div className="benefits-tabs">
@@ -483,8 +482,7 @@ const Wellness = () => {
                             <button
                                 key={key}
                                 className={`benefit-tab ${selectedBenefit === key ? 'active' : ''}`}
-                                onClick={() => setSelectedBenefit(key)}
-                            >
+                                onClick={() => setSelectedBenefit(key)}>
                                 <span className="benefit-icon">{benefitsData[key].icon}</span>
                                 <span className="benefit-label">{benefitsData[key].title}</span>
                             </button>
@@ -495,7 +493,6 @@ const Wellness = () => {
                     </div>
                 </section>
 
-                {/* Posture, Lifestyle & Injury Prevention Section */}
                 <section className="therapy-section electrotherapy-section">
                     <h2 className="section-heading-v2">🌟 Posture, Lifestyle & Injury Prevention Wellness</h2>
                     <p className="section-description">Foundational wellness programs for healthy living, injury prevention, and chronic condition management</p>
@@ -504,8 +501,7 @@ const Wellness = () => {
                         {WellnessData.keyWellness.map((wellness) => (
                             <div 
                                 className="triptych-card" 
-                                key={wellness.id}
-                            >
+                                key={wellness.id}>
                                 <div className="icon-badge">{wellness.icon}</div>
                                 <h3 className="card-title">{wellness.title}</h3>
                                 <p className="card-description" 
@@ -514,7 +510,6 @@ const Wellness = () => {
                         ))}
                     </div>
 
-                    {/* Mobility, Strength & Balance - Accordion */}
                     <div className="accordion-container">
                         <h3 className="accordion-heading">Mobility, Strength, Balance & Daily Wellness</h3>
                         {WellnessData.secondaryWellness.map((wellness) => (
@@ -536,7 +531,6 @@ const Wellness = () => {
                 
                 <hr className="section-divider-v2" />
 
-                {/* Functional, Preventive & Long-Term Section */}
                 <section className="therapy-section advanced-therapy-section">
                     <h2 className="section-heading-v2">✨ Functional, Preventive & Long-Term Wellness</h2>
                     <p className="section-description">Sustainable wellness strategies for lasting health, injury prevention, and optimal quality of life</p>
@@ -554,7 +548,6 @@ const Wellness = () => {
                     </div>
                 </section>
 
-                {/* Impact Section */}
                 <section className="faq-section">
                     <h2 className="section-heading-v2">🌈 Your Journey to Optimal Wellness</h2>
                     <div className="impact-container">

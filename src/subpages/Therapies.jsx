@@ -620,17 +620,14 @@ const Therapies = () => {
                     Physiotherapy is a comprehensive medical practice aimed at improving body mobility, strength, and overall health. Our primary objective is to significantly reduce pain, strengthen weakened muscles and joints, and help the patient return to a normal, active life as quickly as possible.
                 </p>
 
-               
-                {/* Benefits Section */}
-                <section className="benefits-section">
+                    <section className="benefits-section">
                     <h2 className="section-heading-v2">🎯 Key Benefits of Our Therapies</h2>
                     <div className="benefits-tabs">
                         {Object.keys(benefitsData).map((key) => (
                             <button
                                 key={key}
                                 className={`benefit-tab ${selectedBenefit === key ? 'active' : ''}`}
-                                onClick={() => setSelectedBenefit(key)}
-                            >
+                                onClick={() => setSelectedBenefit(key)}>
                                 <span className="benefit-icon">{benefitsData[key].icon}</span>
                                 <span className="benefit-label">{benefitsData[key].title}</span>
                             </button>
@@ -641,18 +638,15 @@ const Therapies = () => {
                     </div>
                 </section>
 
-                {/* --- Electropathy & Pain Management Section --- */}
                 <section className="therapy-section electrotherapy-section">
                     <h2 className="section-heading-v2">⚡ Essential Electrotherapy & Pain Management</h2>
                     <p className="section-description">Advanced electrical and physical modalities for effective pain relief and tissue healing</p>
                     
-                    {/* 1. Triptych/Key Feature Cards */}
                     <div className="key-therapies-triptych">
                         {TherapiesData.keyElectropathy.map((therapy) => (
                             <div 
                                 className="triptych-card" 
-                                key={therapy.id}
-                            >
+                                key={therapy.id}>
                                 <div className="icon-badge">{therapy.icon}</div>
                                 <h3 className="card-title">{therapy.title}</h3>
                                 <p className="card-description" 
@@ -661,7 +655,6 @@ const Therapies = () => {
                         ))}
                     </div>
 
-                    {/* 2. Secondary Electropathy - Accordion */}
                     <div className="accordion-container">
                         <h3 className="accordion-heading">Additional Electrotherapy & Physical Modalities</h3>
                         {TherapiesData.secondaryElectropathy.map((therapy) => (
@@ -683,7 +676,6 @@ const Therapies = () => {
                 
                 <hr className="section-divider-v2" />
 
-                {/* --- Advanced Manual Therapy Section --- */}
                 <section className="therapy-section advanced-therapy-section">
                     <h2 className="section-heading-v2">✨ Advanced Manual Therapy Techniques</h2>
                     <p className="section-description">Expert hands-on and functional techniques for joint mobility, muscle release, and functional restoration</p>
@@ -701,7 +693,6 @@ const Therapies = () => {
                     </div>
                 </section>
 
-                {/* Success Stories & Impact Section */}
                 <section className="faq-section">
                     <h2 className="section-heading-v2">📊 Our Impact in Numbers</h2>
                     <div className="impact-container">

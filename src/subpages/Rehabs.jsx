@@ -475,7 +475,6 @@ const Rehabilitation = () => {
                     Comprehensive rehabilitation programs designed to restore function, improve quality of life, and help patients return to their normal activities. Our evidence-based approach combines specialized techniques with personalized care for optimal recovery outcomes.
                 </p>
 
-                {/* Benefits Section */}
                 <section className="benefits-section">
                     <h2 className="section-heading-v2">🎯 Key Benefits of Rehabilitation</h2>
                     <div className="benefits-tabs">
@@ -483,8 +482,7 @@ const Rehabilitation = () => {
                             <button
                                 key={key}
                                 className={`benefit-tab ${selectedBenefit === key ? 'active' : ''}`}
-                                onClick={() => setSelectedBenefit(key)}
-                            >
+                                onClick={() => setSelectedBenefit(key)}>
                                 <span className="benefit-icon">{benefitsData[key].icon}</span>
                                 <span className="benefit-label">{benefitsData[key].title}</span>
                             </button>
@@ -495,7 +493,6 @@ const Rehabilitation = () => {
                     </div>
                 </section>
 
-                {/* Physical & Functional Rehabilitation Section */}
                 <section className="therapy-section electrotherapy-section">
                     <h2 className="section-heading-v2">🏥 Physical & Functional Rehabilitation</h2>
                     <p className="section-description">Comprehensive rehabilitation programs for injuries, surgeries, neurological conditions, and developmental needs</p>
@@ -504,8 +501,7 @@ const Rehabilitation = () => {
                         {RehabData.keyRehab.map((rehab) => (
                             <div 
                                 className="triptych-card" 
-                                key={rehab.id}
-                            >
+                                key={rehab.id}>
                                 <div className="icon-badge">{rehab.icon}</div>
                                 <h3 className="card-title">{rehab.title}</h3>
                                 <p className="card-description" 
@@ -514,15 +510,13 @@ const Rehabilitation = () => {
                         ))}
                     </div>
 
-                    {/* Restorative & Condition-Specific - Accordion */}
                     <div className="accordion-container">
                         <h3 className="accordion-heading">Restorative & Condition-Specific Programs</h3>
                         {RehabData.secondaryRehab.map((rehab) => (
                             <div className="accordion-item" key={rehab.id}>
                                 <button 
                                     className={`accordion-header ${activeSecondaryId === rehab.id ? 'active' : ''}`}
-                                    onClick={() => toggleAccordion(rehab.id)}
-                                >
+                                    onClick={() => toggleAccordion(rehab.id)}>
                                     {rehab.title}
                                     <span className="toggle-icon">{activeSecondaryId === rehab.id ? '−' : '+'}</span>
                                 </button>
@@ -536,7 +530,6 @@ const Rehabilitation = () => {
                 
                 <hr className="section-divider-v2" />
 
-                {/* Performance, Recovery & Long-Term Section */}
                 <section className="therapy-section advanced-therapy-section">
                     <h2 className="section-heading-v2">✨ Performance, Recovery & Long-Term Rehabilitation</h2>
                     <p className="section-description">Advanced programs for sustained recovery, performance optimization, and long-term wellness</p>
@@ -554,7 +547,6 @@ const Rehabilitation = () => {
                     </div>
                 </section>
 
-                {/* Impact Section */}
                 <section className="faq-section">
                     <h2 className="section-heading-v2">📊 Our Commitment to Recovery</h2>
                     <div className="impact-container">

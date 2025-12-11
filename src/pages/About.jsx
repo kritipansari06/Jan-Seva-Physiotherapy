@@ -66,7 +66,6 @@ const About = () => {
   return (
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
 
-      {/* Hero Section */}
       <div className={`relative ${isDarkMode ? 'bg-linear-to-br from-purple-900 via-purple-800 to-purple-950' : 'bg-linear-to-br from-purple-600 via-purple-700 to-purple-900'} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -85,7 +84,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* About Section */}
       <section id="about" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>About Us</h2>
@@ -120,7 +118,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-b from-gray-900 to-gray-800' : 'bg-linear-to-b from-white to-purple-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Mission & Vision</h2>
@@ -152,7 +149,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Goals */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-purple-900 to-purple-950' : 'bg-linear-to-br from-purple-600 to-purple-900'} text-white relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-white to-transparent" />
@@ -175,7 +171,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Doctor Section */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-gray-800 to-gray-900' : 'bg-linear-to-br from-gray-100 to-gray-200'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Meet Our Senior Consultant</h2>
@@ -215,7 +210,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
       <section className={`py-20 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-900 text-white'} relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -260,7 +254,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Services */}
       <section id="services" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Specialized Services</h2>
@@ -280,7 +273,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-r from-purple-900 to-purple-800' : 'bg-linear-to-r from-purple-600 to-purple-800'} text-white`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Core Values</h2>
@@ -298,7 +290,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Impact Stats */}
       <section id="team" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Impact in Numbers</h2>
@@ -315,7 +306,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Facilities */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-b from-gray-900 to-gray-800' : 'bg-linear-to-b from-white to-purple-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>World-Class Facilities</h2>
@@ -334,7 +324,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
       <section className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-900'} text-white`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Journey</h2>
@@ -358,7 +347,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-purple-900 to-purple-950' : 'bg-linear-to-br from-purple-600 to-purple-900'} text-white text-center`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">Start Your Recovery Journey Today</h2>

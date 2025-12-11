@@ -68,7 +68,6 @@ const Contact = () => {
 
     return (
         <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} transition duration-300`}>
-            {/* Hero Header */}
             <header className={`border-4 ${isDarkMode ? 'border-teal-600 bg-gray-800' : 'border-teal-400 bg-teal-50'} mx-4 md:mx-8 mt-8 rounded-3xl py-12 text-center shadow-xl`}>
                 <div className="container mx-auto px-4">
                     <div className={`inline-block p-3 ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-100'} rounded-full mb-4`}>
@@ -84,7 +83,6 @@ const Contact = () => {
             </header>
 
             <main className="container mx-auto px-4 py-12">
-                {/* Contact Methods Section */}
                 <section className="mb-12">
                     <div className={`border-4 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-300 bg-white'} rounded-3xl p-6 md:p-10 shadow-xl`}>
                         <h2 className={`text-2xl md:text-3xl font-bold text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
@@ -98,8 +96,7 @@ const Contact = () => {
                                 buttonText="Call Now"
                                 href={`tel:${contactInfo.phoneNumber}`}
                                 accentColor="teal"
-                                isDarkMode={isDarkMode}
-                            />
+                                isDarkMode={isDarkMode}/>
 
                             <ContactCard 
                                 icon={Mail} 
@@ -107,8 +104,7 @@ const Contact = () => {
                                 buttonText="Send Mail"
                                 href={`mailto:${contactInfo.email}`}
                                 accentColor="blue"
-                                isDarkMode={isDarkMode}
-                            />
+                                isDarkMode={isDarkMode}/>
                         </div>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -119,8 +115,7 @@ const Contact = () => {
                                 href={contactInfo.whatsAppLink}
                                 target="_blank"
                                 accentColor="green"
-                                isDarkMode={isDarkMode}
-                            />
+                                isDarkMode={isDarkMode}/>
 
                             <ContactCard 
                                 icon={MessageCircle} 
@@ -129,8 +124,7 @@ const Contact = () => {
                                 href={contactInfo.instagramLink}
                                 target="_blank"
                                 accentColor="pink"
-                                isDarkMode={isDarkMode}
-                            />
+                                isDarkMode={isDarkMode}/>
 
                             <ContactCard 
                                 icon={MessageCircle} 
@@ -139,16 +133,13 @@ const Contact = () => {
                                 href={contactInfo.facebookLink}
                                 target="_blank"
                                 accentColor="purple"
-                                isDarkMode={isDarkMode}
-                            />
+                                isDarkMode={isDarkMode}/>
                         </div>
                     </div>
                 </section>
 
-                {/* Map Section */}
                 <section className="mb-12">
                     <div className={`border-4 ${isDarkMode ? 'border-gray-700' : 'border-gray-300'} rounded-3xl overflow-hidden bg-white shadow-xl`}>
-                        {/* Map Header */}
                         <div className="bg-linear-to-r from-teal-500 to-cyan-500 p-8 text-center">
                             <MapPin className="w-12 h-12 text-white mx-auto mb-4" />
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Visit Our Clinic</h2>
@@ -165,7 +156,6 @@ const Contact = () => {
                             </a>
                         </div>
 
-                        {/* Map Embed */}
                         <div className="h-[400px] md:h-[500px] bg-gray-100 relative">
                             <iframe
                                 title="Clinic Location Map"
@@ -179,7 +169,6 @@ const Contact = () => {
                             ></iframe>
                         </div>
 
-                        {/* Operating Hours */}
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-800 border-t border-gray-700' : 'bg-gray-50 border-t border-gray-200'}`}>
                             <div className="max-w-4xl mx-auto">
                                 <div className="flex items-center justify-center mb-4">
@@ -206,7 +195,6 @@ const Contact = () => {
                     </div>
                 </section>
 
-                {/* FAQ Section */}
                 <section className={`border-4 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-300 bg-white'} rounded-3xl p-8 md:p-10 shadow-xl`}>
                     <div className="text-center mb-8">
                         <div className={`inline-block p-3 ${isDarkMode ? 'bg-teal-900/20' : 'bg-teal-100'} rounded-full mb-4`}>
@@ -239,7 +227,6 @@ const Contact = () => {
                         ))}
                     </div>
 
-                    {/* Bottom CTA */}
                     <div className={`mt-8 pt-6 border-t-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} text-center`}>
                         <p className={`font-medium mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                             Still have questions? We're here to help!
