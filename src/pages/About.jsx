@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, Award, Users, Heart, Target } from 'lucide-react';
-import { Image } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const About = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isDarkMode } = useTheme();
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -64,12 +64,13 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
 
-      <div className="relative bg-linear-to-br from-purple-600 via-purple-700 to-purple-900 text-white overflow-hidden">
+      {/* Hero Section */}
+      <div className={`relative ${isDarkMode ? 'bg-linear-to-br from-purple-900 via-purple-800 to-purple-950' : 'bg-linear-to-br from-purple-600 via-purple-700 to-purple-900'} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-linear(circle, white 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
             backgroundSize: '50px 50px',
             animation: 'moveGrid 20s linear infinite'
           }} />
@@ -84,13 +85,14 @@ const About = () => {
         </div>
       </div>
 
-      <section id="about" className="py-20 bg-gray-50">
+      {/* About Section */}
+      <section id="about" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">About Us</h2>
-          <div className="w-24 h-1 bg-linear-to-br from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>About Us</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-br from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-gray-600 leading-relaxed">
+            <div className={`space-y-6 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               <p>
                 Welcome to Healing Touch Physiotherapy, a premier destination for comprehensive rehabilitation and wellness services. Established with a vision to provide world-class physiotherapy care, we have been serving our community for over a decade with dedication, expertise, and compassion.
               </p>
@@ -103,14 +105,14 @@ const About = () => {
             </div>
             
             <div className="relative transform hover:scale-105 transition-transform duration-300">
-              <div className="bg-linear-to-br from-purple-100 to-purple-200 p-8 rounded-2xl shadow-2xl">
-                <div className="bg-white p-10 rounded-xl text-center space-y-4">
+              <div className={`${isDarkMode ? 'bg-linear-to-br from-purple-900 to-purple-800' : 'bg-linear-to-br from-purple-100 to-purple-200'} p-8 rounded-2xl shadow-2xl`}>
+                <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} p-10 rounded-xl text-center space-y-4`}>
                   <div className="text-5xl">🏥</div>
-                  <div className="text-purple-600 font-bold text-lg">Excellence in Rehabilitation</div>
+                  <div className={`font-bold text-lg ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Excellence in Rehabilitation</div>
                   <div className="text-5xl">💪</div>
-                  <div className="text-purple-600 font-bold text-lg">Restoring Mobility</div>
+                  <div className={`font-bold text-lg ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Restoring Mobility</div>
                   <div className="text-5xl">❤️</div>
-                  <div className="text-purple-600 font-bold text-lg">Caring for Community</div>
+                  <div className={`font-bold text-lg ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Caring for Community</div>
                 </div>
               </div>
             </div>
@@ -118,30 +120,31 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-b from-white to-purple-50">
+      {/* Mission & Vision */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-b from-gray-900 to-gray-800' : 'bg-linear-to-b from-white to-purple-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Mission & Vision</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Mission & Vision</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-r from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-purple-600">
+            <div className={`p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-purple-600 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <div className="text-5xl mb-6">🎯</div>
-              <h3 className="text-3xl font-bold text-purple-600 mb-6">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Our Mission</h3>
+              <p className={`leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 To provide exceptional physiotherapy services that combine clinical excellence with compassionate care, helping individuals achieve optimal physical function and enhanced quality of life.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
                 We strive to create a healing environment where patients feel supported, understood, and empowered throughout their recovery journey.
               </p>
             </div>
             
-            <div className="bg-white p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-purple-800">
+            <div className={`p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-purple-800 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <div className="text-5xl mb-6">👁️</div>
-              <h3 className="text-3xl font-bold text-purple-600 mb-6">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Our Vision</h3>
+              <p className={`leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 To be recognized as the leading physiotherapy center in the region, setting standards for clinical excellence, patient satisfaction, and innovative rehabilitation practices.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
                 We aim to expand our services to reach underserved populations and establish centers of excellence that serve as training grounds for future professionals.
               </p>
             </div>
@@ -149,7 +152,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-br from-purple-600 to-purple-900 text-white relative overflow-hidden">
+      {/* Core Goals */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-purple-900 to-purple-950' : 'bg-linear-to-br from-purple-600 to-purple-900'} text-white relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-white to-transparent" />
         </div>
@@ -161,7 +165,7 @@ const About = () => {
             {goals.map((goal, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 backdrop-blur-lg p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                className={`${isDarkMode ? 'bg-white/10' : 'bg-white/10'} backdrop-blur-lg p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105`}>
                 <div className="text-6xl font-bold opacity-50 mb-4">{goal.num}</div>
                 <h4 className="text-2xl font-bold mb-4">{goal.title}</h4>
                 <p className="opacity-90">{goal.desc}</p>
@@ -171,20 +175,21 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-br from-gray-100 to-gray-200">
+      {/* Doctor Section */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-gray-800 to-gray-900' : 'bg-linear-to-br from-gray-100 to-gray-200'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Meet Our Senior Consultant</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Meet Our Senior Consultant</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-r from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
-          <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <div className="grid md:grid-cols-3 gap-0">
               <div>
                 <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/src/assets/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
               </div>
               <div className="md:col-span-2 p-8">
-                <h3 className="text-4xl font-bold text-purple-600 mb-2">Dr. Shivam Sharma</h3>
-                <div className="text-xl text-purple-800 font-semibold mb-6">Senior Physiotherapist & Clinical Director</div>
-                <p className="text-gray-600 mb-6 text-justify">
+                <h3 className={`text-4xl font-bold mb-2 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Dr. Shivam Sharma</h3>
+                <div className={`text-xl font-semibold mb-6 ${isDarkMode ? 'text-purple-300' : 'text-purple-800'}`}>Senior Physiotherapist & Clinical Director</div>
+                <p className={`mb-6 text-justify ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   Dr. Shivam Sharma is a distinguished physiotherapist with over 15 years of clinical experience in musculoskeletal and neurological rehabilitation.
                 </p>
                 
@@ -196,10 +201,10 @@ const About = () => {
                     { label: 'Achievements', text: 'Excellence in Clinical Practice Award 2022' }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start">
-                      <ChevronRight className="text-purple-600 mt-1 flex shrink-0" />
+                      <ChevronRight className={`mt-1 flex shrink-0 ${isDarkMode ? 'text-purple-600' : 'text-purple-600'}`} />
                       <div>
-                        <strong className="text-gray-800">{item.label}:</strong>
-                        <span className="text-gray-600 ml-2">{item.text}</span>
+                        <strong className={isDarkMode ? 'text-white' : 'text-gray-800'}>{item.label}:</strong>
+                        <span className={`ml-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{item.text}</span>
                       </div>
                     </div>
                   ))}
@@ -210,10 +215,11 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+      {/* Trust Section */}
+      <section className={`py-20 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-900 text-white'} relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-linear(circle, white 2px, transparent 2px)',
+            backgroundImage: 'radial-gradient(circle, white 2px, transparent 2px)',
             backgroundSize: '40px 40px'}} />
         </div>
         
@@ -254,26 +260,28 @@ const About = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-white">
+      {/* Services */}
+      <section id="services" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Specialized Services</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Specialized Services</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-r from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-linear-to-br from-gray-50 to-gray-100 p-8 rounded-xl text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                className={`p-8 rounded-xl text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer ${isDarkMode ? 'bg-linear-to-br from-gray-700 to-gray-600' : 'bg-linear-to-br from-gray-50 to-gray-100'}`}>
                 <div className="text-6xl mb-4">{service.icon}</div>
-                <h4 className="text-xl font-bold text-purple-600 mb-3">{service.title}</h4>
-                <p className="text-gray-600 text-sm">{service.desc}</p>
+                <h4 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>{service.title}</h4>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{service.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-r from-purple-600 to-purple-800 text-white">
+      {/* Values */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-r from-purple-900 to-purple-800' : 'bg-linear-to-r from-purple-600 to-purple-800'} text-white`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Core Values</h2>
           <div className="w-24 h-1 bg-white mx-auto mb-12 rounded-full" />
@@ -290,44 +298,47 @@ const About = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 bg-gray-50">
+      {/* Impact Stats */}
+      <section id="team" className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">Our Impact in Numbers</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>Our Impact in Numbers</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-r from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow">
-                <div className="text-5xl font-bold text-purple-600 mb-3">{stat.number}</div>
-                <div className="text-gray-600 text-lg">{stat.label}</div>
+              <div key={idx} className={`p-8 rounded-xl text-center hover:shadow-2xl transition-shadow ${isDarkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg`}>
+                <div className={`text-5xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>{stat.number}</div>
+                <div className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-linear-to-b from-white to-purple-50">
+      {/* Facilities */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-b from-gray-900 to-gray-800' : 'bg-linear-to-b from-white to-purple-50'}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-600">World-Class Facilities</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-600 to-purple-800 mx-auto mb-12 rounded-full" />
+          <h2 className={`text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-purple-600'}`}>World-Class Facilities</h2>
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-500 to-purple-700' : 'bg-linear-to-r from-purple-600 to-purple-800'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid md:grid-cols-3 gap-6">
             {facilities.map((facility, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-600 hover:shadow-xl hover:translate-x-2 transition-all duration-300">
-                <h4 className="text-xl font-bold text-purple-600 mb-3">{facility.title}</h4>
-                <p className="text-gray-600">{facility.desc}</p>
+                className={`p-6 rounded-xl shadow-md border-l-4 border-purple-600 hover:shadow-xl hover:translate-x-2 transition-all duration-300 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                <h4 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>{facility.title}</h4>
+                <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>{facility.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900 text-white">
+      {/* Timeline */}
+      <section className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-900'} text-white`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">Our Journey</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-purple-400 to-purple-600 mx-auto mb-12 rounded-full" />
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-linear-to-r from-purple-400 to-purple-600' : 'bg-linear-to-r from-purple-400 to-purple-600'} mx-auto mb-12 rounded-full`} />
           
           <div className="space-y-12">
             {timeline.map((item, idx) => (
@@ -335,7 +346,7 @@ const About = () => {
                 <div className="flex-1" />
                 <div className="w-4 h-4 bg-purple-500 rounded-full flex shrink-0" />
                 <div className="flex-1">
-                  <div className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10">
+                  <div className={`${isDarkMode ? 'bg-white/5' : 'bg-white/5'} backdrop-blur-lg p-6 rounded-xl border border-white/10`}>
                     <div className="text-3xl font-bold text-purple-400 mb-2">{item.year}</div>
                     <h4 className="text-xl font-bold mb-2">{item.event}</h4>
                     <p className="text-gray-300">{item.desc}</p>
@@ -347,7 +358,8 @@ const About = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-linear-to-br from-purple-600 to-purple-900 text-white text-center">
+      {/* CTA Section */}
+      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-br from-purple-900 to-purple-950' : 'bg-linear-to-br from-purple-600 to-purple-900'} text-white text-center`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">Start Your Recovery Journey Today</h2>
           <p className="text-xl mb-8 opacity-90">

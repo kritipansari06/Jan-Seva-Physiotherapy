@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../context/ThemeContext';
 import img1 from '../assets/images/1.JPG';
 import img2 from '../assets/images/2.JPG';
 import img3 from '../assets/images/3.JPG';
@@ -7,6 +8,7 @@ import img5 from '../assets/images/5.JPG';
 import img6 from '../assets/images/6.JPG';
 
 const Gallery = () => {
+  const { isDarkMode } = useTheme();
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -74,7 +76,6 @@ const Gallery = () => {
       <style>{`
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
 
-
         ::-webkit-scrollbar {
           width: 1px;
           height: 1px;
@@ -84,9 +85,12 @@ const Gallery = () => {
           width: 1px;
           height: 1px;
         }
+
         .external {
           overflow: hidden;
           height: 100vh;
+          background: ${isDarkMode ? '#111827' : 'white'};
+          transition: background-color 0.3s ease;
         }
 
         .horizontal-scroll-wrapper {
@@ -104,6 +108,7 @@ const Gallery = () => {
           transform-style: preserve-3d;
           padding-bottom: 10rem;
         }
+
         .img-wrapper {
           transform: rotate(90deg);
           display: flex;
@@ -122,30 +127,39 @@ const Gallery = () => {
         .slower {
           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
         }
+
         .slower1 {
           transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
         }
+
         .slower2 {
           transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
         }
+
         .slower-down {
           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
         }
+
         .faster {
           transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
         }
+
         .faster1 {
           transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
         }
+
         .fastest {
           transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
         }
+
         .vertical {
           transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
         }
+
         .last {
           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
         }
+
         .scroll-info, header {
           position: absolute;
           left: 1rem;
@@ -154,13 +168,16 @@ const Gallery = () => {
         header {
           bottom: 1rem;
         }
+
         .scroll-info {
           top: 1rem;
         }
+
         a {
           color: inherit;
           font-weight: 500;
         }
+
         h1 {
           font-weight: 300;
           font-size: 1rem;
@@ -170,34 +187,40 @@ const Gallery = () => {
           overflow: hidden;
           display: block;
           padding: 1vh;
-          background: #efecdb;
-          box-shadow: 0 10px 50px #5f2f1182;
+          background: ${isDarkMode ? '#2d3748' : '#efecdb'};
+          box-shadow: 0 10px 50px ${isDarkMode ? 'rgba(0,0,0,0.4)' : '#5f2f1182'};
+          transition: all 0.3s ease;
         }
-.img-wrapper img {
+
+        .img-wrapper img {
           max-width: 45vh;
           max-height: 50vh;
           transition: .5s;
           vertical-align: top;
           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
         }
+
         .img-wrapper a:hover img {
           filter: none;
         }
-        
+
         .card__image {
           max-width: 300px;
           filter: none;
         }
+
         p {
           margin: 0;
         }
+
         .scroll-info {
           display: flex;
           align-items: center;
         }
+
         .icon svg {
           width: 50px;
-          fill: currentcolor;
+          fill: ${isDarkMode ? '#9ca3af' : 'currentColor'};
         }
 
         :root {
@@ -242,10 +265,12 @@ const Gallery = () => {
           margin: 80px auto;
           max-width: 960px;
           text-align: center;
+          background: ${isDarkMode ? '#1f2937' : 'white'};
+          transition: background-color 0.3s ease;
         }
 
         div.card {
-          background: var(--white);
+          background: ${isDarkMode ? '#374151' : 'white'};
           display: inline-block;
           margin: 8px;
           max-width: 300px;
@@ -255,6 +280,9 @@ const Gallery = () => {
           transition: all 0.3s 0s ease-in;
           width: 300px;
           z-index: 1;
+          border: 1px solid ${isDarkMode ? '#4b5563' : '#e0e0e0'};
+          border-radius: 8px;
+          box-shadow: ${isDarkMode ? '0 4px 6px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)'};
         }
 
         div.card img {
@@ -262,16 +290,17 @@ const Gallery = () => {
         }
 
         div.card .card__image-holder {
-          background: rgba(0,0,0,0.1);
+          background: ${isDarkMode ? '#2d3748' : 'rgba(0,0,0,0.1)'};
           height: 0;
           padding-bottom: 75%;
         }
 
         div.card div.card-title {
-          background: var(--white);
+          background: ${isDarkMode ? '#374151' : 'white'};
           padding: 6px 15px 10px;
           position: relative;
           z-index: 0;
+          color: ${isDarkMode ? '#f3f4f6' : '#333'};
         }
 
         div.card div.card-title a.toggle-info {
@@ -282,10 +311,16 @@ const Gallery = () => {
           right: 15px;
           top: 10px;
           width: 32px;
+          background: ${isDarkMode ? '#4b5563' : 'white'};
+          transition: all 0.2s ease;
+        }
+
+        div.card div.card-title a.toggle-info:hover {
+          background: ${isDarkMode ? '#6b7280' : '#f0f0f0'};
         }
 
         div.card div.card-title a.toggle-info span {
-          background: var(--white);
+          background: ${isDarkMode ? '#f3f4f6' : 'var(--white)'};
           display: block;
           height: 2px;
           position: absolute;
@@ -310,6 +345,7 @@ const Gallery = () => {
           letter-spacing: -0.05em;
           margin: 0;
           padding: 0;
+          color: ${isDarkMode ? '#f3f4f6' : '#333'};
         }
 
         div.card div.card-title h2 small {
@@ -317,22 +353,25 @@ const Gallery = () => {
           font-size: 18px;
           font-weight: 600;
           letter-spacing: -0.025em;
+          color: ${isDarkMode ? '#d1d5db' : '#666'};
         }
 
         div.card div.card-description {
           padding: 0 15px 10px;
           position: relative;
           font-size: 14px;
+          color: ${isDarkMode ? '#d1d5db' : '#666'};
         }
 
         div.card div.card-actions {
           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
           padding: 10px 15px 20px;
           text-align: center;
+          background: ${isDarkMode ? '#2d3748' : 'white'};
         }
 
         div.card div.card-flap {
-          background: var(--white);
+          background: ${isDarkMode ? '#374151' : 'white'};
           position: absolute;
           width: 100%;
           transform-origin: top;
@@ -382,7 +421,7 @@ const Gallery = () => {
         }
 
         div.card.show div.card-flap {
-          background: var(--white);
+          background: ${isDarkMode ? '#374151' : 'white'};
           transform: rotateX(0deg);
         }
 
@@ -404,76 +443,93 @@ const Gallery = () => {
           opacity: 1;
           transform: translateY(0);
         }
+
+        .scroll-info {
+          color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+        }
+
+        header {
+          color: ${isDarkMode ? '#d1d5db' : 'currentColor'};
+        }
+
+        header p {
+          color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+        }
+
+        header h1 {
+          color: ${isDarkMode ? '#f3f4f6' : 'currentColor'};
+        }
       `}</style>
 
       <div className="external">
         <div className="horizontal-scroll-wrapper">
           <div className="img-wrapper slower">
             <a href="https://altphotos.com/photo/stylish-parisian-cafe-terrace-279/" target="_blank" rel="noopener">
-              <img src={img1} alt="" />
+              <img src={img1} alt="Gallery Image 1" />
             </a>
           </div>
 
           <div className="img-wrapper faster">
             <a href="https://altphotos.com/photo/retro-boy-doll-wearing-elegant-clothes-330/" target="_blank" rel="noopener">
-              <img src={img2} alt="" />
+              <img src={img2} alt="Gallery Image 2" />
             </a>
           </div>
 
           <div className="img-wrapper slower vertical">
             <a href="https://altphotos.com/photo/clocks-shop-exposition-window-reflecting-the-streets-277/" target="_blank" rel="noopener">
-              <img src={img3} alt="" />
+              <img src={img3} alt="Gallery Image 3" />
             </a>
           </div>
 
           <div className="img-wrapper slower slower-down">
             <a href="https://altphotos.com/photo/swans-and-ducks-swimming-in-a-river-264/" target="_blank" rel="noopener">
-              <img src={img4} alt="" />
+              <img src={img4} alt="Gallery Image 4" />
             </a>
           </div>
 
           <div className="img-wrapper">
             <a href="https://altphotos.com/photo/sidewalk-terrace-of-a-blue-facade-cafe-312/" target="_blank" rel="noopener">
-              <img src={img5} alt="" />
+              <img src={img5} alt="Gallery Image 5" />
             </a>
           </div>
 
           <div className="img-wrapper slower">
-            <a href="https://altphotos.com/photo/paris-waterfront-at-sunset-1555/" target="_ blank" rel="noopener">
-              <img src={img6} alt="" />
+            <a href="https://altphotos.com/photo/paris-waterfront-at-sunset-1555/" target="_blank" rel="noopener">
+              <img src={img6} alt="Gallery Image 6" />
             </a>
           </div>
 
           <div className="img-wrapper faster1">
             <a href="https://altphotos.com/photo/old-man-leaning-over-the-barrier-looking-at-the-river-265/" target="_blank" rel="noopener">
-              <img src="images/6.JPG" alt="" />
+              <img src={img6} alt="Gallery Image 7" />
             </a>
           </div>
           
           <div className="img-wrapper slower slower2">
             <a href="https://altphotos.com/photo/cafe-terrace-with-a-row-of-retro-tables-261/" target="_blank" rel="noopener">
-              <img src="images/1.JPG" alt="" />
+              <img src={img1} alt="Gallery Image 8" />
             </a>
           </div>
           
           <div className="img-wrapper">
             <a href="https://altphotos.com/photo/street-scene-with-pedestrians-and-dogs-318/" target="_blank" rel="noopener">
-              <img src="images/1.JPG" alt="" />
+              <img src={img1} alt="Gallery Image 9" />
             </a>
           </div>
           
           <div className="img-wrapper slower">
             <a href="https://altphotos.com/photo/tourist-barge-on-the-river-seine-near-notre-dame-266/" target="_blank" rel="noopener">
-              <img src="images/2.JPG" alt="" />
+              <img src={img2} alt="Gallery Image 10" />
             </a>
           </div>
           
           <div className="img-wrapper slower last">
             <a href="https://altphotos.com/photo/skulls-decoration-in-a-shop-window-331/" target="_blank" rel="noopener">
-              <img src="images/1.JPG" alt="" />
+              <img src={img1} alt="Gallery Image 11" />
             </a>
           </div>
         </div>
+
         <p className="scroll-info">
           <span className="icon">
             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
@@ -481,10 +537,11 @@ const Gallery = () => {
             </svg>
           </span> Try scrolling down
         </p>
+
         <header>
-          <p>Postcards from Paris.</p>
-          <h1>Css-only parallax horizontal gallery</h1>
-          <p>Grab (these and more) photos from - <a href="https://altphotos.com/free/paris/" target="_blank" rel="noopener">altphotos.</a></p>
+          <p>Clinic Gallery</p>
+          <h1>Visual journey through our facilities and services</h1>
+          <p>Explore our state-of-the-art rehabilitation center</p>
         </header>
       </div>
 
@@ -497,7 +554,11 @@ const Gallery = () => {
             onClick={(e) => handleCardClick(e, i)}
           >
             <div className="card__image-holder">
-              <img className="card__image" src={`https://source.unsplash.com/300x225/?${['wave', 'beach', 'mountain', 'field', 'water', 'river', 'kite', 'underwater', 'desert'][i % 9]}`} alt={['wave', 'beach', 'mountain', 'field', 'water', 'river', 'kite', 'underwater', 'desert'][i % 9]} />
+              <img 
+                className="card__image" 
+                src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
+                alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} 
+              />
             </div>
             <div className="card-title">
               <a href="#" className="toggle-info btn">
@@ -505,17 +566,17 @@ const Gallery = () => {
                 <span className="right"></span>
               </a>
               <h2>
-                Card title
-                <small>Image from unsplash.com</small>
+                Jan Seva Gallery
+                <small>Professional Facilities</small>
               </h2>
             </div>
             <div className="card-flap flap1">
               <div className="card-description">
-                This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
+                Explore our world-class physiotherapy center with state-of-the-art equipment and comfortable therapy spaces designed for your recovery.
               </div>
               <div className="card-flap flap2">
                 <div className="card-actions">
-                  <a href="#" className="btn">Read more</a>
+                  <a href="#" className="btn">Learn More</a>
                 </div>
               </div>
             </div>
@@ -524,6 +585,6 @@ const Gallery = () => {
       </div>
     </>
   );
-}
+};
 
 export default Gallery;
