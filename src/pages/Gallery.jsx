@@ -312,11 +312,13 @@ const Gallery = () => {
           top: 10px;
           width: 32px;
           background: ${isDarkMode ? '#4b5563' : 'white'};
+          background-color: var(--color-teal-600);
           transition: all 0.2s ease;
         }
 
         div.card div.card-title a.toggle-info:hover {
           background: ${isDarkMode ? '#6b7280' : '#f0f0f0'};
+          background-color: var(--color-emerald-800);
         }
 
         div.card div.card-title a.toggle-info span {
