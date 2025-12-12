@@ -14,6 +14,13 @@ const Gallery = () => {
   useEffect(() => {
     const cards = cardsRef.current.filter(Boolean);
     
+    cards.forEach(card => {
+        if (card) {
+            card.classList.remove('visible');
+            card.style.transitionDelay = ''; 
+        }
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const index = cards.indexOf(entry.target);
@@ -34,10 +41,12 @@ const Gallery = () => {
 
     return () => {
       cards.forEach(card => {
-        observer.unobserve(card);
+        if (card) {
+            observer.unobserve(card);
+        }
       });
     };
-  }, []);
+  }, [isDarkMode]);
 
   const handleCardClick = (e, index) => {
     e.preventDefault();
@@ -75,6 +84,11 @@ const Gallery = () => {
     <>
       <style>{`
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+        body, html, #root {
+            background-color: ${isDarkMode ? '#111827' : 'white'};
+            transition: background-color 0.3s ease;
+        }
 
         ::-webkit-scrollbar {
           width: 1px;
@@ -207,6 +221,7 @@ const Gallery = () => {
         .card__image {
           max-width: 300px;
           filter: none;
+          color: ${isDarkMode ? '#ffffff' : '#111827'};
         }
 
         p {
@@ -243,14 +258,13 @@ const Gallery = () => {
           padding: 6px 30px 8px;
           position: relative;
           text-decoration: none;
-          transition: all 0.1s 0s ease-out;
+          transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         .no-touch a.btn:hover {
           background: var(--tealMid);
           box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
           transform: translateY(-2px);
-          transition: all 0.25s 0s ease-out;
         }
 
         .no-touch a.btn:active,
@@ -258,15 +272,16 @@ const Gallery = () => {
           background: var(--tealShade);
           box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
           transform: translate3d(0,1px,0);
-          transition: all 0.025s 0s ease-out;
         }
 
         div.cards {
-          margin: 80px auto;
+          margin: 0 auto 80px auto; 
           max-width: 960px;
           text-align: center;
-          background: ${isDarkMode ? '#1f2937' : 'white'};
+          background: ${isDarkMode ? '#111827' : 'white'}; 
           transition: background-color 0.3s ease;
+          padding-top: 80px;
+          padding-bottom: 80px; 
         }
 
         div.card {
@@ -277,7 +292,7 @@ const Gallery = () => {
           perspective: 1000;
           position: relative;
           text-align: left;
-          transition: all 0.3s 0s ease-in;
+          transition: opacity 0.3s ease, transform 0.3s ease;
           width: 300px;
           z-index: 1;
           border: 1px solid ${isDarkMode ? '#4b5563' : '#e0e0e0'};
@@ -287,6 +302,7 @@ const Gallery = () => {
 
         div.card img {
           max-width: 300px;
+          color: ${isDarkMode ? '#ffffff' : '#111827'};
         }
 
         div.card .card__image-holder {
@@ -311,14 +327,12 @@ const Gallery = () => {
           right: 15px;
           top: 10px;
           width: 32px;
-          background: ${isDarkMode ? '#4b5563' : 'white'};
-          background-color: var(--color-teal-600);
-          transition: all 0.2s ease;
+          background: var(--teal);
+          transition: background-color 0.2s ease;
         }
 
         div.card div.card-title a.toggle-info:hover {
           background: ${isDarkMode ? '#6b7280' : '#f0f0f0'};
-          background-color: var(--color-emerald-800);
         }
 
         div.card div.card-title a.toggle-info span {
@@ -327,7 +341,7 @@ const Gallery = () => {
           height: 2px;
           position: absolute;
           top: 16px;
-          transition: all 0.15s 0s ease-out;
+          transition: transform 0.2s ease;
           width: 12px;
         }
 
@@ -378,16 +392,17 @@ const Gallery = () => {
           width: 100%;
           transform-origin: top;
           transform: rotateX(-90deg);
+          transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         div.card div.flap1 {
-          transition: all 0.3s 0.3s ease-out;
           z-index: -1;
+          transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         div.card div.flap2 {
-          transition: all 0.3s 0s ease-out;
           z-index: -2;
+          transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         div.cards.showing div.card {
@@ -423,16 +438,15 @@ const Gallery = () => {
         }
 
         div.card.show div.card-flap {
-          background: ${isDarkMode ? '#374151' : 'white'};
           transform: rotateX(0deg);
         }
 
         div.card.show div.flap1 {
-          transition: all 0.3s 0s ease-out;
+          transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         div.card.show div.flap2 {
-          transition: all 0.3s 0.2s ease-out;
+          transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .card {
