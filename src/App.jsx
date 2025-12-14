@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
@@ -24,28 +25,32 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <Navbar/>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
+          <Navbar/>
 
-        <Routes>
-          <Route path="/" element={<Home />}/> 
-          <Route path="/testimonials" element={<Testimonials />}/>
-           
-          <Route path="/about" element={<About />}/>
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/treatments" element={<Treatments/>} />
+          <main className="flex-grow bg-white dark:bg-gray-900">
+            <Routes>
+              <Route path="/" element={<Home />}/> 
+              <Route path="/testimonials" element={<Testimonials />}/>
+               
+              <Route path="/about" element={<About />}/>
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/treatments" element={<Treatments/>} />
 
-          <Route path="/treatments/therapies" element={<Therapies />} />
-          <Route path="/treatments/equipments" element={<Equipments />} />
-          <Route path="/treatments/rehabs" element={<Rehabs />} />
-          <Route path="/treatments/wellness-prevention" element={<Wellness />} />
-          
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          
-        </Routes>
+              <Route path="/treatments/therapies" element={<Therapies />} />
+              <Route path="/treatments/equipments" element={<Equipments />} />
+              <Route path="/treatments/rehabs" element={<Rehabs />} />
+              <Route path="/treatments/wellness-prevention" element={<Wellness />} />
+              
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              
+            </Routes>
+          </main>
 
-        <Footer brandName={BRAND_NAME} />
-
+          <Footer brandName={BRAND_NAME} />
+        </div>
       </Router>
     </ThemeProvider>
   )
