@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MessageCircle, MapPin, Clock, Send, Navigation, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const CONTACT_INFO = {
-  address: '123 Health Ave, Suite 400, MedCity, 54321',
-  phone: '+1 (800) 555-0199',
-  email: 'appointments@healthclinic.com',
-  whatsapp: 'https://wa.me/18005550199',
-  facebook: 'https://www.facebook.com/HealthClinic',
-  instagram: 'https://www.instagram.com/HealthClinic',
-  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2505504786483!2d-122.4194155!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858063bc97fe1f%3A0xa64552438848a855!2sSan%20Francisco%20General%20Hospital!5e0!3m2!1sen!2sus!4v1701547200000!5m2!1sen!2sus',
+  address: 'Sikar, Rajasthan, India',
+  phone: '+91 98765 43210',
+  email: 'info@janservatrust.org',
+  whatsapp: 'https://wa.me/919876543210',
+  facebook: 'https://www.facebook.com/janservaphysio',
+  instagram: 'https://www.instagram.com/janservaphysio',
+  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.8297047340377!2d75.8372!3d27.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5a5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sSikar%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1234567890',
 };
 
 const CONTACTS = [
@@ -33,23 +33,25 @@ const FAQS = [
   { q: 'How long does a typical session last?', a: 'A typical session lasts 45-60 minutes. First consultation may take longer for assessment.' },
 ];
 
-const ContactCard = ({ icon: Icon, title, href, text, color, external, isDarkMode }) => {
-  const colors = { teal: 'teal', blue: 'blue', green: 'green', pink: 'pink', purple: 'purple' };
-  const bgColor = isDarkMode ? `bg-${color}-900/20 border-${color}-600` : `bg-${color}-50 border-${color}-200`;
-  const textColor = isDarkMode ? `text-${color}-400` : `text-${color}-600`;
-
+const ContactCard = ({ icon: Icon, title, href, text, color, external, isDarkMode, isOnline, showAlert }) => {
   return (
     <a
       href={href}
       target={external ? '_blank' : '_self'}
       rel={external ? 'noopener noreferrer' : undefined}
-      className={`group flex flex-col items-center justify-center p-6 border-2 rounded-2xl transition-all duration-300 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} w-full shadow-md hover:shadow-xl transform hover:-translate-y-1 ${bgColor}`}
+      onClick={(e) => {
+        if (!isOnline) {
+          e.preventDefault();
+          showAlert('⚠️ You are offline', 'Contact features require an internet connection.');
+        }
+      }}
+      className={`group flex flex-col items-center justify-center p-6 border-2 rounded-2xl transition-all duration-300 w-full shadow-md hover:shadow-2xl hover:scale-105 cursor-pointer ${isDarkMode ? 'bg-gray-800 border-gray-700 hover:border-teal-500 hover:bg-gray-700' : 'bg-white border-gray-300 hover:border-teal-500 hover:bg-teal-50'}`}
     >
-      <div className={`relative p-4 rounded-full border-2 mb-4 group-hover:scale-110 transition-transform duration-300 ${isDarkMode ? `bg-${color}-900/40 border-${color}-600` : `bg-${color}-100 border-${color}-300`}`}>
-        <Icon className={`w-8 h-8 ${textColor}`} />
+      <div className={`relative p-4 rounded-full border-2 mb-4 group-hover:scale-110 transition-all duration-300 ${isDarkMode ? 'bg-gray-700 border-gray-600 group-hover:bg-teal-600 group-hover:border-teal-600' : 'bg-gray-100 border-gray-300 group-hover:bg-teal-600 group-hover:border-teal-600'}`}>
+        <Icon className={`w-8 h-8 transition-colors duration-300 ${isDarkMode ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-white'}`} />
       </div>
-      <p className={`font-semibold text-base mb-4 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{title}</p>
-      <span className={`px-6 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-300 border-${color}-500 ${textColor} hover:bg-${color}-500 hover:text-white`}>
+      <p className={`font-semibold text-base mb-4 text-center transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'}`}>{title}</p>
+      <span className={`px-6 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-300 ${isDarkMode ? 'border-gray-600 text-gray-300 group-hover:bg-teal-600 group-hover:border-teal-600 group-hover:text-white' : 'border-gray-400 text-gray-600 group-hover:bg-teal-600 group-hover:border-teal-600 group-hover:text-white'}`}>
         {text}
       </span>
     </a>
@@ -59,9 +61,47 @@ const ContactCard = ({ icon: Icon, title, href, text, color, external, isDarkMod
 const Contact = () => {
   const { isDarkMode } = useTheme();
   const dark = isDarkMode;
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [alertData, setAlertData] = useState({ show: false, title: '', message: '' });
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  const showAlert = (title, message) => {
+    setAlertData({ show: true, title, message });
+    setTimeout(() => setAlertData({ show: false, title: '', message: '' }), 3000);
+  };
+
+  const handleMapClick = (e) => {
+    if (!isOnline) {
+      e.preventDefault();
+      showAlert('⚠️ You are offline', 'Map requires an internet connection.');
+    }
+  };
 
   return (
     <div className={`min-h-screen ${dark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} transition`}>
+      
+      {/* Alert Modal */}
+      {alertData.show && (
+        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
+          <div className={`px-6 py-4 rounded-xl shadow-2xl border-2 ${dark ? 'bg-yellow-900/30 border-yellow-600 text-yellow-300' : 'bg-yellow-100 border-yellow-500 text-yellow-800'}`}>
+            <p className="font-bold text-lg">{alertData.title}</p>
+            <p className="text-sm">{alertData.message}</p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className={`border-4 ${dark ? 'border-teal-600 bg-gray-800' : 'border-teal-400 bg-teal-50'} mx-4 md:mx-8 mt-8 rounded-3xl py-12 text-center shadow-xl`}>
         <div className="container mx-auto px-4">
@@ -87,13 +127,13 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {CONTACTS.slice(0, 2).map((c, i) => (
-                <ContactCard key={i} {...c} isDarkMode={dark} />
+                <ContactCard key={i} {...c} isDarkMode={dark} isOnline={isOnline} showAlert={showAlert} />
               ))}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {CONTACTS.slice(2).map((c, i) => (
-                <ContactCard key={i} {...c} isDarkMode={dark} />
+                <ContactCard key={i} {...c} isDarkMode={dark} isOnline={isOnline} showAlert={showAlert} />
               ))}
             </div>
           </div>
@@ -106,9 +146,12 @@ const Contact = () => {
               <MapPin className="w-12 h-12 text-white mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Visit Our Clinic</h2>
               <p className="text-white text-lg opacity-90 mb-4">{CONTACT_INFO.address}</p>
-              <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
-                target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={handleMapClick}
+                className="inline-flex items-center gap-2 bg-white text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 cursor-pointer"
               >
                 <Navigation className="w-5 h-5" />
                 Get Directions
@@ -116,10 +159,24 @@ const Contact = () => {
               </a>
             </div>
 
-            <div className="h-[400px] md:h-[500px] bg-gray-100">
-              <iframe title="Clinic Location" src={CONTACT_INFO.mapUrl} width="100%"
-                height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"
-              />
+            <div className="h-[400px] md:h-[500px] bg-gray-100 relative">
+              {!isOnline ? (
+                <div className={`w-full h-full flex flex-col items-center justify-center ${dark ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                  <MapPin className={`w-16 h-16 mb-3 ${dark ? 'text-gray-500' : 'text-gray-400'}`} />
+                  <p className={`text-lg font-semibold ${dark ? 'text-gray-400' : 'text-gray-600'}`}>Map not available offline</p>
+                  <p className={`text-sm ${dark ? 'text-gray-500' : 'text-gray-500'}`}>Connect to internet to view the location</p>
+                </div>
+              ) : (
+                <iframe 
+                  title="Clinic Location" 
+                  src={CONTACT_INFO.mapUrl} 
+                  width="100%"
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen="" 
+                  loading="lazy"
+                />
+              )}
             </div>
 
             {/* Hours */}
@@ -131,9 +188,9 @@ const Contact = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                   {HOURS.map((h, i) => (
-                    <div key={i} className={`p-4 rounded-xl border-2 shadow-sm ${dark ? `bg-gray-700 border-${h.color}-600` : `bg-white border-${h.color}-200`}`}>
-                      <p className={`font-semibold mb-1 ${dark ? `text-${h.color}-400` : `text-gray-700`}`}>{h.day}</p>
-                      <p className={`font-bold ${dark ? `text-${h.color}-300` : `text-${h.color}-600`}`}>{h.time}</p>
+                    <div key={i} className={`p-4 rounded-xl border-2 shadow-sm ${dark ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
+                      <p className={`font-semibold mb-1 ${dark ? 'text-teal-400' : 'text-teal-600'}`}>{h.day}</p>
+                      <p className={`font-bold ${dark ? 'text-gray-300' : 'text-gray-700'}`}>{h.time}</p>
                     </div>
                   ))}
                 </div>
@@ -168,11 +225,29 @@ const Contact = () => {
           <div className={`mt-8 pt-6 border-t-2 ${dark ? 'border-gray-700' : 'border-gray-200'} text-center`}>
             <p className={`font-medium mb-4 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>Still have questions? We're here to help!</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={`tel:${CONTACT_INFO.phone}`} className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md hover:shadow-lg">
+              <a 
+                href={`tel:${CONTACT_INFO.phone}`} 
+                onClick={(e) => {
+                  if (!isOnline) {
+                    e.preventDefault();
+                    showAlert('⚠️ You are offline', 'Phone calls require an internet connection.');
+                  }
+                }}
+                className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-105"
+              >
                 <Phone className="w-5 h-5" />
                 Call Us Now
               </a>
-              <a href={`mailto:${CONTACT_INFO.email}`} className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all border-2 ${dark ? 'border-teal-600 text-teal-400 hover:bg-teal-900/20' : 'border-teal-600 text-teal-600 hover:bg-teal-50'}`}>
+              <a 
+                href={`mailto:${CONTACT_INFO.email}`} 
+                onClick={(e) => {
+                  if (!isOnline) {
+                    e.preventDefault();
+                    showAlert('⚠️ You are offline', 'Email requires an internet connection.');
+                  }
+                }}
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all border-2 cursor-pointer hover:scale-105 ${dark ? 'border-teal-600 text-teal-400 hover:bg-teal-900/20' : 'border-teal-600 text-teal-600 hover:bg-teal-50'}`}
+              >
                 <Mail className="w-5 h-5" />
                 Send Email
               </a>
@@ -182,5 +257,6 @@ const Contact = () => {
       </main>
     </div>
   );
-}
+};
+
 export default Contact;
