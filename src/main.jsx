@@ -20,6 +20,4 @@ if ('serviceWorker' in navigator) {
         console.error('❌ Service Worker registration failed:', err);
       });
   });
-} else {
-  console.log('Service Workers not supported');
 }
