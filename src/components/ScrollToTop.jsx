@@ -9,18 +9,16 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   const { isDarkMode } = useTheme();
 
-  // Auto scroll to top INSTANTLY when route changes (NO visible scroll animation)
+  // Auto scroll to top INSTANTLY when route changes (ZERO animation)
   useEffect(() => {
-    // Disable smooth scrolling temporarily
-    document.documentElement.style.scrollBehavior = 'instantly';
+    // Set to auto (instant) for route changes
+    document.documentElement.scrollBehavior = 'auto';
+    document.body.scrollBehavior = 'auto';
     
-    // Jump to top instantly
-    window.scrollTo(0, 0);
+    // Jump to top instantly without any animation
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     
-    // Re-enable smooth scrolling after a short delay
-    setTimeout(() => {
-      document.documentElement.style.scrollBehavior = 'instantly';
-    }, 100);
+    // Keep it auto for page navigation
   }, [pathname]);
 
   // Show/hide scroll button based on scroll position
@@ -34,6 +32,10 @@ const ScrollToTop = () => {
 
   // Smooth scroll to top when button is clicked
   const scrollToTop = () => {
+    // Enable smooth only for button click
+    document.documentElement.scrollBehavior = 'smooth';
+    document.body.scrollBehavior = 'smooth';
+    
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -81,10 +83,25 @@ const ScrollToTop = () => {
           animation: fadeIn 0.3s ease-in-out forwards;
         }
 
+        /* Default: NO smooth scrolling (instant for page navigation) */
         html {
+          scroll-behavior: auto;
+        }
+
+        body {
+          scroll-behavior: auto;
+        }
+
+        /* Smooth scrolling only when needed */
+        html.smooth-scroll {
           scroll-behavior: smooth;
         }
 
+        body.smooth-scroll {
+          scroll-behavior: smooth;
+        }
+
+        /* Optional: Add a subtle glow effect on hover */
         button:hover {
           box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
         }

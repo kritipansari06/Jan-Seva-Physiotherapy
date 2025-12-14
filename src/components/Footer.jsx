@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logoImage from '../assets/logo.png';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
@@ -14,7 +14,27 @@ const socials = [
 
 export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
   const { isDarkMode } = useTheme();
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [alertData, setAlertData] = useState({ show: false, title: '', message: '' });
   const sectionBorder = isDarkMode ? 'border-gray-800' : 'border-teal-200';
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  const showAlert = (title, message) => {
+    setAlertData({ show: true, title, message });
+    setTimeout(() => setAlertData({ show: false, title: '', message: '' }), 3000);
+  };
 
   const quickLinks = [
     { to: '/about', label: 'About Us' },
@@ -30,8 +50,37 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
     { to: '/treatments/wellness-prevention', label: 'Wellness' },
   ];
 
+  const handleExternalLinkClick = (e, label) => {
+    if (!isOnline) {
+      e.preventDefault();
+      showAlert('⚠️ You are offline', `${label} requires an internet connection.`);
+    }
+  };
+
+  const handleContactLinkClick = (e, type) => {
+    if (!isOnline) {
+      e.preventDefault();
+      const messages = {
+        email: 'Email requires an internet connection.',
+        phone: 'Phone calls require an internet connection.',
+      };
+      showAlert('⚠️ You are offline', messages[type]);
+    }
+  };
+
   return (
     <footer className={`${isDarkMode ? 'bg-gray-900 text-gray-300 border-gray-800' : 'bg-teal-50 text-gray-800 border-teal-500'} pt-16 pb-8 mt-20 border-t-4 transition duration-300`}>
+      
+      {/* Alert Modal */}
+      {alertData.show && (
+        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
+          <div className={`px-6 py-4 rounded-xl shadow-2xl border-2 ${isDarkMode ? 'bg-yellow-900/30 border-yellow-600 text-yellow-300' : 'bg-yellow-100 border-yellow-500 text-yellow-800'}`}>
+            <p className="font-bold text-lg">{alertData.title}</p>
+            <p className="text-sm">{alertData.message}</p>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 mb-8 border-b-2 ${sectionBorder}`}>
           <div className="space-y-4">
@@ -51,7 +100,10 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm`}>
+                  <Link 
+                    to={l.to} 
+                    className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline`}
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -64,7 +116,10 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <ul className="space-y-3">
               {focus.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm`}>
+                  <Link 
+                    to={l.to} 
+                    className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline`}
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -76,15 +131,27 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <h4 className={`text-lg font-bold mb-5 ${isDarkMode ? 'text-teal-400' : 'text-teal-700'}`}>Get in Touch</h4>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
-                <Mail className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5`} />
-                <a href="mailto:info@janservatrust.org" className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>info@janservatrust.org</a>
+                <Mail className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
+                <a 
+                  href="mailto:info@janservatrust.org" 
+                  onClick={(e) => handleContactLinkClick(e, 'email')}
+                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}
+                >
+                  info@janservatrust.org
+                </a>
               </li>
               <li className="flex items-start space-x-3">
-                <Phone className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5`} />
-                <a href="tel:+919876543210" className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>+91 98765 43210</a>
+                <Phone className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
+                <a 
+                  href="tel:+919876543210" 
+                  onClick={(e) => handleContactLinkClick(e, 'phone')}
+                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}
+                >
+                  +91 98765 43210
+                </a>
               </li>
               <li className="flex items-start space-x-3">
-                <MapPin className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5`} />
+                <MapPin className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
                 <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>Sikar, Rajasthan, India</span>
               </li>
             </ul>
@@ -93,7 +160,15 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
               {socials.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="text-gray-500 hover:text-teal-600 transition">
+                  <a 
+                    key={s.label} 
+                    href={s.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label={s.label}
+                    onClick={(e) => handleExternalLinkClick(e, s.label)}
+                    className={`${isDarkMode ? 'text-gray-500 hover:text-teal-400' : 'text-gray-500 hover:text-teal-600'} transition hover:scale-110`}
+                  >
                     <Icon className="w-6 h-6" />
                   </a>
                 );
