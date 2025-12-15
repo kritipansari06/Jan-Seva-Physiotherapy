@@ -50,6 +50,29 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  const reqUrl = new URL(event.request.url);
+
+  // Redirect legacy asset paths (e.g. /src/assets/images/...) to public folder (/images/...)
+  if (reqUrl.pathname.includes('/src/assets/images/')) {
+    const newPath = reqUrl.pathname.replace('/src/assets/images/', '/images/');
+    const redirectRequest = new Request(newPath, { method: 'GET', headers: event.request.headers, mode: 'same-origin' });
+
+    event.respondWith(
+      fetch(redirectRequest)
+        .then((response) => {
+          if (response && response.status === 200) {
+            caches.open(RUNTIME_CACHE).then((c) => c.put(redirectRequest, response.clone()));
+            return response;
+          }
+          return response;
+        })
+        .catch(() => {
+          return caches.match(redirectRequest).then((cached) => cached || new Response('Offline - Resource not available', { status: 503, statusText: 'Service Unavailable' }));
+        })
+    );
+    return;
+  }
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {
@@ -57,10 +80,10 @@ self.addEventListener('fetch', (event) => {
           return response;
         }
 
-        const cache = event.request.destination === 'image' 
-          ? RUNTIME_CACHE 
+        const cache = event.request.destination === 'image'
+          ? RUNTIME_CACHE
           : CACHE_NAME;
-        
+
         const responseToCache = response.clone();
         caches.open(cache).then((c) => {
           c.put(event.request, responseToCache);
