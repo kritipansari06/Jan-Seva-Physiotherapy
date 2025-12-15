@@ -1,12 +1,14 @@
+
 {
   "name": "Jan Seva Physiotherapy Center",
   "short_name": "Jan Seva Physio",
-  "description": "Comprehensive physiotherapy and rehabilitation services",
+  "description": "Comprehensive physiotherapy and rehabilitation services by R P Pansari Jan Seva Trust",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#0d9488",
   "background_color": "#ffffff",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "/logo.png",

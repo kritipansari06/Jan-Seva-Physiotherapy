@@ -1,3 +1,4 @@
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -14,10 +15,13 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/serviceWorker.js')
       .then(registration => {
-        console.log('✅ Service Worker registered:', registration.scope);
+        console.log('✅ Service Worker registered successfully');
+        console.log('Scope:', registration.scope);
       })
-      .catch(err => {
-        console.error('❌ Service Worker registration failed:', err);
+      .catch(error => {
+        console.error('❌ Service Worker registration failed:', error);
       });
   });
+} else {
+  console.log('Service Workers not supported in this browser');
 }
