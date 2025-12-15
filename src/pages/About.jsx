@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import DoctorImg from '../assets/images/Doctor.jpg';
 
 const About = () => {
   const { isDarkMode } = useTheme();
@@ -196,7 +195,7 @@ const About = () => {
           <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${cardBg}`}>
             <div className="grid md:grid-cols-3 gap-0">
               <div>
-                <img className="w-full h-full object-cover aspect-square md:aspect-auto" src={DoctorImg} alt="Dr. Shivam Sharma" />
+                <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
               </div>
               <div className="md:col-span-2 p-8">
                 <h3 className={`text-4xl font-bold mb-2 ${accentColor}`}>Dr. Shivam Sharma</h3>
