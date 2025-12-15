@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import heroBg from '../assets/images/physio2.png'; 
 
-import featureIcon1 from '../assets/react.svg';
-import featureIcon2 from '../assets/vite.svg';
-import featureIcon3 from '../assets/vite.svg';
-
 import testimonial1 from '../assets/images/testimonial1.png';
 import testimonial2 from '../assets/images/testimonial2.png';
 import testimonial3 from '../assets/images/testimonial3.png';
