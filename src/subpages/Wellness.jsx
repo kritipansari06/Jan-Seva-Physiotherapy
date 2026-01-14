@@ -3,12 +3,12 @@ import { useTheme } from '../context/ThemeContext';
 
 const WellnessData = {
     keyWellness: [
-        { id: 'posture', title: 'Posture & Ergonomic Wellness', icon: '🧘', description: 'Correcting <strong>sitting, standing, and working positions</strong> to reduce strain on the neck, back, and joints. Prevents chronic pain, improves spinal alignment, and reduces work-related muscle tension.' },
-        { id: 'lifestyle', title: 'Lifestyle & Fitness Wellness', icon: '💪', description: 'Guidance on <strong>daily physical activity, flexibility routines, strengthening exercises</strong>, and healthy movement patterns. Supports long-term health, weight control, energy levels, and better musculoskeletal function.' },
-        { id: 'injury-prevention', title: 'Injury Prevention Wellness', icon: '🛡️', description: 'Includes <strong>warm-up routines, core strengthening, flexibility training</strong>, and movement correction. Helps avoid sports injuries, workplace strain, and overuse problems by building joint resilience.' },
-        { id: 'stress-relief', title: 'Stress Relief & Relaxation Wellness', icon: '🧘‍♀️', description: 'Uses <strong>deep breathing, stretching, mindfulness</strong>, and gentle mobility exercises to reduce muscle tension and improve mental calmness. Prevents stress-related stiffness, headaches, and posture issues.' },
-        { id: 'chronic-management', title: 'Chronic Condition Management', icon: '❤️', description: 'Supports long-term control of <strong>arthritis, back pain, joint degeneration</strong>, and lifestyle-related disorders. Focuses on mobility exercises and joint-protection strategies to maintain comfort and independence.' },
-        { id: 'preventive-care', title: 'Preventive Care & Health Optimization', icon: '⭐', description: 'Proactive wellness strategies including <strong>body awareness, movement screening</strong>, and early intervention. Helps identify potential issues before they develop into serious conditions.' }
+        { id: 'posture', title: 'Posture & Ergonomic Wellness', image: '/images/wellness/posture.jpg', description: 'Correcting <strong>sitting, standing, and working positions</strong> to reduce strain on the neck, back, and joints. Prevents chronic pain, improves spinal alignment, and reduces work-related muscle tension.' },
+        { id: 'lifestyle', title: 'Lifestyle & Fitness Wellness', image: '/images/wellness/lifestyle.jpg', description: 'Guidance on <strong>daily physical activity, flexibility routines, strengthening exercises</strong>, and healthy movement patterns. Supports long-term health, weight control, energy levels, and better musculoskeletal function.' },
+        { id: 'injury-prevention', title: 'Injury Prevention Wellness', image: '/images/wellness/injury-prevention.jpg', description: 'Includes <strong>warm-up routines, core strengthening, flexibility training</strong>, and movement correction. Helps avoid sports injuries, workplace strain, and overuse problems by building joint resilience.' },
+        { id: 'stress-relief', title: 'Stress Relief & Relaxation Wellness', image: '/images/wellness/stress-relief.jpg', description: 'Uses <strong>deep breathing, stretching, mindfulness</strong>, and gentle mobility exercises to reduce muscle tension and improve mental calmness. Prevents stress-related stiffness, headaches, and posture issues.' },
+        { id: 'chronic-management', title: 'Chronic Condition Management', image: '/images/wellness/chronic-management.jpg', description: 'Supports long-term control of <strong>arthritis, back pain, joint degeneration</strong>, and lifestyle-related disorders. Focuses on mobility exercises and joint-protection strategies to maintain comfort and independence.' },
+        { id: 'preventive-care', title: 'Preventive Care & Health Optimization', image: '/images/wellness/preventive-care.jpg', description: 'Proactive wellness strategies including <strong>body awareness, movement screening</strong>, and early intervention. Helps identify potential issues before they develop into serious conditions.' }
     ],
     secondaryWellness: [
         { id: 'posture-mobility', title: 'Posture & Ergonomic Wellness (Body Awareness)', description: 'Enhances body awareness and <strong>workstation ergonomics</strong> to protect the spine and reduce repetitive strain injuries. Encourages balanced posture during daily movements to prevent chronic musculoskeletal issues.' },
@@ -17,12 +17,12 @@ const WellnessData = {
         { id: 'stress-relaxation', title: 'Stress Relief & Relaxation Wellness (Mental Health)', description: 'Improves emotional well-being by reducing tension using <strong>gentle mobility work, controlled breathing, and guided relaxation</strong> methods. Supports better sleep, reduced fatigue, and calmer daily functioning.' }
     ],
     advancedWellness: [
-        { id: 'posture-longterm', title: 'Posture & Ergonomic Wellness', icon: '🎯', description: 'Develops long-term posture correction habits and <strong>ergonomic adjustments</strong> that protect joints during work, sports, and routine activities. Helps minimize spinal stress and improve movement efficiency.' },
-        { id: 'lifestyle-sustainable', title: 'Lifestyle & Fitness Wellness', icon: '🌟', description: 'Encourages <strong>sustainable fitness, healthy mobility, and strength-based wellness</strong>. Supports long-term physical health by promoting consistent exercise, active living, and good movement quality.' },
-        { id: 'injury-prevention-strategy', title: 'Injury Prevention Wellness', icon: '🔒', description: 'Creates long-term prevention strategies using <strong>core stability, balance training, flexibility routines</strong>, and corrective exercises. Safeguards the body from recurring injuries and age-related declines.' },
-        { id: 'stress-management', title: 'Stress Relief & Relaxation Wellness', icon: '☮️', description: 'Focuses on long-term <strong>muscle relaxation, improved breathing patterns, and stress management</strong> routines. Enhances recovery, supports mental health, and maintains physical comfort.' },
-        { id: 'chronic-ongoing', title: 'Chronic Condition Management', icon: '🩺', description: 'Provides ongoing wellness support for conditions requiring continuous care. Helps <strong>maintain mobility, reduce flare-ups</strong>, and ensure better functional capacity through guided therapeutic routines.' },
-        { id: 'holistic-wellness', title: 'Holistic Health & Well-being', icon: '🌈', description: 'Integrates <strong>physical, mental, and lifestyle wellness</strong> for comprehensive health optimization. Promotes balance between body function, emotional health, and daily vitality for sustained quality of life.' }
+        { id: 'posture-longterm', title: 'Posture & Ergonomic Wellness', image: '/images/wellness/posture-longterm.jpg', description: 'Develops long-term posture correction habits and <strong>ergonomic adjustments</strong> that protect joints during work, sports, and routine activities. Helps minimize spinal stress and improve movement efficiency.' },
+        { id: 'lifestyle-sustainable', title: 'Lifestyle & Fitness Wellness', image: '/images/wellness/lifestyle-sustainable.jpg', description: 'Encourages <strong>sustainable fitness, healthy mobility, and strength-based wellness</strong>. Supports long-term physical health by promoting consistent exercise, active living, and good movement quality.' },
+        { id: 'injury-prevention-strategy', title: 'Injury Prevention Wellness', image: '/images/wellness/injury-prevention-strategy.jpg', description: 'Creates long-term prevention strategies using <strong>core stability, balance training, flexibility routines</strong>, and corrective exercises. Safeguards the body from recurring injuries and age-related declines.' },
+        { id: 'stress-management', title: 'Stress Relief & Relaxation Wellness', image: '/images/wellness/stress-management.jpg', description: 'Focuses on long-term <strong>muscle relaxation, improved breathing patterns, and stress management</strong> routines. Enhances recovery, supports mental health, and maintains physical comfort.' },
+        { id: 'chronic-ongoing', title: 'Chronic Condition Management', image: '/images/wellness/chronic-ongoing.jpg', description: 'Provides ongoing wellness support for conditions requiring continuous care. Helps <strong>maintain mobility, reduce flare-ups</strong>, and ensure better functional capacity through guided therapeutic routines.' },
+        { id: 'holistic-wellness', title: 'Holistic Health & Well-being', image: '/images/wellness/holistic-wellness.jpg', description: 'Integrates <strong>physical, mental, and lifestyle wellness</strong> for comprehensive health optimization. Promotes balance between body function, emotional health, and daily vitality for sustained quality of life.' }
     ]
 };
 
@@ -30,6 +30,7 @@ const Wellness = () => {
     const { isDarkMode } = useTheme();
     const [activeSecondaryId, setActiveSecondaryId] = useState(null);
     const [selectedBenefit, setSelectedBenefit] = useState('prevention');
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const toggleAccordion = (id) => {
         setActiveSecondaryId(activeSecondaryId === id ? null : id);
@@ -48,6 +49,18 @@ const Wellness = () => {
 
     return (
         <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+            {/* Image Modal */}
+            {selectedImage && (
+                <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                    onClick={() => setSelectedImage(null)}>
+                    <button className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+                        onClick={() => setSelectedImage(null)} aria-label="Close">
+                    </button>
+                    <img src={selectedImage} alt="Enlarged view" className="max-w-full max-h-full object-contain rounded-lg"
+                        onClick={(e) => e.stopPropagation()}/>
+                </div>
+            )}
+
             <div className="max-w-6xl mx-auto px-4 py-12">
                 <h1 className="text-5xl font-bold text-center mb-4 bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     जन सेवा फिज़ियो सेंटर — Wellness Programs
@@ -72,8 +85,7 @@ const Wellness = () => {
                                         : isDarkMode
                                         ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                }`}
-                            >
+                                }`}>
                                 <span className="text-xl">{benefitsData[key].icon}</span>
                                 {benefitsData[key].title}
                             </button>
@@ -97,15 +109,17 @@ const Wellness = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                         {WellnessData.keyWellness.map((wellness) => (
-                            <div 
-                                key={wellness.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
+                            <div key={wellness.id} className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
                                     isDarkMode
                                         ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
                                         : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}
-                            >
-                                <div className="text-5xl mb-4">{wellness.icon}</div>
+                                }`}>
+                                {/* Image Container */}
+                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
+                                    <img src={wellness.image} alt={wellness.title}
+                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                                        onClick={() => setSelectedImage(wellness.image)}/>
+                                </div>
                                 <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                                     {wellness.title}
                                 </h3>
@@ -122,12 +136,10 @@ const Wellness = () => {
                         </h3>
                         {WellnessData.secondaryWellness.map((wellness) => (
                             <div key={wellness.id} className={`border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                                <button
-                                    onClick={() => toggleAccordion(wellness.id)}
+                                <button onClick={() => toggleAccordion(wellness.id)}
                                     className={`w-full text-left p-4 font-semibold flex justify-between items-center hover:text-purple-600 transition-colors ${
                                         isDarkMode ? 'text-gray-300' : 'text-gray-900'
-                                    }`}
-                                >
+                                    }`}>
                                     {wellness.title}
                                     <span className="text-2xl">{activeSecondaryId === wellness.id ? '−' : '+'}</span>
                                 </button>
@@ -148,20 +160,21 @@ const Wellness = () => {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {WellnessData.advancedWellness.map((wellness) => (
-                            <div 
-                                key={wellness.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 ${
+                            <div key={wellness.id}
+                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
                                     isDarkMode
                                         ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
                                         : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}
-                            >
-                                <div className="flex items-center gap-3 mb-3">
-                                    <span className="text-3xl">{wellness.icon}</span>
-                                    <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                                        {wellness.title}
-                                    </h3>
+                                }`}>
+                                {/* Image Container */}
+                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
+                                    <img src={wellness.image} alt={wellness.title}
+                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                                        onClick={() => setSelectedImage(wellness.image)}/>
                                 </div>
+                                <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                                    {wellness.title}
+                                </h3>
                                 <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
                                     dangerouslySetInnerHTML={createMarkup(wellness.description)} />
                             </div>

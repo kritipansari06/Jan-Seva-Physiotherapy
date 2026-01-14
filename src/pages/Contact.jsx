@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MessageCircle, MapPin, Clock, Send, Navigation, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { FaWhatsapp, FaFacebookF, FaInstagram} from 'react-icons/fa';
 
 const CONTACT_INFO = {
-  address: 'Sikar, Rajasthan, India',
-  phone: '+91 98765 43210',
-  email: 'info@janservatrust.org',
-  whatsapp: 'https://wa.me/919876543210',
-  facebook: 'https://www.facebook.com/janservaphysio',
-  instagram: 'https://www.instagram.com/janservaphysio',
-  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.8297047340377!2d75.8372!3d27.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5a5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sSikar%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1234567890',
+  address: 'Near Government Sodhani Hospital, Main Market, Losal (Sikar - Rajasthan), India',
+  phone: '+91 8769220073',
+  email: 'jansevalosal@gmail.com',
+  whatsapp: 'https://wa.me/918769220073',
+  facebook: 'https://www.facebook.com/janseva.physiocentre',
+  instagram: 'https://www.instagram.com/jansevaphysiolosal',
+  mapUrl: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1771.157499496808!2d74.9153856!3d27.3971006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396b61004df57ab1%3A0x40a025b518b1c8da!2z4KSc4KSoIOCkuOClh-CkteCkviDgpKvgpL_gpJzgpL_gpK_gpYsg4KS44KWH4KSo4KWN4KSf4KSwIOCksuCli-CkuOCksg!5e0!3m2!1sen!2sin!4v1766948229199!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
 };
 
 const CONTACTS = [
   { icon: Phone, title: 'Call Now', href: `tel:${CONTACT_INFO.phone}`, text: CONTACT_INFO.phone, color: 'teal' },
   { icon: Mail, title: 'Send Mail', href: `mailto:${CONTACT_INFO.email}`, text: CONTACT_INFO.email, color: 'blue' },
-  { icon: Send, title: 'WhatsApp', href: CONTACT_INFO.whatsapp, text: 'Message Us', color: 'green', external: true },
-  { icon: MessageCircle, title: 'Instagram', href: CONTACT_INFO.instagram, text: 'Message Us', color: 'pink', external: true },
-  { icon: MessageCircle, title: 'Facebook', href: CONTACT_INFO.facebook, text: 'Message Us', color: 'purple', external: true },
+  { icon: FaWhatsapp, title: 'WhatsApp', href: CONTACT_INFO.whatsapp, text: 'Message Us', color: 'green', external: true },
+  { icon: FaInstagram, title: 'Instagram', href: CONTACT_INFO.instagram, text: 'Message Us', color: 'pink', external: true },
+  { icon: FaFacebookF, title: 'Facebook', href: CONTACT_INFO.facebook, text: 'Message Us', color: 'purple', external: true },
 ];
 
 const HOURS = [
-  { day: 'Monday - Friday', time: '9:00 AM - 5:00 PM', color: 'teal' },
-  { day: 'Saturday', time: 'Emergency Only', color: 'orange' },
+  { day: 'Monday - Saturday', time: '9:00 AM - 5:00 PM', color: 'teal' },
   { day: 'Sunday', time: 'Closed', color: 'red' },
 ];
 
@@ -147,7 +147,7 @@ const Contact = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Visit Our Clinic</h2>
               <p className="text-white text-lg opacity-90 mb-4">{CONTACT_INFO.address}</p>
               <a 
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
+                href={`https://maps.app.goo.gl/kyccojDG5yauqshF9?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={handleMapClick}
@@ -181,14 +181,14 @@ const Contact = () => {
 
             {/* Hours */}
             <div className={`p-6 ${dark ? 'bg-gray-800 border-t border-gray-700' : 'bg-gray-50 border-t border-gray-200'}`}>
-              <div className="max-w-4xl mx-auto">
-                <div className="flex items-center justify-center mb-4">
+              <div className="max-w-4xl mx-auto flex flex-col items-center">
+                <div className="flex items-center justify-center mb-6">
                   <Clock className={`w-6 h-6 mr-2 ${dark ? 'text-teal-400' : 'text-teal-600'}`} />
                   <h3 className={`text-xl font-bold ${dark ? 'text-white' : 'text-gray-800'}`}>Operating Hours</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md">
                   {HOURS.map((h, i) => (
-                    <div key={i} className={`p-4 rounded-xl border-2 shadow-sm ${dark ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
+                    <div key={i} className={`flex-1 p-4 rounded-xl border-2 shadow-sm text-center ${dark ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
                       <p className={`font-semibold mb-1 ${dark ? 'text-teal-400' : 'text-teal-600'}`}>{h.day}</p>
                       <p className={`font-bold ${dark ? 'text-gray-300' : 'text-gray-700'}`}>{h.time}</p>
                     </div>

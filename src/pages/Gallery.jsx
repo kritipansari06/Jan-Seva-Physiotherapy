@@ -1,15 +1,2153 @@
-import React, { useEffect, useRef } from 'react';
+// // // import React, { useEffect, useRef } from 'react';
+// // // import { useTheme } from '../context/ThemeContext';
+// // // import img1 from '../assets/images/1.JPG';
+// // // import img2 from '../assets/images/2.JPG';
+// // // import img3 from '../assets/images/3.JPG';
+// // // import img4 from '../assets/images/4.JPG';
+// // // import img5 from '../assets/images/5.JPG';
+// // // import img6 from '../assets/images/6.JPG';
+
+// // // const Gallery = () => {
+// // //   const { isDarkMode } = useTheme();
+// // //   const cardsRef = useRef([]);
+
+// // //   useEffect(() => {
+// // //     const cards = cardsRef.current.filter(Boolean);
+    
+// // //     cards.forEach(card => {
+// // //         if (card) {
+// // //             card.classList.remove('visible');
+// // //             card.style.transitionDelay = ''; 
+// // //         }
+// // //     });
+
+// // //     const observer = new IntersectionObserver((entries) => {
+// // //       entries.forEach((entry) => {
+// // //         const index = cards.indexOf(entry.target);
+// // //         if (entry.isIntersecting) {
+// // //           entry.target.style.transitionDelay = `${index * 40}ms`;
+// // //           entry.target.classList.add('visible');
+// // //         } else {
+// // //           entry.target.classList.remove('visible');
+// // //         }
+// // //       });
+// // //     }, {
+// // //       threshold: 0.1
+// // //     });
+
+// // //     cards.forEach(card => {
+// // //       observer.observe(card);
+// // //     });
+
+// // //     return () => {
+// // //       cards.forEach(card => {
+// // //         if (card) {
+// // //             observer.unobserve(card);
+// // //         }
+// // //       });
+// // //     };
+// // //   }, [isDarkMode]);
+
+// // //   const handleCardClick = (e, index) => {
+// // //     e.preventDefault();
+// // //     const card = cardsRef.current[index];
+// // //     const cardsContainer = document.querySelector('.cards');
+    
+// // //     let isShowing = false;
+
+// // //     if (card.classList.contains('show')) {
+// // //       isShowing = true;
+// // //     }
+
+// // //     if (cardsContainer.classList.contains('showing')) {
+// // //       const showingCard = document.querySelector('div.card.show');
+// // //       if (showingCard) {
+// // //         showingCard.classList.remove('show');
+// // //       }
+
+// // //       if (isShowing) {
+// // //         cardsContainer.classList.remove('showing');
+// // //       } else {
+// // //         const zindex = parseInt(card.style.zIndex || 10) + 1;
+// // //         card.style.zIndex = zindex;
+// // //         card.classList.add('show');
+// // //       }
+// // //     } else {
+// // //       cardsContainer.classList.add('showing');
+// // //       const zindex = parseInt(card.style.zIndex || 10) + 1;
+// // //       card.style.zIndex = zindex;
+// // //       card.classList.add('show');
+// // //     }
+// // //   };
+
+// // //   return (
+// // //     <>
+// // //       <style>{`
+// // //         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+// // //         .gallery-page-wrapper {
+// // //           background-color: ${isDarkMode ? '#111827' : 'white'};
+// // //           transition: background-color 0.3s ease;
+// // //         }
+
+// // //         ::-webkit-scrollbar {
+// // //           width: 1px;
+// // //           height: 1px;
+// // //         }
+
+// // //         ::-webkit-scrollbar-button {
+// // //           width: 1px;
+// // //           height: 1px;
+// // //         }
+
+// // //         .gallery-page-wrapper .external {
+// // //           overflow: hidden;
+// // //           height: 100vh;
+// // //           background: ${isDarkMode ? '#111827' : 'white'};
+// // //           transition: background-color 0.3s ease;
+// // //         }
+
+// // //         .gallery-page-wrapper .horizontal-scroll-wrapper {
+// // //           display: flex;
+// // //           flex-direction: column;
+// // //           align-items: center;
+// // //           width: 100vh;
+// // //           transform: rotate(-90deg) translate3d(0,-100vh,0);
+// // //           transform-origin: right top;
+// // //           overflow-y: auto;
+// // //           overflow-x: hidden;
+// // //           padding: 0;
+// // //           height: 100vw;
+// // //           perspective: 1px;
+// // //           transform-style: preserve-3d;
+// // //           padding-bottom: 10rem;
+// // //         }
+
+// // //         .gallery-page-wrapper .img-wrapper {
+// // //           transform: rotate(90deg);
+// // //           display: flex;
+// // //           align-items: center;
+// // //           justify-content: center;
+// // //           min-height: 40vh;
+// // //           transform-origin: 50% 50%;
+// // //           transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
+// // //           transition: 1s;
+// // //         }
+
+// // //         .gallery-page-wrapper .img-wrapper:hover {
+// // //           min-height: 65vh;
+// // //         }
+
+// // //         .gallery-page-wrapper .slower {
+// // //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .slower1 {
+// // //           transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .slower2 {
+// // //           transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .slower-down {
+// // //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .faster {
+// // //           transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .faster1 {
+// // //           transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .fastest {
+// // //           transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .vertical {
+// // //           transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
+// // //         }
+
+// // //         .gallery-page-wrapper .last {
+// // //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
+// // //         }
+
+// // //         .gallery-page-wrapper .scroll-info, 
+// // //         .gallery-page-wrapper header {
+// // //           position: absolute;
+// // //           left: 1rem;
+// // //         }
+
+// // //         .gallery-page-wrapper header {
+// // //           bottom: 1rem;
+// // //         }
+
+// // //         .gallery-page-wrapper .scroll-info {
+// // //           top: 1rem;
+// // //         }
+
+// // //         .gallery-page-wrapper a {
+// // //           color: inherit;
+// // //           font-weight: 500;
+// // //         }
+
+// // //         .gallery-page-wrapper h1 {
+// // //           font-weight: 300;
+// // //           font-size: 1rem;
+// // //         }
+
+// // //         .gallery-page-wrapper .img-wrapper a {
+// // //           overflow: hidden;
+// // //           display: block;
+// // //           padding: 1vh;
+// // //           background: ${isDarkMode ? '#2d3748' : '#efecdb'};
+// // //           box-shadow: 0 10px 50px ${isDarkMode ? 'rgba(0,0,0,0.4)' : '#5f2f1182'};
+// // //           transition: all 0.3s ease;
+// // //         }
+
+// // //         .gallery-page-wrapper .img-wrapper img {
+// // //           max-width: 45vh;
+// // //           max-height: 50vh;
+// // //           transition: .5s;
+// // //           vertical-align: top;
+// // //           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
+// // //         }
+
+// // //         .gallery-page-wrapper .img-wrapper a:hover img {
+// // //           filter: none;
+// // //         }
+
+// // //         .gallery-page-wrapper .card__image {
+// // //           max-width: 300px;
+// // //           filter: none;
+// // //           color: ${isDarkMode ? '#ffffff' : '#111827'};
+// // //         }
+
+// // //         .gallery-page-wrapper p {
+// // //           margin: 0;
+// // //         }
+
+// // //         .gallery-page-wrapper .scroll-info {
+// // //           display: flex;
+// // //           align-items: center;
+// // //         }
+
+// // //         .gallery-page-wrapper .icon svg {
+// // //           width: 50px;
+// // //           fill: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// // //         }
+
+// // //         :root {
+// // //           --white: #ffffff;
+// // //           --lightBG: #dce1df;
+// // //           --salmon: #ff6666;
+// // //           --teal: #0096a0;
+// // //           --tealMid: #0ebac7;
+// // //           --tealContrast: #33ffff;
+// // //           --tealShade: #007c85;
+// // //           --darkGrey: #4f585e;
+// // //         }
+
+// // //         .gallery-page-wrapper a.btn {
+// // //           background: var(--teal);
+// // //           border-radius: 4px;
+// // //           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+// // //           color: var(--white);
+// // //           display: inline-block;
+// // //           padding: 6px 30px 8px;
+// // //           position: relative;
+// // //           text-decoration: none;
+// // //           transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+// // //         }
+
+// // //         .gallery-page-wrapper .no-touch a.btn:hover {
+// // //           background: var(--tealMid);
+// // //           box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+// // //           transform: translateY(-2px);
+// // //         }
+
+// // //         .gallery-page-wrapper .no-touch a.btn:active,
+// // //         .gallery-page-wrapper a.btn:active {
+// // //           background: var(--tealShade);
+// // //           box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+// // //           transform: translate3d(0,1px,0);
+// // //         }
+
+// // //         .gallery-page-wrapper .cards {
+// // //           margin: 0 auto 80px auto; 
+// // //           max-width: 960px;
+// // //           text-align: center;
+// // //           background: ${isDarkMode ? '#111827' : 'white'}; 
+// // //           transition: background-color 0.3s ease;
+// // //           padding-top: 80px;
+// // //           padding-bottom: 80px; 
+// // //         }
+
+// // //         .gallery-page-wrapper .card {
+// // //           background: ${isDarkMode ? '#374151' : 'white'};
+// // //           display: inline-block;
+// // //           margin: 8px;
+// // //           max-width: 300px;
+// // //           perspective: 1000;
+// // //           position: relative;
+// // //           text-align: left;
+// // //           transition: opacity 0.3s ease, transform 0.3s ease;
+// // //           width: 300px;
+// // //           z-index: 1;
+// // //           border: 1px solid ${isDarkMode ? '#4b5563' : '#e0e0e0'};
+// // //           border-radius: 8px;
+// // //           box-shadow: ${isDarkMode ? '0 4px 6px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card img {
+// // //           max-width: 300px;
+// // //           color: ${isDarkMode ? '#ffffff' : '#111827'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card .card__image-holder {
+// // //           background: ${isDarkMode ? '#2d3748' : 'rgba(0,0,0,0.1)'};
+// // //           height: 0;
+// // //           padding-bottom: 75%;
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title {
+// // //           background: ${isDarkMode ? '#374151' : 'white'};
+// // //           padding: 6px 15px 10px;
+// // //           position: relative;
+// // //           z-index: 0;
+// // //           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title a.toggle-info {
+// // //           border-radius: 32px;
+// // //           height: 32px;
+// // //           padding: 0;
+// // //           position: absolute;
+// // //           right: 15px;
+// // //           top: 10px;
+// // //           width: 32px;
+// // //           background: var(--teal);
+// // //           transition: background-color 0.2s ease;
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title a.toggle-info:hover {
+// // //           background: var(--tealShade) !important;
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title a.toggle-info span {
+// // //           background: ${isDarkMode ? '#f3f4f6' : 'var(--white)'};
+// // //           display: block;
+// // //           height: 2px;
+// // //           position: absolute;
+// // //           top: 16px;
+// // //           transition: transform 0.2s ease;
+// // //           width: 12px;
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title a.toggle-info span.left {
+// // //           right: 14px;
+// // //           transform: rotate(45deg);
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title a.toggle-info span.right {
+// // //           left: 14px;
+// // //           transform: rotate(-45deg);
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title h2 {
+// // //           font-size: 24px;
+// // //           font-weight: 700;
+// // //           letter-spacing: -0.05em;
+// // //           margin: 0;
+// // //           padding: 0;
+// // //           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-title h2 small {
+// // //           display: block;
+// // //           font-size: 18px;
+// // //           font-weight: 600;
+// // //           letter-spacing: -0.025em;
+// // //           color: ${isDarkMode ? '#d1d5db' : '#666'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-description {
+// // //           padding: 0 15px 10px;
+// // //           position: relative;
+// // //           font-size: 14px;
+// // //           color: ${isDarkMode ? '#d1d5db' : '#666'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-actions {
+// // //           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
+// // //           padding: 10px 15px 20px;
+// // //           text-align: center;
+// // //           background: ${isDarkMode ? '#2d3748' : 'white'};
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.card-flap {
+// // //           background: ${isDarkMode ? '#374151' : 'white'};
+// // //           position: absolute;
+// // //           width: 100%;
+// // //           transform-origin: top;
+// // //           transform: rotateX(-90deg);
+// // //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.flap1 {
+// // //           z-index: -1;
+// // //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// // //         }
+
+// // //         .gallery-page-wrapper .card div.flap2 {
+// // //           z-index: -2;
+// // //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// // //         }
+
+// // //         .gallery-page-wrapper .cards.showing .card {
+// // //           cursor: pointer;
+// // //           opacity: 0.6;
+// // //           transform: scale(0.88);
+// // //         }
+
+// // //         .gallery-page-wrapper .no-touch .cards.showing .card:hover {
+// // //           opacity: 0.94;
+// // //           transform: scale(0.92);
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show {
+// // //           opacity: 1 !important;
+// // //           transform: scale(1) !important;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .card-title a.toggle-info {
+// // //           background: var(--salmon) !important;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .card-title a.toggle-info span {
+// // //           top: 15px;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .card-title a.toggle-info span.left {
+// // //           right: 10px;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .card-title a.toggle-info span.right {
+// // //           left: 10px;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .card-flap {
+// // //           transform: rotateX(0deg);
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .flap1 {
+// // //           transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// // //         }
+
+// // //         .gallery-page-wrapper .card.show .flap2 {
+// // //           transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// // //         }
+
+// // //         .gallery-page-wrapper .card {
+// // //           opacity: 0;
+// // //           transform: translateY(20px);
+// // //           transition: opacity 0.5s ease, transform 0.5s ease;
+// // //         }
+
+// // //         .gallery-page-wrapper .card.visible {
+// // //           opacity: 1;
+// // //           transform: translateY(0);
+// // //         }
+
+// // //         .gallery-page-wrapper .scroll-info {
+// // //           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// // //         }
+
+// // //         .gallery-page-wrapper header {
+// // //           color: ${isDarkMode ? '#d1d5db' : 'currentColor'};
+// // //         }
+
+// // //         .gallery-page-wrapper header p {
+// // //           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// // //         }
+
+// // //         .gallery-page-wrapper header h1 {
+// // //           color: ${isDarkMode ? '#f3f4f6' : 'currentColor'};
+// // //         }
+// // //       `}</style>
+
+// // //       <div className="gallery-page-wrapper">
+// // //         <div className="external">
+// // //           <div className="horizontal-scroll-wrapper">
+// // //             <div className="img-wrapper slower">
+// // //               <a href="https://altphotos.com/photo/stylish-parisian-cafe-terrace-279/" target="_blank" rel="noopener">
+// // //                 <img src={img1} alt="Gallery Image 1" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper faster">
+// // //               <a href="https://altphotos.com/photo/retro-boy-doll-wearing-elegant-clothes-330/" target="_blank" rel="noopener">
+// // //                 <img src={img2} alt="Gallery Image 2" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper slower vertical">
+// // //               <a href="https://altphotos.com/photo/clocks-shop-exposition-window-reflecting-the-streets-277/" target="_blank" rel="noopener">
+// // //                 <img src={img3} alt="Gallery Image 3" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper slower slower-down">
+// // //               <a href="https://altphotos.com/photo/swans-and-ducks-swimming-in-a-river-264/" target="_blank" rel="noopener">
+// // //                 <img src={img4} alt="Gallery Image 4" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper">
+// // //               <a href="https://altphotos.com/photo/sidewalk-terrace-of-a-blue-facade-cafe-312/" target="_blank" rel="noopener">
+// // //                 <img src={img5} alt="Gallery Image 5" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper slower">
+// // //               <a href="https://altphotos.com/photo/paris-waterfront-at-sunset-1555/" target="_blank" rel="noopener">
+// // //                 <img src={img6} alt="Gallery Image 6" />
+// // //               </a>
+// // //             </div>
+
+// // //             <div className="img-wrapper faster1">
+// // //               <a href="https://altphotos.com/photo/old-man-leaning-over-the-barrier-looking-at-the-river-265/" target="_blank" rel="noopener">
+// // //                 <img src={img6} alt="Gallery Image 7" />
+// // //               </a>
+// // //             </div>
+            
+// // //             <div className="img-wrapper slower slower2">
+// // //               <a href="https://altphotos.com/photo/cafe-terrace-with-a-row-of-retro-tables-261/" target="_blank" rel="noopener">
+// // //                 <img src={img1} alt="Gallery Image 8" />
+// // //               </a>
+// // //             </div>
+            
+// // //             <div className="img-wrapper">
+// // //               <a href="https://altphotos.com/photo/street-scene-with-pedestrians-and-dogs-318/" target="_blank" rel="noopener">
+// // //                 <img src={img1} alt="Gallery Image 9" />
+// // //               </a>
+// // //             </div>
+            
+// // //             <div className="img-wrapper slower">
+// // //               <a href="https://altphotos.com/photo/tourist-barge-on-the-river-seine-near-notre-dame-266/" target="_blank" rel="noopener">
+// // //                 <img src={img2} alt="Gallery Image 10" />
+// // //               </a>
+// // //             </div>
+            
+// // //             <div className="img-wrapper slower last">
+// // //               <a href="https://altphotos.com/photo/skulls-decoration-in-a-shop-window-331/" target="_blank" rel="noopener">
+// // //                 <img src={img1} alt="Gallery Image 11" />
+// // //               </a>
+// // //             </div>
+// // //           </div>
+
+// // //           <p className="scroll-info">
+// // //             <span className="icon">
+// // //               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
+// // //                 <path d="M50,67.1c-0.6,0-1.2-0.2-1.8-0.7c-3.8-3.8-7.7-7.7-11.5-11.5c-2.3-2.3,1.2-5.8,3.5-3.5c2.5,2.5,4.9,4.9,7.4,7.4      c0-13.7,0-27.4,0-41.2c0-0.6,0.2-1.2,0.5-1.5c0,0,0,0,0,0c0.4-0.6,1.1-1,2-0.9c13.7,0.3,26.4,7.2,33.5,19.1      C96.5,55.9,84.7,85,60.2,91.6C35.5,98.2,11.6,79.1,11.1,54c-0.1-3.2,4.9-3.2,5,0c0.3,13.8,8.4,26.4,21.3,31.5      c12.5,5,27.1,1.9,36.6-7.5c9.5-9.5,12.5-24.1,7.5-36.6c-4.8-12.1-16.3-20.1-29-21.2c0,12.8,0,25.5,0,38.3      c2.5-2.5,4.9-4.9,7.4-7.4c2.3-2.3,5.8,1.3,3.5,3.5c-3.9,3.9-7.8,7.8-11.8,11.8C51.2,66.9,50.6,67.1,50,67.1z"/>
+// // //               </svg>
+// // //             </span> Try scrolling down
+// // //           </p>
+
+// // //           <header>
+// // //             <p>Clinic Gallery</p>
+// // //             <h1>Visual journey through our facilities and services</h1>
+// // //             <p>Explore our state-of-the-art rehabilitation center</p>
+// // //           </header>
+// // //         </div>
+
+// // //         <div className="cards">
+// // //           {[...Array(24)].map((_, i) => (
+// // //             <div 
+// // //               key={i} 
+// // //               className="card" 
+// // //               ref={el => cardsRef.current[i] = el}
+// // //               onClick={(e) => handleCardClick(e, i)}>
+// // //               <div className="card__image-holder">
+// // //                 <img className="card__image" src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
+// // //                   alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} />
+// // //               </div>
+// // //               <div className="card-title">
+// // //                 <a href="#" className="toggle-info btn">
+// // //                   <span className="left"></span>
+// // //                   <span className="right"></span>
+// // //                 </a>
+// // //                 <h2>
+// // //                   Jan Seva Gallery
+// // //                   <small>Professional Facilities</small>
+// // //                 </h2>
+// // //               </div>
+// // //               <div className="card-flap flap1">
+// // //                 <div className="card-description">
+// // //                   Explore our world-class physiotherapy center with state-of-the-art equipment and comfortable therapy spaces designed for your recovery.
+// // //                 </div>
+// // //                 <div className="card-flap flap2">
+// // //                   <div className="card-actions">
+// // //                     <a href="#" className="btn">Learn More</a>
+// // //                   </div>
+// // //                 </div>
+// // //               </div>
+// // //             </div>
+// // //           ))}
+// // //         </div>
+// // //       </div>
+// // //     </>
+// // //   );
+// // // };
+
+// // // export default Gallery;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // import React, { useEffect, useRef } from 'react';
+// // import { useTheme } from '../context/ThemeContext';
+
+// // const Gallery = () => {
+// //   const { isDarkMode } = useTheme();
+// //   const cardsRef = useRef([]);
+
+// //   const galleryImages = [
+// //     '/images/1.JPG',
+// //     '/images/2.JPG',
+// //     '/images/3.JPG',
+// //     '/images/4.JPG',
+// //     '/images/5.JPG',
+// //     '/images/6.JPG',
+// //   ];
+
+// //   useEffect(() => {
+// //     const cards = cardsRef.current.filter(Boolean);
+    
+// //     cards.forEach(card => {
+// //         if (card) {
+// //             card.classList.remove('visible');
+// //             card.style.transitionDelay = ''; 
+// //         }
+// //     });
+
+// //     const observer = new IntersectionObserver((entries) => {
+// //       entries.forEach((entry) => {
+// //         const index = cards.indexOf(entry.target);
+// //         if (entry.isIntersecting) {
+// //           entry.target.style.transitionDelay = `${index * 40}ms`;
+// //           entry.target.classList.add('visible');
+// //         } else {
+// //           entry.target.classList.remove('visible');
+// //         }
+// //       });
+// //     }, {
+// //       threshold: 0.1
+// //     });
+
+// //     cards.forEach(card => {
+// //       observer.observe(card);
+// //     });
+
+// //     return () => {
+// //       cards.forEach(card => {
+// //         if (card) {
+// //             observer.unobserve(card);
+// //         }
+// //       });
+// //     };
+// //   }, [isDarkMode]);
+
+// //   const handleCardClick = (e, index) => {
+// //     e.preventDefault();
+// //     const card = cardsRef.current[index];
+// //     const cardsContainer = document.querySelector('.cards');
+    
+// //     let isShowing = false;
+
+// //     if (card.classList.contains('show')) {
+// //       isShowing = true;
+// //     }
+
+// //     if (cardsContainer.classList.contains('showing')) {
+// //       const showingCard = document.querySelector('div.card.show');
+// //       if (showingCard) {
+// //         showingCard.classList.remove('show');
+// //       }
+
+// //       if (isShowing) {
+// //         cardsContainer.classList.remove('showing');
+// //       } else {
+// //         const zindex = parseInt(card.style.zIndex || 10) + 1;
+// //         card.style.zIndex = zindex;
+// //         card.classList.add('show');
+// //       }
+// //     } else {
+// //       cardsContainer.classList.add('showing');
+// //       const zindex = parseInt(card.style.zIndex || 10) + 1;
+// //       card.style.zIndex = zindex;
+// //       card.classList.add('show');
+// //     }
+// //   };
+
+// //   return (
+// //     <>
+// //       <style>{`
+// //         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+// //         .gallery-page-wrapper {
+// //           background-color: ${isDarkMode ? '#111827' : 'white'};
+// //           transition: background-color 0.3s ease;
+// //         }
+
+// //         ::-webkit-scrollbar {
+// //           width: 1px;
+// //           height: 1px;
+// //         }
+
+// //         ::-webkit-scrollbar-button {
+// //           width: 1px;
+// //           height: 1px;
+// //         }
+
+// //         .gallery-page-wrapper .external {
+// //           overflow: hidden;
+// //           height: 100vh;
+// //           background: ${isDarkMode ? '#111827' : 'white'};
+// //           transition: background-color 0.3s ease;
+// //         }
+
+// //         .gallery-page-wrapper .horizontal-scroll-wrapper {
+// //           display: flex;
+// //           flex-direction: column;
+// //           align-items: center;
+// //           width: 100vh;
+// //           transform: rotate(-90deg) translate3d(0,-100vh,0);
+// //           transform-origin: right top;
+// //           overflow-y: auto;
+// //           overflow-x: hidden;
+// //           padding: 0;
+// //           height: 100vw;
+// //           perspective: 1px;
+// //           transform-style: preserve-3d;
+// //           padding-bottom: 10rem;
+// //         }
+
+// //         .gallery-page-wrapper .img-wrapper {
+// //           transform: rotate(90deg);
+// //           display: flex;
+// //           align-items: center;
+// //           justify-content: center;
+// //           min-height: 40vh;
+// //           transform-origin: 50% 50%;
+// //           transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
+// //           transition: 1s;
+// //         }
+
+// //         .gallery-page-wrapper .img-wrapper:hover {
+// //           min-height: 65vh;
+// //         }
+
+// //         .gallery-page-wrapper .slower {
+// //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
+// //         }
+
+// //         .gallery-page-wrapper .slower1 {
+// //           transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
+// //         }
+
+// //         .gallery-page-wrapper .slower2 {
+// //           transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
+// //         }
+
+// //         .gallery-page-wrapper .slower-down {
+// //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
+// //         }
+
+// //         .gallery-page-wrapper .faster {
+// //           transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
+// //         }
+
+// //         .gallery-page-wrapper .faster1 {
+// //           transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
+// //         }
+
+// //         .gallery-page-wrapper .fastest {
+// //           transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+// //         }
+
+// //         .gallery-page-wrapper .vertical {
+// //           transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
+// //         }
+
+// //         .gallery-page-wrapper .last {
+// //           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
+// //         }
+
+// //         .gallery-page-wrapper .scroll-info, 
+// //         .gallery-page-wrapper header {
+// //           position: absolute;
+// //           left: 1rem;
+// //         }
+
+// //         .gallery-page-wrapper header {
+// //           bottom: 1rem;
+// //         }
+
+// //         .gallery-page-wrapper .scroll-info {
+// //           top: 1rem;
+// //         }
+
+// //         .gallery-page-wrapper a {
+// //           color: inherit;
+// //           font-weight: 500;
+// //         }
+
+// //         .gallery-page-wrapper h1 {
+// //           font-weight: 300;
+// //           font-size: 1rem;
+// //         }
+
+// //         .gallery-page-wrapper .img-wrapper a {
+// //           overflow: hidden;
+// //           display: block;
+// //           padding: 1vh;
+// //           background: ${isDarkMode ? '#2d3748' : '#efecdb'};
+// //           box-shadow: 0 10px 50px ${isDarkMode ? 'rgba(0,0,0,0.4)' : '#5f2f1182'};
+// //           transition: all 0.3s ease;
+// //         }
+
+// //         .gallery-page-wrapper .img-wrapper img {
+// //           max-width: 45vh;
+// //           max-height: 50vh;
+// //           transition: .5s;
+// //           vertical-align: top;
+// //           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
+// //         }
+
+// //         .gallery-page-wrapper .img-wrapper a:hover img {
+// //           filter: none;
+// //         }
+
+// //         .gallery-page-wrapper .card__image {
+// //           max-width: 300px;
+// //           filter: none;
+// //           color: ${isDarkMode ? '#ffffff' : '#111827'};
+// //         }
+
+// //         .gallery-page-wrapper p {
+// //           margin: 0;
+// //         }
+
+// //         .gallery-page-wrapper .scroll-info {
+// //           display: flex;
+// //           align-items: center;
+// //         }
+
+// //         .gallery-page-wrapper .icon svg {
+// //           width: 50px;
+// //           fill: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// //         }
+
+// //         :root {
+// //           --white: #ffffff;
+// //           --lightBG: #dce1df;
+// //           --salmon: #ff6666;
+// //           --teal: #0096a0;
+// //           --tealMid: #0ebac7;
+// //           --tealContrast: #33ffff;
+// //           --tealShade: #007c85;
+// //           --darkGrey: #4f585e;
+// //         }
+
+// //         .gallery-page-wrapper a.btn {
+// //           background: var(--teal);
+// //           border-radius: 4px;
+// //           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+// //           color: var(--white);
+// //           display: inline-block;
+// //           padding: 6px 30px 8px;
+// //           position: relative;
+// //           text-decoration: none;
+// //           transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+// //         }
+
+// //         .gallery-page-wrapper .no-touch a.btn:hover {
+// //           background: var(--tealMid);
+// //           box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+// //           transform: translateY(-2px);
+// //         }
+
+// //         .gallery-page-wrapper .no-touch a.btn:active,
+// //         .gallery-page-wrapper a.btn:active {
+// //           background: var(--tealShade);
+// //           box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+// //           transform: translate3d(0,1px,0);
+// //         }
+
+// //         .gallery-page-wrapper .cards {
+// //           margin: 0 auto 80px auto; 
+// //           max-width: 960px;
+// //           text-align: center;
+// //           background: ${isDarkMode ? '#111827' : 'white'}; 
+// //           transition: background-color 0.3s ease;
+// //           padding-top: 80px;
+// //           padding-bottom: 80px; 
+// //         }
+
+// //         .gallery-page-wrapper .card {
+// //           background: ${isDarkMode ? '#374151' : 'white'};
+// //           display: inline-block;
+// //           margin: 8px;
+// //           max-width: 300px;
+// //           perspective: 1000;
+// //           position: relative;
+// //           text-align: left;
+// //           transition: opacity 0.3s ease, transform 0.3s ease;
+// //           width: 300px;
+// //           z-index: 1;
+// //           border: 1px solid ${isDarkMode ? '#4b5563' : '#e0e0e0'};
+// //           border-radius: 8px;
+// //           box-shadow: ${isDarkMode ? '0 4px 6px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)'};
+// //         }
+
+// //         .gallery-page-wrapper .card img {
+// //           max-width: 300px;
+// //           color: ${isDarkMode ? '#ffffff' : '#111827'};
+// //         }
+
+// //         .gallery-page-wrapper .card .card__image-holder {
+// //           background: ${isDarkMode ? '#2d3748' : 'rgba(0,0,0,0.1)'};
+// //           height: 0;
+// //           padding-bottom: 75%;
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title {
+// //           background: ${isDarkMode ? '#374151' : 'white'};
+// //           padding: 6px 15px 10px;
+// //           position: relative;
+// //           z-index: 0;
+// //           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title a.toggle-info {
+// //           border-radius: 32px;
+// //           height: 32px;
+// //           padding: 0;
+// //           position: absolute;
+// //           right: 15px;
+// //           top: 10px;
+// //           width: 32px;
+// //           background: var(--teal);
+// //           transition: background-color 0.2s ease;
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title a.toggle-info:hover {
+// //           background: var(--tealShade) !important;
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title a.toggle-info span {
+// //           background: ${isDarkMode ? '#f3f4f6' : 'var(--white)'};
+// //           display: block;
+// //           height: 2px;
+// //           position: absolute;
+// //           top: 16px;
+// //           transition: transform 0.2s ease;
+// //           width: 12px;
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title a.toggle-info span.left {
+// //           right: 14px;
+// //           transform: rotate(45deg);
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title a.toggle-info span.right {
+// //           left: 14px;
+// //           transform: rotate(-45deg);
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title h2 {
+// //           font-size: 24px;
+// //           font-weight: 700;
+// //           letter-spacing: -0.05em;
+// //           margin: 0;
+// //           padding: 0;
+// //           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-title h2 small {
+// //           display: block;
+// //           font-size: 18px;
+// //           font-weight: 600;
+// //           letter-spacing: -0.025em;
+// //           color: ${isDarkMode ? '#d1d5db' : '#666'};
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-description {
+// //           padding: 0 15px 10px;
+// //           position: relative;
+// //           font-size: 14px;
+// //           color: ${isDarkMode ? '#d1d5db' : '#666'};
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-actions {
+// //           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
+// //           padding: 10px 15px 20px;
+// //           text-align: center;
+// //           background: ${isDarkMode ? '#2d3748' : 'white'};
+// //         }
+
+// //         .gallery-page-wrapper .card div.card-flap {
+// //           background: ${isDarkMode ? '#374151' : 'white'};
+// //           position: absolute;
+// //           width: 100%;
+// //           transform-origin: top;
+// //           transform: rotateX(-90deg);
+// //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// //         }
+
+// //         .gallery-page-wrapper .card div.flap1 {
+// //           z-index: -1;
+// //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// //         }
+
+// //         .gallery-page-wrapper .card div.flap2 {
+// //           z-index: -2;
+// //           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// //         }
+
+// //         .gallery-page-wrapper .cards.showing .card {
+// //           cursor: pointer;
+// //           opacity: 0.6;
+// //           transform: scale(0.88);
+// //         }
+
+// //         .gallery-page-wrapper .no-touch .cards.showing .card:hover {
+// //           opacity: 0.94;
+// //           transform: scale(0.92);
+// //         }
+
+// //         .gallery-page-wrapper .card.show {
+// //           opacity: 1 !important;
+// //           transform: scale(1) !important;
+// //         }
+
+// //         .gallery-page-wrapper .card.show .card-title a.toggle-info {
+// //           background: var(--salmon) !important;
+// //         }
+
+// //         .gallery-page-wrapper .card.show .card-title a.toggle-info span {
+// //           top: 15px;
+// //         }
+
+// //         .gallery-page-wrapper .card.show .card-title a.toggle-info span.left {
+// //           right: 10px;
+// //         }
+
+// //         .gallery-page-wrapper .card.show .card-title a.toggle-info span.right {
+// //           left: 10px;
+// //         }
+
+// //         .gallery-page-wrapper .card.show .card-flap {
+// //           transform: rotateX(0deg);
+// //         }
+
+// //         .gallery-page-wrapper .card.show .flap1 {
+// //           transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// //         }
+
+// //         .gallery-page-wrapper .card.show .flap2 {
+// //           transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// //         }
+
+// //         .gallery-page-wrapper .card {
+// //           opacity: 0;
+// //           transform: translateY(20px);
+// //           transition: opacity 0.5s ease, transform 0.5s ease;
+// //         }
+
+// //         .gallery-page-wrapper .card.visible {
+// //           opacity: 1;
+// //           transform: translateY(0);
+// //         }
+
+// //         .gallery-page-wrapper .scroll-info {
+// //           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// //         }
+
+// //         .gallery-page-wrapper header {
+// //           color: ${isDarkMode ? '#d1d5db' : 'currentColor'};
+// //         }
+
+// //         .gallery-page-wrapper header p {
+// //           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+// //         }
+
+// //         .gallery-page-wrapper header h1 {
+// //           color: ${isDarkMode ? '#f3f4f6' : 'currentColor'};
+// //         }
+// //       `}</style>
+
+// //       <div className="gallery-page-wrapper">
+// //         <div className="external">
+// //           <div className="horizontal-scroll-wrapper">
+// //             <div className="img-wrapper slower">
+// //               <a href="https://altphotos.com/photo/stylish-parisian-cafe-terrace-279/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[0]} alt="Gallery Image 1" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper faster">
+// //               <a href="https://altphotos.com/photo/retro-boy-doll-wearing-elegant-clothes-330/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[1]} alt="Gallery Image 2" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper slower vertical">
+// //               <a href="https://altphotos.com/photo/clocks-shop-exposition-window-reflecting-the-streets-277/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[2]} alt="Gallery Image 3" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper slower slower-down">
+// //               <a href="https://altphotos.com/photo/swans-and-ducks-swimming-in-a-river-264/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[3]} alt="Gallery Image 4" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper">
+// //               <a href="https://altphotos.com/photo/sidewalk-terrace-of-a-blue-facade-cafe-312/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[4]} alt="Gallery Image 5" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper slower">
+// //               <a href="https://altphotos.com/photo/paris-waterfront-at-sunset-1555/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[5]} alt="Gallery Image 6" />
+// //               </a>
+// //             </div>
+
+// //             <div className="img-wrapper faster1">
+// //               <a href="https://altphotos.com/photo/old-man-leaning-over-the-barrier-looking-at-the-river-265/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[5]} alt="Gallery Image 7" />
+// //               </a>
+// //             </div>
+            
+// //             <div className="img-wrapper slower slower2">
+// //               <a href="https://altphotos.com/photo/cafe-terrace-with-a-row-of-retro-tables-261/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[0]} alt="Gallery Image 8" />
+// //               </a>
+// //             </div>
+            
+// //             <div className="img-wrapper">
+// //               <a href="https://altphotos.com/photo/street-scene-with-pedestrians-and-dogs-318/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[0]} alt="Gallery Image 9" />
+// //               </a>
+// //             </div>
+            
+// //             <div className="img-wrapper slower">
+// //               <a href="https://altphotos.com/photo/tourist-barge-on-the-river-seine-near-notre-dame-266/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[1]} alt="Gallery Image 10" />
+// //               </a>
+// //             </div>
+            
+// //             <div className="img-wrapper slower last">
+// //               <a href="https://altphotos.com/photo/skulls-decoration-in-a-shop-window-331/" target="_blank" rel="noopener">
+// //                 <img src={galleryImages[0]} alt="Gallery Image 11" />
+// //               </a>
+// //             </div>
+// //           </div>
+
+// //           <p className="scroll-info">
+// //             <span className="icon">
+// //               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
+// //                 <path d="M50,67.1c-0.6,0-1.2-0.2-1.8-0.7c-3.8-3.8-7.7-7.7-11.5-11.5c-2.3-2.3,1.2-5.8,3.5-3.5c2.5,2.5,4.9,4.9,7.4,7.4      c0-13.7,0-27.4,0-41.2c0-0.6,0.2-1.2,0.5-1.5c0,0,0,0,0,0c0.4-0.6,1.1-1,2-0.9c13.7,0.3,26.4,7.2,33.5,19.1      C96.5,55.9,84.7,85,60.2,91.6C35.5,98.2,11.6,79.1,11.1,54c-0.1-3.2,4.9-3.2,5,0c0.3,13.8,8.4,26.4,21.3,31.5      c12.5,5,27.1,1.9,36.6-7.5c9.5-9.5,12.5-24.1,7.5-36.6c-4.8-12.1-16.3-20.1-29-21.2c0,12.8,0,25.5,0,38.3      c2.5-2.5,4.9-4.9,7.4-7.4c2.3-2.3,5.8,1.3,3.5,3.5c-3.9,3.9-7.8,7.8-11.8,11.8C51.2,66.9,50.6,67.1,50,67.1z"/>
+// //               </svg>
+// //             </span> Try scrolling down
+// //           </p>
+
+// //           <header>
+// //             <p>Clinic Gallery</p>
+// //             <h1>Visual journey through our facilities and services</h1>
+// //             <p>Explore our state-of-the-art rehabilitation center</p>
+// //           </header>
+// //         </div>
+
+// //         <div className="cards">
+// //           {[...Array(24)].map((_, i) => (
+// //             <div 
+// //               key={i} 
+// //               className="card" 
+// //               ref={el => cardsRef.current[i] = el}
+// //               onClick={(e) => handleCardClick(e, i)}>
+// //               <div className="card__image-holder">
+// //                 <img 
+// //                   className="card__image" 
+// //                   src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
+// //                   alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} 
+// //                 />
+// //               </div>
+// //               <div className="card-title">
+// //                 <a href="#" className="toggle-info btn">
+// //                   <span className="left"></span>
+// //                   <span className="right"></span>
+// //                 </a>
+// //                 <h2>
+// //                   Jan Seva Gallery
+// //                   <small>Professional Facilities</small>
+// //                 </h2>
+// //               </div>
+// //               <div className="card-flap flap1">
+// //                 <div className="card-description">
+// //                   Explore our world-class physiotherapy center with state-of-the-art equipment and comfortable therapy spaces designed for your recovery.
+// //                 </div>
+// //                 <div className="card-flap flap2">
+// //                   <div className="card-actions">
+// //                     <a href="#" className="btn">Learn More</a>
+// //                   </div>
+// //                 </div>
+// //               </div>
+// //             </div>
+// //           ))}
+// //         </div>
+// //       </div>
+// //     </>
+// //   );
+// // };
+
+// // export default Gallery;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useRef, useState } from 'react';
+// import { useTheme } from '../context/ThemeContext';
+
+// const Gallery = () => {
+//   const { isDarkMode } = useTheme();
+//   const cardsRef = useRef([]);
+//   const [selectedImage, setSelectedImage] = useState(null);
+
+//   const galleryImages = [
+//     '/images/1.JPG',
+//     '/images/2.JPG',
+//     '/images/3.JPG',
+//     '/images/4.JPG',
+//     '/images/5.JPG',
+//     '/images/6.JPG',
+//   ];
+
+//   const scrollImages = [
+//     { src: galleryImages[0], alt: 'Gallery Image 1' },
+//     { src: galleryImages[1], alt: 'Gallery Image 2' },
+//     { src: galleryImages[2], alt: 'Gallery Image 3' },
+//     { src: galleryImages[3], alt: 'Gallery Image 4' },
+//     { src: galleryImages[4], alt: 'Gallery Image 5' },
+//     { src: galleryImages[5], alt: 'Gallery Image 6' },
+//     { src: galleryImages[5], alt: 'Gallery Image 7' },
+//     { src: galleryImages[0], alt: 'Gallery Image 8' },
+//     { src: galleryImages[0], alt: 'Gallery Image 9' },
+//     { src: galleryImages[1], alt: 'Gallery Image 10' },
+//     { src: galleryImages[0], alt: 'Gallery Image 11' },
+//   ];
+
+//   const imageClasses = [
+//     'slower',
+//     'faster',
+//     'slower vertical',
+//     'slower slower-down',
+//     '',
+//     'slower',
+//     'faster1',
+//     'slower slower2',
+//     '',
+//     'slower',
+//     'slower last',
+//   ];
+
+//   useEffect(() => {
+//     const cards = cardsRef.current.filter(Boolean);
+    
+//     cards.forEach(card => {
+//         if (card) {
+//             card.classList.remove('visible');
+//             card.style.transitionDelay = ''; 
+//         }
+//     });
+
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         const index = cards.indexOf(entry.target);
+//         if (entry.isIntersecting) {
+//           entry.target.style.transitionDelay = `${index * 40}ms`;
+//           entry.target.classList.add('visible');
+//         } else {
+//           entry.target.classList.remove('visible');
+//         }
+//       });
+//     }, {
+//       threshold: 0.1
+//     });
+
+//     cards.forEach(card => {
+//       observer.observe(card);
+//     });
+
+//     return () => {
+//       cards.forEach(card => {
+//         if (card) {
+//             observer.unobserve(card);
+//         }
+//       });
+//     };
+//   }, [isDarkMode]);
+
+//   const handleCardClick = (e, index) => {
+//     e.preventDefault();
+//     const card = cardsRef.current[index];
+//     const cardsContainer = document.querySelector('.cards');
+    
+//     let isShowing = false;
+
+//     if (card.classList.contains('show')) {
+//       isShowing = true;
+//     }
+
+//     if (cardsContainer.classList.contains('showing')) {
+//       const showingCard = document.querySelector('div.card.show');
+//       if (showingCard) {
+//         showingCard.classList.remove('show');
+//       }
+
+//       if (isShowing) {
+//         cardsContainer.classList.remove('showing');
+//       } else {
+//         const zindex = parseInt(card.style.zIndex || 10) + 1;
+//         card.style.zIndex = zindex;
+//         card.classList.add('show');
+//       }
+//     } else {
+//       cardsContainer.classList.add('showing');
+//       const zindex = parseInt(card.style.zIndex || 10) + 1;
+//       card.style.zIndex = zindex;
+//       card.classList.add('show');
+//     }
+//   };
+
+//   const handleScrollImageClick = (imageSrc) => {
+//     setSelectedImage(imageSrc);
+//   };
+
+//   return (
+//     <>
+//       <style>{`
+//         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+//         .gallery-page-wrapper {
+//           background-color: ${isDarkMode ? '#111827' : 'white'};
+//           transition: background-color 0.3s ease;
+//         }
+
+//         ::-webkit-scrollbar {
+//           width: 1px;
+//           height: 1px;
+//         }
+
+//         ::-webkit-scrollbar-button {
+//           width: 1px;
+//           height: 1px;
+//         }
+
+//         .gallery-page-wrapper .external {
+//           overflow: hidden;
+//           height: 100vh;
+//           background: ${isDarkMode ? '#111827' : 'white'};
+//           transition: background-color 0.3s ease;
+//         }
+
+//         .gallery-page-wrapper .horizontal-scroll-wrapper {
+//           display: flex;
+//           flex-direction: column;
+//           align-items: center;
+//           width: 100vh;
+//           transform: rotate(-90deg) translate3d(0,-100vh,0);
+//           transform-origin: right top;
+//           overflow-y: auto;
+//           overflow-x: hidden;
+//           padding: 0;
+//           height: 100vw;
+//           perspective: 1px;
+//           transform-style: preserve-3d;
+//           padding-bottom: 10rem;
+//         }
+
+//         .gallery-page-wrapper .img-wrapper {
+//           transform: rotate(90deg);
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           min-height: 40vh;
+//           transform-origin: 50% 50%;
+//           transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
+//           transition: 1s;
+//           cursor: pointer;
+//         }
+
+//         .gallery-page-wrapper .img-wrapper:hover {
+//           min-height: 65vh;
+//         }
+
+//         .gallery-page-wrapper .slower {
+//           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
+//         }
+
+//         .gallery-page-wrapper .slower1 {
+//           transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
+//         }
+
+//         .gallery-page-wrapper .slower2 {
+//           transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
+//         }
+
+//         .gallery-page-wrapper .slower-down {
+//           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
+//         }
+
+//         .gallery-page-wrapper .faster {
+//           transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
+//         }
+
+//         .gallery-page-wrapper .faster1 {
+//           transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
+//         }
+
+//         .gallery-page-wrapper .fastest {
+//           transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+//         }
+
+//         .gallery-page-wrapper .vertical {
+//           transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
+//         }
+
+//         .gallery-page-wrapper .last {
+//           transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
+//         }
+
+//         .gallery-page-wrapper .scroll-info, 
+//         .gallery-page-wrapper header {
+//           position: absolute;
+//           left: 1rem;
+//         }
+
+//         .gallery-page-wrapper header {
+//           bottom: 1rem;
+//         }
+
+//         .gallery-page-wrapper .scroll-info {
+//           top: 1rem;
+//         }
+
+//         .gallery-page-wrapper a {
+//           color: inherit;
+//           font-weight: 500;
+//         }
+
+//         .gallery-page-wrapper h1 {
+//           font-weight: 300;
+//           font-size: 1rem;
+//         }
+
+//         .gallery-page-wrapper .img-wrapper div {
+//           overflow: hidden;
+//           display: block;
+//           padding: 1vh;
+//           background: ${isDarkMode ? '#2d3748' : '#efecdb'};
+//           box-shadow: 0 10px 50px ${isDarkMode ? 'rgba(0,0,0,0.4)' : '#5f2f1182'};
+//           transition: all 0.3s ease;
+//         }
+
+//         .gallery-page-wrapper .img-wrapper img {
+//           max-width: 45vh;
+//           max-height: 50vh;
+//           transition: .5s;
+//           vertical-align: top;
+//           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
+//         }
+
+//         .gallery-page-wrapper .img-wrapper:hover img {
+//           filter: none;
+//         }
+
+//         .gallery-page-wrapper .card__image {
+//           max-width: 300px;
+//           filter: none;
+//           color: ${isDarkMode ? '#ffffff' : '#111827'};
+//         }
+
+//         .gallery-page-wrapper p {
+//           margin: 0;
+//         }
+
+//         .gallery-page-wrapper .scroll-info {
+//           display: flex;
+//           align-items: center;
+//         }
+
+//         .gallery-page-wrapper .icon svg {
+//           width: 50px;
+//           fill: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+//         }
+
+//         :root {
+//           --white: #ffffff;
+//           --lightBG: #dce1df;
+//           --salmon: #ff6666;
+//           --teal: #0096a0;
+//           --tealMid: #0ebac7;
+//           --tealContrast: #33ffff;
+//           --tealShade: #007c85;
+//           --darkGrey: #4f585e;
+//         }
+
+//         .gallery-page-wrapper a.btn {
+//           background: var(--teal);
+//           border-radius: 4px;
+//           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+//           color: var(--white);
+//           display: inline-block;
+//           padding: 6px 30px 8px;
+//           position: relative;
+//           text-decoration: none;
+//           transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+//         }
+
+//         .gallery-page-wrapper .no-touch a.btn:hover {
+//           background: var(--tealMid);
+//           box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+//           transform: translateY(-2px);
+//         }
+
+//         .gallery-page-wrapper .no-touch a.btn:active,
+//         .gallery-page-wrapper a.btn:active {
+//           background: var(--tealShade);
+//           box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+//           transform: translate3d(0,1px,0);
+//         }
+
+//         .gallery-page-wrapper .cards {
+//           margin: 0 auto 80px auto; 
+//           max-width: 960px;
+//           text-align: center;
+//           background: ${isDarkMode ? '#111827' : 'white'}; 
+//           transition: background-color 0.3s ease;
+//           padding-top: 80px;
+//           padding-bottom: 80px; 
+//         }
+
+//         .gallery-page-wrapper .card {
+//           background: ${isDarkMode ? '#374151' : 'white'};
+//           display: inline-block;
+//           margin: 8px;
+//           max-width: 300px;
+//           perspective: 1000;
+//           position: relative;
+//           text-align: left;
+//           transition: opacity 0.3s ease, transform 0.3s ease;
+//           width: 300px;
+//           z-index: 1;
+//           border: 1px solid ${isDarkMode ? '#4b5563' : '#e0e0e0'};
+//           border-radius: 8px;
+//           box-shadow: ${isDarkMode ? '0 4px 6px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)'};
+//         }
+
+//         .gallery-page-wrapper .card img {
+//           max-width: 300px;
+//           color: ${isDarkMode ? '#ffffff' : '#111827'};
+//         }
+
+//         .gallery-page-wrapper .card .card__image-holder {
+//           background: ${isDarkMode ? '#2d3748' : 'rgba(0,0,0,0.1)'};
+//           height: 0;
+//           padding-bottom: 75%;
+//         }
+
+//         .gallery-page-wrapper .card div.card-title {
+//           background: ${isDarkMode ? '#374151' : 'white'};
+//           padding: 6px 15px 10px;
+//           position: relative;
+//           z-index: 0;
+//           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+//         }
+
+//         .gallery-page-wrapper .card div.card-title a.toggle-info {
+//           border-radius: 32px;
+//           height: 32px;
+//           padding: 0;
+//           position: absolute;
+//           right: 15px;
+//           top: 10px;
+//           width: 32px;
+//           background: var(--teal);
+//           transition: background-color 0.2s ease;
+//         }
+
+//         .gallery-page-wrapper .card div.card-title a.toggle-info:hover {
+//           background: var(--tealShade) !important;
+//         }
+
+//         .gallery-page-wrapper .card div.card-title a.toggle-info span {
+//           background: ${isDarkMode ? '#f3f4f6' : 'var(--white)'};
+//           display: block;
+//           height: 2px;
+//           position: absolute;
+//           top: 16px;
+//           transition: transform 0.2s ease;
+//           width: 12px;
+//         }
+
+//         .gallery-page-wrapper .card div.card-title a.toggle-info span.left {
+//           right: 14px;
+//           transform: rotate(45deg);
+//         }
+
+//         .gallery-page-wrapper .card div.card-title a.toggle-info span.right {
+//           left: 14px;
+//           transform: rotate(-45deg);
+//         }
+
+//         .gallery-page-wrapper .card div.card-title h2 {
+//           font-size: 24px;
+//           font-weight: 700;
+//           letter-spacing: -0.05em;
+//           margin: 0;
+//           padding: 0;
+//           color: ${isDarkMode ? '#f3f4f6' : '#333'};
+//         }
+
+//         .gallery-page-wrapper .card div.card-title h2 small {
+//           display: block;
+//           font-size: 18px;
+//           font-weight: 600;
+//           letter-spacing: -0.025em;
+//           color: ${isDarkMode ? '#d1d5db' : '#666'};
+//         }
+
+//         .gallery-page-wrapper .card div.card-description {
+//           padding: 0 15px 10px;
+//           position: relative;
+//           font-size: 14px;
+//           color: ${isDarkMode ? '#d1d5db' : '#666'};
+//         }
+
+//         .gallery-page-wrapper .card div.card-actions {
+//           box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
+//           padding: 10px 15px 20px;
+//           text-align: center;
+//           background: ${isDarkMode ? '#2d3748' : 'white'};
+//         }
+
+//         .gallery-page-wrapper .card div.card-flap {
+//           background: ${isDarkMode ? '#374151' : 'white'};
+//           position: absolute;
+//           width: 100%;
+//           transform-origin: top;
+//           transform: rotateX(-90deg);
+//           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//         }
+
+//         .gallery-page-wrapper .card div.flap1 {
+//           z-index: -1;
+//           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//         }
+
+//         .gallery-page-wrapper .card div.flap2 {
+//           z-index: -2;
+//           transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//         }
+
+//         .gallery-page-wrapper .cards.showing .card {
+//           cursor: pointer;
+//           opacity: 0.6;
+//           transform: scale(0.88);
+//         }
+
+//         .gallery-page-wrapper .no-touch .cards.showing .card:hover {
+//           opacity: 0.94;
+//           transform: scale(0.92);
+//         }
+
+//         .gallery-page-wrapper .card.show {
+//           opacity: 1 !important;
+//           transform: scale(1) !important;
+//         }
+
+//         .gallery-page-wrapper .card.show .card-title a.toggle-info {
+//           background: var(--salmon) !important;
+//         }
+
+//         .gallery-page-wrapper .card.show .card-title a.toggle-info span {
+//           top: 15px;
+//         }
+
+//         .gallery-page-wrapper .card.show .card-title a.toggle-info span.left {
+//           right: 10px;
+//         }
+
+//         .gallery-page-wrapper .card.show .card-title a.toggle-info span.right {
+//           left: 10px;
+//         }
+
+//         .gallery-page-wrapper .card.show .card-flap {
+//           transform: rotateX(0deg);
+//         }
+
+//         .gallery-page-wrapper .card.show .flap1 {
+//           transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//         }
+
+//         .gallery-page-wrapper .card.show .flap2 {
+//           transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//         }
+
+//         .gallery-page-wrapper .card {
+//           opacity: 0;
+//           transform: translateY(20px);
+//           transition: opacity 0.5s ease, transform 0.5s ease;
+//         }
+
+//         .gallery-page-wrapper .card.visible {
+//           opacity: 1;
+//           transform: translateY(0);
+//         }
+
+//         .gallery-page-wrapper .scroll-info {
+//           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+//         }
+
+//         .gallery-page-wrapper header {
+//           color: ${isDarkMode ? '#d1d5db' : 'currentColor'};
+//         }
+
+//         .gallery-page-wrapper header p {
+//           color: ${isDarkMode ? '#9ca3af' : 'currentColor'};
+//         }
+
+//         .gallery-page-wrapper header h1 {
+//           color: ${isDarkMode ? '#f3f4f6' : 'currentColor'};
+//         }
+
+//         .image-modal {
+//           position: fixed;
+//           top: 0;
+//           left: 0;
+//           right: 0;
+//           bottom: 0;
+//           background: rgba(0, 0, 0, 0.8);
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           z-index: 1000;
+//         }
+
+//         .image-modal img {
+//           max-width: 90%;
+//           max-height: 90%;
+//           border-radius: 8px;
+//         }
+
+//         .image-modal-close {
+//           position: absolute;
+//           top: 20px;
+//           right: 20px;
+//           color: white;
+//           font-size: 32px;
+//           cursor: pointer;
+//           background: none;
+//           border: none;
+//         }
+//       `}</style>
+
+//       <div className="gallery-page-wrapper">
+//         <div className="external">
+//           <div className="horizontal-scroll-wrapper">
+//             {scrollImages.map((image, i) => (
+//               <div 
+//                 key={i} 
+//                 className={`img-wrapper ${imageClasses[i]}`}
+//                 onClick={() => handleScrollImageClick(image.src)}
+//               >
+//                 <div>
+//                   <img src={image.src} alt={image.alt} />
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           <p className="scroll-info">
+//             <span className="icon">
+//               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
+//                 <path d="M50,67.1c-0.6,0-1.2-0.2-1.8-0.7c-3.8-3.8-7.7-7.7-11.5-11.5c-2.3-2.3,1.2-5.8,3.5-3.5c2.5,2.5,4.9,4.9,7.4,7.4      c0-13.7,0-27.4,0-41.2c0-0.6,0.2-1.2,0.5-1.5c0,0,0,0,0,0c0.4-0.6,1.1-1,2-0.9c13.7,0.3,26.4,7.2,33.5,19.1      C96.5,55.9,84.7,85,60.2,91.6C35.5,98.2,11.6,79.1,11.1,54c-0.1-3.2,4.9-3.2,5,0c0.3,13.8,8.4,26.4,21.3,31.5      c12.5,5,27.1,1.9,36.6-7.5c9.5-9.5,12.5-24.1,7.5-36.6c-4.8-12.1-16.3-20.1-29-21.2c0,12.8,0,25.5,0,38.3      c2.5-2.5,4.9-4.9,7.4-7.4c2.3-2.3,5.8,1.3,3.5,3.5c-3.9,3.9-7.8,7.8-11.8,11.8C51.2,66.9,50.6,67.1,50,67.1z"/>
+//               </svg>
+//             </span> Try scrolling down
+//           </p>
+
+//           <header>
+//             <p>Clinic Gallery</p>
+//             <h1>Visual journey through our facilities and services</h1>
+//             <p>Explore our state-of-the-art rehabilitation center</p>
+//           </header>
+//         </div>
+
+//         <div className="cards">
+//           {[...Array(24)].map((_, i) => (
+//             <div 
+//               key={i} 
+//               className="card" 
+//               ref={el => cardsRef.current[i] = el}
+//               onClick={(e) => handleCardClick(e, i)}>
+//               <div className="card__image-holder">
+//                 <img 
+//                   className="card__image" 
+//                   src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
+//                   alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} 
+//                 />
+//               </div>
+//               <div className="card-title">
+//                 <a href="#" className="toggle-info btn">
+//                   <span className="left"></span>
+//                   <span className="right"></span>
+//                 </a>
+//                 <h2>
+//                   Jan Seva Gallery
+//                   <small>Professional Facilities</small>
+//                 </h2>
+//               </div>
+//               <div className="card-flap flap1">
+//                 <div className="card-description">
+//                   Explore our world-class physiotherapy center with state-of-the-art equipment and comfortable therapy spaces designed for your recovery.
+//                 </div>
+//                 <div className="card-flap flap2">
+//                   <div className="card-actions">
+//                     <a href="#" className="btn">Learn More</a>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+
+//         {selectedImage && (
+//           <div className="image-modal" onClick={() => setSelectedImage(null)}>
+//             <button className="image-modal-close" onClick={() => setSelectedImage(null)}>×</button>
+//             <img src={selectedImage} alt="Full size" />
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Gallery;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import img1 from '../assets/images/1.JPG';
-import img2 from '../assets/images/2.JPG';
-import img3 from '../assets/images/3.JPG';
-import img4 from '../assets/images/4.JPG';
-import img5 from '../assets/images/5.JPG';
-import img6 from '../assets/images/6.JPG';
 
 const Gallery = () => {
   const { isDarkMode } = useTheme();
   const cardsRef = useRef([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const galleryImages = [
+    '/images/1.JPG',
+    '/images/2.JPG',
+    '/images/3.JPG',
+    '/images/4.JPG',
+    '/images/5.JPG',
+    '/images/6.JPG',
+  ];
+
+  const scrollImages = [
+    { src: galleryImages[0], alt: 'Gallery Image 1' },
+    { src: galleryImages[1], alt: 'Gallery Image 2' },
+    { src: galleryImages[2], alt: 'Gallery Image 3' },
+    { src: galleryImages[3], alt: 'Gallery Image 4' },
+    { src: galleryImages[4], alt: 'Gallery Image 5' },
+    { src: galleryImages[5], alt: 'Gallery Image 6' },
+    { src: galleryImages[5], alt: 'Gallery Image 7' },
+    { src: galleryImages[0], alt: 'Gallery Image 8' },
+    { src: galleryImages[0], alt: 'Gallery Image 9' },
+    { src: galleryImages[1], alt: 'Gallery Image 10' },
+    { src: galleryImages[0], alt: 'Gallery Image 11' },
+  ];
+
+  const imageClasses = [
+    'slower',
+    'faster',
+    'slower vertical',
+    'slower slower-down',
+    '',
+    'slower',
+    'faster1',
+    'slower slower2',
+    '',
+    'slower',
+    'slower last',
+  ];
+
+  // Card gallery items - easily editable
+  const cardItems = [
+    {
+      id: 1,
+      title: 'Physiotherapy Sessions',
+      subtitle: 'Professional Facilities',
+      description: 'State-of-the-art physiotherapy sessions with expert therapists.',
+      image: galleryImages[0],
+      type: 'image'
+    },
+    {
+      id: 2,
+      title: 'Rehabilitation Program',
+      subtitle: 'Professional Facilities',
+      description: 'Comprehensive rehabilitation programs designed for recovery.',
+      image: galleryImages[1],
+      type: 'image'
+    },
+    {
+      id: 3,
+      title: 'Fitness Training',
+      subtitle: 'Professional Facilities',
+      description: 'Modern fitness equipment and professional training sessions.',
+      image: galleryImages[2],
+      type: 'image'
+    },
+    {
+      id: 4,
+      title: 'Wellness Center',
+      subtitle: 'Professional Facilities',
+      description: 'Complete wellness solutions for your health and fitness.',
+      image: galleryImages[3],
+      type: 'image'
+    },
+    {
+      id: 5,
+      title: 'Exercise Programs',
+      subtitle: 'Professional Facilities',
+      description: 'Customized exercise programs tailored to your needs,Complete wellness solutions for your health and fitness,Complete wellness solutions for your health and fitness.',
+      image: galleryImages[4],
+      type: 'image'
+    },
+    {
+      id: 6,
+      title: 'Medical Services',
+      subtitle: 'Professional Facilities',
+      description: 'Professional medical consultations and services available.',
+      image: galleryImages[5],
+      type: 'image'
+    },
+    {
+      id: 7,
+      title: 'Health Clinic',
+      subtitle: 'Professional Facilities',
+      description: 'Dedicated health clinic with experienced professionals.',
+      image: galleryImages[0],
+      type: 'image'
+    },
+    {
+      id: 8,
+      title: 'Therapy Sessions',
+      subtitle: 'Professional Facilities',
+      description: 'Various therapy sessions for holistic health improvement.',
+      image: galleryImages[1],
+      type: 'image'
+    },
+    {
+      id: 9,
+      title: 'Recovery Programs',
+      subtitle: 'Professional Facilities',
+      description: 'Specialized recovery programs for injury rehabilitation.',
+      image: galleryImages[2],
+      type: 'image'
+    },
+    {
+      id: 10,
+      title: 'Clinic Gallery',
+      subtitle: 'Professional Facilities',
+      description: 'Explore our state-of-the-art rehabilitation center facilities.',
+      image: galleryImages[3],
+      type: 'image'
+    },
+    {
+      id: 11,
+      title: 'Patient Care',
+      subtitle: 'Professional Facilities',
+      description: 'Compassionate patient care with professional excellence.',
+      image: galleryImages[4],
+      type: 'image'
+    },
+    {
+      id: 12,
+      title: 'Facility Tour',
+      subtitle: 'Professional Facilities',
+      description: 'Virtual tour of our modern clinic and therapy facilities.',
+      image: galleryImages[5],
+      type: 'image'
+    },
+    {
+      id: 13,
+      title: 'Advanced Equipment',
+      subtitle: 'Professional Facilities',
+      description: 'Latest therapeutic and fitness equipment available.',
+      image: galleryImages[0],
+      type: 'image'
+    },
+    {
+      id: 14,
+      title: 'Professional Staff',
+      subtitle: 'Professional Facilities',
+      description: 'Highly trained and certified healthcare professionals.',
+      image: galleryImages[1],
+      type: 'image'
+    },
+    {
+      id: 15,
+      title: 'Patient Success',
+      subtitle: 'Professional Facilities',
+      description: 'Success stories from our satisfied patients and clients.',
+      image: galleryImages[2],
+      type: 'image'
+    },
+    {
+      id: 16,
+      title: 'Treatment Plans',
+      subtitle: 'Professional Facilities',
+      description: 'Customized treatment plans for individual patient needs.',
+      image: galleryImages[3],
+      type: 'image'
+    },
+    {
+      id: 17,
+      title: 'Clinic Exterior',
+      subtitle: 'Professional Facilities',
+      description: 'Modern clinic exterior with welcoming environment.',
+      image: galleryImages[4],
+      type: 'image'
+    },
+    {
+      id: 18,
+      title: 'Comfortable Spaces',
+      subtitle: 'Professional Facilities',
+      description: 'Comfortable and hygienic spaces for patient comfort.',
+      image: galleryImages[5],
+      type: 'image'
+    },
+    {
+      id: 19,
+      title: 'Team Activity',
+      subtitle: 'Professional Facilities',
+      description: 'Team of experts dedicated to patient welfare.',
+      image: galleryImages[0],
+      type: 'image'
+    },
+    {
+      id: 20,
+      title: 'Modern Clinic',
+      subtitle: 'Professional Facilities',
+      description: 'Modern clinic with all latest medical facilities.',
+      image: galleryImages[1],
+      type: 'image'
+    },
+    {
+      id: 21,
+      title: 'Quality Care',
+      subtitle: 'Professional Facilities',
+      description: 'Quality care with attention to patient satisfaction.',
+      image: galleryImages[2],
+      type: 'image'
+    },
+    {
+      id: 22,
+      title: 'Expert Guidance',
+      subtitle: 'Professional Facilities',
+      description: 'Expert guidance and consultation for all health concerns.',
+      image: galleryImages[3],
+      type: 'image'
+    },
+    {
+      id: 23,
+      title: 'Rehabilitation Focus',
+      subtitle: 'Professional Facilities',
+      description: 'Primary focus on rehabilitation and patient recovery.',
+      image: galleryImages[4],
+      type: 'image'
+    },
+    {
+      id: 24,
+      title: 'Community Health',
+      subtitle: 'Professional Facilities',
+      description: 'Community health initiatives and wellness programs.',
+      image: galleryImages[5],
+      type: 'image'
+    }
+  ];
 
   useEffect(() => {
     const cards = cardsRef.current.filter(Boolean);
@@ -48,7 +2186,12 @@ const Gallery = () => {
     };
   }, [isDarkMode]);
 
-  const handleCardClick = (e, index) => {
+  const handleCardImageClick = (e, imageSrc) => {
+    e.stopPropagation();
+    setSelectedImage(imageSrc);
+  };
+
+  const handleCardToggle = (e, index) => {
     e.preventDefault();
     const card = cardsRef.current[index];
     const cardsContainer = document.querySelector('.cards');
@@ -68,16 +2211,20 @@ const Gallery = () => {
       if (isShowing) {
         cardsContainer.classList.remove('showing');
       } else {
-        const zindex = parseInt(card.style.zIndex || 10) + 1;
+        const zindex = parseInt(card.style.zIndex || 100) + 1;
         card.style.zIndex = zindex;
         card.classList.add('show');
       }
     } else {
       cardsContainer.classList.add('showing');
-      const zindex = parseInt(card.style.zIndex || 10) + 1;
+      const zindex = parseInt(card.style.zIndex || 100) + 1;
       card.style.zIndex = zindex;
       card.classList.add('show');
     }
+  };
+
+  const handleScrollImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
   };
 
   return (
@@ -132,6 +2279,7 @@ const Gallery = () => {
           transform-origin: 50% 50%;
           transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
           transition: 1s;
+          cursor: pointer;
         }
 
         .gallery-page-wrapper .img-wrapper:hover {
@@ -198,7 +2346,7 @@ const Gallery = () => {
           font-size: 1rem;
         }
 
-        .gallery-page-wrapper .img-wrapper a {
+        .gallery-page-wrapper .img-wrapper div {
           overflow: hidden;
           display: block;
           padding: 1vh;
@@ -215,7 +2363,7 @@ const Gallery = () => {
           filter: saturate(40%) sepia(30%) hue-rotate(5deg);
         }
 
-        .gallery-page-wrapper .img-wrapper a:hover img {
+        .gallery-page-wrapper .img-wrapper:hover img {
           filter: none;
         }
 
@@ -223,6 +2371,12 @@ const Gallery = () => {
           max-width: 300px;
           filter: none;
           color: ${isDarkMode ? '#ffffff' : '#111827'};
+          cursor: pointer;
+          transition: transform 0.3s ease;
+        }
+
+        .gallery-page-wrapper .card__image:hover {
+          transform: scale(1.05);
         }
 
         .gallery-page-wrapper p {
@@ -310,6 +2464,7 @@ const Gallery = () => {
           background: ${isDarkMode ? '#2d3748' : 'rgba(0,0,0,0.1)'};
           height: 0;
           padding-bottom: 75%;
+          overflow: hidden;
         }
 
         .gallery-page-wrapper .card div.card-title {
@@ -330,6 +2485,8 @@ const Gallery = () => {
           width: 32px;
           background: var(--teal);
           transition: background-color 0.2s ease;
+          border: none;
+          cursor: pointer;
         }
 
         .gallery-page-wrapper .card div.card-title a.toggle-info:hover {
@@ -374,17 +2531,10 @@ const Gallery = () => {
         }
 
         .gallery-page-wrapper .card div.card-description {
-          padding: 0 15px 10px;
+          padding: 15px;
           position: relative;
           font-size: 14px;
           color: ${isDarkMode ? '#d1d5db' : '#666'};
-        }
-
-        .gallery-page-wrapper .card div.card-actions {
-          box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
-          padding: 10px 15px 20px;
-          text-align: center;
-          background: ${isDarkMode ? '#2d3748' : 'white'};
         }
 
         .gallery-page-wrapper .card div.card-flap {
@@ -476,76 +2626,52 @@ const Gallery = () => {
         .gallery-page-wrapper header h1 {
           color: ${isDarkMode ? '#f3f4f6' : 'currentColor'};
         }
+
+        .image-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+        }
+
+        .image-modal img {
+          max-width: 90%;
+          max-height: 90%;
+          border-radius: 8px;
+        }
+
+        .image-modal-close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          color: white;
+          font-size: 32px;
+          cursor: pointer;
+          background: none;
+          border: none;
+        }
       `}</style>
 
       <div className="gallery-page-wrapper">
         <div className="external">
           <div className="horizontal-scroll-wrapper">
-            <div className="img-wrapper slower">
-              <a href="https://altphotos.com/photo/stylish-parisian-cafe-terrace-279/" target="_blank" rel="noopener">
-                <img src={img1} alt="Gallery Image 1" />
-              </a>
-            </div>
-
-            <div className="img-wrapper faster">
-              <a href="https://altphotos.com/photo/retro-boy-doll-wearing-elegant-clothes-330/" target="_blank" rel="noopener">
-                <img src={img2} alt="Gallery Image 2" />
-              </a>
-            </div>
-
-            <div className="img-wrapper slower vertical">
-              <a href="https://altphotos.com/photo/clocks-shop-exposition-window-reflecting-the-streets-277/" target="_blank" rel="noopener">
-                <img src={img3} alt="Gallery Image 3" />
-              </a>
-            </div>
-
-            <div className="img-wrapper slower slower-down">
-              <a href="https://altphotos.com/photo/swans-and-ducks-swimming-in-a-river-264/" target="_blank" rel="noopener">
-                <img src={img4} alt="Gallery Image 4" />
-              </a>
-            </div>
-
-            <div className="img-wrapper">
-              <a href="https://altphotos.com/photo/sidewalk-terrace-of-a-blue-facade-cafe-312/" target="_blank" rel="noopener">
-                <img src={img5} alt="Gallery Image 5" />
-              </a>
-            </div>
-
-            <div className="img-wrapper slower">
-              <a href="https://altphotos.com/photo/paris-waterfront-at-sunset-1555/" target="_blank" rel="noopener">
-                <img src={img6} alt="Gallery Image 6" />
-              </a>
-            </div>
-
-            <div className="img-wrapper faster1">
-              <a href="https://altphotos.com/photo/old-man-leaning-over-the-barrier-looking-at-the-river-265/" target="_blank" rel="noopener">
-                <img src={img6} alt="Gallery Image 7" />
-              </a>
-            </div>
-            
-            <div className="img-wrapper slower slower2">
-              <a href="https://altphotos.com/photo/cafe-terrace-with-a-row-of-retro-tables-261/" target="_blank" rel="noopener">
-                <img src={img1} alt="Gallery Image 8" />
-              </a>
-            </div>
-            
-            <div className="img-wrapper">
-              <a href="https://altphotos.com/photo/street-scene-with-pedestrians-and-dogs-318/" target="_blank" rel="noopener">
-                <img src={img1} alt="Gallery Image 9" />
-              </a>
-            </div>
-            
-            <div className="img-wrapper slower">
-              <a href="https://altphotos.com/photo/tourist-barge-on-the-river-seine-near-notre-dame-266/" target="_blank" rel="noopener">
-                <img src={img2} alt="Gallery Image 10" />
-              </a>
-            </div>
-            
-            <div className="img-wrapper slower last">
-              <a href="https://altphotos.com/photo/skulls-decoration-in-a-shop-window-331/" target="_blank" rel="noopener">
-                <img src={img1} alt="Gallery Image 11" />
-              </a>
-            </div>
+            {scrollImages.map((image, i) => (
+              <div 
+                key={i} 
+                className={`img-wrapper ${imageClasses[i]}`}
+                onClick={() => handleScrollImageClick(image.src)}
+              >
+                <div>
+                  <img src={image.src} alt={image.alt} />
+                </div>
+              </div>
+            ))}
           </div>
 
           <p className="scroll-info">
@@ -557,46 +2683,51 @@ const Gallery = () => {
           </p>
 
           <header>
-            <p>Clinic Gallery</p>
-            <h1>Visual journey through our facilities and services</h1>
-            <p>Explore our state-of-the-art rehabilitation center</p>
+            <h1>Visual journey through our facilities and services</h1> 
           </header>
         </div>
 
         <div className="cards">
-          {[...Array(24)].map((_, i) => (
+          {cardItems.map((item, i) => (
             <div 
-              key={i} 
+              key={item.id} 
               className="card" 
-              ref={el => cardsRef.current[i] = el}
-              onClick={(e) => handleCardClick(e, i)}>
+              ref={el => cardsRef.current[i] = el}>
               <div className="card__image-holder">
-                <img className="card__image" src={`https://source.unsplash.com/300x225/?${['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]}`} 
-                  alt={['physiotherapy', 'rehabilitation', 'fitness', 'wellness', 'exercise', 'medical', 'health', 'clinic', 'therapy'][i % 9]} />
+                <img 
+                  className="card__image" 
+                  src={item.image} 
+                  alt={item.title}
+                  onClick={(e) => handleCardImageClick(e, item.image)}
+                />
               </div>
               <div className="card-title">
-                <a href="#" className="toggle-info btn">
+                <a href="#" className="toggle-info btn" onClick={(e) => handleCardToggle(e, i)}>
                   <span className="left"></span>
                   <span className="right"></span>
                 </a>
                 <h2>
-                  Jan Seva Gallery
-                  <small>Professional Facilities</small>
+                  {item.title}
+                  <small>{item.subtitle}</small>
                 </h2>
               </div>
               <div className="card-flap flap1">
                 <div className="card-description">
-                  Explore our world-class physiotherapy center with state-of-the-art equipment and comfortable therapy spaces designed for your recovery.
+                  {item.description}
                 </div>
                 <div className="card-flap flap2">
-                  <div className="card-actions">
-                    <a href="#" className="btn">Learn More</a>
-                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {selectedImage && (
+          <div className="image-modal" onClick={() => setSelectedImage(null)}>
+            <button className="image-modal-close" onClick={() => setSelectedImage(null)}>×</button>
+            <img src={selectedImage} alt="Full size" />
+          </div>
+        )}
       </div>
     </>
   );

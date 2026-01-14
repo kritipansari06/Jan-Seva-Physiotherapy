@@ -6,8 +6,8 @@ import { useTheme } from '../context/ThemeContext';
 const TESTIMONIALS_DATA = [
   {
     id: 1,
-    name: 'Rajesh Kumar',
-    age: 45,
+    name: 'Mukesh Kumar',
+    age: 35,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
     problem: 'Chronic Lower Back Pain',
     category: 'pain-management',
@@ -18,24 +18,24 @@ const TESTIMONIALS_DATA = [
   },
   {
     id: 2,
-    name: 'Priya Sharma',
-    age: 32,
+    name: 'Pintu Yogi',
+    age: 25,
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
     problem: 'ACL Tear & Knee Injury',
     category: 'sports-rehab',
     duration: '12 weeks',
     rating: 5,
-    story: 'As a professional badminton player, my ACL tear seemed like the end of my career. I was devastated and couldn\'t imagine playing again. The sports rehabilitation team provided an intensive program combining electrotherapy, strengthening exercises, and sports-specific training. Not only did I recover fully, but I returned to competitive play stronger than before!',
+    story: 'As a professional Athelete, my ACL tear seemed like the end of my career. I was devastated and couldn\'t imagine playing again. The sports rehabilitation team provided an intensive program combining electrotherapy, strengthening exercises, and sports-specific training. Not only did I recover fully, but I returned to competitive play stronger than before!',
     achievements: ['Full range of motion restored', 'Return to competitive sports', 'Enhanced injury prevention'],
   },
   {
     id: 3,
-    name: 'Amit Patel',
-    age: 58,
+    name: 'Gyan Chand Jatolia',
+    age: 52,
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
     problem: 'Cervical Spondylosis',
     category: 'orthopedic',
-    duration: '10 weeks',
+    duration: '4 weeks',
     rating: 5,
     story: 'Severe neck pain and constant headaches made my daily life miserable. After diagnosis of cervical spondylosis, I was worried about my future. The Jan Seva team used traction therapy, manual therapy, and prescribed home exercises. The improvement was remarkable - no more constant headaches and I can turn my neck freely!',
     achievements: ['Neck mobility increased by 80%', 'Headaches completely eliminated', 'Nerve compression significantly reduced'],
@@ -100,6 +100,263 @@ const TESTIMONIALS_DATA = [
     story: 'After knee surgery, I was anxious about my recovery and progress. The post-operative rehabilitation program was comprehensive - starting with basic mobility and progressing to strengthening and functional activities. The team guided me through each phase carefully. I\'m now back to jogging and hiking without any concerns!',
     achievements: ['Surgical site healed optimally', 'Full range of motion achieved', 'Return to jogging and hiking'],
   },
+  {
+  id: 9,
+  name: 'Ramesh Meena',
+  age: 48,
+  image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+  problem: 'Frozen Shoulder',
+  category: 'orthopedic',
+  duration: '10 weeks',
+  rating: 5,
+  story: 'Severe shoulder stiffness and pain made even basic movements like dressing and lifting impossible. The Jan Seva physiotherapy team identified restricted joint mobility and muscle tightness. Through a structured plan including heat therapy, manual mobilization, and progressive stretching, my shoulder gradually regained movement. Today, I can move my arm freely without pain.',
+  achievements: [
+    'Full shoulder mobility restored',
+    'Pain reduced from severe to zero',
+    'Independent daily activities resumed'
+  ],
+},
+{
+  id: 10,
+  name: 'Vikram Reddy',
+  age: 29,
+  image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&h=400&fit=crop',
+  problem: 'Frozen Shoulder',
+  category: 'orthopedic',
+  duration: '10 weeks',
+  rating: 5,
+  story: 'My frozen shoulder made even basic tasks impossible—I couldn’t lift my arm or dress myself. The physiotherapists used a combination of heat therapy, manual mobilization, and progressive stretching. The gradual improvement was incredible, and within 10 weeks, I had full range of motion back and could return to playing cricket.',
+  achievements: [
+    'Full shoulder mobility restored',
+    'Pain-free movement achieved',
+    'Return to sports activities'
+  ],
+},
+{
+  id: 11,
+  name: 'Sanjay Gupta',
+  age: 41,
+  image: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=400&h=400&fit=crop',
+  problem: 'Post-Operative Knee Surgery Rehabilitation',
+  category: 'post-surgery-rehab',
+  duration: '12 weeks',
+  rating: 5,
+  story: 'After knee surgery, I was anxious about my recovery and long-term mobility. The post-operative rehabilitation program was carefully planned, starting with basic mobility and gradually progressing to strengthening and functional exercises. With consistent guidance and motivation, I regained confidence in my knee and returned to an active lifestyle.',
+  achievements: [
+    'Surgical site healed optimally',
+    'Full range of knee motion achieved',
+    'Return to jogging and hiking'
+  ],
+},
+{
+  id: 12,
+  name: 'Sunita Devi',
+  age: 56,
+  image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400&h=400&fit=crop',
+  problem: 'Osteoarthritis of Knee',
+  category: 'pain-management',
+  duration: '8 weeks',
+  rating: 5,
+  story: 'Chronic knee pain due to osteoarthritis made walking and climbing stairs extremely painful. The Jan Seva team focused on pain relief, strengthening exercises, and lifestyle guidance. Within weeks, my pain reduced significantly, and I was able to walk comfortably without fear.',
+  achievements: [
+    'Pain levels reduced significantly',
+    'Improved knee strength and stability',
+    'Independent walking restored'
+  ],
+},
+{
+  id: 13,
+  name: 'Ankit Sharma',
+  age: 32,
+  image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop',
+  problem: 'Lumbar Disc Bulge',
+  category: 'spine-care',
+  duration: '6 weeks',
+  rating: 5,
+  story: 'Lower back pain radiating to my leg made sitting and working unbearable. After assessment, the physiotherapy team identified a lumbar disc bulge and started a focused spine rehabilitation program. With traction therapy, core strengthening, and posture correction, my pain reduced drastically and mobility improved.',
+  achievements: [
+    'Radiating pain eliminated',
+    'Core strength significantly improved',
+    'Return to normal work routine'
+  ],
+},
+{
+  id: 14,
+  name: 'Mahesh Lalawat',
+  age: 60,
+  image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop',
+  problem: 'Balance & Gait Disorder',
+  category: 'geriatric-rehab',
+  duration: '6 weeks',
+  rating: 5,
+  story: 'Frequent imbalance and fear of falling limited my independence. The physiotherapy program focused on balance training, lower-limb strengthening, and coordination exercises. Over time, my confidence improved, and I can now walk independently without support.',
+  achievements: [
+    'Balance and coordination improved',
+    'Reduced risk of falls',
+    'Confidence in walking restored'
+  ],
+},
+{
+  id: 10,
+  name: 'Neeraj Verma',
+  age: 38,
+  image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+  problem: 'Tennis Elbow',
+  category: 'orthopedic',
+  duration: '6 weeks',
+  rating: 5,
+  story: 'Persistent elbow pain affected my work and daily activities, especially lifting and gripping objects. The physiotherapy team diagnosed tennis elbow and started a targeted treatment plan including electrotherapy, stretching, and strengthening exercises. The pain gradually subsided, and strength returned steadily.',
+  achievements: [
+    'Elbow pain reduced significantly',
+    'Grip strength restored',
+    'Normal work activities resumed'
+  ],
+},
+{
+  id: 11,
+  name: 'Kavita Agarwal',
+  age: 44,
+  image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop',
+  problem: 'Plantar Fasciitis',
+  category: 'pain-management',
+  duration: '5 weeks',
+  rating: 5,
+  story: 'Heel pain made standing and walking extremely uncomfortable, especially in the mornings. The Jan Seva team focused on pain relief, soft tissue release, and foot strengthening exercises. Within a few weeks, walking became pain-free again.',
+  achievements: [
+    'Heel pain eliminated',
+    'Improved foot flexibility',
+    'Comfortable walking restored'
+  ],
+},
+{
+  id: 12,
+  name: 'Rahul Singh',
+  age: 27,
+  image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop',
+  problem: 'Ankle Ligament Sprain',
+  category: 'sports-rehab',
+  duration: '4 weeks',
+  rating: 5,
+  story: 'A sports-related ankle injury restricted my movement and balance. The rehabilitation program included swelling control, strengthening, and proprioception training. With consistent therapy, my ankle regained full stability and strength.',
+  achievements: [
+    'Swelling and pain resolved',
+    'Ankle stability restored',
+    'Safe return to sports'
+  ],
+},
+{
+  id: 13,
+  name: 'Suresh Patel',
+  age: 62,
+  image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop',
+  problem: 'Post-Stroke Shoulder Pain',
+  category: 'neuro-rehab',
+  duration: '8 weeks',
+  rating: 5,
+  story: 'After a stroke, severe shoulder pain limited my arm movement and daily function. The physiotherapists provided gentle mobilization, pain management techniques, and functional training. Gradually, movement improved and pain reduced.',
+  achievements: [
+    'Shoulder pain significantly reduced',
+    'Improved arm mobility',
+    'Enhanced daily independence'
+  ],
+},
+{
+  id: 14,
+  name: 'Pooja Jain',
+  age: 34,
+  image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop',
+  problem: 'Post-Natal Back Pain',
+  category: 'women-health',
+  duration: '6 weeks',
+  rating: 5,
+  story: 'Post-delivery back pain affected my posture and daily routine. The physiotherapy program focused on core strengthening, posture correction, and gentle exercises. Within weeks, my pain reduced and strength returned.',
+  achievements: [
+    'Back pain relieved',
+    'Core strength improved',
+    'Postural balance restored'
+  ],
+},
+{
+  id: 15,
+  name: 'Amit Joshi',
+  age: 40,
+  image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&h=400&fit=crop',
+  problem: 'Sciatica',
+  category: 'spine-care',
+  duration: '7 weeks',
+  rating: 5,
+  story: 'Sharp pain radiating from my lower back to my leg made sitting and driving extremely painful. After proper assessment, the physiotherapy team initiated spine stabilization exercises and nerve mobilization techniques. The improvement was steady and lasting.',
+  achievements: [
+    'Radiating leg pain eliminated',
+    'Improved spinal stability',
+    'Comfortable sitting and walking restored'
+  ],
+},
+{
+  id: 16,
+  name: 'Meena Sharma',
+  age: 58,
+  image: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=400&fit=crop',
+  problem: 'Shoulder Impingement Syndrome',
+  category: 'orthopedic',
+  duration: '6 weeks',
+  rating: 5,
+  story: 'Persistent shoulder pain restricted overhead movements and sleep. The physiotherapy approach focused on pain reduction, posture correction, and rotator cuff strengthening. Over time, movement became smooth and pain-free.',
+  achievements: [
+    'Shoulder pain resolved',
+    'Overhead movement restored',
+    'Improved sleep quality'
+  ],
+},
+{
+  id: 17,
+  name: 'Rohit Malhotra',
+  age: 31,
+  image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+  problem: 'Recurrent Knee Pain (Runner’s Knee)',
+  category: 'sports-rehab',
+  duration: '5 weeks',
+  rating: 5,
+  story: 'Knee pain during running forced me to stop training. The physiotherapy team identified muscle imbalances and corrected my biomechanics through strengthening and stretching. I returned to running pain-free.',
+  achievements: [
+    'Knee pain eliminated',
+    'Improved lower-limb alignment',
+    'Safe return to running'
+  ],
+},
+{
+  id: 18,
+  name: 'Bhagwati Devi',
+  age: 65,
+  image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop',
+  problem: 'Chronic Low Back Pain',
+  category: 'geriatric-rehab',
+  duration: '7 weeks',
+  rating: 5,
+  story: 'Long-standing back pain limited my mobility and independence. The therapy program focused on pain management, strengthening, and flexibility exercises suitable for my age. Gradually, movement became easier and pain reduced.',
+  achievements: [
+    'Pain intensity reduced significantly',
+    'Improved mobility and flexibility',
+    'Better quality of daily life'
+  ],
+},
+{
+  id: 19,
+  name: 'Aditya Kulkarni',
+  age: 23,
+  image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop',
+  problem: 'Post-Fracture Wrist Stiffness',
+  category: 'post-surgery-rehab',
+  duration: '4 weeks',
+  rating: 5,
+  story: 'After fracture healing, my wrist remained stiff and weak. The physiotherapy plan included mobilization, strengthening, and functional training. Gradually, flexibility and strength returned fully.',
+  achievements: [
+    'Wrist flexibility restored',
+    'Grip strength improved',
+    'Normal hand function achieved'
+  ],
+}
+
 ];
 
 const CATEGORIES = [
@@ -114,7 +371,7 @@ const CATEGORIES = [
 const TestimonialCard = ({ testimonial, isDarkMode }) => (
   <div className={`${isDarkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white hover:bg-gray-50'} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} h-full flex flex-col`}>
     {/* Image */}
-    <div className="relative h-64 overflow-hidden">
+    <div className="relative h-70 overflow-hidden">
       <img 
         src={testimonial.image} 
         alt={testimonial.name}
@@ -197,25 +454,6 @@ const TestimonialsPage = () => {
           <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Thousands of patients have transformed their lives at Jan Seva. Here are inspiring stories from our community who've reclaimed their health and wellness.
           </p>
-        </div>
-
-        {/* Stats Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-          {[
-            { number: '1000+', label: 'Patients Treated' },
-            { number: '95%', label: 'Success Rate' },
-            { number: '8+ yrs', label: 'Experience' },
-            { number: '50+', label: 'Health Camps' }
-          ].map((stat, idx) => (
-            <div key={idx} className={`p-4 rounded-xl text-center ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
-              <h3 className={`text-2xl sm:text-3xl font-bold ${isDarkMode ? 'text-teal-400' : 'text-teal-600'}`}>
-                {stat.number}
-              </h3>
-              <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </div>
 
         {/* Category Filter */}

@@ -32,35 +32,11 @@ const About = () => {
     { icon: '🏋️', title: 'Exercise Therapy', desc: 'Customized fitness and recovery programs' }
   ];
 
-  const values = [
-    { icon: '🤝', title: 'Integrity', desc: 'Honest, ethical, and transparent in all our interactions' },
-    { icon: '❤️', title: 'Compassion', desc: 'Treating every patient with empathy and understanding' },
-    { icon: '🎯', title: 'Excellence', desc: 'Striving for the highest quality in every aspect of care' },
-    { icon: '🌟', title: 'Innovation', desc: 'Embracing new approaches to improve patient outcomes' }
-  ];
-
   const stats = [
-    { number: '10,000+', label: 'Patients Treated' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '50+', label: 'Health Camps' },
-    { number: '98%', label: 'Satisfaction Rate' }
-  ];
-
-  const facilities = [
-    { title: 'Advanced Equipment', desc: 'State-of-the-art rehabilitation technology and therapeutic devices' },
-    { title: 'Modern Infrastructure', desc: 'Spacious, well-ventilated treatment rooms with ergonomic design' },
-    { title: 'Hydrotherapy Pool', desc: 'Temperature-controlled pool for aquatic therapy sessions' },
-    { title: 'Exercise Studio', desc: 'Fully equipped gym with specialized rehabilitation equipment' },
-    { title: 'Private Consultation Rooms', desc: 'Comfortable spaces for confidential patient assessments' },
-    { title: 'Waiting Lounge', desc: 'Comfortable seating area with refreshments and entertainment' }
-  ];
-
-  const timeline = [
-    { year: '2010', event: 'Foundation', desc: 'Healing Touch Physiotherapy was established with a vision to provide world-class rehabilitation services' },
-    { year: '2013', event: 'Expansion', desc: 'Opened second treatment wing with advanced electrotherapy equipment' },
-    { year: '2016', event: 'Recognition', desc: 'Received Best Physiotherapy Center Award from State Health Department' },
-    { year: '2019', event: 'Innovation', desc: 'Introduced tele-rehabilitation services and home care programs' },
-    { year: '2023', event: 'Growth', desc: 'Expanded to serve 10,000+ patients with a team of 20+ specialists' }
+    { number: '3,000+', label: 'Lives Transformed Through Specialized Care' },
+    { number: '20,000+', label: 'Expertly Guided Recovery Sessions'},
+    { number: '5500+', label: 'Free Community Welfare Treatments' },
+    { number: '97%', label: 'Clinical Success & Satisfaction Rate' }
   ];
 
   const accentColor = isDarkMode ? 'text-teal-400' : 'text-teal-600';
@@ -98,15 +74,15 @@ const About = () => {
           <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-12 rounded-full`} />
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`space-y-6 leading-relaxed ${textSecondary}`}>
-              <p>
-                Welcome to Healing Touch Physiotherapy, a premier destination for comprehensive rehabilitation and wellness services. Established with a vision to provide world-class physiotherapy care, we have been serving our community for over a decade with dedication, expertise, and compassion.
+            <div className={`space-y-6 text-justify leading-relaxed ${textSecondary}`}>
+              <p className='font-bold'>
+                Welcome to Jan Seva Physiotherapy, Losal—a trusted center dedicated to healing, rehabilitation, and wellness. Established with the vision of making quality physiotherapy accessible to all, we proudly serve Losal and nearby communities with care, commitment, and compassion.
               </p>
-              <p>
-                Our center combines cutting-edge technology with evidence-based treatment protocols to deliver exceptional outcomes for patients of all ages. From sports injuries to chronic pain management, from neurological rehabilitation to geriatric care, we offer a holistic approach to healing.
+              <p className='font-bold'>
+                At Jan Seva Physiotherapy, patients receive care from an experienced and expert physiotherapist, ensuring thoughtful assessment and effective treatment at every step. With the support of modern equipment and evidence-based therapies, we provide comprehensive rehabilitation for all age groups—from injury recovery and post-surgical care to chronic pain management, neurological rehabilitation, and geriatric support.
               </p>
-              <p>
-                We believe in empowering our patients through education and personalized treatment plans. Every individual who walks through our doors receives care that is tailored to their unique needs, lifestyle, and recovery goals.
+              <p className='font-bold'>
+                We believe in empowering patients through guidance, clarity, and personalized attention. Each treatment plan is carefully designed to suit individual conditions, lifestyles, and recovery goals—delivering care that is reliable, affordable, and approachable.
               </p>
             </div>
             
@@ -136,22 +112,25 @@ const About = () => {
             <div className={`p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-teal-600 ${cardBg}`}>
               <div className="text-5xl mb-6">🎯</div>
               <h3 className={`text-3xl font-bold mb-6 ${accentColor}`}>Our Mission</h3>
-              <p className={`leading-relaxed mb-4 ${textSecondary}`}>
-                To provide exceptional physiotherapy services that combine clinical excellence with compassionate care, helping individuals achieve optimal physical function and enhanced quality of life.
+              <p className={`leading-relaxed text-justify mb-4 ${textSecondary}`}>
+                Our mission is to reach the maximum number of people and help them regain movement, strength, and confidence through compassionate physiotherapy care.
+                We strive to establish Jan Seva Physiotherapy as the leading physiotherapy center in Losal by providing high-quality yet affordable treatment.
               </p>
-              <p className={textTertiary}>
-                We strive to create a healing environment where patients feel supported, understood, and empowered throughout their recovery journey.
+              <p className={`text-justify ${textTertiary}`}>
+                By extending our services to nearby rural areas, we aim to ensure that everyone can benefit from effective physiotherapy. Through awareness, accessibility, and ethical care, we work towards improving quality of life and promoting long-term healing.
               </p>
             </div>
             
             <div className={`p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-teal-500 ${cardBg}`}>
               <div className="text-5xl mb-6">👁️</div>
               <h3 className={`text-3xl font-bold mb-6 ${accentColor}`}>Our Vision</h3>
-              <p className={`leading-relaxed mb-4 ${textSecondary}`}>
-                To be recognized as the leading physiotherapy center in the region, setting standards for clinical excellence, patient satisfaction, and innovative rehabilitation practices.
+              <p className={`leading-relaxed text-justify  mb-4 ${textSecondary}`}>
+                Our vision is to become the most trusted and leading physiotherapy center in the region. We aspire to expand our services, reach underserved rural communities, and treat more complex and critical cases.
+                Through advanced technologies, modern therapies, and continuous growth, we envision building a healthier, stronger community.
               </p>
-              <p className={textTertiary}>
-                We aim to expand our services to reach underserved populations and establish centers of excellence that serve as training grounds for future professionals.
+              <p className={`text-justify ${textTertiary}`}>
+                We also aim to set new standards in ethical care, patient satisfaction, and rehabilitation excellence.
+                Above all, we seek to create a future where quality physiotherapy is accessible to all and pain-free living becomes a reality.
               </p>
             </div>
           </div>
@@ -178,7 +157,7 @@ const About = () => {
                 </div>
                 <div className="relative z-10">
                   <h4 className={`text-2xl font-bold mb-4 ${accentColor}`}>{goal.title}</h4>
-                  <p className={textSecondary}>{goal.desc}</p>
+                  <p className={`text-justify ${textSecondary}`}>{goal.desc}</p>
                 </div>
               </div>
             ))}
@@ -186,45 +165,67 @@ const About = () => {
         </div>
       </section>
 
-      {/* Senior Consultant */}
-      <section className={`py-20 ${sectionBg}`}>
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`text-4xl font-bold text-center mb-4 ${accentColor}`}>Meet Our Senior Consultant</h2>
-          <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-12 rounded-full`} />
-          
-          <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${cardBg}`}>
-            <div className="grid md:grid-cols-3 gap-0">
-              <div>
-                <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
-              </div>
-              <div className="md:col-span-2 p-8">
-                <h3 className={`text-4xl font-bold mb-2 ${accentColor}`}>Dr. Shivam Sharma</h3>
-                <div className={`text-xl font-semibold mb-6 ${accentColor}`}>Senior Physiotherapist & Clinical Director</div>
-                <p className={`mb-6 text-justify ${textSecondary}`}>
-                  Dr. Shivam Sharma is a distinguished physiotherapist with over 15 years of clinical experience in musculoskeletal and neurological rehabilitation.
-                </p>
-                
-                <div className="space-y-4">
-                  {[
-                    { label: 'Qualifications', text: 'MPT, BPT, Certified Manual Therapist' },
-                    { label: 'Specializations', text: 'Sports Injury, Spinal Disorders, Post-Surgical Rehab' },
-                    { label: 'Experience', text: '15+ years of clinical practice' },
-                    { label: 'Achievements', text: 'Excellence in Clinical Practice Award 2022' }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <ChevronRight className={`mt-1 flex shrink-0 ${accentColor}`} />
-                      <div>
-                        <strong className={isDarkMode ? 'text-white' : 'text-gray-800'}>{item.label}:</strong>
-                        <span className={`ml-2 ${textTertiary}`}>{item.text}</span>
-                      </div>
-                    </div>
-                  ))}
+
+{/* Senior Consultant Section */}
+<section className={`py-20 ${sectionBg}`}> {/* Reduced from py-20 */}
+  <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className={`text-4xl font-bold text-center mb-3 ${accentColor}`}>Meet Our Senior Consultant</h2> {/* Reduced mb-4 to mb-3 */}
+    <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-6 rounded-full`} /> {/* Reduced mb-8 to mb-6 */}
+    
+    <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${cardBg}`}>
+      <div className="grid md:grid-cols-5 gap-0">
+        <div className="md:col-span-2">
+          {/* Maintained your aspect ratio logic */}
+          <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
+        </div>
+        
+        <div className="md:col-span-3 p-7 flex flex-col justify-between"> {/* Reduced from p-8 to p-7 */}
+          <div>
+            <h3 className={`text-3xl font-bold mb-1 ${accentColor}`}>Dr. Shivam Sharma</h3> {/* Reduced mb-2 to mb-1 */}
+            <div className={`text-lg font-semibold mb-3 ${accentColor}`}>Senior Physiotherapist & Clinical Incharge</div> {/* Reduced mb-4 to mb-3 */}
+            <p className={`mb-3 text-justify text-md leading-relaxed ${textSecondary}`}> {/* Reduced mb-4 to mb-3 */}
+              Dr. Shivam Sharma is a distinguished physiotherapist with over 5+ years of clinical experience in musculoskeletal and neurological rehabilitation.
+            </p>
+            
+            <div className="space-y-2 mb-4"> {/* Tightened from space-y-3 to space-y-2 */}
+              {[
+                { label: 'Qualifications', text: 'MPT, BPT, Certified Manual Therapist' },
+                { label: 'Specializations', text: 'Sports & Musculoskeletal Injury, Spinal Disorders, Post-Surgical Rehab' },
+                { label: 'Experience', text: '5+ years of clinical practice' },
+                { label: 'Achievements', text: 'Excellence in Clinical Practice Award 2022' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <ChevronRight className={`mt-0.5 flex shrink-0 w-5 h-5 ${accentColor}`} />
+                  <div>
+                    <strong className={`text-md ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{item.label}:</strong>
+                    <span className={`ml-2 text-sm ${textTertiary}`}>{item.text}</span>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Quote Section - Slightly more compact padding */}
+          <div className={`mt-2 p-3 rounded-xl border-l-4 border-teal-500 ${
+            isDarkMode 
+              ? 'bg-teal-900/30' 
+              : 'bg-teal-50'
+          }`}>
+            <div className="flex items-start gap-3">
+              <span className="text-3xl flex shrink-0">💬</span>
+              <div>
+                <p className={`text-base italic font-semibold mb-1 ${textSecondary}`}> {/* Reduced mb-2 to mb-1 */}
+                  "Physiotherapy is not just about treating pain—it's about restoring hope, mobility, and the freedom to live life fully."
+                </p>
+                <p className={`text-xs font-bold ${accentColor}`}>— Dr. Shivam Sharma</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Trust Section - Enhanced */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-r from-teal-900 via-teal-800 to-gray-800' : 'bg-linear-to-r from-teal-50 via-cyan-50 to-blue-50'} relative overflow-hidden`}>
@@ -248,22 +249,22 @@ const About = () => {
               {
                 title: 'About the Trust',
                 icon: '🤝',
-                content: 'The R.P. Pansari Jan Seva Trust was established in 2005 with a noble mission to provide quality healthcare services to all sections of society. The trust operates multiple healthcare facilities, focusing on serving underprivileged communities.'
+                content: 'Established in 1994, R. P. Pansari Jan Seva Trust is dedicated to the welfare of society through service-driven initiatives. The Trust works across healthcare, education, social welfare, and spiritual development, focusing on inclusive and compassionate impact.'
               },
               {
                 title: 'Community Impact',
                 icon: '👥',
-                content: 'Since its inception, the trust has served over 50,000 patients through various healthcare initiatives. Our outreach programs have conducted more than 200 health camps in underserved areas.'
+                content: 'Through ethical care and compassionate service, the center has successfully treated and rehabilitated thousands of patients, reducing long-term disability and significantly improving quality of life in the community.'
               },
               {
                 title: 'Trust Objectives',
                 icon: '🎯',
-                content: 'Provide affordable healthcare, establish wellness facilities, conduct awareness programs, and support medical education in rehabilitation sciences for the benefit of society.'
+                content: 'Trust means an organization or initiative working selflessly for public welfare, without profit, driven by service, compassion, and social responsibility. In an NGO trust, the focus is on helping people, uplifting communities, and creating positive impact in areas like health, education, and social well-being.'
               },
               {
                 title: 'Future Initiatives',
                 icon: '🚀',
-                content: 'Expanding services with mobile physiotherapy units, establishing research wings, creating vocational training programs, and developing partnerships with educational institutions.'
+                content: 'The Trust is committed to holistic community empowerment through cutting-edge skill development programs, comprehensive healthcare outreach, cultural heritage restoration, and strategic social collaborations—fostering sustainable growth across education, health, social welfare, and spiritual domains.'
               }
             ].map((item, idx) => (
               <div key={idx} className={`p-8 rounded-2xl backdrop-blur-sm border-2 hover:-translate-y-2 transition-all duration-300 ${
@@ -300,23 +301,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className={`py-20 ${isDarkMode ? 'bg-linear-to-r from-teal-900 to-teal-800' : 'bg-linear-to-r from-teal-600 to-teal-700'} text-white`}>
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12">Our Core Values</h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, idx) => (
-              <div key={idx} className={`text-center p-8 rounded-2xl backdrop-blur-sm border-2 ${isDarkMode ? 'bg-white/10 border-white/30 hover:bg-white/20' : 'bg-white/10 border-white/30 hover:bg-white/20'} transition-all duration-300 hover:-translate-y-2 group`}>
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">{value.icon}</div>
-                <h4 className="text-2xl font-bold mb-3">{value.title}</h4>
-                <p className="opacity-90">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Stats Section */}
       <section className={`py-20 ${sectionBg}`}>
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -328,49 +312,6 @@ const About = () => {
               <div key={idx} className={`p-8 rounded-xl text-center hover:shadow-2xl transition-shadow ${cardBg} border-2 shadow-lg hover:-translate-y-1`}>
                 <div className={`text-5xl font-bold mb-3 ${accentColor}`}>{stat.number}</div>
                 <div className={`text-lg ${textTertiary}`}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities Section */}
-      <section className={`py-20 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`text-4xl font-bold text-center mb-4 ${accentColor}`}>World-Class Facilities</h2>
-          <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-12 rounded-full`} />
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {facilities.map((facility, idx) => (
-              <div
-                key={idx}
-                className={`p-6 rounded-xl shadow-md border-l-4 border-teal-600 hover:shadow-xl hover:translate-x-2 transition-all duration-300 ${cardBg}`}>
-                <h4 className={`text-xl font-bold mb-3 ${accentColor}`}>{facility.title}</h4>
-                <p className={textTertiary}>{facility.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section - Enhanced */}
-      <section className={`py-20 ${sectionBg}`}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`text-4xl font-bold text-center mb-4 ${accentColor}`}>Our Journey</h2>
-          <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-12 rounded-full`} />
-          
-          <div className="space-y-12">
-            {timeline.map((item, idx) => (
-              <div key={idx} className={`flex ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 items-center`}>
-                <div className="flex-1" />
-                <div className="w-5 h-5 bg-linear-to-br from-teal-500 to-teal-600 rounded-full flex shrink-0 shadow-lg" />
-                <div className="flex-1">
-                  <div className={`${cardBg} p-6 rounded-2xl border-2 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:border-teal-500`}>
-                    <div className={`text-3xl font-bold ${accentColor} mb-2`}>{item.year}</div>
-                    <h4 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>{item.event}</h4>
-                    <p className={textTertiary}>{item.desc}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>

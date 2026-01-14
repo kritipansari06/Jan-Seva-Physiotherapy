@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
-import heroBg from '../assets/images/physio2.png'; 
-
-import testimonial1 from '../assets/images/testimonial1.png';
-import testimonial2 from '../assets/images/testimonial2.png';
-import testimonial3 from '../assets/images/testimonial3.png';
-import testimonial4 from '../assets/images/testimonial4.jpg';
-import testimonial5 from '../assets/images/testimonial5.jpg';
-import testimonial6 from '../assets/images/testimonial6.jpg';
-
 
 const allTestimonials = [
-    { id: 1, image: testimonial1 },
-    { id: 2, image: testimonial2 },
-    { id: 3, image: testimonial3 },
-    { id: 4, image: testimonial4 },
-    { id: 5, image: testimonial5 },
-    { id: 6, image: testimonial6 },
+    { id: 1, image: '/images/testimonial1.png' },
+    { id: 2, image: '/images/testimonial2.png' },
+    { id: 3, image: '/images/testimonial3.png' },
+    { id: 4, image: '/images/testimonial4.jpg' },
+    { id: 5, image: '/images/testimonial5.jpg' },
+    { id: 6, image: '/images/testimonial6.jpg' },
 ];
 
 const features = [
@@ -53,38 +44,17 @@ const Home = () => {
     const baseButtonClasses = "px-8 py-3 uppercase font-semibold tracking-wider transition duration-300 rounded-lg shadow-lg";
     const mainBgClass = isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900";
 
-    const nextTestimonial = () => {
-        setCurrentTestimonialIndex((prevIndex) => 
-            (prevIndex + 1) % allTestimonials.length
-        );
-    };
-
-    const prevTestimonial = () => {
-        setCurrentTestimonialIndex((prevIndex) => 
-            (prevIndex - 1 + allTestimonials.length) % allTestimonials.length
-        );
-    };
-
-    const activeTestimonial = allTestimonials[currentTestimonialIndex];
-
     return (
         <div className={mainBgClass}>
 
             {selectedImage && (
-                <div 
-                    className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-                    onClick={() => setSelectedImage(null)}
-                >
-                    <button 
-                        className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
-                        onClick={() => setSelectedImage(null)}
-                        aria-label="Close"
-                    >
+                <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                    onClick={() => setSelectedImage(null)}>
+                    <button className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+                        onClick={() => setSelectedImage(null)} aria-label="Close">
                         ×
                     </button>
-                    <img 
-                        src={selectedImage} 
-                        alt="Enlarged view" 
+                    <img src={selectedImage} alt="Enlarged view" 
                         className="max-w-full max-h-full object-contain rounded-lg"
                         onClick={(e) => e.stopPropagation()}
                     />
@@ -92,11 +62,11 @@ const Home = () => {
             )}
 
             <section className="relative h-screen flex items-center justify-center text-center p-4"
-                style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                style={{ backgroundImage: `url('/images/physio2.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className={`absolute inset-0 ${isDarkMode ? 'bg-gray-900 opacity-70' : 'bg-gray-50 opacity-65'}`}></div>
                 
                 <div className="relative z-10 max-w-4xl">
-                    <p className={`text-xl sm:text-2xl font-light mb-4 ${accentColorClass} uppercase tracking-widest`}>
+                    <p className={`text-xl sm:text-2xl font-semibold mb-4 ${accentColorClass} uppercase tracking-widest`}>
                         Rediscover Movement. Live Pain-Free.
                     </p>
                     <h1 className={`text-4xl sm:text-6xl font-extrabold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -108,9 +78,9 @@ const Home = () => {
                     
                     <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                         <Link 
-                            to="/contact" 
+                            to="/gallery" 
                             className={`${baseButtonClasses} ${buttonSolidClass} shadow-teal-500/50`}>
-                            Connect with us
+                            View our media
                         </Link>
                         <Link 
                             to="/about" 
@@ -134,31 +104,31 @@ const Home = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'} border rounded-xl shadow-lg hover:shadow-teal-400/30 transition duration-300`}>
-                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Orthopedic Rehab</h3>
+                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Therapeutic Care</h3>
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                                Targeted therapy for joint and bone injuries, including post-surgical and chronic conditions.
+                                Gentle and effective treatments that ease pain, relax muscles, and improve body movement using modern physiotherapy methods.
                             </p>
-                            <Link to="/treatments" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
+                            <Link to="/treatments/therapies" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
                                 View Therapies &rarr;
                             </Link>
                         </div>
 
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'} border rounded-xl shadow-lg hover:shadow-teal-400/30 transition duration-300`}>
-                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Sports Injury</h3>
+                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Recovery & Rehab</h3>
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                                Accelerated recovery and performance enhancement for athletes of all levels.
+                                Personalized recovery programs that rebuild strength, restore movement, and improving balance, endurance, and overall functional independence.
                             </p>
-                            <Link to="/treatments" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
+                            <Link to="/treatments/rehabs" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
                                 View Rehabs &rarr;
                             </Link>
                         </div>
 
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'} border rounded-xl shadow-lg hover:shadow-teal-400/30 transition duration-300`}>
-                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Pain Management</h3>
+                            <h3 className={`text-2xl font-semibold mb-3 ${accentColorClass}`}>Smart Equipments</h3>
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-                                Non-pharmacological approaches to reduce pain and improve quality of life.
+                                Advanced and safe physiotherapy equipment designed to speed up recovery, improve results, and support better treatment.
                             </p>
-                            <Link to="/treatments" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
+                            <Link to="/treatments/equipments" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
                                 View Equipment &rarr;
                             </Link>
                         </div>
@@ -223,8 +193,7 @@ const Home = () => {
                                 <div 
                                     key={`${testimonial.id}-${index}`} 
                                     className="flex shrink-0 w-80 mx-4 cursor-pointer"
-                                    onClick={() => setSelectedImage(testimonial.image)}
-                                >
+                                    onClick={() => setSelectedImage(testimonial.image)}>
                                     <div className={`rounded-xl shadow-xl overflow-hidden h-full hover:shadow-2xl transition-shadow duration-300 ${isDarkMode ? 'border border-gray-700' : ''}`}>
                                         <img 
                                             src={testimonial.image} 

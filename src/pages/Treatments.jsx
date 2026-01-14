@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
-import placeholderImage from '../assets/images/1.JPG';
 
 const treatmentData = [
   { 
     id: 'therapies', 
     title: 'Therapies', 
+    image: '/public/images/Therapies.jpg',
     points: [
       'Comprehensive assessment and diagnosis.',
       'Personalized manual therapy techniques.',
@@ -17,6 +17,7 @@ const treatmentData = [
   { 
     id: 'equipments', 
     title: 'Equipments', 
+    image: '/images/2.JPG',
     points: [
       'Access to advanced electrotherapy machines.',
       'State-of-the-art exercise machines.',
@@ -27,6 +28,7 @@ const treatmentData = [
   { 
     id: 'rehabs', 
     title: 'Rehabs', 
+    image: '/images/3.JPG',
     points: [
       'Injury recovery and strengthening programs.',
       'Functional movement retraining.',
@@ -37,6 +39,7 @@ const treatmentData = [
   { 
     id: 'wellness-prevention', 
     title: 'Wellness & Prevention', 
+    image: '/images/4.JPG',
     points: [
       'Ergonomics and posture consultation.',
       'Injury prevention workshops.',
@@ -76,7 +79,7 @@ const Treatments = () => {
           <div key={treatment.id} className={`flex flex-col md:flex-row items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2`}>
             
             <div className={`w-full md:w-1/4 h-48 md:h-auto shrink-0 p-4 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
-              <img src={placeholderImage} alt={`${treatment.title} image`} 
+              <img src={treatment.image} alt={`${treatment.title} image`} 
                 className={`w-full h-full object-cover rounded-lg border-2 ${cardBgClass}`} />
             </div>
 

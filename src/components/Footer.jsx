@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../assets/logo.png';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Phone, Mail, MapPin, Heart } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const socials = [
-  { icon: FaFacebook, href: 'https://facebook.com/janservaphysio', label: 'Facebook' },
+  { icon: FaFacebook, href: 'https://facebook.com/janseva.physiocentre', label: 'Facebook' },
   { icon: FaTwitter, href: 'https://twitter.com/janservaphysio', label: 'Twitter' },
-  { icon: FaInstagram, href: 'https://instagram.com/janservaphysio', label: 'Instagram' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/jansevaphysiolosal', label: 'Instagram' },
   { icon: FaLinkedin, href: 'https://linkedin.com/company/janservaphysio', label: 'LinkedIn' },
 ];
 
@@ -37,6 +36,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
   };
 
   const quickLinks = [
+    { to: '/our-story', label: 'Our Story' },
     { to: '/about', label: 'About Us' },
     { to: '/treatments', label: 'Treatments' },
     { to: '/services', label: 'Services' },
@@ -85,7 +85,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 mb-8 border-b-2 ${sectionBorder}`}>
           <div className="space-y-4">
             <div className="flex items-center space-x-3 mb-4">
-              <img src={logoImage} alt="logo" className="w-24 h-20 rounded-full object-cover shadow-lg" />
+              <img src="/public/Logo.png" alt="logo" className="w-30 h-30 object-contain bg-transparent" />
               <div>
                 <h4 className={`${isDarkMode ? 'text-teal-400' : 'text-teal-700'} text-lg font-bold`}>{brandName}</h4>
               </div>
@@ -100,10 +100,8 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.to}>
-                  <Link 
-                    to={l.to} 
-                    className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline`}
-                  >
+                  <Link to={l.to} 
+                    className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline`}>
                     {l.label}
                   </Link>
                 </li>
@@ -132,27 +130,23 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <Mail className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
-                <a 
-                  href="mailto:info@janservatrust.org" 
-                  onClick={(e) => handleContactLinkClick(e, 'email')}
-                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}
-                >
-                  info@janservatrust.org
+                <a href="mailto:jansevalosal@gmail.com" onClick={(e) => handleContactLinkClick(e, 'email')}
+                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}>
+                   jansevalosal@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
-                <a 
-                  href="tel:+919876543210" 
-                  onClick={(e) => handleContactLinkClick(e, 'phone')}
-                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}
-                >
-                  +91 98765 43210
+                <a href="tel:+919876543210" onClick={(e) => handleContactLinkClick(e, 'phone')}
+                  className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline cursor-pointer`}>
+                  +91 8769220073
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className={`${isDarkMode ? 'text-teal-600' : 'text-teal-500'} w-5 h-5 flex shrink-0 mt-0.5`} />
-                <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>Sikar, Rajasthan, India</span>
+                <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
+                  Near Government Sodhani Hospital,
+                  Main Market, Losal (Sikar - Rajasthan),</span>
               </li>
             </ul>
 
