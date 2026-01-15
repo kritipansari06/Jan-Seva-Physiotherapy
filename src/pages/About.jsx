@@ -13,12 +13,12 @@ const About = () => {
   }, []);
 
   const goals = [
-    { num: '01', title: 'Patient-Centered Care', desc: 'Delivering personalized treatment plans that prioritize patient comfort, dignity, and individual recovery goals.' },
-    { num: '02', title: 'Clinical Excellence', desc: 'Maintaining the highest standards of professional practice through continuous education and evidence-based treatments.' },
-    { num: '03', title: 'Accessibility', desc: 'Making quality physiotherapy services accessible to all members of our community regardless of their background.' },
-    { num: '04', title: 'Innovation', desc: 'Embracing new technologies and treatment modalities to provide cutting-edge rehabilitation solutions.' },
-    { num: '05', title: 'Prevention', desc: 'Promoting health awareness and preventive strategies to reduce the incidence of injuries and chronic conditions.' },
-    { num: '06', title: 'Community Impact', desc: 'Contributing to community health through outreach programs, workshops, and collaborative healthcare initiatives.' }
+    { title: 'Personalized Care', desc: 'Delivering personalized treatment plans that prioritize patient comfort, dignity, and individual recovery goals.' },
+    { title: 'Clinical Excellence', desc: 'Maintaining the highest standards of professional practice through continuous education and evidence-based treatments.' },
+    { title: 'Inclusive Access', desc: 'Making quality physiotherapy services accessible to all members of our community regardless of their background.' },
+    { title: 'Advanced Practice', desc: 'Embracing new technologies and treatment modalities to provide cutting-edge rehabilitation solutions.' },
+    { title: 'Injury Prevention', desc: 'Promoting health awareness and preventive strategies to reduce the incidence of injuries and chronic conditions.' },
+    { title: 'Community Impact', desc: 'Contributing to community health through outreach programs, workshops, and collaborative healthcare initiatives.' }
   ];
 
   const services = [
@@ -146,20 +146,28 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {goals.map((goal, idx) => (
               <div
-                key={idx}
-                className={`relative p-8 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 ${
-                  isDarkMode 
-                    ? 'bg-gray-700 border-2 border-teal-600 hover:shadow-xl hover:shadow-teal-600/20' 
-                    : 'bg-white border-2 border-teal-200 shadow-lg hover:shadow-xl hover:shadow-teal-400/20'
-                }`}>
-                <div className={`absolute top-0 right-0 text-8xl font-bold opacity-10 group-hover:opacity-20 transition-opacity ${accentColor}`}>
-                  {goal.num}
-                </div>
-                <div className="relative z-10">
-                  <h4 className={`text-2xl font-bold mb-4 ${accentColor}`}>{goal.title}</h4>
-                  <p className={`text-justify ${textSecondary}`}>{goal.desc}</p>
-                </div>
-              </div>
+  key={idx}
+  className={`flex flex-col p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
+    isDarkMode
+      ? 'bg-gray-800 border border-teal-600/40 hover:shadow-xl hover:shadow-teal-600/20'
+      : 'bg-white border border-teal-200 shadow-md hover:shadow-xl'
+  }`}
+>
+  {/* FIXED HEIGHT TITLE */}
+  <h4
+    className={`font-bold text-lg md:text-2xl leading-snug mb-4 min-h-[3rem] ${accentColor}`}
+  >
+    {goal.title}
+  </h4>
+
+  {/* BODY TEXT */}
+  <p
+    className={`text-base leading-relaxed text-left ${textSecondary}`}
+  >
+    {goal.desc}
+  </p>
+</div>
+
             ))}
           </div>
         </div>
