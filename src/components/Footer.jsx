@@ -85,7 +85,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 mb-8 border-b-2 ${sectionBorder}`}>
           <div className="space-y-4">
             <div className="flex items-center space-x-3 mb-4">
-              <img src="/public/Logo.png" alt="logo" className="w-30 h-30 object-contain bg-transparent" />
+              <img src="/public/images/Logo.png" alt="logo" className="w-30 h-30 object-contain bg-transparent" />
               <div>
                 <h4 className={`${isDarkMode ? 'text-teal-400' : 'text-teal-700'} text-lg font-bold`}>{brandName}</h4>
               </div>
