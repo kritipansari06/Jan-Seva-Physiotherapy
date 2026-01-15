@@ -135,7 +135,7 @@ export default function Navbar() {
 >
   {/* Updated Logo Image */}
   <img 
-  src="/public/images/Logo.png" // Change extension to .png if you update the file
+  src="/images/Logo.png" // Change extension to .png if you update the file
   alt="Logo" 
   className="w-16 h-16 object-contain bg-transparent" 
 />
