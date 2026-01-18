@@ -75,36 +75,49 @@ const Treatments = () => {
       <hr className={`w-16 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-10`} />
       <div className="max-w-4xl mx-auto space-y-8">
         {treatmentData.map((treatment) => (
-          
-          <div key={treatment.id} className={`flex flex-col md:flex-row items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2`}>
-            
-            <div className={`w-full md:w-1/4 h-48 md:h-auto shrink-0 p-4 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
-              <img src={treatment.image} alt={`${treatment.title} image`} 
-                className={`w-full h-full object-cover rounded-lg border-2 ${cardBgClass}`} />
-            </div>
+  <div 
+    key={treatment.id} 
+    /* Mobile par flex-col aur items-center taki portrait image center mein rahe */
+    className={`flex flex-col min-[568px]:flex-row items-center min-[568px]:items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 h-auto`}
+  >
+    
+    {/* Image Container:
+        - Below 568px: Fixed size (200x260) portrait box, centered with my-4.
+        - Above 568px: Side-by-side w-1/3 logic.
+        - Above 768px: Original md:w-1/4 logic.
+    */}
+    <div className={`w-[200px] h-[260px] min-[568px]:w-1/3 min-[568px]:h-auto md:w-1/4 shrink-0 my-4 min-[568px]:my-0 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
+      <img 
+        src={treatment.image} 
+        alt={`${treatment.title} image`} 
+        /* object-cover aur rounded-lg for clean look */
+        className="w-full h-full object-cover rounded-lg min-[568px]:rounded-none" 
+      />
+    </div>
 
-            <div className="flex grow p-6 flex-col justify-between">
-              
-              <div>
-                <h2 className={`text-3xl font-bold mb-4 ${titleClass}`}>{treatment.title}</h2>
-                <ul className={`space-y-2 list-disc list-inside ${textColorClass}`}>
-                  {treatment.points.map((point, index) => (
-                    <li key={index}>{point}</li>
-                  ))}
-                </ul>
-              </div>
+    {/* Content Area */}
+    <div className="flex w-full min-[568px]:w-2/3 md:grow p-4 sm:p-6 flex-col justify-between">
+      <div>
+        <h2 className={`text-xl sm:text-3xl font-bold mb-2 sm:mb-4 ${titleClass} text-center min-[568px]:text-left`}>
+          {treatment.title}
+        </h2>
+        <ul className={`space-y-1 sm:space-y-2 list-disc list-inside ${textColorClass} text-xs sm:text-base`}>
+          {treatment.points.map((point, index) => (
+            <li key={index} className="leading-tight sm:leading-normal">{point}</li>
+          ))}
+        </ul>
+      </div>
 
-              <div className="mt-6">
-                <Link 
-                  to={`/treatments/${treatment.id}`}
-                  className={`${buttonClasses} ${buttonOutlineClass}`}>
-                  Read More
-                </Link>
-              </div>
-
-            </div>
-          </div>
-        ))}
+      <div className="mt-4 sm:mt-6 flex justify-center min-[568px]:justify-start">
+        <Link 
+          to={`/treatments/${treatment.id}`}
+          className={`inline-block ${buttonClasses} ${buttonOutlineClass} text-[10px] sm:text-sm px-3 py-1 sm:px-6 sm:py-2`}>
+          Read More
+        </Link>
+      </div>
+    </div>
+  </div>
+))}
       </div>
     </div>
   );
