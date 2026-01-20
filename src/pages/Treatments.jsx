@@ -6,7 +6,7 @@ const treatmentData = [
   { 
     id: 'therapies', 
     title: 'Therapies', 
-    image: '/public/images/Therapies.jpg',
+    image: '/public/images/TT.Therapies.png',
     points: [
       'Comprehensive assessment and diagnosis.',
       'Personalized manual therapy techniques.',
@@ -17,7 +17,7 @@ const treatmentData = [
   { 
     id: 'equipments', 
     title: 'Equipments', 
-    image: '/images/2.JPG',
+    image: '/public/images/TT.Equipment.png',
     points: [
       'Access to advanced electrotherapy machines.',
       'State-of-the-art exercise machines.',
@@ -28,7 +28,7 @@ const treatmentData = [
   { 
     id: 'rehabs', 
     title: 'Rehabs', 
-    image: '/images/3.JPG',
+    image: '/public/images/TT.Rehab.png',
     points: [
       'Injury recovery and strengthening programs.',
       'Functional movement retraining.',
@@ -39,7 +39,7 @@ const treatmentData = [
   { 
     id: 'wellness-prevention', 
     title: 'Wellness & Prevention', 
-    image: '/images/4.JPG',
+    image: '/public/images/TT.Wellness.png',
     points: [
       'Ergonomics and posture consultation.',
       'Injury prevention workshops.',

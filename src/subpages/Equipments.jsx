@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const EquipmentData = {
     keyEquipment: [
-        { id: 'electrotherapy', title: 'Electrotherapy Devices', image: '/images/equipments/electrotherapy.jpg', description: 'Includes <strong>TENS, IFT, Ultrasound therapy units, NMES, and Laser machines</strong>. Use electrical currents, sound waves, or light to reduce pain, activate weak muscles, and promote tissue healing.' },
+        { id: 'electrotherapy', title: 'Electrotherapy Devices', image: '/public/images/Therapies/EQP.png', description: 'Includes <strong>TENS, IFT, Ultrasound therapy units, NMES, and Laser machines</strong>. Use electrical currents, sound waves, or light to reduce pain, activate weak muscles, and promote tissue healing.' },
         { id: 'exercise', title: 'Exercise & Strengthening Equipment', image: '/images/equipments/exercise.jpg', description: 'Features <strong>resistance bands, dumbbells, medicine balls, ankle weights, physioballs, and pulley systems</strong>. Rebuild strength, flexibility, endurance, and joint stability during rehabilitation.' },
         { id: 'mobility', title: 'Mobility Support Equipment', image: '/images/equipments/mobility.jpg', description: 'Includes <strong>walkers, canes, crutches, wheelchairs, orthotic supports, and braces</strong>. Help patients move safely by stabilizing weak joints, reducing strain, and improving balance.' },
         { id: 'manual', title: 'Manual Therapy Tools', image: '/images/equipments/manual-therapy.jpg', description: 'Contains <strong>foam rollers, massage guns, trigger-point tools, cupping sets, and IASTM instruments</strong>. Reduce muscle tension, break adhesions, improve circulation, and support soft-tissue release.' },
@@ -108,28 +108,34 @@ const Equipment = () => {
                         Comprehensive range of therapeutic devices and training equipment for effective rehabilitation
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        {EquipmentData.keyEquipment.map((equipment) => (
-                            <div key={equipment.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
-                                    isDarkMode
-                                        ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
-                                        : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}>
-                                {/* Image Container */}
-                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
-                                    <img src={equipment.image} alt={equipment.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                                        onClick={() => setSelectedImage(equipment.image)}/>
-                                </div>
-                                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                                    {equipment.title}
-                                </h3>
-                                <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
-                                    dangerouslySetInnerHTML={createMarkup(equipment.description)} />
-                            </div>
-                        ))}
-                    </div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {EquipmentData.keyEquipment.map((equipment) => (
+        <div key={equipment.id} 
+             // 1. Force cards to be equal height in a row
+             className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+            
+            {/* 2. Fixed aspect ratio container (16:9) prevents vertical stretching on mobile */}
+            <div className="w-full aspect-video overflow-hidden bg-gray-200">
+                <img 
+                    src={equipment.image} 
+                    alt={equipment.title}
+                    // 3. object-cover keeps the image proportioned while filling the box
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => setSelectedImage(equipment.image)}
+                />
+            </div>
+
+            {/* 4. flex-grow pushes the content to fill the card height */}
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>
+                    {equipment.title}
+                </h3>
+                <p className={`flex-grow ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
+                   dangerouslySetInnerHTML={createMarkup(equipment.description)} />
+            </div>
+        </div>
+    ))}
+</div>
 
                     {/* Accordion */}
                     <div className={`rounded-xl p-6 transition-colors duration-300 ${isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>

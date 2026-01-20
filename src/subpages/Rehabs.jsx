@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const RehabData = {
     keyRehab: [
-        { id: 'orthopedic', title: 'Orthopedic Rehabilitation', image: '/images/rehabs/orthopedic.jpg', description: 'Recovery from <strong>fractures, ligament tears, joint injuries</strong>, and post-surgical procedures. Restores strength, mobility, balance, and joint stability for pain-free daily activities.' },
+        { id: 'orthopedic', title: 'Orthopedic Rehabilitation', image: '/public/images/Therapies/EQP.png', description: 'Recovery from <strong>fractures, ligament tears, joint injuries</strong>, and post-surgical procedures. Restores strength, mobility, balance, and joint stability for pain-free daily activities.' },
         { id: 'neurological', title: 'Neurological Rehabilitation', image: '/images/rehabs/neurological.jpg', description: 'For <strong>stroke, spinal cord injuries, Parkinson\'s disease</strong>, and brain injuries. Improves coordination, muscle control, balance, and walking ability through neuro-facilitation.' },
         { id: 'sports', title: 'Sports Rehabilitation', image: '/images/rehabs/sports.jpg', description: 'Addresses athletic injuries like <strong>sprains, strains, tendonitis</strong>, and muscle tears. Rebuilds strength, improves flexibility, and ensures safe return to peak performance.' },
         { id: 'postsurgical', title: 'Post-Surgical Rehabilitation', image: '/images/rehabs/post-surgical.jpg', description: 'Supports healing after <strong>orthopedic or spinal surgeries</strong>. Focuses on pain control, swelling reduction, early mobility, and restoring full function through structured phases.' },
@@ -106,29 +106,34 @@ const Rehabilitation = () => {
                         Comprehensive rehabilitation programs for injuries, surgeries, neurological conditions, and developmental needs
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        {RehabData.keyRehab.map((rehab) => (
-                            <div key={rehab.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
-                                    isDarkMode
-                                        ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
-                                        : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}>
-                                {/* Image Container */}
-                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
-                                    <img src={rehab.image} alt={rehab.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                                        onClick={() => setSelectedImage(rehab.image)}/>
-                                </div>
-                                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                                    {rehab.title}
-                                </h3>
-                                <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
-                                    dangerouslySetInnerHTML={createMarkup(rehab.description)} />
-                            </div>
-                        ))}
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {rehabData.keyrehab.map((rehab) => (
+        <div key={rehab.id} 
+             // 1. Force cards to be equal height in a row
+             className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+            
+            {/* 2. Fixed aspect ratio container (16:9) prevents vertical stretching on mobile */}
+            <div className="w-full aspect-video overflow-hidden bg-gray-200">
+                <img 
+                    src={rehab.image} 
+                    alt={rehab.title}
+                    // 3. object-cover keeps the image proportioned while filling the box
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => setSelectedImage(rehab.image)}
+                />
+            </div>
 
+            {/* 4. flex-grow pushes the content to fill the card height */}
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>
+                    {rehab.title}
+                </h3>
+                <p className={`flex-grow ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
+                   dangerouslySetInnerHTML={createMarkup(rehab.description)} />
+            </div>
+        </div>
+    ))}
+</div>
                     {/* Accordion */}
                     <div className={`rounded-xl p-6 transition-colors duration-300 ${isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                         <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -158,28 +163,33 @@ const Rehabilitation = () => {
                     <h2 className={`text-3xl font-bold text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                         ✨ Performance, Recovery & Long-Term Rehabilitation
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {RehabData.advancedRehab.map((rehab) => (
-                            <div key={rehab.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
-                                    isDarkMode
-                                        ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
-                                        : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}>
-                                {/* Image Container */}
-                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
-                                    <img src={rehab.image} alt={rehab.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                                        onClick={() => setSelectedImage(rehab.image)}/>
-                                </div>
-                                <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                                    {rehab.title}
-                                </h3>
-                                <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
-                                    dangerouslySetInnerHTML={createMarkup(rehab.description)} />
-                            </div>
-                        ))}
-                    </div>
+                    {/* Replace your keyRehab map with this */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+    {RehabData.keyRehab.map((rehab) => (
+        <div key={rehab.id}
+            className={`flex flex-col h-full p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
+                isDarkMode ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl' : 'bg-white border border-gray-200 hover:shadow-xl'
+            }`}>
+            <div className="w-full aspect-video mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
+                <img src={rehab.image} alt={rehab.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    onClick={() => setSelectedImage(rehab.image)}/>
+            </div>
+            <div className="flex flex-col flexgrow">
+                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {rehab.title}
+                </h3>
+                <p className={`flex-grow ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
+                    dangerouslySetInnerHTML={createMarkup(rehab.description)} />
+            </div>
+        </div>
+    ))}
+</div>
+
+{/* Update the H1 to fix the Tailwind v4 error */}
+<h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+    जन सेवा फिज़ियो सेंटर — Rehabilitation Programs
+</h1>
                 </section>
 
                 {/* Impact Section */}

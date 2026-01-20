@@ -6,7 +6,7 @@ const TherapiesData = {
         { 
             id: 'tens', 
             title: 'TENS (Transcutaneous Electrical Nerve Stimulation)', 
-            image: '/public/images/1.JPG', // Add your image path here
+            image: '/public/images/TENS.png', // Add your image path here
             description: 'Uses controlled electrical currents to reduce pain, relax muscles, improve blood flow, and stimulate healing. Common form for <strong>nerve pain relief</strong>.' 
         },
         { 
@@ -253,29 +253,34 @@ const Therapies = () => {
                         Advanced electrical and physical modalities for effective pain relief
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        {TherapiesData.keyElectropathy.map((therapy) => (
-                            <div key={therapy.id}
-                                className={`p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
-                                    isDarkMode
-                                        ? 'bg-gray-800 border border-gray-700 hover:shadow-2xl'
-                                        : 'bg-white border border-gray-200 hover:shadow-xl'
-                                }`}>
-                                {/* Image Container */}
-                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-200 cursor-pointer">
-                                    <img src={therapy.image} alt={therapy.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                                        onClick={() => setSelectedImage(therapy.image)}/>
-                                </div>
-                                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                                    {therapy.title}
-                                </h3>
-                                <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
-                                    dangerouslySetInnerHTML={createMarkup(therapy.description)} />
-                            </div>
-                        ))}
-                    </div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {therapyData.keytherapy.map((therapy) => (
+        <div key={therapy.id} 
+             // 1. Force cards to be equal height in a row
+             className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+            
+            {/* 2. Fixed aspect ratio container (16:9) prevents vertical stretching on mobile */}
+            <div className="w-full aspect-video overflow-hidden bg-gray-200">
+                <img 
+                    src={therapy.image} 
+                    alt={therapy.title}
+                    // 3. object-cover keeps the image proportioned while filling the box
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => setSelectedImage(therapy.image)}
+                />
+            </div>
 
+            {/* 4. flex-grow pushes the content to fill the card height */}
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>
+                    {therapy.title}
+                </h3>
+                <p className={`flex-grow ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} 
+                   dangerouslySetInnerHTML={createMarkup(therapy.description)} />
+            </div>
+        </div>
+    ))}
+</div>
                     {/* Accordion */}
                     <div className={`rounded-xl p-6 transition-colors duration-300 ${isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                         <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
