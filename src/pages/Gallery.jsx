@@ -1917,7 +1917,7 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const galleryImages = [
-    '/images/1.JPG',
+    '/public/images/Doctor.jpg',
     '/images/2.JPG',
     '/images/3.JPG',
     '/images/4.JPG',

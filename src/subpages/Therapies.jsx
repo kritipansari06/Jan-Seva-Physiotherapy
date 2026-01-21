@@ -6,37 +6,37 @@ const TherapiesData = {
         { 
             id: 'tens', 
             title: 'TENS (Transcutaneous Electrical Nerve Stimulation)', 
-            image: '/public/images/TENS.png', // Add your image path here
+            image: '/public/images/Therapies/TENS.png', 
             description: 'Uses controlled electrical currents to reduce pain, relax muscles, improve blood flow, and stimulate healing. Common form for <strong>nerve pain relief</strong>.' 
         },
         { 
-            id: 'ift', 
+            id: 'ift',
             title: 'IFT (Interferential Therapy)', 
-            image: '/images/therapies/ift.jpg',
+            image: '/public/images/Therapies/IFT.png',
             description: 'Uses <strong>medium-frequency currents</strong> that penetrate deeper for deep tissue pain modulation. Ideal for <strong>joint pain, muscle spasms, and arthritis pain</strong>.' 
         },
         { 
             id: 'ultrasound', 
             title: 'Ultrasound Therapy', 
-            image: '/images/therapies/ultrasound.jpg',
+            image: '/public/images/therapies/Ultrasound.png',
             description: 'Applies high-frequency <strong>sound waves</strong> to promote tissue repair, reduce inflammation, and improve soft-tissue elasticity. Often used for <strong>tendonitis and ligament injuries</strong>.' 
         },
         { 
-            id: 'laser', 
-            title: 'Laser & Light Therapy', 
-            image: '/images/therapies/laser.jpg',
-            description: 'Low-level laser or infrared light enhances <strong>cellular regeneration</strong>, reduces inflammation, and improves tissue healing. Helpful in chronic pain, soft-tissue damage, and post-surgical recovery.' 
+            id: 'ir-lamp', 
+            title: 'Infrared (IR) Lamp Therapy', 
+            image: '/public/images/therapies/IR Lamp.png',
+            description: 'Infrared heat therapy uses an IR lamp to deliver deep <strong>therapeutic warmth</strong> that <strong>improves blood circulation, relaxes muscles, reduces stiffness</strong>, and helps relieve pain and discomfort.' 
         },
         { 
             id: 'hotpack', 
             title: 'Thermotherapy (Heat Therapy)', 
-            image: '/images/therapies/heat.jpg',
+            image: '/public/images/Therapies/Thermotherapy.png',
             description: 'Improves circulation, relaxes tight muscles, and increases tissue flexibility. Used in <strong>chronic pain, arthritis, stiffness, and muscle spasms</strong>.' 
         },
         { 
             id: 'coldpack', 
             title: 'Cryotherapy (Cold Therapy)', 
-            image: '/images/therapies/cold.jpg',
+            image: '/public/images/Therapies/Cryotherapy.png',
             description: 'Reduces <strong>swelling, inflammation, and pain</strong> by lowering tissue temperature. Common in acute injuries like <strong>sprains and strains</strong> to control early-stage inflammation.' 
         }
     ],
@@ -254,7 +254,7 @@ const Therapies = () => {
                     </p>
 
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {therapyData.keytherapy.map((therapy) => (
+    {TherapiesData.keyElectropathy.map((therapy) => (
         <div key={therapy.id} 
              // 1. Force cards to be equal height in a row
              className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>

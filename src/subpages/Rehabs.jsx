@@ -107,7 +107,7 @@ const Rehabilitation = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {rehabData.keyrehab.map((rehab) => (
+    {RehabData.keyRehab.map((rehab) => (
         <div key={rehab.id} 
              // 1. Force cards to be equal height in a row
              className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
