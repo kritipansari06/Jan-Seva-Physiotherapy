@@ -6,7 +6,7 @@ const treatmentData = [
   { 
     id: 'therapies', 
     title: 'Therapies', 
-    image: '/public/images/TT.Therapies.png',
+    image: '/images/TT.Therapies.png',
     points: [
       'Comprehensive assessment and diagnosis.',
       'Personalized manual therapy techniques.',
@@ -17,7 +17,7 @@ const treatmentData = [
   { 
     id: 'equipments', 
     title: 'Equipments', 
-    image: '/public/images/TT.Equipment.png',
+    image: '/images/TT.Equipment.png',
     points: [
       'Access to advanced electrotherapy machines.',
       'State-of-the-art exercise machines.',
@@ -28,7 +28,7 @@ const treatmentData = [
   { 
     id: 'rehabs', 
     title: 'Rehabs', 
-    image: '/public/images/TT.Rehab.png',
+    image: '/images/TT.Rehab.png',
     points: [
       'Injury recovery and strengthening programs.',
       'Functional movement retraining.',
@@ -39,7 +39,7 @@ const treatmentData = [
   { 
     id: 'wellness-prevention', 
     title: 'Wellness & Prevention', 
-    image: '/public/images/TT.Wellness.png',
+    image: '/images/TT.Wellness.png',
     points: [
       'Ergonomics and posture consultation.',
       'Injury prevention workshops.',
@@ -81,11 +81,7 @@ const Treatments = () => {
     className={`flex flex-col min-[568px]:flex-row items-center min-[568px]:items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 h-auto`}
   >
     
-    {/* Image Container:
-        - Below 568px: Fixed size (200x260) portrait box, centered with my-4.
-        - Above 568px: Side-by-side w-1/3 logic.
-        - Above 768px: Original md:w-1/4 logic.
-    */}
+    
     <div className={`w-[200px] h-[260px] min-[568px]:w-1/3 min-[568px]:h-auto md:w-1/4 shrink-0 my-4 min-[568px]:my-0 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
       <img 
         src={treatment.image} 
