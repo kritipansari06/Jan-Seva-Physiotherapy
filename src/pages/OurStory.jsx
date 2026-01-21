@@ -70,7 +70,7 @@
 //       title: 'Founder & Vision Bearer',
 //       bio: 'A compassionate healthcare professional and social entrepreneur who believed that quality healthcare is a right, not a privilege.',
 //       vision: 'Dedicated to serving communities and building institutions that outlive personal ambitions.',
-//       image: '/public/images/IMG_20250711_153208.jpg'
+//       image: '/images/IMG_20250711_153208.jpg'
 //     }
 //   ];
 
@@ -426,7 +426,7 @@ const OurStory = () => {
   //     title: 'Founder & Vision Bearer',
   //     bio: 'Shri R. P. Pansari Ji is not just a name, but a feeling of service, trust, and compassion. His journey began in Losal, where he received his early education and values. A CA Gold Medalist, he devoted nearly 50 years to the Birla Group, earning respect through honesty, dedication, and leadership.Yet, beyond all achievements, his heart always beat for society. Shri R. P. Pansari Ji has selflessly dedicated his life to health, social, spiritual, and educational service, quietly transforming lives and uplifting communities. Wherever there was a need, his name was present through meaningful action and support. Rooted deeply in love for his hometown, Shri R. P. Pansari Ji brought this spirit of service back to Losal by establishing Jan Seva Physio Center—a place born from compassion, meant to heal, and guided by the belief that service to humanity is the highest purpose. Shri R. P. Pansari Ji’s name continues to inspire, heal, and guide generations through the power of selfless service.',
   //     vision: 'Dedicated to serving communities and building institutions that outlive personal ambitions.',
-  //     image: '/public/images/IMG_20250711_153208.jpg'
+  //     image: '/images/IMG_20250711_153208.jpg'
   //   }
   // ];
 
@@ -462,7 +462,7 @@ const OurStory = () => {
       }
     ],
     vision: 'सेवा परमो धर्म:। सेवा ही सर्वस्व ।',
-    image: '/public/images/IMG_20250711_153208.jpg'
+    image: '/images/IMG_20250711_153208.jpg'
   }
 ];
 

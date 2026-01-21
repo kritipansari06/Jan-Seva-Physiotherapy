@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const EquipmentData = {
     keyEquipment: [
-        { id: 'electrotherapy', title: 'Electrotherapy Devices', image: '/public/images/Therapies/EQP.png', description: 'Includes <strong>TENS, IFT, Ultrasound therapy units, NMES, and Laser machines</strong>. Use electrical currents, sound waves, or light to reduce pain, activate weak muscles, and promote tissue healing.' },
+        { id: 'electrotherapy', title: 'Electrotherapy Devices', image: '/images/Therapies/EQP.png', description: 'Includes <strong>TENS, IFT, Ultrasound therapy units, NMES, and Laser machines</strong>. Use electrical currents, sound waves, or light to reduce pain, activate weak muscles, and promote tissue healing.' },
         { id: 'exercise', title: 'Exercise & Strengthening Equipment', image: '/images/equipments/exercise.jpg', description: 'Features <strong>resistance bands, dumbbells, medicine balls, ankle weights, physioballs, and pulley systems</strong>. Rebuild strength, flexibility, endurance, and joint stability during rehabilitation.' },
         { id: 'mobility', title: 'Mobility Support Equipment', image: '/images/equipments/mobility.jpg', description: 'Includes <strong>walkers, canes, crutches, wheelchairs, orthotic supports, and braces</strong>. Help patients move safely by stabilizing weak joints, reducing strain, and improving balance.' },
         { id: 'manual', title: 'Manual Therapy Tools', image: '/images/equipments/manual-therapy.jpg', description: 'Contains <strong>foam rollers, massage guns, trigger-point tools, cupping sets, and IASTM instruments</strong>. Reduce muscle tension, break adhesions, improve circulation, and support soft-tissue release.' },

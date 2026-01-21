@@ -39,25 +39,25 @@ const serviceData = {
             title: "State-of-the-Art Electrotherapy Unit",
             details: "We utilize advanced modalities like **Infrs Red Lamp**, **Ultrasound**, **TENS**, and **Interferential Therapy (IFT)**. These non-invasive tools accelerate healing at a cellular level, reduce chronic pain, minimize inflammation, and improve nerve conduction speed, offering faster recovery times.",
             benefit: "Accelerated tissue repair and non-pharmacological pain management.",
-            image: "/public/images/S.electrotherapy.png"
+            image: "/images/S.electrotherapy.png"
         },
         {
             title: "Functional & Rehabilitation Gym",
             details: "More than just exercise equipment, our gym is a dedicated space for supervised, progressive rehabilitation. It features specialized resistance machines, balance trainers, and functional movement areas, ensuring a safe transition from injury to full physical capacity.",
             benefit: "Safe progression from injury to peak functional performance.",
-            image: "/public/images/S.Functional Rehab.png"
+            image: "/images/S.Functional Rehab.png"
         },
         {
             title: "Exclusive Manual Therapy Suites",
             details: "Our expert therapists deliver focused, personalized manual techniques, including **Myofascial Release**, **Joint Mobilization**, **Soft Tissue Massage**, and **Trigger Point Therapy**. These private sessions ensure maximum comfort and efficacy in restoring joint mechanics and muscle flexibility.",
             benefit: "Immediate pain reduction and superior joint mobility restoration.",
-            image: "/public/images/S.manual-therapy.png"
+            image: "/images/S.manual-therapy.png"
         },
         {
             title: "Personalized Patient Care & Follow-Up",
             details: "Every patient receives one-to-one attention through personalized treatment plans by Dr. Shivam Sharma, along with continuous care and regular follow-ups to ensure safe, effective, and lasting recovery.",
             benefit: "Precise, data-backed diagnosis of chronic and complex movement issues.",
-            image: "/public/images/S.patient-care.png"
+            image: "/images/S.patient-care.png"
         },
     ],
 

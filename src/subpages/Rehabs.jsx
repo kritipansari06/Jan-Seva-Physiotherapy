@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const RehabData = {
     keyRehab: [
-        { id: 'orthopedic', title: 'Orthopedic Rehabilitation', image: '/public/images/Therapies/EQP.png', description: 'Recovery from <strong>fractures, ligament tears, joint injuries</strong>, and post-surgical procedures. Restores strength, mobility, balance, and joint stability for pain-free daily activities.' },
+        { id: 'orthopedic', title: 'Orthopedic Rehabilitation', image: '/images/Therapies/EQP.png', description: 'Recovery from <strong>fractures, ligament tears, joint injuries</strong>, and post-surgical procedures. Restores strength, mobility, balance, and joint stability for pain-free daily activities.' },
         { id: 'neurological', title: 'Neurological Rehabilitation', image: '/images/rehabs/neurological.jpg', description: 'For <strong>stroke, spinal cord injuries, Parkinson\'s disease</strong>, and brain injuries. Improves coordination, muscle control, balance, and walking ability through neuro-facilitation.' },
         { id: 'sports', title: 'Sports Rehabilitation', image: '/images/rehabs/sports.jpg', description: 'Addresses athletic injuries like <strong>sprains, strains, tendonitis</strong>, and muscle tears. Rebuilds strength, improves flexibility, and ensures safe return to peak performance.' },
         { id: 'postsurgical', title: 'Post-Surgical Rehabilitation', image: '/images/rehabs/post-surgical.jpg', description: 'Supports healing after <strong>orthopedic or spinal surgeries</strong>. Focuses on pain control, swelling reduction, early mobility, and restoring full function through structured phases.' },

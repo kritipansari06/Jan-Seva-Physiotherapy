@@ -6,37 +6,37 @@ const TherapiesData = {
         { 
             id: 'tens', 
             title: 'TENS (Transcutaneous Electrical Nerve Stimulation)', 
-            image: '/public/images/Therapies/TENS.png', 
+            image: '/images/Therapies/TENS.png', 
             description: 'Uses controlled electrical currents to reduce pain, relax muscles, improve blood flow, and stimulate healing. Common form for <strong>nerve pain relief</strong>.' 
         },
         { 
             id: 'ift',
             title: 'IFT (Interferential Therapy)', 
-            image: '/public/images/Therapies/IFT.png',
+            image: '/images/Therapies/IFT.png',
             description: 'Uses <strong>medium-frequency currents</strong> that penetrate deeper for deep tissue pain modulation. Ideal for <strong>joint pain, muscle spasms, and arthritis pain</strong>.' 
         },
         { 
             id: 'ultrasound', 
             title: 'Ultrasound Therapy', 
-            image: '/public/images/therapies/Ultrasound.png',
+            image: '/images/therapies/Ultrasound.png',
             description: 'Applies high-frequency <strong>sound waves</strong> to promote tissue repair, reduce inflammation, and improve soft-tissue elasticity. Often used for <strong>tendonitis and ligament injuries</strong>.' 
         },
         { 
             id: 'ir-lamp', 
             title: 'Infrared (IR) Lamp Therapy', 
-            image: '/public/images/therapies/IR Lamp.png',
+            image: '/images/therapies/IR Lamp.png',
             description: 'Infrared heat therapy uses an IR lamp to deliver deep <strong>therapeutic warmth</strong> that <strong>improves blood circulation, relaxes muscles, reduces stiffness</strong>, and helps relieve pain and discomfort.' 
         },
         { 
             id: 'hotpack', 
             title: 'Thermotherapy (Heat Therapy)', 
-            image: '/public/images/Therapies/Thermotherapy.png',
+            image: '/images/Therapies/Thermotherapy.png',
             description: 'Improves circulation, relaxes tight muscles, and increases tissue flexibility. Used in <strong>chronic pain, arthritis, stiffness, and muscle spasms</strong>.' 
         },
         { 
             id: 'coldpack', 
             title: 'Cryotherapy (Cold Therapy)', 
-            image: '/public/images/Therapies/Cryotherapy.png',
+            image: '/images/Therapies/Cryotherapy.png',
             description: 'Reduces <strong>swelling, inflammation, and pain</strong> by lowering tissue temperature. Common in acute injuries like <strong>sprains and strains</strong> to control early-stage inflammation.' 
         }
     ],
