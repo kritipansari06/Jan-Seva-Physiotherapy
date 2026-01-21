@@ -127,12 +127,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
-// Data moved outside component to prevent re-renders
 const treatmentData = [
   { 
     id: 'therapies', 
     title: 'Therapies', 
-    image: '/images/TT.Therapies.png', // Ensure this file is in public/images/
+    image: '/images/TT.Therapies.png', // Pointing to public/images/
     points: [
       'Comprehensive assessment and diagnosis.',
       'Personalized manual therapy techniques.',
@@ -178,11 +177,12 @@ const treatmentData = [
 const Treatments = () => {
   const { isDarkMode } = useTheme();
 
-  // Dynamic class definitions for cleaner JSX
+  // Color logic for light and dark modes
   const cardBgClass = isDarkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"; 
   const titleClass = isDarkMode ? "text-teal-400" : "text-teal-600"; 
   const mainBgClass = isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900";
   const textColorClass = isDarkMode ? "text-gray-300" : "text-gray-700";
+  
   const buttonOutlineClass = isDarkMode
     ? "border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900"
     : "border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white";
@@ -190,15 +190,15 @@ const Treatments = () => {
   return (
     <div className={`min-h-screen ${mainBgClass} py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300`}>
       
-      <header className="text-center mb-10">
+      <div className="text-center mb-10">
         <h1 className={`text-4xl sm:text-5xl font-extrabold mb-4 uppercase tracking-wider ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
           Treatments
         </h1>
         <p className={`text-lg mb-6 max-w-2xl mx-auto ${textColorClass}`}>
-          Explore our specialized areas of physiotherapy, designed to restore your mobility, manage pain, and accelerate recovery.
+          Explore our specialized areas of physiotherapy, designed to restore your mobility and accelerate recovery.
         </p>
         <hr className={`w-16 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto`} />
-      </header>
+      </div>
       
       <div className="max-w-4xl mx-auto space-y-8">
         {treatmentData.map((treatment) => (
@@ -206,17 +206,18 @@ const Treatments = () => {
             key={treatment.id} 
             className={`flex flex-col min-[568px]:flex-row items-center min-[568px]:items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-2 h-auto`}
           >
-            {/* Image Section */}
+            {/* Image Container */}
             <div className={`w-[200px] h-[260px] min-[568px]:w-1/3 min-[568px]:h-auto md:w-1/4 shrink-0 my-4 min-[568px]:my-0 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
               <img 
                 src={treatment.image} 
                 alt={treatment.title} 
                 className="w-full h-full object-cover rounded-lg min-[568px]:rounded-none" 
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/300?text=Image+Not+Found'; }}
+                // Error handling: If path is wrong, it won't crash the app
+                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x400?text=Image+Missing'; }}
               />
             </div>
 
-            {/* Content Section */}
+            {/* Content Area */}
             <div className="flex w-full min-[568px]:w-2/3 md:grow p-4 sm:p-6 flex-col justify-between">
               <div>
                 <h2 className={`text-xl sm:text-3xl font-bold mb-2 sm:mb-4 ${titleClass} text-center min-[568px]:text-left`}>
@@ -232,7 +233,7 @@ const Treatments = () => {
               <div className="mt-4 sm:mt-6 flex justify-center min-[568px]:justify-start">
                 <Link 
                   to={`/treatments/${treatment.id}`}
-                  className={`inline-block text-sm uppercase font-semibold transition duration-300 ${buttonOutlineClass} px-6 py-2 rounded-md`}>
+                  className={`inline-block px-6 py-2 rounded-md text-sm uppercase font-semibold transition duration-300 ${buttonOutlineClass}`}>
                   Read More
                 </Link>
               </div>
