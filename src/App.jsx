@@ -15,10 +15,13 @@ import Gallery from './pages/Gallery.jsx';
 import Contact from './pages/Contact.jsx';
 
 import Testimonials from './subpages/Testimonials.jsx';
-import Therapies from './subpages/Therapies.jsx';
-import Equipments from './subpages/Equipments.jsx';
-import Rehabs from './subpages/Rehabs.jsx';
-import Wellness from './subpages/Wellness.jsx';
+
+import HotColdTherapy from './subpages/HotColdTherapy.jsx';
+import ElectroTherapy from './subpages/Electrotherapy.jsx';
+import ExerciseTherapy from './subpages/ExerciseTherapy.jsx';
+import ManualTherapy from './subpages/ManualTherapy.jsx';
+import AdvancedTherapy from './subpages/AdvancedTherapy.jsx';
+
 
 function AppContent() {
   const { isDarkMode } = useTheme();
@@ -40,11 +43,12 @@ function AppContent() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/treatments" element={<Treatments/>} />
 
-            <Route path="/treatments/therapies" element={<Therapies />} />
-            <Route path="/treatments/equipments" element={<Equipments />} />
-            <Route path="/treatments/rehabs" element={<Rehabs />} />
-            <Route path="/treatments/wellness-prevention" element={<Wellness />} />
-            
+            <Route path="/treatments/HotColdTherapy" element={<HotColdTherapy />} />
+            <Route path="/treatments/ElectroTherapy" element={<ElectroTherapy />} />
+            <Route path="/treatments/ExerciseTherapy" element={<ExerciseTherapy />} />
+            <Route path="/treatments/ManualTherapy" element={<ManualTherapy />} />
+            <Route path="/treatments/AdvancedTherapy" element={<AdvancedTherapy />} />
+
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             

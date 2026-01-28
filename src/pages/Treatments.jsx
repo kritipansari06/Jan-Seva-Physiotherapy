@@ -1,246 +1,169 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { useTheme } from '../context/ThemeContext';
-
-// const treatmentData = [
-//   { 
-//     id: 'therapies', 
-//     title: 'Therapies', 
-//     image: '/images/TT.Therapies.png',
-//     points: [
-//       'Comprehensive assessment and diagnosis.',
-//       'Personalized manual therapy techniques.',
-//       'Pain management strategies.',
-//       'Post-surgical rehabilitation.',
-//     ] 
-//   },
-//   { 
-//     id: 'equipments', 
-//     title: 'Equipments', 
-//     image: '/images/TT.Equipment.png',
-//     points: [
-//       'Access to advanced electrotherapy machines.',
-//       'State-of-the-art exercise machines.',
-//       'Specialized diagnostic tools.',
-//       'Non-invasive pain relief devices.',
-//     ] 
-//   },
-//   { 
-//     id: 'rehabs', 
-//     title: 'Rehabs', 
-//     image: '/images/TT.Rehab.png',
-//     points: [
-//       'Injury recovery and strengthening programs.',
-//       'Functional movement retraining.',
-//       'Sport-specific rehabilitation.',
-//       'Chronic condition management.',
-//     ] 
-//   },
-//   { 
-//     id: 'wellness-prevention', 
-//     title: 'Wellness & Prevention', 
-//     image: '/images/TT.Wellness.png',
-//     points: [
-//       'Ergonomics and posture consultation.',
-//       'Injury prevention workshops.',
-//       'General physical conditioning.',
-//       'Customized home exercise plans.',
-//     ] 
-//   },
-// ];
-
-// const Treatments = () => {
-//   const { isDarkMode } = useTheme();
-
-//   const cardBgClass = isDarkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"; 
-//   const titleClass = isDarkMode ? "text-teal-400" : "text-teal-600"; 
-//   const buttonClasses = "text-sm uppercase font-semibold mt-4 transition duration-300";
-//   const buttonOutlineClass = isDarkMode
-//     ? "border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900 px-6 py-2 rounded-md"
-//     : "border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white px-6 py-2 rounded-md";
-//   const mainBgClass = isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900";
-//   const textColorClass = isDarkMode ? "text-gray-300" : "text-gray-700";
-
-//   return (
-//     <div className={`min-h-screen ${mainBgClass} py-12 px-4 sm:px-6 lg:px-8`}>
-      
-//       <h1 className={`text-4xl sm:text-5xl font-extrabold text-center mb-2 pb-4 uppercase tracking-wider ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-//         Treatments
-//       </h1>
-      
-//       <p className={`text-center text-lg mb-8 max-w-2xl mx-auto ${textColorClass}`}>
-//         Explore our specialized areas of physiotherapy, designed to restore your mobility, manage pain, and accelerate recovery.
-//       </p>
-      
-//       <hr className={`w-16 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-10`} />
-//       <div className="max-w-4xl mx-auto space-y-8">
-//         {treatmentData.map((treatment) => (
-//   <div 
-//     key={treatment.id} 
-//     /* Mobile par flex-col aur items-center taki portrait image center mein rahe */
-//     className={`flex flex-col min-[568px]:flex-row items-center min-[568px]:items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 h-auto`}
-//   >
-    
-    
-//     <div className={`w-[200px] h-[260px] min-[568px]:w-1/3 min-[568px]:h-auto md:w-1/4 shrink-0 my-4 min-[568px]:my-0 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
-//       <img 
-//         src={treatment.image} 
-//         alt={`${treatment.title} image`} 
-//         /* object-cover aur rounded-lg for clean look */
-//         className="w-full h-full object-cover rounded-lg min-[568px]:rounded-none" 
-//       />
-//     </div>
-
-//     {/* Content Area */}
-//     <div className="flex w-full min-[568px]:w-2/3 md:grow p-4 sm:p-6 flex-col justify-between">
-//       <div>
-//         <h2 className={`text-xl sm:text-3xl font-bold mb-2 sm:mb-4 ${titleClass} text-center min-[568px]:text-left`}>
-//           {treatment.title}
-//         </h2>
-//         <ul className={`space-y-1 sm:space-y-2 list-disc list-inside ${textColorClass} text-xs sm:text-base`}>
-//           {treatment.points.map((point, index) => (
-//             <li key={index} className="leading-tight sm:leading-normal">{point}</li>
-//           ))}
-//         </ul>
-//       </div>
-
-//       <div className="mt-4 sm:mt-6 flex justify-center min-[568px]:justify-start">
-//         <Link 
-//           to={`/treatments/${treatment.id}`}
-//           className={`inline-block ${buttonClasses} ${buttonOutlineClass} text-[10px] sm:text-sm px-3 py-1 sm:px-6 sm:py-2`}>
-//           Read More
-//         </Link>
-//       </div>
-//     </div>
-//   </div>
-// ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Treatments;
-
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const treatmentData = [
-  { 
-    id: 'therapies', 
-    title: 'Therapies', 
-    image: '/images/TT.Therapies.png', // Pointing to public/images/
+  {
+    id: 'HotColdTherapy',
+    title: 'Hot & Cold Therapy',
+    image: '/images/Treatments/HotColdTherapy.png',
     points: [
-      'Comprehensive assessment and diagnosis.',
-      'Personalized manual therapy techniques.',
-      'Pain management strategies.',
-      'Post-surgical rehabilitation.',
-    ] 
+      'Heat therapy to relax muscles and improve circulation.',
+      'Cold therapy to reduce swelling and inflammation.',
+      'Effective for acute and chronic pain conditions.',
+      'Commonly used for muscle spasms and sports injuries.',
+    ],
   },
-  { 
-    id: 'equipments', 
-    title: 'Equipments', 
-    image: '/images/TT.Equipment.png',
+  {
+    id: 'ElectroTherapy',
+    title: 'Electro Therapy',
+    image: '/images/Treatments/Electrotherapy.png',
     points: [
-      'Access to advanced electrotherapy machines.',
-      'State-of-the-art exercise machines.',
-      'Specialized diagnostic tools.',
-      'Non-invasive pain relief devices.',
-    ] 
+      'Electrical stimulation for pain relief and healing.',
+      'Improves muscle activation and nerve function.',
+      'Reduces stiffness and muscle tightness.',
+      'Helpful in post-operative rehabilitation.',
+    ],
   },
-  { 
-    id: 'rehabs', 
-    title: 'Rehabs', 
-    image: '/images/TT.Rehab.png',
+  {
+    id: 'ExerciseTherapy',
+    title: 'Exercise Therapy',
+    image: '/images/Treatments/ExerciseTherapy.png',
     points: [
-      'Injury recovery and strengthening programs.',
-      'Functional movement retraining.',
-      'Sport-specific rehabilitation.',
-      'Chronic condition management.',
-    ] 
+      'Personalized exercise programs for recovery.',
+      'Improves strength, flexibility, and endurance.',
+      'Restores normal movement patterns.',
+      'Prevents future injuries effectively.',
+    ],
   },
-  { 
-    id: 'wellness-prevention', 
-    title: 'Wellness & Prevention', 
-    image: '/images/TT.Wellness.png',
+  {
+    id: 'ManualTherapy',
+    title: 'Manual Therapy',
+    image: '/images/Treatments/ManualTherapy.png',
     points: [
-      'Ergonomics and posture consultation.',
-      'Injury prevention workshops.',
-      'General physical conditioning.',
-      'Customized home exercise plans.',
-    ] 
+      'Hands-on techniques by trained physiotherapists.',
+      'Improves joint mobility and soft tissue function.',
+      'Relieves pain and muscle tightness.',
+      'Effective for spine and joint conditions.',
+    ],
   },
+  {
+  id: 'AdvancedTherapy',
+  title: 'Advanced Exercises & Therapies',
+  image: '/images/Treatments/OtherTherapies.png',
+  points: [
+    'Improves balance, coordination, and reduces risk of falls.',
+    'Enhances gait pattern, posture, and functional mobility.',
+    'Provides advanced non-invasive pain management for chronic conditions.',
+    'Boosts confidence, independence, and overall quality of daily life.',
+  ],
+}
 ];
 
 const Treatments = () => {
   const { isDarkMode } = useTheme();
 
-  // Color logic for light and dark modes
-  const cardBgClass = isDarkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"; 
-  const titleClass = isDarkMode ? "text-teal-400" : "text-teal-600"; 
-  const mainBgClass = isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900";
-  const textColorClass = isDarkMode ? "text-gray-300" : "text-gray-700";
-  
-  const buttonOutlineClass = isDarkMode
-    ? "border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900"
-    : "border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white";
+  const mainBgClass = isDarkMode
+    ? 'bg-gray-900 text-white'
+    : 'bg-gray-50 text-gray-900';
+
+  const cardBgClass = isDarkMode
+    ? 'bg-gray-800 border-gray-700'
+    : 'bg-white border-gray-200';
+
+  const titleClass = isDarkMode ? 'text-teal-400' : 'text-teal-600';
+  const textColorClass = isDarkMode ? 'text-gray-300' : 'text-gray-700';
+
+  const buttonClass = isDarkMode
+    ? 'border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-gray-900'
+    : 'border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white';
 
   return (
-    <div className={`min-h-screen ${mainBgClass} py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300`}>
-      
-      <div className="text-center mb-10">
-        <h1 className={`text-4xl sm:text-5xl font-extrabold mb-4 uppercase tracking-wider ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+    <div
+      className={`min-h-screen ${mainBgClass} py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300`}
+    >
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-wider mb-4">
           Treatments
         </h1>
-        <p className={`text-lg mb-6 max-w-2xl mx-auto ${textColorClass}`}>
-          Explore our specialized areas of physiotherapy, designed to restore your mobility and accelerate recovery.
+        <p className={`max-w-2xl mx-auto text-lg ${textColorClass}`}>
+          Specialized physiotherapy treatments designed to restore mobility,
+          reduce pain, and improve quality of life.
         </p>
-        <hr className={`w-16 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto`} />
+        <div
+          className={`w-16 h-1 mx-auto mt-4 ${
+            isDarkMode ? 'bg-teal-400' : 'bg-teal-600'
+          }`}
+        />
       </div>
-      
-      <div className="max-w-4xl mx-auto space-y-8">
-        {treatmentData.map((treatment) => (
-          <div 
-            key={treatment.id} 
-            className={`flex flex-col min-[568px]:flex-row items-center min-[568px]:items-stretch ${cardBgClass} rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border-2 h-auto`}
+
+      {/* Cards */}
+<div className="max-w-4xl mx-auto space-y-8">
+  {treatmentData.map((treatment) => (
+    <div
+      key={treatment.id}
+      className={`flex flex-col sm:flex-row rounded-2xl border shadow-md hover:shadow-xl transition overflow-hidden ${cardBgClass}`}
+    >
+      {/* Image */}
+      <div
+  className="
+    w-full
+    sm:w-1/3
+    max-w-[220px]
+    aspect-[4/5] sm:aspect-[3/4]
+    mx-auto sm:mx-0
+    overflow-hidden
+    bg-gray-100
+    group
+  "
+>
+  <img
+    src={treatment.image}
+    alt={treatment.title}
+    className="
+      w-full
+      h-full
+      object-cover
+      transition-transform
+      duration-500
+      group-hover:scale-110
+      cursor-pointer
+    "
+    loading="lazy"
+  />
+</div>
+
+
+      {/* Content */}
+      <div className="flex flex-col justify-between p-5 flex-1">
+        <div>
+          <h2 className={`text-2xl font-bold mb-3 ${titleClass}`}>
+            {treatment.title}
+          </h2>
+
+          <ul
+            className={`list-disc list-inside space-y-2 text-sm ${textColorClass}`}
           >
-            {/* Image Container */}
-            <div className={`w-[200px] h-[260px] min-[568px]:w-1/3 min-[568px]:h-auto md:w-1/4 shrink-0 my-4 min-[568px]:my-0 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
-              <img 
-                src={treatment.image} 
-                alt={treatment.title} 
-                className="w-full h-full object-cover rounded-lg min-[568px]:rounded-none" 
-                // Error handling: If path is wrong, it won't crash the app
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x400?text=Image+Missing'; }}
-              />
-            </div>
+            {treatment.points.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
+        </div>
 
-            {/* Content Area */}
-            <div className="flex w-full min-[568px]:w-2/3 md:grow p-4 sm:p-6 flex-col justify-between">
-              <div>
-                <h2 className={`text-xl sm:text-3xl font-bold mb-2 sm:mb-4 ${titleClass} text-center min-[568px]:text-left`}>
-                  {treatment.title}
-                </h2>
-                <ul className={`space-y-1 sm:space-y-2 list-disc list-inside ${textColorClass} text-xs sm:text-base`}>
-                  {treatment.points.map((point, index) => (
-                    <li key={index} className="leading-tight sm:leading-normal">{point}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-4 sm:mt-6 flex justify-center min-[568px]:justify-start">
-                <Link 
-                  to={`/treatments/${treatment.id}`}
-                  className={`inline-block px-6 py-2 rounded-md text-sm uppercase font-semibold transition duration-300 ${buttonOutlineClass}`}>
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="mt-5">
+          <Link
+            to={`/treatments/${treatment.id}`}
+            className={`inline-block px-5 py-2 rounded-md text-sm font-semibold uppercase transition ${buttonClass}`}
+          >
+            Read More
+          </Link>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };
