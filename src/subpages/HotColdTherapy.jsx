@@ -71,7 +71,7 @@ const HotTherapyData = {
     ]
 };
 
-const HotTherapy = () => {
+const HotColdTherapy = () => {
     const { isDarkMode } = useTheme();
     const [selectedBenefit, setSelectedBenefit] = useState('pain');
     const [selectedImage, setSelectedImage] = useState(null);
@@ -335,4 +335,4 @@ const HotTherapy = () => {
     );
 };
 
-export default HotTherapy;
+export default HotColdTherapy;

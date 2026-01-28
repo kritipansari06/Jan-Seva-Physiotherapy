@@ -17,7 +17,7 @@ import Contact from './pages/Contact.jsx';
 import Testimonials from './subpages/Testimonials.jsx';
 
 import HotColdTherapy from './subpages/HotColdTherapy.jsx';
-import ElectroTherapy from './subpages/Electrotherapy.jsx';
+import ElectroTherapy from './subpages/ElectroTherapy.jsx';
 import ExerciseTherapy from './subpages/ExerciseTherapy.jsx';
 import ManualTherapy from './subpages/ManualTherapy.jsx';
 import AdvancedTherapy from './subpages/AdvancedTherapy.jsx';
