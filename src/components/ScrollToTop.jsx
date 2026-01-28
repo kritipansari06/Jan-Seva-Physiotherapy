@@ -1,4 +1,3 @@
-// src/components/ScrollToTop.jsx
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
@@ -9,19 +8,14 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   const { isDarkMode } = useTheme();
 
-  // Auto scroll to top INSTANTLY when route changes (ZERO animation)
   useEffect(() => {
-    // Set to auto (instant) for route changes
     document.documentElement.scrollBehavior = 'auto';
     document.body.scrollBehavior = 'auto';
     
-    // Jump to top instantly without any animation
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     
-    // Keep it auto for page navigation
   }, [pathname]);
 
-  // Show/hide scroll button based on scroll position
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -30,9 +24,7 @@ const ScrollToTop = () => {
     }
   };
 
-  // Smooth scroll to top when button is clicked
   const scrollToTop = () => {
-    // Enable smooth only for button click
     document.documentElement.scrollBehavior = 'smooth';
     document.body.scrollBehavior = 'smooth';
     
@@ -42,7 +34,6 @@ const ScrollToTop = () => {
     });
   };
 
-  // Add scroll event listener
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
     return () => {

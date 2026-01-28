@@ -11,7 +11,7 @@ const socials = [
   { icon: FaWhatsapp, href: 'https://wa.me/+918769220073', label: 'WhatsApp' }
 ];
 
-export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
+const Footer = ({ brandName = 'Jan Seva Physiotherapy' }) => {
   const { isDarkMode } = useTheme();
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [alertData, setAlertData] = useState({ show: false, title: '', message: '' });
@@ -174,6 +174,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className={`flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 pt-6 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
           <div className="text-sm flex items-center">
             <span>&copy; {new Date().getFullYear()} {brandName}.</span>
@@ -195,3 +196,4 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
     </footer>
   );
 }
+export default Footer;

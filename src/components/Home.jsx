@@ -32,7 +32,6 @@ const features = [
 
 const Home = () => {
     const { isDarkMode } = useTheme();
-    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
     const [selectedImage, setSelectedImage] = useState(null);
     
     const accentColorClass = isDarkMode ? "text-teal-400" : "text-teal-600";
@@ -61,6 +60,7 @@ const Home = () => {
                 </div>
             )}
 
+            {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center text-center p-4"
                 style={{ backgroundImage: `url('/images/physio2.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className={`absolute inset-0 ${isDarkMode ? 'bg-gray-900 opacity-70' : 'bg-gray-50 opacity-65'}`}></div>
@@ -92,7 +92,8 @@ const Home = () => {
             </section>
 
             <hr className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`} />
-
+            
+            {/* Services Section */}
             <section className={`py-16 sm:py-24 p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                 <div className="container mx-auto max-w-6xl">
                     <h2 className={`text-3xl sm:text-4xl font-bold text-center mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -143,7 +144,8 @@ const Home = () => {
             </section>
 
             <hr className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`} />
-
+            
+            {/* Features Section */}
             <section className={`py-16 sm:py-24 p-4 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
                 <div className="container mx-auto max-w-6xl">
                     <h2 className={`text-3xl sm:text-4xl font-bold text-center mb-12 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -166,7 +168,8 @@ const Home = () => {
             </section>
 
             <hr className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`} />
-
+            
+            {/* Testimonials Section */}
             <section className={`py-16 sm:py-24 p-4 text-center ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                 <div className="container mx-auto max-w-7xl">
                     

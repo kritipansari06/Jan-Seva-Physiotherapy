@@ -13,7 +13,7 @@ const navItems = [
   { path: '/contact', name: 'Contact' },
 ];
 
-export default function Navbar() {
+const Navbar = () => {
   const location = useLocation();
   const { isDarkMode, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
@@ -30,27 +30,24 @@ export default function Navbar() {
   return (
     <nav className={`${isDarkMode ? 'bg-gray-900 text-white border-gray-800' : 'bg-white text-gray-800 border-gray-100'} shadow-lg sticky top-0 z-50 border-b`}>
       <div className="max-w-7xl h-16 lg:h-20 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
-          <Link 
-  to="/" 
-  className={`flex items-center gap-3 p-1 rounded-lg ${isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-50'}`} 
-  onClick={() => setOpen(false)}
->
-  {/* Updated Logo Image */}
-  <img 
-  src="/images/Logo.png" // Change extension to .png if you update the file
-  alt="Logo" 
-  className="w-12 h-12 lg:w-16 lg:h-16 object-contain bg-transparent" 
-/>
-  
-  <div className="leading-tight">
-    <div className="text-lg lg:text-xl font-extrabold text-teal-600">Jan Seva Physio</div>
-    <div className={`text-xs font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-      Therapy Center
-    </div>
-  </div>
-</Link>
 
+        {/* Logo and Branding */}
+        <div className="flex justify-between items-center h-16 lg:h-20">
+          <Link to="/" className={`flex items-center gap-3 p-1 rounded-lg ${isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-gray-50'}`} 
+            onClick={() => setOpen(false)}
+          >
+          <img src="/images/Logo.png" alt="Logo" 
+          className="w-12 h-12 lg:w-16 lg:h-16 object-contain bg-transparent" 
+          />
+          <div className="leading-tight">
+            <div className="text-lg lg:text-xl font-extrabold text-teal-600">Jan Seva Physio</div>
+            <div className={`text-xs font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              Therapy Center
+            </div>
+          </div>
+          </Link>
+
+          {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-0 lg:space-x-1 xl:space-x-2">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path} className={linkClass(item.path)} aria-current={location.pathname === item.path ? 'page' : undefined}>
@@ -79,6 +76,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div id="mobile-menu" className={`${open ? 'block' : 'hidden'} md:hidden ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'} border-t`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navItems.map((item) => (
@@ -91,3 +89,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;
