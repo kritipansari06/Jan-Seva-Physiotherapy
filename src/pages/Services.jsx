@@ -89,7 +89,8 @@ const Services = () => {
         <div className={`min-h-screen ${mainBgClass} py-12 px-4 sm:px-6 lg:px-8 ${secondaryBgClass} transition duration-300`}>
             
             <div className="container mx-auto max-w-7xl">
-                
+
+                {/* Header */}                
                 <header className="text-center mb-16">
                     <h1 className="text-5xl sm:text-6xl font-extrabold pb-4 uppercase tracking-tighter">
                         Our <span className={accentColorClass}>Services</span> & Commitment
@@ -101,6 +102,7 @@ const Services = () => {
 
                 <hr className={`border-t ${dividerClass} mb-16`} />
 
+                {/* Community Camps & Initiatives */}
                 <section className="mb-20">
                     <h2 className="text-4xl font-bold text-center mb-4">
                         Community <span className={accentColorClass}>Camps</span> & Initiatives
@@ -116,7 +118,7 @@ const Services = () => {
                                     <span className={camp.iconColor}>{camp.icon}</span>
                                 </IconBox>
                                 <h3 className="text-2xl font-semibold mb-3">{camp.title}</h3>
-                                <p className={textColorClass}>{camp.description}</p>
+                                <p className={`text-justify ${textColorClass}`}>{camp.description}</p>
                                 <Link to="/contact" className={`mt-4 inline-block text-sm font-medium ${accentColorClass} hover:opacity-80`}>
                                     Check Schedule &rarr;
                                 </Link>
@@ -126,57 +128,44 @@ const Services = () => {
                 </section>
 
                 <hr className={`border-t ${dividerClass} mb-16`} />
-                
 
+                {/* Advanced Clinical Facilities & Technology */}
+                <section className="mb-20">
+                    <h2 className="text-4xl font-bold text-center mb-10">
+                        Advanced Clinical <span className={accentColorClass}>Facilities</span> & Technology
+                    </h2>
 
-<section className="mb-20">
-    <h2 className="text-4xl font-bold text-center mb-10">
-        Advanced Clinical <span className={accentColorClass}>Facilities</span> & Technology
-    </h2>
-    
-    <div className="space-y-4"> 
-        {serviceData.facilities.map((facility, index) => (
-            <div 
-                key={index} 
-                className={`flex flex-col lg:flex-row ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} ${cardBgClass} rounded-xl shadow-md border ${borderColorClass} overflow-hidden min-h-fit`}
-            >
-                {/* IMAGE SIDE */}
-                <div className="w-full lg:w-[45%] p-2 lg:p-3 flex items-center justify-center bg-gray-50/10 dark:bg-gray-900/10">
-                    <div className="w-full h-full overflow-hidden rounded-lg">
-                        <img 
-                            src={facility.image} 
-                            alt={facility.title}
-                            className="w-full h-auto object-contain transition duration-500 hover:scale-105"
-                        />
+                    <div className="space-y-4"> 
+                        {serviceData.facilities.map((facility, index) => (
+                            <div key={index} className={`flex flex-col lg:flex-row ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} ${cardBgClass} rounded-xl shadow-md border ${borderColorClass} overflow-hidden min-h-fit`}>
+                                {/* IMAGE SIDE */}
+                                <div className="w-full lg:w-[45%] p-2 lg:p-3 flex items-center justify-center bg-gray-50/10 dark:bg-gray-900/10">
+                                    <div className="w-full h-full overflow-hidden rounded-lg">
+                                        <img src={facility.image} alt={facility.title}
+                                            className="w-full h-auto object-contain transition duration-500 hover:scale-105"/>
+                                    </div>
+                                </div>
+                        
+                                <div className="w-full lg:w-[55%] p-5 lg:p-7 flex flex-col justify-center">
+                                    <h3 className={`text-xl md:text-2xl xl:text-3xl font-bold mb-1 ${accentColorClass} leading-tight`}>
+                                        {facility.title}
+                                    </h3>
+                                    <hr className={`w-12 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mb-2 rounded-full`} />
+                                    <p className={`text-sm md:text-base xl:text-lg mb-2 leading-tight text-justify ${textColorClass}`}>
+                                        {facility.details}
+                                    </p>
+                                    <p className={`text-sm md:text-base italic ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                        <strong className="not-italic font-bold">Our Goal:</strong> {facility.benefit}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </div>
-
-                {/* TEXT SIDE - Responsive Font Scaling */}
-                <div className="w-full lg:w-[55%] p-5 lg:p-7 flex flex-col justify-center">
-                    {/* Responsive Title: Smaller on small desktop, larger on big screens */}
-                    <h3 className={`text-xl md:text-2xl xl:text-3xl font-bold mb-1 ${accentColorClass} leading-tight`}>
-                        {facility.title}
-                    </h3>
-                    
-                    <hr className={`w-12 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mb-2 rounded-full`} />
-                    
-                    {/* Responsive Details: Tight leading to match image height */}
-                    <p className={`text-sm md:text-base xl:text-lg mb-2 leading-tight ${textColorClass}`}>
-                        {facility.details}
-                    </p>
-                    
-                    {/* Simplified Our Goal: Scaled font */}
-                    <p className={`text-sm md:text-base italic ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                        <strong className="not-italic font-bold">Our Goal:</strong> {facility.benefit}
-                    </p>
-                </div>
-            </div>
-        ))}
-    </div>
-</section>
+                </section>
                 
                 <hr className={`border-t ${dividerClass} mb-16`} />
 
+                {/* Your Visit: Comfort & Premium Amenities */}
                 <section className="mb-20">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Your Visit: <span className={accentColorClass}>Comfort</span> & Premium Amenities
@@ -191,7 +180,7 @@ const Services = () => {
                                     <h3 className="text-xl font-semibold">{amenity.title}</h3>
                                 </div>
                                 <hr className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} mb-3`} />
-                                <p className={textColorClass}>{amenity.detail}</p>
+                                <p className={`text-justify ${textColorClass}`}>{amenity.detail}</p>
                             </div>
                         ))}
                     </div>
@@ -199,6 +188,7 @@ const Services = () => {
                 
                 <hr className={`border-t ${dividerClass} mb-16`} />
 
+                {/* Call to Action */}
                 <section className="text-center py-10">
                     <h2 className="text-4xl font-bold mb-6">
                         Ready to Experience Our <span className={accentColorClass}>Exceptional Care</span>?
@@ -206,9 +196,7 @@ const Services = () => {
                     <p className={`text-lg mb-8 max-w-3xl mx-auto ${textColorClass}`}>
                         We are ready to partner with you on your recovery journey. Contact us today to schedule your first comprehensive assessment.
                     </p>
-                    <Link 
-                        to="/contact" 
-                        className={`${baseButtonClasses} ${buttonSolidClass} text-lg`}>
+                    <Link to="/contact" className={`${baseButtonClasses} ${buttonSolidClass} text-lg`}>
                         Schedule a Consultation
                     </Link>
                 </section>

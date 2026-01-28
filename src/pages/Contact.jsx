@@ -29,16 +29,13 @@ const HOURS = [
 const FAQS = [
   { q: 'Do I need an appointment?', a: 'Yes, we recommend scheduling an appointment. Walk-ins are welcome based on availability.' },
   { q: 'What should I bring to my first visit?', a: 'Please bring medical records, previous X-rays, valid ID, and comfortable clothing.' },
-  { q: 'Do you accept insurance?', a: 'We work with most major insurance providers. Contact us to verify your coverage.' },
+  { q: 'Do you provide financial assistance or free treatment?', a: 'We offer free or concessional treatment to patients from economically weaker sections, subject to eligibility verification. Please contact our clinic for further assistance.' },
   { q: 'How long does a typical session last?', a: 'A typical session lasts 45-60 minutes. First consultation may take longer for assessment.' },
 ];
 
 const ContactCard = ({ icon: Icon, title, href, text, color, external, isDarkMode, isOnline, showAlert }) => {
   return (
-    <a
-      href={href}
-      target={external ? '_blank' : '_self'}
-      rel={external ? 'noopener noreferrer' : undefined}
+    <a href={href} target={external ? '_blank' : '_self'} rel={external ? 'noopener noreferrer' : undefined}
       onClick={(e) => {
         if (!isOnline) {
           e.preventDefault();
@@ -146,11 +143,8 @@ const Contact = () => {
               <MapPin className="w-12 h-12 text-white mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Visit Our Clinic</h2>
               <p className="text-white text-lg opacity-90 mb-4">{CONTACT_INFO.address}</p>
-              <a 
-                href={`https://maps.app.goo.gl/kyccojDG5yauqshF9?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={handleMapClick}
+              <a href={`https://maps.app.goo.gl/kyccojDG5yauqshF9?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
+                target="_blank" rel="noopener noreferrer" onClick={handleMapClick}
                 className="inline-flex items-center gap-2 bg-white text-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 cursor-pointer"
               >
                 <Navigation className="w-5 h-5" />
@@ -167,14 +161,8 @@ const Contact = () => {
                   <p className={`text-sm ${dark ? 'text-gray-500' : 'text-gray-500'}`}>Connect to internet to view the location</p>
                 </div>
               ) : (
-                <iframe 
-                  title="Clinic Location" 
-                  src={CONTACT_INFO.mapUrl} 
-                  width="100%"
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
-                  loading="lazy"
+                <iframe title="Clinic Location" src={CONTACT_INFO.mapUrl} width="100%" height="100%" 
+                        style={{ border: 0 }} allowFullScreen="" loading="lazy"
                 />
               )}
             </div>
@@ -217,7 +205,7 @@ const Contact = () => {
                   {faq.q}
                   <span className={`${dark ? 'text-teal-400' : 'text-teal-600'} group-open:rotate-180 transition-transform`}>▼</span>
                 </summary>
-                <p className={`mt-3 pl-2 ${dark ? 'text-gray-300' : 'text-gray-600'}`}>{faq.a}</p>
+                <p className={`mt-3 pl-2 text-justify ${dark ? 'text-gray-300' : 'text-gray-600'}`}>{faq.a}</p>
               </details>
             ))}
           </div>
@@ -225,8 +213,7 @@ const Contact = () => {
           <div className={`mt-8 pt-6 border-t-2 ${dark ? 'border-gray-700' : 'border-gray-200'} text-center`}>
             <p className={`font-medium mb-4 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>Still have questions? We're here to help!</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a 
-                href={`tel:${CONTACT_INFO.phone}`} 
+              <a href={`tel:${CONTACT_INFO.phone}`} 
                 onClick={(e) => {
                   if (!isOnline) {
                     e.preventDefault();
@@ -238,8 +225,7 @@ const Contact = () => {
                 <Phone className="w-5 h-5" />
                 Call Us Now
               </a>
-              <a 
-                href={`mailto:${CONTACT_INFO.email}`} 
+              <a href={`mailto:${CONTACT_INFO.email}`} 
                 onClick={(e) => {
                   if (!isOnline) {
                     e.preventDefault();

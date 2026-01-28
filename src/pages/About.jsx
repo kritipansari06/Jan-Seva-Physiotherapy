@@ -22,9 +22,9 @@ const About = () => {
   ];
 
   const services = [
-    { icon: '🏃', title: 'Sports Rehabilitation', desc: 'Specialized care for athletes and active individuals' },
+    { icon: '🏃', title: 'Sports Rehab', desc: 'Specialized care for athletes and active individuals' },
     { icon: '🦴', title: 'Orthopedic Care', desc: 'Treatment for joint and bone disorders' },
-    { icon: '🧠', title: 'Neurological Rehab', desc: 'Recovery from stroke, injury, and conditions' },
+    { icon: '🧠', title: 'Neuro Rehab', desc: 'Recovery from stroke, injury, and conditions' },
     { icon: '👴', title: 'Geriatric Therapy', desc: 'Specialized care for elderly patients' },
     { icon: '👶', title: 'Pediatric Care', desc: 'Developmental support for children' },
     { icon: '💆', title: 'Manual Therapy', desc: 'Hands-on treatment techniques' },
@@ -52,10 +52,7 @@ const About = () => {
       {/* Hero Section */}
       <div className={`relative ${isDarkMode ? 'bg-linear-to-br from-teal-900 to-teal-800' : 'bg-linear-to-br from-teal-600 to-teal-700'} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '50px 50px',}} />
         </div>
         <div className="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -145,102 +142,86 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {goals.map((goal, idx) => (
-              <div
-  key={idx}
-  className={`flex flex-col p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
-    isDarkMode
-      ? 'bg-gray-800 border border-teal-600/40 hover:shadow-xl hover:shadow-teal-600/20'
-      : 'bg-white border border-teal-200 shadow-md hover:shadow-xl'
-  }`}
->
-  {/* FIXED HEIGHT TITLE */}
-  <h4
-    className={`font-bold text-lg md:text-2xl leading-snug mb-4 min-h-[3rem] ${accentColor}`}
-  >
-    {goal.title}
-  </h4>
+              <div key={idx} className={`flex flex-col p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${isDarkMode
+                ? 'bg-gray-800 border border-teal-600/40 hover:shadow-xl hover:shadow-teal-600/20'
+                : 'bg-white border border-teal-200 shadow-md hover:shadow-xl'}`}>
+                  
+                  <h4 className={`font-bold text-lg md:text-2xl leading-snug mb-4 min-h-[3rem] ${accentColor}`}>
+                    {goal.title}
+                  </h4>
+                  <p className={`text-base leading-relaxed text-justify ${textSecondary}`}>
+                    {goal.desc}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Senior Consultant Section */}
+      <section className={`py-20 ${sectionBg}`}> 
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className={`text-4xl font-bold text-center mb-3 ${accentColor}`}>Meet Our Senior Consultant</h2> 
+          <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-6 rounded-full`} /> 
 
-  {/* BODY TEXT */}
-  <p
-    className={`text-base leading-relaxed text-left ${textSecondary}`}
-  >
-    {goal.desc}
-  </p>
-</div>
+            <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${cardBg}`}>
+              <div className="grid md:grid-cols-5 gap-0">
 
-            ))}
+                <div className="md:col-span-2">
+                  <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
+                </div>
+                <div className="md:col-span-3 p-7 flex flex-col justify-between">
+                  <div>
+                    <h3 className={`text-3xl font-bold mb-1 ${accentColor}`}>Dr. Shivam Sharma</h3>
+                  <div className={`text-lg font-semibold mb-3 ${accentColor}`}>Senior Physiotherapist & Clinical Incharge</div>
+                  <p className={`mb-3 text-justify text-md leading-relaxed ${textSecondary}`}>
+                    Dr. Shivam Sharma is a distinguished physiotherapist with over 5+ years of clinical experience in musculoskeletal and neurological rehabilitation.
+                  </p>
+            
+                  <div className="space-y-2 mb-4">
+                    {[
+                      { label: 'Qualifications', text: 'MPT, BPT, Certified Manual Therapist' },
+                      { label: 'Specializations', text: 'Sports & Musculoskeletal Injury, Spinal Disorders, Post-Surgical Rehab' },
+                      { label: 'Experience', text: '5+ years of clinical practice' },
+                      { label: 'Achievements', text: 'Excellence in Clinical Practice Award 2022' }
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <ChevronRight className={`mt-0.5 flex shrink-0 w-5 h-5 ${accentColor}`} />
+                        <div>
+                          <strong className={`text-md ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{item.label}:</strong>
+                          <span className={`ml-2 text-sm ${textTertiary}`}>{item.text}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Quote Section */}
+                <div className={`mt-2 p-3 rounded-xl border-l-4 border-teal-500 ${
+                  isDarkMode 
+                  ? 'bg-teal-900/30' 
+                  : 'bg-teal-50'
+                  }}`}>
+                  <div className="flex items-start gap-3">
+                    <span className="text-3xl flex shrink-0">💬</span>
+                  <div>
+                    <p className={`text-base italic font-semibold mb-1 ${textSecondary}`}>
+                      "Physiotherapy is not just about treating pain—it's about restoring hope, mobility, and the freedom to live life fully."
+                    </p>
+                    <p className={`text-xs font-bold ${accentColor}`}>— Dr. Shivam Sharma</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </section>
 
-
-{/* Senior Consultant Section */}
-<section className={`py-20 ${sectionBg}`}> {/* Reduced from py-20 */}
-  <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className={`text-4xl font-bold text-center mb-3 ${accentColor}`}>Meet Our Senior Consultant</h2> {/* Reduced mb-4 to mb-3 */}
-    <div className={`w-24 h-1 ${isDarkMode ? 'bg-teal-400' : 'bg-teal-600'} mx-auto mb-6 rounded-full`} /> {/* Reduced mb-8 to mb-6 */}
-    
-    <div className={`max-w-5xl mx-auto rounded-3xl shadow-2xl overflow-hidden ${cardBg}`}>
-      <div className="grid md:grid-cols-5 gap-0">
-        <div className="md:col-span-2">
-          {/* Maintained your aspect ratio logic */}
-          <img className="w-full h-full object-cover aspect-square md:aspect-auto" src="/images/Doctor.jpg" alt="Dr. Shivam Sharma" />
-        </div>
-        
-        <div className="md:col-span-3 p-7 flex flex-col justify-between"> {/* Reduced from p-8 to p-7 */}
-          <div>
-            <h3 className={`text-3xl font-bold mb-1 ${accentColor}`}>Dr. Shivam Sharma</h3> {/* Reduced mb-2 to mb-1 */}
-            <div className={`text-lg font-semibold mb-3 ${accentColor}`}>Senior Physiotherapist & Clinical Incharge</div> {/* Reduced mb-4 to mb-3 */}
-            <p className={`mb-3 text-justify text-md leading-relaxed ${textSecondary}`}> {/* Reduced mb-4 to mb-3 */}
-              Dr. Shivam Sharma is a distinguished physiotherapist with over 5+ years of clinical experience in musculoskeletal and neurological rehabilitation.
-            </p>
-            
-            <div className="space-y-2 mb-4"> {/* Tightened from space-y-3 to space-y-2 */}
-              {[
-                { label: 'Qualifications', text: 'MPT, BPT, Certified Manual Therapist' },
-                { label: 'Specializations', text: 'Sports & Musculoskeletal Injury, Spinal Disorders, Post-Surgical Rehab' },
-                { label: 'Experience', text: '5+ years of clinical practice' },
-                { label: 'Achievements', text: 'Excellence in Clinical Practice Award 2022' }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <ChevronRight className={`mt-0.5 flex shrink-0 w-5 h-5 ${accentColor}`} />
-                  <div>
-                    <strong className={`text-md ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{item.label}:</strong>
-                    <span className={`ml-2 text-sm ${textTertiary}`}>{item.text}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Quote Section - Slightly more compact padding */}
-          <div className={`mt-2 p-3 rounded-xl border-l-4 border-teal-500 ${
-            isDarkMode 
-              ? 'bg-teal-900/30' 
-              : 'bg-teal-50'
-          }`}>
-            <div className="flex items-start gap-3">
-              <span className="text-3xl flex shrink-0">💬</span>
-              <div>
-                <p className={`text-base italic font-semibold mb-1 ${textSecondary}`}> {/* Reduced mb-2 to mb-1 */}
-                  "Physiotherapy is not just about treating pain—it's about restoring hope, mobility, and the freedom to live life fully."
-                </p>
-                <p className={`text-xs font-bold ${accentColor}`}>— Dr. Shivam Sharma</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* Trust Section - Enhanced */}
+      {/* Trust Section */}
       <section className={`py-20 ${isDarkMode ? 'bg-linear-to-r from-teal-900 via-teal-800 to-gray-800' : 'bg-linear-to-r from-teal-50 via-cyan-50 to-blue-50'} relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, #0d9488 0%, transparent 50%)',
-          }} />
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, #0d9488 0%, transparent 50%)'}} />
         </div>
         
         <div className="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -282,7 +263,7 @@ const About = () => {
               }`}>
                 <div className="text-4xl mb-4">{item.icon}</div>
                 <h4 className={`text-2xl font-bold ${accentColor} mb-4`}>{item.title}</h4>
-                <p className={isDarkMode ? 'text-gray-200' : 'text-gray-700'}>{item.content}</p>
+                <p className={`text-justify ${isDarkMode ? 'text-gray-200' : 'text-gray-700'}`}>{item.content}</p>
               </div>
             ))}
           </div>
@@ -318,8 +299,8 @@ const About = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
               <div key={idx} className={`p-8 rounded-xl text-center hover:shadow-2xl transition-shadow ${cardBg} border-2 shadow-lg hover:-translate-y-1`}>
-                <div className={`text-5xl font-bold mb-3 ${accentColor}`}>{stat.number}</div>
-                <div className={`text-lg ${textTertiary}`}>{stat.label}</div>
+                <div className={`text-2xl sm:text-3xl md:text-5xl lg:text-5xl font-bold mb-3 ${accentColor}`}>{stat.number}</div>
+                <div className={`text-base sm:text-md md:text-xl ${textTertiary}`}>{stat.label}</div>
               </div>
             ))}
           </div>
