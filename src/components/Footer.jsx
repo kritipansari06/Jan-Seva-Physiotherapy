@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaGlobe, FaWhatsapp  } from 'react-icons/fa';
 import { Phone, Mail, MapPin, Heart } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const socials = [
   { icon: FaFacebook, href: 'https://facebook.com/janseva.physiocentre', label: 'Facebook' },
-  { icon: FaTwitter, href: 'https://twitter.com/janservaphysio', label: 'Twitter' },
   { icon: FaInstagram, href: 'https://www.instagram.com/jansevaphysiolosal', label: 'Instagram' },
-  { icon: FaLinkedin, href: 'https://linkedin.com/company/janservaphysio', label: 'LinkedIn' },
+  { icon: FaGlobe, href: 'https://www.rppansarijansevatrust.org', label: 'Website' },
+  { icon: FaWhatsapp, href: 'https://wa.me/+918769220073', label: 'WhatsApp' }
 ];
 
 export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
@@ -44,10 +44,11 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
   ];
 
   const focus = [
-    { to: '/treatments/therapies', label: 'Therapies' },
-    { to: '/treatments/equipments', label: 'Equipment' },
-    { to: '/treatments/rehabs', label: 'Rehabilitation' },
-    { to: '/treatments/wellness-prevention', label: 'Wellness' },
+    { to: '/treatments/HotColdTherapy', label: 'Hot & Cold Therapy' },
+    { to: '/treatments/ElectroTherapy', label: 'Electro Therapy' },
+    { to: '/treatments/ExerciseTherapy', label: 'Exercise Therapy' },
+    { to: '/treatments/ManualTherapy', label: 'Manual Therapy' },
+    { to: '/treatments/AdvancedTherapy', label: 'Advanced Therapy' },
   ];
 
   const handleExternalLinkClick = (e, label) => {
@@ -71,7 +72,6 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
   return (
     <footer className={`${isDarkMode ? 'bg-gray-900 text-gray-300 border-gray-800' : 'bg-teal-50 text-gray-800 border-teal-500'} pt-16 pb-8 mt-20 border-t-4 transition duration-300`}>
       
-      {/* Alert Modal */}
       {alertData.show && (
         <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
           <div className={`px-6 py-4 rounded-xl shadow-2xl border-2 ${isDarkMode ? 'bg-yellow-900/30 border-yellow-600 text-yellow-300' : 'bg-yellow-100 border-yellow-500 text-yellow-800'}`}>
@@ -81,6 +81,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
         </div>
       )}
 
+      {/* Title */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 mb-8 border-b-2 ${sectionBorder}`}>
           <div className="space-y-4">
@@ -95,6 +96,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             <p className="text-xs italic text-gray-500">"Service is the highest duty"</p>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className={`text-lg font-bold mb-5 ${isDarkMode ? 'text-teal-400' : 'text-teal-700'}`}>Quick Links</h4>
             <ul className="space-y-3">
@@ -109,13 +111,13 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             </ul>
           </div>
 
+          {/* Focus Areas */}
           <div>
             <h4 className={`text-lg font-bold mb-5 ${isDarkMode ? 'text-teal-400' : 'text-teal-700'}`}>Focus Areas</h4>
             <ul className="space-y-3">
               {focus.map((l) => (
                 <li key={l.to}>
-                  <Link 
-                    to={l.to} 
+                  <Link to={l.to} 
                     className={`${isDarkMode ? 'text-gray-400 hover:text-teal-400' : 'text-gray-600 hover:text-teal-600'} text-sm transition hover:underline`}
                   >
                     {l.label}
@@ -125,6 +127,7 @@ export default function Footer({ brandName = 'Jan Seva Physiotherapy' }) {
             </ul>
           </div>
 
+          {/* Get in Touch */}
           <div>
             <h4 className={`text-lg font-bold mb-5 ${isDarkMode ? 'text-teal-400' : 'text-teal-700'}`}>Get in Touch</h4>
             <ul className="space-y-4">
