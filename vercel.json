@@ -7,12 +7,16 @@
   ],
   "headers": [
     {
-      "source": "/videos/(.*)\\.(mp4|MP4)",
-      "headers": [{ "key": "Content-Type", "value": "video/mp4" }]
+      "source": "/videos/:path*\\.(mp4|MP4)",
+      "headers": [
+        { "key": "Content-Type", "value": "video/mp4" }
+      ]
     },
     {
-      "source": "/videos/(.*)\\.(mov|MOV)",
-      "headers": [{ "key": "Content-Type", "value": "video/quicktime" }]
+      "source": "/videos/:path*\\.(mov|MOV)",
+      "headers": [
+        { "key": "Content-Type", "value": "video/quicktime" }
+      ]
     }
   ]
 }
