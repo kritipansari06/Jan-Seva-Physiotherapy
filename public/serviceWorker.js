@@ -45,7 +45,8 @@ self.addEventListener('fetch', (event) => {
   if (event.request.url.includes('chrome-extension')) {
     return;
   }
-  if (event.request.url.match('/\.(mp4|mov|MP4|MOV)$/')) {
+  const url = new URL(event.request.url);
+  if (url.pathname.match(/\.(mp4|mov|MP4|MOV)$/)) {
     return; 
   }
 
