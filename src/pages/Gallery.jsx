@@ -138,95 +138,86 @@ const [selectedMedia, setSelectedMedia] = useState(null);
       type: 'image'
     },
     {
-  id: 12,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/11.MOV',          // ✅ VIDEO FILE
-  type: 'video'
-},
-  {
-  id: 13,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/12.mp4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 14,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/13.MP4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 15,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/14.MOV',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 16,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/15.MP4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 17,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/16.MP4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 18,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/17.MP4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 19,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/18.MP4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 20,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/19.mp4',          // ✅ VIDEO FILE
-  type: 'video'
-},
-{
-  id: 21,
-  title: 'Rehab Exercise Demo',
-  subtitle: 'Professional Facilities',
-  description: 'Live physiotherapy exercise demonstration.',
-  thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-  videoSrc: '/videos/20.mp4',          // ✅ VIDEO FILE
-  type: 'video'
-},
+      id: 12,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/12.mp4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 13,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/13.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 14,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/14.MOV',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 15,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/15.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 16,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/16.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 17,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/17.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 18,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/18.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 19,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/19.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+    {
+      id: 20,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/20.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
   ];
 
   useEffect(() => {
