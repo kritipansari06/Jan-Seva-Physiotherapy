@@ -46,13 +46,9 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (event.request.url.match(/\.(mp4|mov|MP4|MOV)$/i)) {
-    return;
-  }
-    if (event.request.method !== 'GET') return;
-
   const reqUrl = new URL(event.request.url);
 
+  // Redirect legacy asset paths (e.g. /src/assets/images/...) to public folder (/images/...)
   if (reqUrl.pathname.includes('/src/assets/images/')) {
     const newPath = reqUrl.pathname.replace('/src/assets/images/', '/images/');
     const redirectRequest = new Request(newPath, { method: 'GET', headers: event.request.headers, mode: 'same-origin' });

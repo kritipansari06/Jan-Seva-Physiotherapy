@@ -5,19 +5,14 @@
       "destination": "/index.html"
     }
   ],
-  "headers": [
+    "headers": [
     {
-      "source": "/videos/(.*)\\.(mp4|MP4)",
+      "source": "/videos/(.*)",
       "headers": [
-        { "key": "Content-Type", "value": "video/mp4" },
-        { "key": "Accept-Ranges", "value": "bytes" }
-      ]
-    },
-    {
-      "source": "/videos/(.*)\\.(mov|MOV)",
-      "headers": [
-        { "key": "Content-Type", "value": "video/quicktime" },
-        { "key": "Accept-Ranges", "value": "bytes" }
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        }
       ]
     }
   ]
