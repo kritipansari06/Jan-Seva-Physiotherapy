@@ -5,14 +5,17 @@
       "destination": "/index.html"
     }
   ],
-    "headers": [
+  "headers": [
     {
-      "source": "/videos/:path*.(mp4|MP4|mov|MOV)",
+      "source": "/videos/:path*.(mp4|MP4)",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "video/mp4"
-        }
+        { "key": "Content-Type", "value": "video/mp4" }
+      ]
+    },
+    {
+      "source": "/videos/:path*.(mov|MOV)",
+      "headers": [
+        { "key": "Content-Type", "value": "video/quicktime" }
       ]
     }
   ]
