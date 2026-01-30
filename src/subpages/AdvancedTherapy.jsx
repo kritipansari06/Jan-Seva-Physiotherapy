@@ -7,8 +7,7 @@ const AdvancedRehabData = {
             id: 'balance-board',
             title: 'Balance Board',
             image: '/images/rehab/balance-board.png',
-            description:
-                'Balance board training challenges <strong>postural control</strong> and improves balance and coordination.',
+            description:'Balance board training challenges <strong>postural control</strong> and improves balance and coordination.',
             benefits: [
                 'Improves balance',
                 'Enhances proprioception',
@@ -21,8 +20,7 @@ const AdvancedRehabData = {
             id: 'bosu-ball',
             title: 'Wobble / BOSU Ball',
             image: '/images/rehab/bosu.png',
-            description:
-                'Wobble and BOSU ball exercises provide <strong>unstable surface training</strong> to improve coordination.',
+            description:'Wobble and BOSU ball exercises provide <strong>unstable surface training</strong> to improve coordination.',
             benefits: [
                 'Enhances core stability',
                 'Improves dynamic balance',
@@ -35,8 +33,7 @@ const AdvancedRehabData = {
             id: 'cones',
             title: 'Cones Training',
             image: '/images/rehab/cones.png',
-            description:
-                'Cone-based drills improve <strong>agility, balance, and movement accuracy</strong>.',
+            description:'Cone-based drills improve <strong>agility, balance, and movement accuracy</strong>.',
             benefits: [
                 'Improves agility',
                 'Enhances coordination',
@@ -44,10 +41,7 @@ const AdvancedRehabData = {
                 'Improves reaction time',
                 'Useful in functional training'
             ]
-        }
-    ],
-
-    advancedApplications: [
+        },
         {
             id: 'parallel-bar',
             title: 'Parallel Bar Training',
@@ -76,6 +70,9 @@ const AdvancedRehabData = {
                 'Safe progressive training'
             ]
         },
+    ],
+
+    advancedApplications: [
         {
             id: 'dry-needling',
             title: 'Dry Needling',
@@ -155,22 +152,14 @@ const AdvancedTherapy = () => {
 
     return (
         <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-            {/* Image Modal */}
             {selectedImage && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
                     onClick={() => setSelectedImage(null)}>
-                    <button
-                        className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
-                        onClick={() => setSelectedImage(null)}
-                        aria-label="Close">
+                    <button className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+                        onClick={() => setSelectedImage(null)} aria-label="Close">
                         ×
                     </button>
-                    <img
-                        src={selectedImage}
-                        alt="Enlarged view"
-                        className="max-w-full max-h-full object-contain rounded-lg"
-                        onClick={(e) => e.stopPropagation()}
-                    />
+                    <img src={selectedImage} alt="Enlarged view" className="max-w-full max-h-full object-contain rounded-lg" onClick={(e) => e.stopPropagation()}/>
                 </div>
             )}
 

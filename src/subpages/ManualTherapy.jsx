@@ -6,9 +6,8 @@ const ManualTherapyData = {
         {
             id: 'manipulation',
             title: 'Manipulation',
-            image: '/images/manual/manipulation.png',
-            description:
-                'Manipulation involves <strong>high-velocity, low-amplitude movements</strong> applied to joints to restore mobility and reduce pain.',
+            image: '/images/Treatments/ManualTherapy/manipulation.png',
+            description:'Manipulation involves <strong>high-velocity, low-amplitude movements</strong> applied to joints to restore mobility and reduce pain.',
             benefits: [
                 'Improves joint mobility',
                 'Reduces pain quickly',
@@ -20,9 +19,8 @@ const ManualTherapyData = {
         {
             id: 'mobilization',
             title: 'Mobilization',
-            image: '/images/manual/mobilization.png',
-            description:
-                'Mobilization uses <strong>gentle, rhythmic passive movements</strong> within joint range to reduce pain and stiffness.',
+            image: '/images/Treatments/ManualTherapy/mobilization.png',
+            description:'Mobilization uses <strong>gentle, rhythmic passive movements</strong> within joint range to reduce pain and stiffness.',
             benefits: [
                 'Increases joint range of motion',
                 'Reduces joint stiffness',
@@ -34,9 +32,8 @@ const ManualTherapyData = {
         {
             id: 'iastm',
             title: 'IASTM',
-            image: '/images/manual/iastm.png',
-            description:
-                'Instrument Assisted Soft Tissue Mobilization (IASTM) uses <strong>special tools</strong> to treat soft tissue restrictions.',
+            image: '/images/Treatments/ManualTherapy/iastm.png',
+            description:'Instrument Assisted Soft Tissue Mobilization (IASTM) uses <strong>special tools</strong> to treat soft tissue restrictions.',
             benefits: [
                 'Breaks scar tissue',
                 'Improves tissue mobility',
@@ -48,9 +45,8 @@ const ManualTherapyData = {
         {
             id: 'mfr',
             title: 'Myofascial Release (MFR)',
-            image: '/images/manual/mfr.png',
-            description:
-                'MFR applies <strong>sustained pressure</strong> to fascial restrictions to restore mobility and relieve pain.',
+            image: '/images/Treatments/ManualTherapy/mfr.png',
+            description:'MFR applies <strong>sustained pressure</strong> to fascial restrictions to restore mobility and relieve pain.',
             benefits: [
                 'Releases fascial tightness',
                 'Reduces chronic pain',
@@ -60,25 +56,23 @@ const ManualTherapyData = {
             ]
         },
         {
-            id: 'massage',
-            title: 'Massage Therapy',
-            image: '/images/manual/massage.png',
-            description:
-                'Massage therapy involves <strong>manual soft tissue techniques</strong> to promote relaxation and circulation.',
-            benefits: [
-                'Relieves muscle tension',
-                'Improves circulation',
-                'Reduces stress',
-                'Enhances tissue healing',
-                'Improves overall well-being'
-            ]
+          id: 'massage-gun',
+          title: 'Massage Gun Therapy',
+          image: '/images/Treatments/ManualTherapy/massage-gun.png',
+          description: 'Massage gun therapy uses <strong>percussive vibration techniques</strong> to target deep muscles, reduce soreness, and enhance recovery.',
+          benefits: [
+            'Reduces muscle soreness',
+            'Relieves deep muscle tension',
+            'Improves blood circulation',
+            'Speeds up muscle recovery',
+            'Enhances mobility and flexibility'
+          ]
         },
         {
             id: 'soft-tissue',
             title: 'Soft Tissue Mobilization',
-            image: '/images/manual/soft-tissue.png',
-            description:
-                'Soft tissue mobilization targets <strong>muscles, fascia, and connective tissues</strong> to improve mobility.',
+            image: '/images/Treatments/ManualTherapy/soft-tissue.png',
+            description:'Soft tissue mobilization targets <strong>muscles, fascia, and connective tissues</strong> to improve mobility.',
             benefits: [
                 'Improves tissue flexibility',
                 'Reduces adhesions',
@@ -90,9 +84,8 @@ const ManualTherapyData = {
         {
             id: 'trigger-point',
             title: 'Trigger Point Therapy',
-            image: '/images/manual/trigger-point.png',
-            description:
-                'Trigger point therapy applies <strong>focused pressure</strong> on tight muscle knots to relieve referred pain.',
+            image: '/images/Treatments/ManualTherapy/trigger-point.png',
+            description:'Trigger point therapy applies <strong>focused pressure</strong> on tight muscle knots to relieve referred pain.',
             benefits: [
                 'Releases trigger points',
                 'Reduces referred pain',
@@ -104,9 +97,8 @@ const ManualTherapyData = {
         {
             id: 'maitland',
             title: 'Maitland Mobilization',
-            image: '/images/manual/maitland.png',
-            description:
-                'Maitland technique uses <strong>graded oscillatory joint movements</strong> based on pain and stiffness assessment.',
+            image: '/images/Treatments/ManualTherapy/maitland.png',
+            description:'Maitland technique uses <strong>graded oscillatory joint movements</strong> based on pain and stiffness assessment.',
             benefits: [
                 'Pain-based joint treatment',
                 'Improves joint mechanics',
@@ -118,9 +110,8 @@ const ManualTherapyData = {
         {
             id: 'nerve',
             title: 'Nerve Mobilization',
-            image: '/images/manual/nerve.png',
-            description:
-                'Nerve mobilization restores <strong>normal nerve movement</strong> and reduces neural tension.',
+            image: '/images/Treatments/ManualTherapy/nerve.png',
+            description:'Nerve mobilization restores <strong>normal nerve movement</strong> and reduces neural tension.',
             benefits: [
                 'Reduces nerve pain',
                 'Improves neural mobility',
@@ -170,15 +161,12 @@ const ManualTherapy = () => {
             {selectedImage && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
                     onClick={() => setSelectedImage(null)}>
-                    <button
-                        className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
+                    <button className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors"
                         onClick={() => setSelectedImage(null)}
                         aria-label="Close">
                         ×
                     </button>
-                    <img
-                        src={selectedImage}
-                        alt="Enlarged view"
+                    <img src={selectedImage} alt="Enlarged view"
                         className="max-w-full max-h-full object-contain rounded-lg"
                         onClick={(e) => e.stopPropagation()}
                     />
@@ -201,9 +189,7 @@ const ManualTherapy = () => {
                     </h2>
                     <div className="flex flex-wrap gap-4 justify-center mb-6">
                         {Object.keys(benefitsData).map((key) => (
-                            <button
-                                key={key}
-                                onClick={() => setSelectedBenefit(key)}
+                            <button key={key} onClick={() => setSelectedBenefit(key)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
                                     selectedBenefit === key
                                         ? 'bg-blue-600 text-white shadow-lg'
@@ -234,13 +220,9 @@ const ManualTherapy = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {ManualTherapyData.keyTherapies.map((therapy) => (
-                            <div
-                                key={therapy.id}
-                                className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                            <div key={therapy.id} className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                                 <div className="w-full aspect-video overflow-hidden bg-gray-200">
-                                    <img
-                                        src={therapy.image}
-                                        alt={therapy.title}
+                                    <img src={therapy.image} alt={therapy.title}
                                         className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-300"
                                         onClick={() => setSelectedImage(therapy.image)}
                                     />
@@ -250,8 +232,7 @@ const ManualTherapy = () => {
                                     <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                         {therapy.title}
                                     </h3>
-                                    <p
-                                        className={`mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
+                                    <p className={`mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
                                         dangerouslySetInnerHTML={createMarkup(therapy.description)}
                                     />
                                     <div className="mt-auto">
@@ -391,9 +372,7 @@ const ManualTherapy = () => {
                     <p className="text-lg mb-8 opacity-90">
                         Hands-on therapy can restore movement, reduce pain, and improve your quality of life naturally.
                     </p>
-                    <a
-                        href="/contact"
-                        className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-blue-600 hover:bg-gray-100 hover:shadow-lg">
+                    <a href="/contact" className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-blue-600 hover:bg-gray-100 hover:shadow-lg">
                         Book Your Manual Therapy Session
                     </a>
                 </section>
