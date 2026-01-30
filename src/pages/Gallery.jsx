@@ -857,7 +857,7 @@ const handleScrollImageClick = (imageSrc) => {
             </div>
           ))}
         </div>
-
+        
 {selectedMedia && (
   <div className="image-modal" onClick={() => setSelectedMedia(null)}>
     <button className="image-modal-close">×</button>
@@ -865,19 +865,20 @@ const handleScrollImageClick = (imageSrc) => {
     {selectedMedia.type === 'image' ? (
       <img src={selectedMedia.image} alt="Full view" />
     ) : (
-      /* Video play karne ke liye ye attributes zaroori hain */
       <video
-        src={selectedMedia.videoSrc}
         controls
         autoPlay
-        muted
         playsInline
-        preload="auto"
-        style={{ maxWidth: '90%', maxHeight: '90%' }}
-        >
-        <source src={selectedMedia.videoSrc} type={selectedMedia.videoSrc.toLowerCase().endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
-        </video>
-
+        preload="metadata"
+        style={{ maxWidth: '90%', maxHeight: '90%', borderRadius: '8px' }}
+        onClick={(e) => e.stopPropagation()} // Click karne par modal band na ho
+      >
+        {/* Browser ko batayein ki ye video hai */}
+        <source src={selectedMedia.videoSrc} type={selectedMedia.videoSrc.toLowerCase().endsWith('.mov') ? "video/quicktime" : "video/mp4"} />
+        <p style={{color: 'white'}}>
+          Your browser does not support this video format.
+        </p>
+      </video>
     )}
   </div>
 )}
