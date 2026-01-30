@@ -7,7 +7,7 @@
   ],
     "headers": [
     {
-      "source": "/videos/(.*)",
+      "source": "/videos/:path*.(mp4|MP4|mov|MOV)",
       "headers": [
         {
           "key": "Content-Type",

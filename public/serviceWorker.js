@@ -1,7 +1,3 @@
-// ================================
-// FILE 1: public/serviceWorker.js
-// ================================
-
 const CACHE_NAME = 'jan-seva-v3';
 const RUNTIME_CACHE = 'jan-seva-runtime-v3';
 
@@ -48,6 +44,9 @@ self.addEventListener('fetch', (event) => {
 
   if (event.request.url.includes('chrome-extension')) {
     return;
+  }
+  if (event.request.url.match('/\.(mp4|mov|MP4|MOV)$/')) {
+    return; 
   }
 
   const reqUrl = new URL(event.request.url);
