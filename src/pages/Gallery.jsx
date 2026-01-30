@@ -161,7 +161,7 @@ const [selectedMedia, setSelectedMedia] = useState(null);
       subtitle: 'Professional Facilities',
       description: 'Live physiotherapy exercise demonstration.',
       thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/14.MOV',          // ✅ VIDEO FILE
+      videoSrc: '/videos/14.MP4',          // ✅ VIDEO FILE
       type: 'video'
     },
     {
@@ -216,6 +216,15 @@ const [selectedMedia, setSelectedMedia] = useState(null);
       description: 'Live physiotherapy exercise demonstration.',
       thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
       videoSrc: '/videos/20.MP4',          // ✅ VIDEO FILE
+      type: 'video'
+    },
+        {
+      id: 21,
+      title: 'Rehab Exercise Demo',
+      subtitle: 'Professional Facilities',
+      description: 'Live physiotherapy exercise demonstration.',
+      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
+      videoSrc: '/videos/21.MP4',          // ✅ VIDEO FILE
       type: 'video'
     },
   ];
