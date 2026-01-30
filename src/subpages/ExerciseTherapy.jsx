@@ -6,7 +6,7 @@ const ExerciseTherapyData = {
         {
             id: 'passive-stretching',
             title: 'Passive Stretching',
-            image: '/images/exercises/passive-stretching.png',
+            image: '/images/Treatments/ExerciseTherapy/passive-stretching.png',
             description: 'Passive stretching involves <strong>external assistance</strong> to stretch muscles without patient effort.',
             benefits: [
                 'Improves flexibility',
@@ -19,7 +19,7 @@ const ExerciseTherapyData = {
         {
             id: 'active-stretching',
             title: 'Active Stretching',
-            image: '/images/exercises/active-stretching.png',
+            image: '/images/Treatments/ExerciseTherapy/active-stretching.png',
             description: `Active stretching uses <strong>patient's own muscle activity </strong> to achieve stretch.`,
             benefits: [
                 'Improves muscle control',
@@ -32,7 +32,7 @@ const ExerciseTherapyData = {
         {
             id: 'treadmill',
             title: 'Treadmill',
-            image: '/images/exercises/treadmill.png',
+            image: '/images/Treatments/ExerciseTherapy/treadmill.png',
             description: 'Treadmill exercises improve <strong>cardiorespiratory endurance</strong> and walking capacity.',
             benefits: [
                 'Improves cardiovascular fitness',
@@ -45,7 +45,7 @@ const ExerciseTherapyData = {
         {
             id: 'cycle-ergometer',
             title: 'Cycle Ergometer',
-            image: '/images/exercises/cycle.png',
+            image: '/images/Treatments/ExerciseTherapy/cycle-ergometer.png',
             description: 'Cycle ergometer is used for <strong>aerobic conditioning</strong> and lower limb endurance.',
             benefits: [
                 'Improves aerobic capacity',
@@ -61,9 +61,8 @@ const ExerciseTherapyData = {
         {
             id: 'finger-ladder',
             title: 'Finger Ladder Exercise',
-            image: '/images/exercises/finger-ladder.png',
-            description:
-                'Finger ladder exercise is used to <strong>improve shoulder range of motion</strong> by gradually walking the fingers up a wall or ladder surface.',
+            image: '/images/Treatments/ExerciseTherapy/finger-ladder.png',
+            description:'Finger ladder exercise is used to <strong>improve shoulder range of motion</strong> by gradually walking the fingers up a wall or ladder surface.',
             benefits: [
                 'Improves shoulder mobility',
                 'Increases range of motion',
@@ -75,9 +74,8 @@ const ExerciseTherapyData = {
         {
             id: 'shoulder-wheel',
             title: 'Shoulder Wheel',
-            image: '/images/exercises/shoulder-wheel.png',
-            description:
-                'Shoulder wheel exercises help in <strong>active assisted shoulder movements</strong> and are commonly used in rehabilitation.',
+            image: '/images/Treatments/ExerciseTherapy/shoulder-wheel.png',
+            description:'Shoulder wheel exercises help in <strong>active assisted shoulder movements</strong> and are commonly used in rehabilitation.',
             benefits: [
                 'Enhances shoulder flexibility',
                 'Reduces stiffness',
@@ -89,9 +87,8 @@ const ExerciseTherapyData = {
         {
             id: 'cpm-machine',
             title: 'CPM Machine',
-            image: '/images/exercises/cpm-machine.png',
-            description:
-                'Continuous Passive Motion (CPM) machine moves joints <strong>passively through a preset range</strong> to prevent stiffness.',
+            image: '/images/Treatments/ExerciseTherapy/CPM.png',
+            description:'Continuous Passive Motion (CPM) machine moves joints <strong>passively through a preset range</strong> to prevent stiffness.',
             benefits: [
                 'Prevents joint stiffness',
                 'Improves joint nutrition',
@@ -103,9 +100,8 @@ const ExerciseTherapyData = {
         {
             id: 't-pulley',
             title: 'T-Pulley Exercise',
-            image: '/images/exercises/t-pulley.png',
-            description:
-                'T-pulley exercises are used for <strong>assisted shoulder elevation and abduction</strong>.',
+            image: '/images/Treatments/ExerciseTherapy/t-pulley.png',
+            description:'T-pulley exercises are used for <strong>assisted shoulder elevation and abduction</strong>.',
             benefits: [
                 'Improves shoulder elevation',
                 'Assisted active movement',
@@ -117,9 +113,8 @@ const ExerciseTherapyData = {
         {
             id: 'ankle-exercise',
             title: 'Ankle Exercises',
-            image: '/images/exercises/ankle-exercise.png',
-            description:
-                'Ankle exercises include movements to <strong>improve strength and mobility</strong> of the ankle joint.',
+            image: '/images/Treatments/ExerciseTherapy/ankle-exercises.png',
+            description:'Ankle exercises include movements to <strong>improve strength and mobility</strong> of the ankle joint.',
             benefits: [
                 'Improves ankle mobility',
                 'Enhances balance',
@@ -131,9 +126,8 @@ const ExerciseTherapyData = {
         {
             id: 'dumbbells',
             title: 'Dumbbells',
-            image: '/images/exercises/dumbbells.png',
-            description:
-                'Dumbbells are used for <strong>progressive resistance exercises</strong> to strengthen muscles.',
+            image: '/images/Treatments/ExerciseTherapy/dumbbells.png',
+            description:'Dumbbells are used for <strong>progressive resistance exercises</strong> to strengthen muscles.',
             benefits: [
                 'Increases muscle strength',
                 'Improves endurance',
@@ -145,9 +139,8 @@ const ExerciseTherapyData = {
         {
             id: 'weight-cuff',
             title: 'Weight Cuff',
-            image: '/images/exercises/weight-cuff.png',
-            description:
-                'Weight cuffs provide <strong>external resistance</strong> during limb movements.',
+            image: '/images/Treatments/ExerciseTherapy/weight-cuff.png',
+            description:'Weight cuffs provide <strong>external resistance</strong> during limb movements.',
             benefits: [
                 'Strengthens limb muscles',
                 'Improves functional movements',
@@ -159,9 +152,8 @@ const ExerciseTherapyData = {
         {
             id: 'theraband',
             title: 'Theraband',
-            image: '/images/exercises/theraband.png',
-            description:
-                'Therabands are elastic resistance bands used for <strong>muscle strengthening and flexibility</strong>.',
+            image: '/images/Treatments/ExerciseTherapy/theraband.png',
+            description:'Therabands are elastic resistance bands used for <strong>muscle strengthening and flexibility</strong>.',
             benefits: [
                 'Provides variable resistance',
                 'Improves muscle control',
@@ -173,9 +165,8 @@ const ExerciseTherapyData = {
         {
             id: 'theratube',
             title: 'Theratube',
-            image: '/images/exercises/theratube.png',
-            description:
-                'Theratubes are hollow elastic tubes used for <strong>resistance training</strong>.',
+            image: '/images/Treatments/ExerciseTherapy/theratube.png',
+            description:'Theratubes are hollow elastic tubes used for <strong>resistance training</strong>.',
             benefits: [
                 'Improves muscle power',
                 'Enhances coordination',
@@ -185,11 +176,10 @@ const ExerciseTherapyData = {
             ]
         },
         {
-            id: 'quadriceps-chain',
-            title: 'Quadriceps Chain Exercise',
-            image: '/images/exercises/quadriceps-chain.png',
-            description:
-                'Quadriceps chain exercises focus on <strong>strengthening thigh muscles</strong>.',
+            id: 'quadriceps-chair',
+            title: 'Quadriceps Chair Exercise',
+            image: '/images/Treatments/ExerciseTherapy/quadriceps-chair.png',
+            description:'Quadriceps chair exercises focus on <strong>strengthening thigh muscles</strong>.',
             benefits: [
                 'Strengthens quadriceps',
                 'Improves knee stability',
@@ -510,9 +500,7 @@ const ExerciseTherapy = () => {
                     <p className="text-lg mb-8 opacity-90">
                         A personalized exercise program can restore strength, mobility, and confidence in daily activities.
                     </p>
-                    <a
-                        href="/contact"
-                        className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-blue-600 hover:bg-gray-100 hover:shadow-lg">
+                    <a href="/contact" className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-blue-600 hover:bg-gray-100 hover:shadow-lg">
                         Book Your Exercise Therapy Session
                     </a>
                 </section>

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-const HotTherapyData = {
+const HotColdTherapyData = {
     keyTherapies: [
         {
             id: 'hydrocollator',
             title: 'Hydrocollator Pack',
-            image: '/images/hot-therapy/hydrocollator.jpg',
-            description:
-                'Hydrocollator packs provide <strong>moist heat</strong> to relieve pain, reduce muscle spasm, and improve tissue extensibility.',
+            image: '/images/Treatments/HotColdTherapy/HydrocollatorPack.png',
+            description:'Hydrocollator packs provide <strong>moist heat</strong> to relieve pain, reduce muscle spasm, and improve tissue extensibility.',
             benefits: [
                 'Pain relief',
                 'Muscle relaxation',
@@ -19,9 +18,8 @@ const HotTherapyData = {
         {
             id: 'swd',
             title: 'Short Wave Diathermy (SWD)',
-            image: '/images/hot-therapy/swd.jpg',
-            description:
-                'SWD uses <strong>high-frequency electromagnetic waves</strong> to produce deep heating in tissues.',
+            image: '/images/Treatments/HotColdTherapy/SWD.png',
+            description:'SWD uses <strong>high-frequency electromagnetic waves</strong> to produce deep heating in tissues.',
             benefits: [
                 'Deep heating',
                 'Relieves chronic pain',
@@ -32,9 +30,8 @@ const HotTherapyData = {
         {
             id: 'irr',
             title: 'Infrared Radiation (IRR)',
-            image: '/images/hot-therapy/irr.jpg',
-            description:
-                'Infrared radiation provides <strong>superficial heat</strong> to effectively relieve pain and muscle stiffness.',
+            image: '/images/Treatments/HotColdTherapy/IRR.png',
+            description:'Infrared radiation provides <strong>superficial heat</strong> to effectively relieve pain and muscle stiffness.',
             benefits: [
                 'Superficial pain relief',
                 'Muscle relaxation',
@@ -45,9 +42,8 @@ const HotTherapyData = {
         {
             id: 'paraffin',
             title: 'Paraffin Wax',
-            image: '/images/hot-therapy/paraffin.jpg',
-            description:
-                'Paraffin wax therapy delivers <strong>deep moist heat</strong> and is commonly used for painful stiff joints.',
+            image: '/images/Treatments/HotColdTherapy/ParaffinWax.png',
+            description:'Paraffin wax therapy delivers <strong>deep moist heat</strong> and is commonly used for painful stiff joints.',
             benefits: [
                 'Improves joint mobility',
                 'Reduces stiffness',
@@ -58,9 +54,8 @@ const HotTherapyData = {
         {
             id: 'cryotherapy',
             title: 'Cryotherapy',
-            image: '/images/cold-therapy/cryotherapy.jpg',
-            description:
-                'Cryotherapy applies <strong>controlled cold</strong> to injured tissues to reduce inflammation and pain.',
+            image: '/images/Treatments/HotColdTherapy/Cryotherapy.png',
+            description:'Cryotherapy applies <strong>controlled cold</strong> to injured tissues to reduce inflammation and pain.',
             benefits: [
                 'Reduces inflammation',
                 'Decreases pain',
@@ -105,7 +100,7 @@ const HotColdTherapy = () => {
 
     return (
         <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-            {/* Image Modal */}
+
             {selectedImage && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
                     onClick={() => setSelectedImage(null)}>
@@ -115,10 +110,7 @@ const HotColdTherapy = () => {
                         aria-label="Close">
                         ×
                     </button>
-                    <img
-                        src={selectedImage}
-                        alt="Enlarged view"
-                        className="max-w-full max-h-full object-contain rounded-lg"
+                    <img src={selectedImage} alt="Enlarged view" className="max-w-full max-h-full object-contain rounded-lg"
                         onClick={(e) => e.stopPropagation()}
                     />
                 </div>
@@ -140,9 +132,7 @@ const HotColdTherapy = () => {
                     </h2>
                     <div className="flex flex-wrap gap-4 justify-center mb-6">
                         {Object.keys(benefitsData).map((key) => (
-                            <button
-                                key={key}
-                                onClick={() => setSelectedBenefit(key)}
+                            <button key={key} onClick={() => setSelectedBenefit(key)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
                                     selectedBenefit === key
                                         ? 'bg-blue-600 text-white shadow-lg'
@@ -172,15 +162,12 @@ const HotColdTherapy = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {HotTherapyData.keyTherapies.map((therapy) => (
+                        {HotColdTherapyData.keyTherapies.map((therapy) => (
                             <div
                                 key={therapy.id}
                                 className={`flex flex-col h-full rounded-xl overflow-hidden shadow-md transition-transform ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                                 <div className="w-full aspect-video overflow-hidden bg-gray-200">
-                                    <img
-                                        src={therapy.image}
-                                        alt={therapy.title}
-                                        className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-300"
+                                    <img src={therapy.image} alt={therapy.title} className="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-300"
                                         onClick={() => setSelectedImage(therapy.image)}
                                     />
                                 </div>
@@ -189,10 +176,10 @@ const HotColdTherapy = () => {
                                     <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                                         {therapy.title}
                                     </h3>
-                                    <p
-                                        className={`mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                                        dangerouslySetInnerHTML={createMarkup(therapy.description)}
-                                    />
+                                    <p className={`mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
+                                        dangerouslySetInnerHTML={createMarkup(therapy.description)}>
+                                    </p>
+                                        
                                     <div className="mt-auto">
                                         <h4 className={`font-bold text-sm mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                                             Key Benefits:

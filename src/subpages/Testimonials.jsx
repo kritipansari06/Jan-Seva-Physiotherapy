@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const TESTIMONIALS_DATA = [
   {
@@ -301,170 +302,71 @@ const CATEGORIES = [
   { id: 'others', label: 'Others', icon: '🌟' },
 ];
 
-const TestimonialCard = ({ testimonial, isDarkMode }) => (
-  <div className={`${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl shadow-lg transition-all duration-300 overflow-hidden border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} h-full flex flex-col group`}>
-    <div className="relative aspect-square sm:aspect-video overflow-hidden cursor-pointer">
-      <img 
-        src={testimonial.image} 
-        alt={testimonial.name}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-      
-      <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full flex items-center gap-1 font-bold shadow-lg text-sm">
-        <Star className="w-4 h-4 fill-current" />
-        {testimonial.rating}.0
-      </div>
-
-      <div className="absolute bottom-4 left-4">
-        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${isDarkMode ? 'bg-teal-900/80 text-teal-200' : 'bg-teal-600/90 text-white'}`}>
-          {testimonial.duration}
-        </span>
-      </div>
-    </div>
-
-    <div className="p-5 sm:p-6 flex flex-col grow">
-      <h3 className={`text-xl font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-        {testimonial.name}
-      </h3>
-      <p className={`text-sm mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-        Age {testimonial.age}
-      </p>
-
-      <div className="mb-4">
-        <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${isDarkMode ? 'bg-teal-900/40 text-teal-300' : 'bg-teal-100 text-teal-700'}`}>
-          {testimonial.problem}
-        </span>
-      </div>
-
-      <p className={`text-sm leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-        {testimonial.story}
-      </p>
-
-      <div className="mt-auto">
-        <h4 className={`font-bold text-sm mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-          Achievements:
-        </h4>
-        <div className="space-y-2">
-          {testimonial.achievements.map((achievement, idx) => (
-            <div key={idx} className="flex items-start gap-2">
-              <span className={`flex shrink-0 font-bold text-lg mt-0.5 ${isDarkMode ? 'text-teal-400' : 'text-teal-600'}`}>✓</span>
-              <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                {achievement}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const TestimonialsPage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('all');
-
-  const filteredTestimonials = selectedCategory === 'all' 
-    ? TESTIMONIALS_DATA 
-    : TESTIMONIALS_DATA.filter(t => t.category === selectedCategory);
+const TestimonialCard = ({ testimonial, isDarkMode }) => {
+  const cardBgClass = isDarkMode ? 'bg-gray-800' : 'bg-white';
+  const borderClass = isDarkMode ? 'border-gray-700' : 'border-gray-200';
+  const textPrimaryClass = isDarkMode ? 'text-white' : 'text-gray-900';
+  const textSecondaryClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+  const tagBgClass = isDarkMode ? 'bg-teal-900/40 text-teal-300' : 'bg-teal-100 text-teal-700';
+  const achievementIconClass = isDarkMode ? 'text-teal-400' : 'text-teal-600';
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} py-16 px-4 sm:px-6 lg:px-8`}>
-      <div className="max-w-7xl mx-auto mb-12">
-        <div className="text-center mb-10">
-          <h1 className={`text-4xl sm:text-5xl font-extrabold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Patient <span className={isDarkMode ? 'text-teal-400' : 'text-teal-600'}>Success Stories</span>
-          </h1>
-          <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Thousands of patients have transformed their lives. Here are inspiring stories from our community who have reclaimed their health and wellness.
-          </p>
+    <div className={`${cardBgClass} rounded-2xl shadow-lg transition-all duration-300 overflow-hidden border ${borderClass} h-full flex flex-col group`}>
+      {/* Image Section */}
+      <div className="relative aspect-square sm:aspect-video overflow-hidden cursor-pointer bg-gray-200">
+        <img src={testimonial.image} alt={testimonial.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+
+        {/* Rating Badge */}
+        <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full flex items-center gap-1 font-bold shadow-lg text-sm">
+          <Star className="w-4 h-4 fill-current" />
+          {testimonial.rating}.0
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${
-                selectedCategory === cat.id
-                  ? 'bg-teal-600 text-white shadow-lg'
-                  : isDarkMode
-                    ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-              }`}
-            >
-              <span>{cat.icon}</span>
-              {cat.label}
-            </button>
-          ))}
+        {/* Duration Badge */}
+        <div className="absolute bottom-4 left-4">
+          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${isDarkMode ? 'bg-teal-900/80 text-teal-200' : 'bg-teal-600/90 text-white'}`}>
+            {testimonial.duration}
+          </span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className={`mb-6 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-          Showing {filteredTestimonials.length} of {TESTIMONIALS_DATA.length} patient stories
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredTestimonials.map(testimonial => (
-            <TestimonialCard 
-              key={testimonial.id} 
-              testimonial={testimonial} 
-              isDarkMode={isDarkMode}
-            />
-          ))}
-        </div>
-
-        {filteredTestimonials.length === 0 && (
-          <div className={`text-center py-12 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            <p className="text-lg">No testimonials found for this category.</p>
-          </div>
-        )}
-      </div>
-
-      <div className={`max-w-4xl mx-auto mt-20 p-8 md:p-12 rounded-2xl text-center ${isDarkMode ? 'bg-gradient-to-r from-teal-900 to-teal-800' : 'bg-gradient-to-r from-teal-600 to-teal-700'} text-white`}>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for Your Own Success Story?</h2>
-        <p className="text-lg mb-8 opacity-90">
-          Join thousands of patients who have reclaimed their health, mobility, and quality of life.
+      {/* Content Section */}
+      <div className="p-5 sm:p-6 flex flex-col grow">
+        {/* Name and Age */}
+        <h3 className={`text-xl font-bold mb-1 ${textPrimaryClass}`}>
+          {testimonial.name}
+        </h3>
+        <p className={`text-sm mb-4 ${textSecondaryClass}`}>
+          Age {testimonial.age}
         </p>
-        <a
-          href="/contact"
-          className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-teal-600 hover:bg-gray-100 hover:shadow-lg"
-        >
-          Schedule Your Free Consultation
-        </a>
-      </div>
 
-      <div className="max-w-7xl mx-auto mt-20">
-        <div className={`rounded-2xl p-8 md:p-12 ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
-          <h2 className={`text-3xl font-bold text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Why Choose <span className={isDarkMode ? 'text-teal-400' : 'text-teal-600'}>Us?</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: '🎯',
-                title: 'Personalized Care',
-                description: 'Every patient receives a customized treatment plan tailored to their specific condition and goals.'
-              },
-              {
-                icon: '💪',
-                title: 'Expert Therapists',
-                description: 'Our team consists of highly qualified physiotherapists with years of clinical experience.'
-              },
-              {
-                icon: '✨',
-                title: 'Proven Results',
-                description: '95% success rate with thousands of patients achieving their recovery goals and beyond.'
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {item.title}
-                </h3>
-                <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
-                  {item.description}
+        {/* Problem Tag */}
+        <div className="mb-4">
+          <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${tagBgClass}`}>
+            {testimonial.problem}
+          </span>
+        </div>
+
+        {/* Story */}
+        <p className={`text-sm leading-relaxed mb-4 ${textSecondaryClass}`}>
+          {testimonial.story}
+        </p>
+
+        {/* Achievements */}
+        <div className="mt-auto">
+          <h4 className={`font-bold text-sm mb-3 ${textPrimaryClass}`}>
+            Achievements:
+          </h4>
+          <div className="space-y-2">
+            {testimonial.achievements.map((achievement, idx) => (
+              <div key={idx} className="flex items-start gap-2">
+                <span className={`flex shrink-0 font-bold text-lg mt-0.5 ${achievementIconClass}`}>
+                  ✓
+                </span>
+                <p className={`text-xs ${textSecondaryClass}`}>
+                  {achievement}
                 </p>
               </div>
             ))}
@@ -475,4 +377,147 @@ const TestimonialsPage = () => {
   );
 };
 
-export default TestimonialsPage;
+const Testimonials = () => {
+  const { isDarkMode } = useTheme();
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const filteredTestimonials =
+    selectedCategory === 'all'
+      ? TESTIMONIALS_DATA
+      : TESTIMONIALS_DATA.filter((t) => t.category === selectedCategory);
+
+  // Theme-based classes
+  const mainBgClass = isDarkMode ? 'bg-gray-900' : 'bg-gray-50';
+  const textPrimaryClass = isDarkMode ? 'text-white' : 'text-gray-900';
+  const textSecondaryClass = isDarkMode ? 'text-gray-300' : 'text-gray-600';
+  const buttonActiveBgClass = 'bg-teal-600 text-white shadow-lg';
+  const buttonInactiveBgClass = isDarkMode
+    ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
+    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300';
+  const statsBgClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
+  const ctaGradientClass = isDarkMode
+    ? 'bg-gradient-to-r from-teal-900 to-teal-800'
+    : 'bg-gradient-to-r from-teal-600 to-teal-700';
+  const whyChooseBgClass = isDarkMode
+    ? 'bg-gray-800 border-gray-700'
+    : 'bg-white border-gray-200';
+  const whyChooseTitleClass = isDarkMode ? 'text-white' : 'text-gray-900';
+
+  return (
+    <div className={`min-h-screen ${mainBgClass} py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300`}>
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto mb-12">
+        <div className="text-center mb-10">
+          <h1 className={`text-4xl sm:text-5xl font-extrabold mb-4 ${textPrimaryClass}`}>
+            Patient{' '}
+            <span className={isDarkMode ? 'text-teal-400' : 'text-teal-600'}>
+              Success Stories
+            </span>
+          </h1>
+          <p className={`text-lg max-w-2xl mx-auto ${textSecondaryClass}`}>
+            Thousands of patients have transformed their lives. Here are inspiring
+            stories from our community who have reclaimed their health and wellness.
+          </p>
+        </div>
+
+        {/* Category Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2">
+          {CATEGORIES.map((cat) => (
+            <button key={cat.id} onClick={() => setSelectedCategory(cat.id)}
+              className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${
+                selectedCategory === cat.id
+                  ? buttonActiveBgClass
+                  : buttonInactiveBgClass
+              }`}
+            >
+              <span>{cat.icon}</span>
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Testimonials Grid */}
+      <div className="max-w-7xl mx-auto">
+        {/* Stats Line */}
+        <div className={`mb-6 text-sm ${statsBgClass}`}>
+          Showing {filteredTestimonials.length} of {TESTIMONIALS_DATA.length}{' '}
+          patient stories
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredTestimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} isDarkMode={isDarkMode}/>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredTestimonials.length === 0 && (
+          <div className={`text-center py-12 ${textSecondaryClass}`}>
+            <p className="text-lg">No testimonials found for this category.</p>
+          </div>
+        )}
+      </div>
+
+      {/* CTA Section */}
+      <div className={`max-w-4xl mx-auto mt-20 p-8 md:p-12 rounded-2xl text-center ${ctaGradientClass} text-white`} >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Ready for Your Own Success Story?
+        </h2>
+        <p className="text-lg mb-8 opacity-90">
+          Join thousands of patients who have reclaimed their health, mobility, and
+          quality of life.
+        </p>
+        <a href="/contact" className="inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300 bg-white text-teal-600 hover:bg-gray-100 hover:shadow-lg hover:scale-105">
+          Schedule Your Free Consultation
+        </a>
+      </div>
+
+      {/* Why Choose Us Section */}
+      <div className="max-w-7xl mx-auto mt-20">
+        <div className={`rounded-2xl p-8 md:p-12 ${whyChooseBgClass} border transition-colors duration-300`} >
+          <h2 className={`text-3xl font-bold text-center mb-8 ${textPrimaryClass}`}>
+            Why Choose{' '}
+            <span className={isDarkMode ? 'text-teal-400' : 'text-teal-600'}>
+              Us?
+            </span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: '🎯',
+                title: 'Personalized Care',
+                description:
+                  'Every patient receives a customized treatment plan tailored to their specific condition and goals.',
+              },
+              {
+                icon: '💪',
+                title: 'Expert Therapists',
+                description:
+                  'Our team consists of highly qualified physiotherapists with years of clinical experience.',
+              },
+              {
+                icon: '✨',
+                title: 'Proven Results',
+                description:
+                  '95% success rate with thousands of patients achieving their recovery goals and beyond.',
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className={`text-xl font-bold mb-3 ${whyChooseTitleClass}`}>
+                  {item.title}
+                </h3>
+                <p className={textSecondaryClass}>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Testimonials;

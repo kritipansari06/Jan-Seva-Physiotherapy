@@ -4,29 +4,34 @@ import { useTheme } from '../context/ThemeContext';
 const Gallery = () => {
   const { isDarkMode } = useTheme();
   const cardsRef = useRef([]);
-  const [selectedImage, setSelectedImage] = useState(null);
+const [selectedMedia, setSelectedMedia] = useState(null);
 
   const galleryImages = [
-    '/images/1.JPG',
-    '/images/2.JPG',
-    '/images/3.JPG',
-    '/images/4.JPG',
-    '/images/5.JPG',
-    '/images/6.JPG',
+    '/images/Gallery/Inauguration.png',
+    '/images/Gallery/Physio Nameplate.jpeg',
+    '/images/Gallery/Physio Exterior.jpeg',
+    '/images/Gallery/Physio.png',
+    '/images/Gallery/Physio Interior 1.jpeg',
+    '/images/Gallery/Physio Interior 2.jpeg',
+    '/images/Gallery/Doctor cabin.jpeg',
+    '/images/Gallery/Waiting Area.JPG',
+    '/images/Gallery/Proud moments.JPG',
+    '/images/Gallery/Yoga.jpeg',
+    '/images/Gallery/Pediatric Rehab.png',
   ];
 
   const scrollImages = [
-    { src: galleryImages[0], alt: 'Gallery Image 1' },
-    { src: galleryImages[1], alt: 'Gallery Image 2' },
-    { src: galleryImages[2], alt: 'Gallery Image 3' },
-    { src: galleryImages[3], alt: 'Gallery Image 4' },
-    { src: galleryImages[4], alt: 'Gallery Image 5' },
-    { src: galleryImages[5], alt: 'Gallery Image 6' },
-    { src: galleryImages[5], alt: 'Gallery Image 7' },
-    { src: galleryImages[0], alt: 'Gallery Image 8' },
-    { src: galleryImages[0], alt: 'Gallery Image 9' },
-    { src: galleryImages[1], alt: 'Gallery Image 10' },
-    { src: galleryImages[0], alt: 'Gallery Image 11' },
+    { src: '/images/Gallery/1.JPG', alt: 'Gallery Image 1' },
+    { src: '/images/Gallery/2.JPG', alt: 'Gallery Image 2' },
+    { src: '/images/Gallery/3.JPG', alt: 'Gallery Image 3' },
+    { src: '/images/Gallery/4.JPG', alt: 'Gallery Image 4' },
+    { src: '/images/Gallery/5.png', alt: 'Gallery Image 5' },
+    { src: '/images/Gallery/6.JPG', alt: 'Gallery Image 6' },
+    { src: '/images/Gallery/7.JPG', alt: 'Gallery Image 7' },
+    { src: '/images/Gallery/8.JPG', alt: 'Gallery Image 8' },
+    { src: '/images/Gallery/9.JPG', alt: 'Gallery Image 9' },
+    { src: '/images/Gallery/10.JPG', alt: 'Gallery Image 10' },
+    { src: '/images/Gallery/11.JPG', alt: 'Gallery Image 11' },
   ];
 
   const imageClasses = [
@@ -43,7 +48,6 @@ const Gallery = () => {
     'slower last',
   ];
 
-  // Card gallery items - easily editable
   const cardItems = [
     {
       id: 1,
@@ -98,7 +102,7 @@ const Gallery = () => {
       title: 'Health Clinic',
       subtitle: 'Professional Facilities',
       description: 'Dedicated health clinic with experienced professionals.',
-      image: galleryImages[0],
+      image: galleryImages[6],
       type: 'image'
     },
     {
@@ -106,7 +110,7 @@ const Gallery = () => {
       title: 'Therapy Sessions',
       subtitle: 'Professional Facilities',
       description: 'Various therapy sessions for holistic health improvement.',
-      image: galleryImages[1],
+      image: galleryImages[7],
       type: 'image'
     },
     {
@@ -114,7 +118,7 @@ const Gallery = () => {
       title: 'Recovery Programs',
       subtitle: 'Professional Facilities',
       description: 'Specialized recovery programs for injury rehabilitation.',
-      image: galleryImages[2],
+      image: galleryImages[8],
       type: 'image'
     },
     {
@@ -122,121 +126,116 @@ const Gallery = () => {
       title: 'Clinic Gallery',
       subtitle: 'Professional Facilities',
       description: 'Explore our state-of-the-art rehabilitation center facilities.',
-      image: galleryImages[3],
+      image: galleryImages[9],
       type: 'image'
     },
     {
       id: 11,
-      title: 'Patient Care',
+      title: 'Clinic Gallery',
       subtitle: 'Professional Facilities',
-      description: 'Compassionate patient care with professional excellence.',
-      image: galleryImages[4],
+      description: 'Explore our state-of-the-art rehabilitation center facilities.',
+      image: galleryImages[10],
       type: 'image'
     },
     {
-      id: 12,
-      title: 'Facility Tour',
-      subtitle: 'Professional Facilities',
-      description: 'Virtual tour of our modern clinic and therapy facilities.',
-      image: galleryImages[5],
-      type: 'image'
-    },
-    {
-      id: 13,
-      title: 'Advanced Equipment',
-      subtitle: 'Professional Facilities',
-      description: 'Latest therapeutic and fitness equipment available.',
-      image: galleryImages[0],
-      type: 'image'
-    },
-    {
-      id: 14,
-      title: 'Professional Staff',
-      subtitle: 'Professional Facilities',
-      description: 'Highly trained and certified healthcare professionals.',
-      image: galleryImages[1],
-      type: 'image'
-    },
-    {
-      id: 15,
-      title: 'Patient Success',
-      subtitle: 'Professional Facilities',
-      description: 'Success stories from our satisfied patients and clients.',
-      image: galleryImages[2],
-      type: 'image'
-    },
-    {
-      id: 16,
-      title: 'Treatment Plans',
-      subtitle: 'Professional Facilities',
-      description: 'Customized treatment plans for individual patient needs.',
-      image: galleryImages[3],
-      type: 'image'
-    },
-    {
-      id: 17,
-      title: 'Clinic Exterior',
-      subtitle: 'Professional Facilities',
-      description: 'Modern clinic exterior with welcoming environment.',
-      image: galleryImages[4],
-      type: 'image'
-    },
-    {
-      id: 18,
-      title: 'Comfortable Spaces',
-      subtitle: 'Professional Facilities',
-      description: 'Comfortable and hygienic spaces for patient comfort.',
-      image: galleryImages[5],
-      type: 'image'
-    },
-    {
-      id: 19,
-      title: 'Team Activity',
-      subtitle: 'Professional Facilities',
-      description: 'Team of experts dedicated to patient welfare.',
-      image: galleryImages[0],
-      type: 'image'
-    },
-    {
-      id: 20,
-      title: 'Modern Clinic',
-      subtitle: 'Professional Facilities',
-      description: 'Modern clinic with all latest medical facilities.',
-      image: galleryImages[1],
-      type: 'image'
-    },
-    {
-      id: 21,
-      title: 'Quality Care',
-      subtitle: 'Professional Facilities',
-      description: 'Quality care with attention to patient satisfaction.',
-      image: galleryImages[2],
-      type: 'image'
-    },
-    {
-      id: 22,
-      title: 'Expert Guidance',
-      subtitle: 'Professional Facilities',
-      description: 'Expert guidance and consultation for all health concerns.',
-      image: galleryImages[3],
-      type: 'image'
-    },
-    {
-      id: 23,
-      title: 'Rehabilitation Focus',
-      subtitle: 'Professional Facilities',
-      description: 'Primary focus on rehabilitation and patient recovery.',
-      image: galleryImages[4],
-      type: 'image'
-    },
-    {
-      id: 24,
-      title: 'Community Health',
-      subtitle: 'Professional Facilities',
-      description: 'Community health initiatives and wellness programs.',
-      image: galleryImages[5],
-      type: 'image'
-    }
+  id: 12,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai1.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/11.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+  {
+  id: 13,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai2.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/12.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 14,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai2.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/12.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 15,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai3.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/13.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 16,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai4.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/14.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 17,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai5.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/15.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 18,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai6.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/16.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 19,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai7.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/17.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 20,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai8.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/18.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 21,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai9.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/19.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
+{
+  id: 22,
+  title: 'Rehab Exercise Demo',
+  subtitle: 'Professional Facilities',
+  description: 'Live physiotherapy exercise demonstration.',
+  thumbnail: '/Thumbnail/Thumbnai10.JPG',   // ✅ THUMBNAIL
+  videoSrc: '/videos/20.MOV',          // ✅ VIDEO FILE
+  type: 'video'
+},
   ];
 
   useEffect(() => {
@@ -276,10 +275,16 @@ const Gallery = () => {
     };
   }, [isDarkMode]);
 
-  const handleCardImageClick = (e, imageSrc) => {
-    e.stopPropagation();
-    setSelectedImage(imageSrc);
-  };
+const handleCardMediaClick = (e, item) => {
+  e.stopPropagation();
+  setSelectedMedia(item);
+};
+const handleScrollImageClick = (imageSrc) => {
+  setSelectedMedia({
+    type: "image",
+    image: imageSrc,
+  });
+};
 
   const handleCardToggle = (e, index) => {
     e.preventDefault();
@@ -313,9 +318,6 @@ const Gallery = () => {
     }
   };
 
-  const handleScrollImageClick = (imageSrc) => {
-    setSelectedImage(imageSrc);
-  };
 
   return (
     <>
@@ -746,17 +748,28 @@ const Gallery = () => {
           background: none;
           border: none;
         }
+
+        .video-play-icon {
+  position: absolute;
+  font-size: 42px;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
       `}</style>
 
       <div className="gallery-page-wrapper">
         <div className="external">
           <div className="horizontal-scroll-wrapper">
             {scrollImages.map((image, i) => (
-              <div 
-                key={i} 
-                className={`img-wrapper ${imageClasses[i]}`}
-                onClick={() => handleScrollImageClick(image.src)}
-              >
+              <div
+  key={i}
+  className={`img-wrapper ${imageClasses[i]}`}
+  onClick={() => handleScrollImageClick(image.src)}
+>
                 <div>
                   <img src={image.src} alt={image.alt} />
                 </div>
@@ -784,12 +797,17 @@ const Gallery = () => {
               className="card" 
               ref={el => cardsRef.current[i] = el}>
               <div className="card__image-holder">
-                <img 
-                  className="card__image" 
-                  src={item.image} 
-                  alt={item.title}
-                  onClick={(e) => handleCardImageClick(e, item.image)}
-                />
+                <img
+  className="card__image"
+  src={item.type === 'video' ? item.thumbnail : item.image}
+  alt={item.title}
+  onClick={(e) => handleCardMediaClick(e, item)}
+/>
+
+{item.type === 'video' && (
+  <span className="video-play-icon">▶</span>
+)}
+
               </div>
               <div className="card-title">
                 <a href="#" className="toggle-info btn" onClick={(e) => handleCardToggle(e, i)}>
@@ -812,12 +830,23 @@ const Gallery = () => {
           ))}
         </div>
 
-        {selectedImage && (
-          <div className="image-modal" onClick={() => setSelectedImage(null)}>
-            <button className="image-modal-close" onClick={() => setSelectedImage(null)}>×</button>
-            <img src={selectedImage} alt="Full size" />
-          </div>
-        )}
+{selectedMedia && (
+  <div className="image-modal" onClick={() => setSelectedMedia(null)}>
+    <button className="image-modal-close">×</button>
+
+    {selectedMedia.type === 'image' ? (
+      <img src={selectedMedia.image} alt="Full view" />
+    ) : (
+      <video
+        src={selectedMedia.videoSrc}
+        controls
+        autoPlay
+        style={{ maxWidth: '90%', maxHeight: '90%' }}
+      />
+    )}
+  </div>
+)}
+  
       </div>
     </>
   );
