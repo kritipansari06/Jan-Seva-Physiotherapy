@@ -871,14 +871,10 @@ const handleScrollImageClick = (imageSrc) => {
   <div className="image-modal" onClick={() => setSelectedMedia(null)}>
     <button className="image-modal-close">×</button>
 
-
-    {selectedMedia && (
-  <div className="image-modal" onClick={() => setSelectedMedia(null)}>
-    <button className="image-modal-close">×</button>
-
     {selectedMedia.type === 'image' ? (
       <img src={selectedMedia.image} alt="Full view" />
     ) : (
+      /* Video play karne ke liye ye attributes zaroori hain */
       <video
         src={selectedMedia.videoSrc}
         controls
@@ -888,8 +884,6 @@ const handleScrollImageClick = (imageSrc) => {
         style={{ maxWidth: '90%', maxHeight: '90%' }}
       />
     )}
-  </div>
-)}
   </div>
 )}
   
