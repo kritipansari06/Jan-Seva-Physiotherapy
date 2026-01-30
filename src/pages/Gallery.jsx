@@ -872,8 +872,12 @@ const handleScrollImageClick = (imageSrc) => {
         autoPlay
         muted
         playsInline
+        preload="auto"
         style={{ maxWidth: '90%', maxHeight: '90%' }}
-      />
+        >
+        <source src={selectedMedia.videoSrc} type={selectedMedia.videoSrc.toLowerCase().endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+        </video>
+
     )}
   </div>
 )}
