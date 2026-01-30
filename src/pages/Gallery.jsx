@@ -758,6 +758,43 @@ const handleScrollImageClick = (imageSrc) => {
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+  /* Gallery.jsx ke style tag ke andar ise add karein */
+@media (max-width: 768px) {
+  .gallery-page-wrapper .external {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .gallery-page-wrapper .horizontal-scroll-wrapper {
+    display: flex !important;
+    flex-direction: row !important; /* Mobile pe row layout */
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important; /* Rotation ko mobile pe disable karein */
+    overflow-x: auto !important; /* Side scroll enable karein */
+    overflow-y: hidden !important;
+    padding: 20px 10px !important;
+    -webkit-overflow-scrolling: touch; /* iOS smooth scrolling ke liye */
+  }
+
+  .gallery-page-wrapper .img-wrapper {
+    transform: none !important; /* Parallax/3D effect mobile pe remove karein */
+    margin-right: 15px !important;
+    min-width: 280px !important; /* Har image ki width set karein */
+    min-height: auto !important;
+    display: inline-block !important;
+  }
+
+  .gallery-page-wrapper .img-wrapper img {
+    max-width: 100% !important;
+    max-height: 350px !important;
+    filter: none !important;
+  }
+
+  .gallery-page-wrapper .scroll-info {
+    display: none !important; /* Mobile pe "try scrolling down" ki zarurat nahi */
+  }
+}
 
       `}</style>
 

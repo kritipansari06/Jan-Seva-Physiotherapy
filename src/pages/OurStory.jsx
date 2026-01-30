@@ -32,7 +32,7 @@ const OurStory = () => {
         {description: 'His life inspires us to measure success by lives touched and communities strengthened.'},
       ],
       vision: 'सेवा परमो धर्म:। सेवा ही सर्वस्व ।',
-      image: '/images/IMG_20250711_153208.jpg'
+      image: '/images/Founder.JPG'
     }
   ];
   const milestones = [
