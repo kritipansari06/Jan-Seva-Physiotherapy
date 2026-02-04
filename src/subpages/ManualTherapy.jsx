@@ -110,7 +110,7 @@ const ManualTherapyData = {
         {
             id: 'nerve',
             title: 'Nerve Mobilization',
-            image: '/images/Treatments/ManualTherapy/nerve.png',
+            image: '/images/Treatments/ManualTherapy/nerve-mobilization.png',
             description:'Nerve mobilization restores <strong>normal nerve movement</strong> and reduces neural tension.',
             benefits: [
                 'Reduces nerve pain',

@@ -6,7 +6,7 @@ const AdvancedRehabData = {
         {
             id: 'balance-board',
             title: 'Balance Board',
-            image: '/images/rehab/balance-board.png',
+            image: '/images/Treatments/AdvancedTherapy/balance-board.png',
             description:'Balance board training challenges <strong>postural control</strong> and improves balance and coordination.',
             benefits: [
                 'Improves balance',
@@ -19,7 +19,7 @@ const AdvancedRehabData = {
         {
             id: 'bosu-ball',
             title: 'Wobble / BOSU Ball',
-            image: '/images/rehab/bosu.png',
+            image: '/images/Treatments/AdvancedTherapy/bosu-ball.png',
             description:'Wobble and BOSU ball exercises provide <strong>unstable surface training</strong> to improve coordination.',
             benefits: [
                 'Enhances core stability',
@@ -32,7 +32,7 @@ const AdvancedRehabData = {
         {
             id: 'cones',
             title: 'Cones Training',
-            image: '/images/rehab/cones.png',
+            image: '/images/Treatments/AdvancedTherapy/cones-training.png',
             description:'Cone-based drills improve <strong>agility, balance, and movement accuracy</strong>.',
             benefits: [
                 'Improves agility',
@@ -45,7 +45,7 @@ const AdvancedRehabData = {
         {
             id: 'parallel-bar',
             title: 'Parallel Bar Training',
-            image: '/images/rehab/parallel-bar.png',
+            image: '/images/Treatments/AdvancedTherapy/parallel-bar.png',
             description:
                 'Parallel bars are used for <strong>supported gait training</strong> and weight bearing practice.',
             benefits: [
@@ -59,7 +59,7 @@ const AdvancedRehabData = {
         {
             id: 'stepper',
             title: 'Stepper Training',
-            image: '/images/rehab/stepper.png',
+            image: '/images/Treatments/AdvancedTherapy/stepper.png',
             description:
                 'Stepper exercises improve <strong>functional strength and endurance</strong>.',
             benefits: [
@@ -76,7 +76,7 @@ const AdvancedRehabData = {
         {
             id: 'dry-needling',
             title: 'Dry Needling',
-            image: '/images/rehab/dry-needling.png',
+            image: '/images/Treatments/AdvancedTherapy/dry-needling.png',
             description:
                 'Dry needling targets <strong>myofascial trigger points</strong> to reduce pain and muscle tightness.',
             benefits: [
@@ -90,7 +90,7 @@ const AdvancedRehabData = {
         {
             id: 'cupping',
             title: 'Cupping Therapy',
-            image: '/images/rehab/cupping.png',
+            image: '/images/Treatments/AdvancedTherapy/cupping.png',
             description:
                 'Cupping therapy uses <strong>negative pressure</strong> to improve circulation and healing.',
             benefits: [
@@ -104,7 +104,7 @@ const AdvancedRehabData = {
         {
             id: 'iastm',
             title: 'IASTM',
-            image: '/images/rehab/iastm.png',
+            image: '/images/Treatments/AdvancedTherapy/iastm.png',
             description:
                 'Instrument Assisted Soft Tissue Mobilization improves <strong>soft tissue mobility</strong>.',
             benefits: [

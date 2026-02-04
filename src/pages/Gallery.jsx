@@ -51,48 +51,42 @@ const [selectedMedia, setSelectedMedia] = useState(null);
   const cardItems = [
     {
       id: 1,
-      title: 'Physiotherapy Sessions',
-      subtitle: 'Professional Facilities',
-      description: 'State-of-the-art physiotherapy sessions with expert therapists.',
+      title: 'Physiotherapy Inauguration',
+      description: 'Inaugration of Jan-Seva Physiotherapy Center',
       image: galleryImages[0],
       type: 'image'
     },
     {
       id: 2,
       title: 'Rehabilitation Program',
-      subtitle: 'Professional Facilities',
-      description: 'Comprehensive rehabilitation programs designed for recovery.',
+      description: 'Jan Seva Physiotherapy designed by Mr. R.P Pansari ji for recovery.',
       image: galleryImages[1],
       type: 'image'
     },
     {
       id: 3,
-      title: 'Fitness Training',
-      subtitle: 'Professional Facilities',
-      description: 'Modern fitness equipment and professional training sessions.',
+      title: 'Physiotherapy Exterior',
+      description: 'Modern Physiotherapy Centre with professional training sessions.',
       image: galleryImages[2],
       type: 'image'
     },
     {
       id: 4,
       title: 'Wellness Center',
-      subtitle: 'Professional Facilities',
       description: 'Complete wellness solutions for your health and fitness.',
       image: galleryImages[3],
       type: 'image'
     },
     {
       id: 5,
-      title: 'Exercise Programs',
-      subtitle: 'Professional Facilities',
+      title: 'Physiotherapy Beds',
       description: 'Customized exercise programs tailored to your needs,Complete wellness solutions for your health and fitness,Complete wellness solutions for your health and fitness.',
       image: galleryImages[4],
       type: 'image'
     },
     {
       id: 6,
-      title: 'Medical Services',
-      subtitle: 'Professional Facilities',
+      title: 'Physiotherapy Interior2',
       description: 'Professional medical consultations and services available.',
       image: galleryImages[5],
       type: 'image'
@@ -100,131 +94,110 @@ const [selectedMedia, setSelectedMedia] = useState(null);
     {
       id: 7,
       title: 'Health Clinic',
-      subtitle: 'Professional Facilities',
       description: 'Dedicated health clinic with experienced professionals.',
       image: galleryImages[6],
       type: 'image'
     },
     {
       id: 8,
-      title: 'Therapy Sessions',
-      subtitle: 'Professional Facilities',
-      description: 'Various therapy sessions for holistic health improvement.',
+      title: 'Waiting Area',
+      description: 'Comfortable waiting area for patients and their families.',
       image: galleryImages[7],
       type: 'image'
     },
     {
       id: 9,
-      title: 'Recovery Programs',
-      subtitle: 'Professional Facilities',
-      description: 'Specialized recovery programs for injury rehabilitation.',
+      title: 'Our Proud Moments',
+      description: 'Celebrating milestones and achievements in our journey.',
       image: galleryImages[8],
       type: 'image'
     },
     {
       id: 10,
-      title: 'Clinic Gallery',
-      subtitle: 'Professional Facilities',
-      description: 'Explore our state-of-the-art rehabilitation center facilities.',
+      title: 'Free Yogas Camp',
+      description: 'Free yoga sessions for community wellness.',
       image: galleryImages[9],
       type: 'image'
     },
     {
       id: 11,
-      title: 'Clinic Gallery',
-      subtitle: 'Professional Facilities',
+      title: 'Recovery Programs',
       description: 'Explore our state-of-the-art rehabilitation center facilities.',
       image: galleryImages[10],
       type: 'image'
     },
     {
       id: 12,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/12.mp4',          // ✅ VIDEO FILE
+      title: 'Review Video',
+      description: 'Live review of our services and patient experiences.',
+      thumbnail: '/Thumbnail/Thumbnail1.png',    
+      videoSrc: '/videos/12.MP4',           
       type: 'video'
     },
     {
       id: 13,
       title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
       description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/13.MP4',          // ✅ VIDEO FILE
+      thumbnail: '/Thumbnail/Thumbnail2.png',    
+      videoSrc: '/videos/13.MP4',           
       type: 'video'
     },
     {
       id: 14,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/14.MP4',          // ✅ VIDEO FILE
+      title: 'Treatment Video',
+      description: 'Overview of our treatment procedures and patient care.',
+      thumbnail: '/Thumbnail/Thumbnail3.png',    
+      videoSrc: '/videos/14.MP4',           
       type: 'video'
     },
     {
       id: 15,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/15.MP4',          // ✅ VIDEO FILE
+      title: 'Pediatric Rehabilitation',
+      description: 'Specialized pediatric physiotherapy and rehabilitation services.',
+      thumbnail: '/Thumbnail/Thumbnail4.png',    
+      videoSrc: '/videos/15.MP4',           
       type: 'video'
     },
     {
       id: 16,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/16.MP4',          // ✅ VIDEO FILE
+      title: 'Cupping Therapy',
+      description: 'Professional cupping therapy sessions for pain relief and wellness.',
+      thumbnail: '/Thumbnail/Thumbnail5.png',    
+      videoSrc: '/videos/16.MP4',           
       type: 'video'
     },
     {
       id: 17,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/17.MP4',          // ✅ VIDEO FILE
+      title: 'Treatment Video',
+      description: 'Overview of our treatment procedures and patient care.',
+      thumbnail: '/Thumbnail/Thumbnail6.png',    
+      videoSrc: '/videos/17.MP4',           
       type: 'video'
     },
     {
       id: 18,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/18.MP4',          // ✅ VIDEO FILE
+      title: 'Treating Patients with Care',
+      description: 'Compassionate and professional care for all patients.',
+      thumbnail: '/Thumbnail/Thumbnail7.png',  
+      videoSrc: '/videos/18.MP4',         
       type: 'video'
     },
     {
       id: 19,
-      title: 'Rehab Exercise Demo',
+      title: 'Power of Physiotherapy',
       subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/19.MP4',          // ✅ VIDEO FILE
+      description: 'Overview of our professional physiotherapy services and facilities.',
+      thumbnail: '/Thumbnail/Thumbnail8.png',   
+      videoSrc: '/videos/19.MP4',         
       type: 'video'
     },
     {
       id: 20,
-      title: 'Rehab Exercise Demo',
+      title: 'Being the best',
       subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/20.MP4',          // ✅ VIDEO FILE
-      type: 'video'
-    },
-        {
-      id: 21,
-      title: 'Rehab Exercise Demo',
-      subtitle: 'Professional Facilities',
-      description: 'Live physiotherapy exercise demonstration.',
-      thumbnail: '/Thumbnail/Thumbnail1.JPG',   // ✅ THUMBNAIL
-      videoSrc: '/videos/21.MP4',          // ✅ VIDEO FILE
+      description: 'Compassionate and professional care for all patients.',
+      thumbnail: '/Thumbnail/Thumbnail9.png',  
+      videoSrc: '/videos/20.MP4',          
       type: 'video'
     },
   ];
@@ -450,13 +423,29 @@ const handleScrollImageClick = (imageSrc) => {
           filter: none;
         }
 
-        .gallery-page-wrapper .card__image {
-          max-width: 300px;
-          filter: none;
-          color: ${isDarkMode ? '#ffffff' : '#111827'};
-          cursor: pointer;
-          transition: transform 0.3s ease;
-        }
+        // .gallery-page-wrapper .card__image {
+        //   max-width: 300px;
+        //   filter: none;
+        //   color: ${isDarkMode ? '#ffffff' : '#111827'};
+        //   cursor: pointer;
+        //   transition: transform 0.3s ease;
+        // }
+
+.gallery-page-wrapper .card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;     /* 🔥 MAIN MAGIC */
+  object-position: center;
+
+  display: block;
+  cursor: pointer;
+}
+
 
         .gallery-page-wrapper .card__image:hover {
           transform: scale(1.05);
@@ -548,6 +537,7 @@ const handleScrollImageClick = (imageSrc) => {
           height: 0;
           padding-bottom: 75%;
           overflow: hidden;
+          position: relative;
         }
 
         .gallery-page-wrapper .card div.card-title {
@@ -787,6 +777,16 @@ const handleScrollImageClick = (imageSrc) => {
   }
 }
 
+.card__image-holder {
+  position: relative;
+}
+
+.video-play-icon {
+  position: absolute;
+  z-index: 2;
+}
+
+
       `}</style>
 
       <div className="gallery-page-wrapper">
@@ -825,17 +825,12 @@ const handleScrollImageClick = (imageSrc) => {
               className="card" 
               ref={el => cardsRef.current[i] = el}>
               <div className="card__image-holder">
-                <img
-  className="card__image"
-  src={item.type === 'video' ? item.thumbnail : item.image}
-  alt={item.title}
-  onClick={(e) => handleCardMediaClick(e, item)}
-/>
-
-{item.type === 'video' && (
-  <span className="video-play-icon">▶</span>
-)}
-
+                <img className="card__image" src={item.type === 'video' ? item.thumbnail : item.image} 
+                     alt={item.title} onClick={(e) => handleCardMediaClick(e, item)}
+                />
+              {item.type === 'video' && (
+                <span className="video-play-icon">▶</span>
+              )}
               </div>
               <div className="card-title">
                 <a href="#" className="toggle-info btn" onClick={(e) => handleCardToggle(e, i)}>
@@ -857,28 +852,28 @@ const handleScrollImageClick = (imageSrc) => {
             </div>
           ))}
         </div>
-
-{selectedMedia && (
-  <div className="image-modal" onClick={() => setSelectedMedia(null)}>
-    <button className="image-modal-close">×</button>
-
-    {selectedMedia.type === 'image' ? (
-      <img src={selectedMedia.image} alt="Full view" />
-    ) : (
-      /* Video play karne ke liye ye attributes zaroori hain */
-      <video
-        src={selectedMedia.videoSrc}
-        controls
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        style={{ maxWidth: '90%', maxHeight: '90%' }}
-      />
-    )}
-  </div>
-)}
-  
+                
+        {selectedMedia && (
+          <div className="image-modal" onClick={() => setSelectedMedia(null)}>
+            <button className="image-modal-close">×</button>
+        
+            {selectedMedia.type === 'image' ? (
+              <img src={selectedMedia.image} alt="Full view" />
+            ) : (
+              /* Video play karne ke liye ye attributes zaroori hain */
+              <video
+                src={selectedMedia.videoSrc}
+                controls
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                style={{ maxWidth: '90%', maxHeight: '90%' }}
+              />
+            )}
+          </div>
+        )}
+          
       </div>
     </>
   );

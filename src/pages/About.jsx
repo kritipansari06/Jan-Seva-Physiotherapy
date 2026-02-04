@@ -56,7 +56,7 @@ const About = () => {
         </div>
         <div className="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Healing Touch Physiotherapy
+            Jan Seva Physiotherapy
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
             Where Compassion Meets Clinical Excellence in Rehabilitation and Wellness
