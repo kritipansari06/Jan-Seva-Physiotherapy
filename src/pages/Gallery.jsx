@@ -51,7 +51,7 @@ const [selectedMedia, setSelectedMedia] = useState(null);
   const cardItems = [
     {
       id: 1,
-      title: 'Physiotherapy Inauguration',
+      title: 'Inauguration',
       description: 'Inaugration of Jan-Seva Physiotherapy Center',
       image: galleryImages[0],
       type: 'image'
@@ -176,7 +176,7 @@ const [selectedMedia, setSelectedMedia] = useState(null);
     },
     {
       id: 18,
-      title: 'Treating Patients with Care',
+      title: 'Treating with Care',
       description: 'Compassionate and professional care for all patients.',
       thumbnail: '/Thumbnail/Thumbnail7.png',  
       videoSrc: '/videos/18.MP4',         
