@@ -109,9 +109,6 @@ const Home = () => {
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
                                 Gentle and effective treatments that ease pain, relax muscles, and improve body movement using modern physiotherapy methods.
                             </p>
-                            <Link to="/treatments/therapies" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
-                                View Therapies &rarr;
-                            </Link>
                         </div>
 
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'} border rounded-xl shadow-lg hover:shadow-teal-400/30 transition duration-300`}>
@@ -119,9 +116,6 @@ const Home = () => {
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
                                 Personalized recovery programs that rebuild strength, restore movement, and improving balance, endurance, and overall functional independence.
                             </p>
-                            <Link to="/treatments/rehabs" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
-                                View Rehabs &rarr;
-                            </Link>
                         </div>
 
                         <div className={`p-6 ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'} border rounded-xl shadow-lg hover:shadow-teal-400/30 transition duration-300`}>
@@ -129,9 +123,6 @@ const Home = () => {
                             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
                                 Advanced and safe physiotherapy equipment designed to speed up recovery, improve results, and support better treatment.
                             </p>
-                            <Link to="/treatments/equipments" className={`text-sm font-medium ${accentColorClass} hover:opacity-80`}>
-                                View Equipment &rarr;
-                            </Link>
                         </div>
                     </div>
                     
